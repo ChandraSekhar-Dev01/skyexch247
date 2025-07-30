@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { FaUser, FaSearch, FaSignInAlt, FaPiggyBank } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FaUser, FaSearch, FaSignInAlt, FaPiggyBank, FaUserAlt } from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { SearchOutlined } from "@ant-design/icons";
 import Login from "../Pages/Auth/Login";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Helper from "../helper";
 import Appconfig from "../config/config";
 import axios from "axios";
@@ -15,11 +16,16 @@ import { useAuth } from "../AuthContext";
 
 const Header = () => {
 
-
+  const location = useLocation();
+  const navigate = useNavigate()
+  const dropdownRef = useRef(null);
+  const AccountMenu = useRef(null);
   const userInfo = Helper();
-  const { login, setShowLoginModel } = useAuth();
+  const { login, logout, setShowLoginModel } = useAuth();
   console.log('header userinfo : ', userInfo)
 
+  const [activeSportType, setActiveSportType] = useState(null);
+  const [isMyAccountModelOpen, setIsMyAccountModelOpen] = useState(false);
   const [vCode, setVCode] = useState("")
   const [formData, setFormData] = useState({
     user_name: "",
@@ -67,7 +73,7 @@ const Header = () => {
   }
 
   const inputClass = `
-    rounded-sm text-xs 
+    rounded text-xs 
     bg-white 
     border border-transparent 
     focus:border-black 
@@ -139,23 +145,20 @@ const Header = () => {
       });
   };
 
-  const handleLogin = () => {
-    if (userCode === validationCode) {
-      alert("Validation matched ✅");
-    } else {
-      alert("Incorrect code ❌");
-    }
+  const handleLogout = () => {
+    logout();
+    // setShowSidebar(false);
   };
 
   const menuItems = [
-    { name: "Home" },
-    { name: "In-Play" },
-    { name: "Multi Markets" },
-    { name: "Cricket", live: 11 },
-    { name: "Soccer", live: 3 },
-    { name: "Tennis", live: 7 },
-    { name: "Virtual Cricket" },
-    { name: "E-Soccer", live: 5 },
+    { name: "Home", url: "/" },
+    { name: "In-Play", url: "/inPlay" },
+    { name: "Multi Markets", url: "/multimarket" },
+    { name: "Cricket", live: "", url: "/sports" },
+    { name: "Soccer", live: "", url: "/sports" },
+    { name: "Tennis", live: "", url: "/sports" },
+    { name: "Virtual Cricket", url: "" },
+    { name: "E-Soccer", url: "" },
   ];
 
 
@@ -172,18 +175,19 @@ const Header = () => {
   }, []);
 
 
+  useEffect(() => {
+    if (location.pathname === "/sports" && location.state?.sportType) {
+      setActiveSportType(location.state.sportType);
+    }
+  }, [location]);
+
 
 
   return (
     <>
-      {loginClicked && (
-        <div className="fixed inset-0 z-50 bg-[#ffb80c] overflow-auto">
-          <Login onClose={() => setLoginClicked(false)} />
-        </div>
-      )}
       <header className="w-full">
         {/* Top PC Header */}
-        <div className="hidden lg:block [background:var(--theme3-bg)] bg-[#000] pt-3 pb-2 px-4">
+        <div className="hidden lg:block [background-image:linear-gradient(180deg,_#383838_0%,_#010101_100%)] bg-[#000] pt-3 pb-2 px-4">
           <div className="hidden sm:flex items-center justify-between">
             {/* Logo + Search */}
             <div className="flex items-center gap-4 ml-2">
@@ -200,7 +204,7 @@ const Header = () => {
             </div>
 
             {/* Login Fields */}
-            {!userInfo && <div className="flex items-center gap-1">
+            {!userInfo && <div className="flex items-center gap-1 mb-2">
               <FaUser className="text-yellow-400 w-3 mr-1" />
               <input
                 type="text"
@@ -223,55 +227,147 @@ const Header = () => {
                   type="text"
                   maxLength={4}
                   name="validation"
+                  placeholder="Placeholder"
                   value={vCode}
                   onChange={(e) => setVCode(e.target.value)}
-                  className={`${inputClass} w-full text-black px-1 py-[3px] pl-[70px] font-bold`}
+                  className={`${inputClass} w-full text-black px-1 py-[3px]`}
                 />
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none">
+                {/* <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none">
                   Validation
-                </span>
+                </span> */}
                 <span className="absolute left-[100px] top-1/2 -translate-y-1/2 text-base text-black font-bold pointer-events-none">
                   {validationCode}
                 </span>
               </div>
               <button
                 onClick={(e) => { handleSubmit(e) }}
-                className="bg-[#e83523] [background:linear-gradient(-180deg,#f72424_0%,#bb1c00_100%)] text-white px-3 py-1.5 text-xs font-bold rounded-sm flex items-center gap-1"
+                className="bg-[#e83523] [background:linear-gradient(-180deg,#f72424_0%,#bb1c00_100%)] text-white px-3 py-1 ml-1 text-xs font-bold rounded flex items-center gap-1"
               >
                 Login <FaSignInAlt />
               </button>
-              <button className="bg-[#666] [background:linear-gradient(-180deg,#666666_0%,#333333_100%)] text-white px-3 py-1.5 text-xs font-bold rounded-sm">Sign up</button>
+              <button className="bg-[#666] [background:linear-gradient(-180deg,#666666_0%,#333333_100%)] text-white px-3 py-1 text-xs font-bold rounded">Sign up</button>
             </div>}
 
             {/* for pc view */}
             {userInfo && <div className="flex gap-5">
               <div className="hidden lg:flex">
                 <div
-                  className="text-[#ffb600] text-xs p-1 flex gap-1 font-bold h-[25px]  bg-[#ffffff1a] rounded-l-md border border-[#00000040] cursor-pointer"
+                  className="text-[#ffb600] text-xs px-2 py-1 flex justify-center items-center gap-2 font-bold  bg-[#ffffff1a] rounded-l border border-[#000] cursor-pointer"
                   style={{
                     boxShadow: "inset 0 0.0666666667vw 0 0 rgba(255,255,255,.5)",
                   }}
                 >
-                  <span className="opacity-70">Main Balance </span>{" "}
-                  {balance && Math.abs(balanceWithExp).toFixed(2)}
-                  <span className="opacity-70"> Exposure</span>{" "}
-                  <span style={{ color: "" }}>
-                    {Math.abs(exposure).toFixed()}
-                  </span>
-                  <p className='border border-[#ffb600] px-2 flex items-center justify-center mt-[0.5px] py-1 rounded-sm'>+5</p>
+                  <div>
+                    <span className="font-normal opacity-70">Main Balance </span>{" "}
+                    PIN {balance && Math.abs(balanceWithExp).toFixed(2)}
+                  </div>
+                  <div>
+                    <span className="font-normal opacity-70"> Exposure</span>{" "}
+                    <span style={{ color: "" }}>
+                      {Math.abs(exposure).toFixed(2)}
+                    </span>
+                  </div>
+                  <p className='border border-[#ffb600] text-[10px] px-2 leading-snug flex items-center justify-center rounded-sm'>+ 5</p>
                 </div>
                 <div
-                  className="h-[24px] w-[25px] bg-[#535353] flex justify-center items-center px-1 rounded-r-md"
+                  className="text-[#ffb600] text-xs p-1 flex gap-1 font-bold h-[25px]  bg-[#ffffff1a] rounded-r border border-[#000] cursor-pointer"
                   style={{
-                    boxShadow: "inset 0 0.0666666667vw 0 0 rgba(255,255,255,.5)",
+                    boxShadow: "inset 0 1px 0 0 rgba(255,255,255,.5)",
                   }}
                 >
-                  {" "}
-                  <TbReload
+                  {/* {" "} */}
+                  <img src="/Images/refresh.svg" alt="" />
+                  {/* <TbReload
                     className="flipReload"
                     style={{ cursor: "pointer" }}
-                  />{" "}
+                  />{" "} */}
                 </div>
+              </div>
+              <div
+                ref={AccountMenu}
+                onClick={() => {
+                  setIsMyAccountModelOpen((prev) => !prev);
+                }}
+                className="text-[#ffb600] text-xs py-1 px-2 flex justify-center items-center gap-2  h-[25px]  bg-[#ffffff1a] rounded border border-[#00000040] cursor-pointer"
+                style={{
+                  boxShadow: "inset 0 0.0666666667vw 0 0 rgba(255,255,255,.5)",
+                }}
+              >
+                {/* <img src="/Images/profile-icon-gold.png" alt="" className="w-2" /> */}
+                <FaUserAlt />
+                <h1 className="text-[12px] hover:underline">
+                  My Account
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className={`w-[220px]  ${isMyAccountModelOpen ? "block" : "hidden"
+                      } right-0 z-[40] mt-2 rounded-[4px] bg-white absolute`}
+                  >
+                    <div className="flex justify-between items-center px-1 border-b border-[#7e97a7]">
+                      <h1 className="text-[#3b5160] p-1 font-bold">
+                        {userInfo?.user_name}
+                      </h1>
+                      <p className="text-[#8b98a1] border-l text-xs px-1 font-semibold border-[#c5d0d7]">
+                        GMT+5:30
+                      </p>
+                    </div>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        My Profile
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        Balance Overview
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        Payment Transfer Log
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        My Bets
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        Bets History
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        Profit & Loss
+                      </h1>
+                    </Link>
+                    <Link>
+                      <h1
+                        className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
+                      >
+                        Activity Log
+                      </h1>
+                    </Link>
+                    <button
+                      className="flex justify-center items-center bg-[#7e97a7] w-[90%] rounded-[4px] text-white py-1 m-2"
+                      onClick={() => handleLogout()}
+                    >
+                      LOGOUT
+                    </button>
+                  </div>
+                </h1>
+                <IoMdArrowDropdown className="" />
               </div>
             </div>}
           </div>
@@ -284,9 +380,9 @@ const Header = () => {
               <div className="flex items-center">
                 <img src="/logo.png" alt="Logo" className="w-12" />
               </div>
-              <div className="flex items-center gap-1">
-                <button className="[background-image:linear-gradient(-180deg,_#666666_0%,_#333333_100%)] border border-[#000] text-white text-sm font-bold px-6 py-2 rounded-sm">Sign up</button>
-                <button className="[background-image:linear-gradient(-180deg,_#f72424_0%,_#bb1c00_100%)] [border:0.2666666667vw_solid_#710b0b] text-white text-sm font-bold px-6 py-2 rounded-sm flex items-center gap-1" onClick={() => { setLoginClicked(prev => !prev) }}>
+              <div className="flex items-center gap-[2px]">
+                <button className="[background-image:linear-gradient(-180deg,_#666666_0%,_#333333_100%)] border border-[#000] text-white text-xs font-bold px-5 py-2 rounded">Sign up</button>
+                <button className="[background-image:linear-gradient(-180deg,_#f72424_0%,_#bb1c00_100%)] [border:0.2666666667vw_solid_#710b0b] text-white text-xs font-bold px-5 py-2 rounded flex items-center gap-1" onClick={() => { navigate('/login') }}>
                   <FaUser /> Login
                 </button>
               </div>
@@ -361,39 +457,53 @@ const Header = () => {
           <div className="flex items-center justify-between px-4">
             {/* Menu Items */}
             <div className="relative z-10 flex overflow-x-auto">
-              {menuItems.map(({ name, live }) => (
-                <div key={name} className="relative">
-                  <button
-                    onClick={() => setActiveItem(name)}
-                    className={`px-3 py-1.5 border-r border-[#0003]  whitespace-nowrap flex items-center transition-all duration-200 ${activeItem === name
-                      ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
-                      : "hover:bg-[#f0b800]"
-                      }`}
-                  >
-                    {name}
-                  </button>
+              {menuItems.map(({ name, live, url }) => {
+                let sportType;
+                if (name === "Cricket") sportType = "4";
+                else if (name === "Soccer") sportType = "1";
+                else if (name === "Tennis") sportType = "2";
 
-                  {/* Live badge row aligned */}
-                  {live && (
-                    <div className="absolute z-[9999] -top-3 right-1 h-[12px] flex flex-row items-center gap-1 z-50 rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,33,33,0.5)]">
+                const isActive =
+                  location.pathname === url &&
+                  (url !== "/sports" || activeSportType === sportType);
 
-                      {/* SVG in white circle */}
-                      <div className="bg-white p-[1px] rounded-sm rounded-tr-none rounded-br-none h-[12px]">
-                        <img
-                          src="data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='rgb(255,0,0)' fill-rule='evenodd'%3E%3Cpath d='M12.012 0l-.698.727c1.734 1.808 1.734 4.738 0 6.546l.698.727c2.117-2.207 2.117-5.79 0-8zM10.3 1.714l-.7.735c.967 1.014.967 2.66 0 3.673l.7.735c1.352-1.418 1.352-3.721 0-5.143zM1.588 0l.698.727c-1.734 1.808-1.734 4.738 0 6.546L1.588 8c-2.117-2.207-2.117-5.79 0-8zM3.3 1.714l.7.735c-.967 1.014-.967 2.66 0 3.673l-.7.735c-1.352-1.418-1.352-3.721 0-5.143z'/%3E%3Ccircle cx='6.8' cy='4.4' r='1.6'/%3E%3C/g%3E%3C/svg%3E"
-                          alt="live"
-                          className="w-5 h-5 animate-pulse"
-                        />
-                      </div>
-
-                      {/* Red badge number */}
-                      <div className="text-white text-[10px] pr-[5px] font-bold">
-                        {live}
-                      </div>
+                return (
+                  <>
+                    <div key={name} className="relative">
+                      <button
+                        onClick={() => {
+                          if (sportType) setActiveSportType(sportType);
+                          navigate(url, sportType ? { state: { sportType } } : undefined);
+                        }}
+                        className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
+                          ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
+                          : "hover:bg-[#f0b800]"
+                          }`}
+                      >
+                        {name}
+                      </button>
                     </div>
-                  )}
-                </div>
-              ))}
+                    {live && (
+                      <div className="absolute bottom-5 right-1 h-[12px] flex flex-row items-center gap-1 z-[99999] rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,33,33,0.5)]">
+
+                        {/* SVG in white circle */}
+                        <div className="bg-white p-[1px] rounded-sm rounded-tr-none rounded-br-none h-[12px]">
+                          <img
+                            src="data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='rgb(255,0,0)' fill-rule='evenodd'%3E%3Cpath d='M12.012 0l-.698.727c1.734 1.808 1.734 4.738 0 6.546l.698.727c2.117-2.207 2.117-5.79 0-8zM10.3 1.714l-.7.735c.967 1.014.967 2.66 0 3.673l.7.735c1.352-1.418 1.352-3.721 0-5.143zM1.588 0l.698.727c-1.734 1.808-1.734 4.738 0 6.546L1.588 8c-2.117-2.207-2.117-5.79 0-8zM3.3 1.714l.7.735c-.967 1.014-.967 2.66 0 3.673l-.7.735c-1.352-1.418-1.352-3.721 0-5.143z'/%3E%3Ccircle cx='6.8' cy='4.4' r='1.6'/%3E%3C/g%3E%3C/svg%3E"
+                            alt="live"
+                            className="w-5 h-5 animate-pulse"
+                          />
+                        </div>
+
+                        {/* Red badge number */}
+                        <div className="text-white text-[10px] pr-[5px] font-bold">
+                          {live}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })}
 
             </div>
 
@@ -404,14 +514,14 @@ const Header = () => {
               </div>
 
               {/* One Click Bet */}
-              <div className="flex items-center gap-1 bg-[#3c3c3c] text-yellow-400 py-1 px-2 rounded border-l-4 border-yellow-400">
-                <input type="checkbox" id="oneclick" />
-                <label htmlFor="oneclick" className="cursor-pointer font-semibold text-sm">
+              <div className="flex items-center gap-1 bg-[#3c3c3c] text-yellow-400 h-full py-1 px-2">
+                <input type="checkbox" id="oneclick" className="bg-[#3c3c3c] w-4 h-4 rounded-sm" />
+                <label htmlFor="oneclick" className="cursor-pointer font-semibold text-xs">
                   One Click Bet
                 </label>
               </div>
 
-              <div className="font-semibold">Setting ⚙️</div>
+              <div className="flex font-semibold">Setting <img src="/Images/setting-icon.png" alt="" className="ml-2 w-4 h-4" /></div>
             </div>
           </div>
         </nav>

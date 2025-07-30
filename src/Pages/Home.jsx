@@ -210,27 +210,27 @@ function Home() {
         <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 pt-1.5">
           <div className="relative w-full lg:w-1/2">
             <Link>
-              <div className="absolute z-[3] text-white right-0 top-0" style={{ background: " linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.7) 82%, rgba(0, 0, 0, 0) 100%)", minWidth: "93px" }}>
-                <span className="pl-2 rounded flex justify-start w-fit my-2 mx-1 items-center right-[10%] bg-white  text-white text-xs">
+              <div className="absolute z-[3] text-white right-0 top-0 leading-snug" style={{ background: " linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.7) 82%, rgba(0, 0, 0, 0) 100%)", minWidth: "93px" }}>
+                <span className="pl-2 rounded flex justify-start w-fit my-1 mx-1 items-center right-[10%] bg-white  text-white text-xs">
                   <svg width="14" height="8" className="animate-pulse" xmlns="http://www.w3.org/2000/svg">
                     <g fill="rgb(255,0,0)" fillRule="evenodd">
                       <path d="M12.012 0l-.698.727c1.734 1.808 1.734 4.738 0 6.546l.698.727c2.117-2.207 2.117-5.79 0-8zM10.3 1.714l-.7.735c.967 1.014.967 2.66 0 3.673l.7.735c1.352-1.418 1.352-3.721 0-5.143zM1.588 0l.698.727c-1.734 1.808-1.734 4.738 0 6.546L1.588 8c-2.117-2.207-2.117-5.79 0-8zM3.3 1.714l.7.735c-.967 1.014-.967 2.66 0 3.673l-.7.735c-1.352-1.418-1.352-3.721 0-5.143z" />
                       <circle cx="6.8" cy="4.4" r="1.6" />
                     </g>
                   </svg>
-                  <span className="text-white text-sm ml-2 bg-red-500 px-1 rounded-r-sm">LIVE</span>
+                  <span className="text-white text-xs ml-2 bg-red-500 px-1 rounded-r-sm">LIVE</span>
                 </span>
-                <div className="flex text-xs my-1 justify-between px-1 inPlay-sport">
-                  Cricket <span className="text-black h-[16px] px-1 text-[2.6666666667vw] lg:text-sm bg-white rounded span-style">{inplayEvents?.filter(item => item.event_type == "4").length}</span>{" "}
+                <div className="flex text-[10px] my-1 justify-between px-1 inPlay-sport">
+                  Cricket <span className="text-black h-[16px] px-1 text-[10px] lg:text-sm bg-white rounded-sm span-style">{inplayEvents?.filter(item => item.event_type == "4").length}</span>{" "}
                 </div>
-                <div className="flex text-xs my-1 justify-between px-1 inPlay-sport">
-                  Soccer <span className="text-black h-[16px] px-1 text-[2.6666666667vw] lg:text-sm bg-white rounded span-style">{inplayEvents?.filter(item => item.event_type == "1").length}</span>{" "}
+                <div className="flex text-[10px] my-1 justify-between px-1 inPlay-sport">
+                  Soccer <span className="text-black h-[16px] px-1 text-[10px] lg:text-sm bg-white rounded-sm span-style">{inplayEvents?.filter(item => item.event_type == "1").length}</span>{" "}
                 </div>
-                <div className="flex text-xs my-1 justify-between px-1 inPlay-sport">
-                  E-Soccer <span className="text-black h-[16px] px-1 text-[2.6666666667vw] lg:text-sm bg-white rounded span-style">0</span>{" "}
+                <div className="flex text-[10px] my-1 justify-between px-1 inPlay-sport">
+                  E-Soccer <span className="text-black h-[16px] px-1 text-[10px] lg:text-sm bg-white rounded-sm span-style">0</span>{" "}
                 </div>
-                <div className="flex text-xs my-1 justify-between px-1 inPlay-sport">
-                  Tennis <span className="text-black h-[16px] px-1 text-[2.6666666667vw] lg:text-sm bg-white rounded span-style">{inplayEvents?.filter(item => item.event_type == "2").length}</span>{" "}
+                <div className="flex text-[10px] my-1 justify-between px-1 inPlay-sport">
+                  Tennis <span className="text-black h-[16px] px-1 text-[10px] lg:text-sm bg-white rounded-sm span-style">{inplayEvents?.filter(item => item.event_type == "2").length}</span>{" "}
                 </div>
               </div>
             </Link>

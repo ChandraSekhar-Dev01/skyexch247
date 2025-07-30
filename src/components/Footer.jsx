@@ -150,7 +150,7 @@ const Footer = () => {
       <div className="fixed bottom-0 left-0 right-0 text-white lg:hidden flex items-end bg-[#eee] z-50">
         <img
           src={images.SportsGiff}
-          className="rounded-t-full absolute bg-[#020024] p-[6px] pl-[10px] w-[20%] h-[10vh] ml-[-1%] min-[350px]:h-[84px] min-[350px]:w-[96px] h-20 w-20"
+          className="rounded-t-full absolute bg-[#020024] p-[6px] pl-[10px] ml-[-1%] min-[350px]:h-[64px] min-[350px]:w-[76px] h-16 w-16"
           alt=""
           style={{
             background:
@@ -158,27 +158,28 @@ const Footer = () => {
           }}
         />
         <ul
-          className="grid grid-cols-5 pl-20 w-full"
+          className="grid grid-cols-5 pl-12 py-1 w-full"
           style={{
             background:
               "linear-gradient(-180deg, #243a48 20%, #172732 91%)",
           }}
         >
           {[
-            { to: "", icon: images.trophyIcon, label: "Sports" },
-            { to: "", icon: images.clockIcon, label: "In-Play", extra: "pt-[2%] mt-[6%] mb-[4%]" },
-            { to: "/", icon: images.homeIcon, label: "Home", extra: "mb-[5px]" },
+            { to: "/sports", icon: images.trophyIcon, label: "Sports", extra: "" },
+            { to: "/inPlay", icon: images.clockIcon, label: "In-Play", extra: "" },
+            { to: "/", icon: images.homeIcon, label: "Home", extra: "" },
             {
               to: "",
               icon: null,
               label: "Multi Bet",
-              svg: true
+              svg: true,
+              extra: ""
             },
             {
               to: "",
               icon: images.accountIcon,
               label: "Account",
-              extra: "mb-[5px]",
+              extra: ""
             },
           ].map(({ to, icon, label, svg, extra = "" }, index) => {
             const isActive = location.pathname === to;
@@ -195,7 +196,7 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 25 25"
-                    className={`h-[30px] w-[30px] ${extra}`}
+                    className={`h-[24px] w-[24px] ${extra}`}
                   >
                     <path
                       fill="rgb(255,255,255)"
@@ -206,11 +207,11 @@ const Footer = () => {
                 ) : (
                   <img
                     src={icon}
-                    className={`h-[30px] w-[30px] ${extra}`}
+                    className={`h-[25px] w-[25px] ${extra}`}
                     alt={label}
                   />
                 )}
-                <span className="text-[12px]">{label}</span>
+                <span className="text-xs">{label}</span>
               </Link>
             );
           })}

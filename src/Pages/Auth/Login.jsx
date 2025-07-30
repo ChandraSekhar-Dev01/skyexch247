@@ -7,6 +7,7 @@ import apiBaseUrl from "../../config/config";
 import { Link, useNavigate } from "react-router-dom";
 const Login = ({ onClose }) => {
 
+  const navigate = useNavigate();
   const { login, setShowLoginModel } = useAuth();
 
 
@@ -67,7 +68,7 @@ const Login = ({ onClose }) => {
           toast.success(response.data.resultMessage, { autoClose: 500 });
           login(response.data.resultData);
           setShowLoginModel(false);
-          onClose();
+          navigate('/');
           console.log('response data : ', response)
         } else {
           toast.error("Invalid Credentials", { autoClose: 800 });
@@ -185,15 +186,15 @@ const Login = ({ onClose }) => {
             className='rounded-l-lg w-2/3 py-2 pl-2 bg-[#fff] m-0  focus:bg-[#fff0ca] focus:outline-none'
             style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }}
           />
-          <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", fontSize: '150%' }} className='bg-white w-1/3 rounded-r-lg px-3 m-0 text-end font-bold text-base'>{code}</div>
+          <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", fontSize: '150%' }} className='bg-white w-1/3 rounded-r-lg px-3 pt-2 text-end font-bold text-base'>{code}</div>
         </div>
         <div className="flex flex-col w-full gap-1">
           <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg" onClick={(e) => { handleSubmit(e) }}>
             Login
           </button>
-          <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg mt-1" onClick={loginDemoID}>
+          {/* <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg mt-1" onClick={loginDemoID}>
             Login with Demo Id{" "}
-          </button>
+          </button> */}
         </div>
         <h1 className="text-red-500 text-center"> {errorMessage} </h1>
       </div>

@@ -7,6 +7,10 @@ import Home from "./Pages/Home";
 import { AuthProvider } from "./AuthContext";
 import { TimeProvider } from "./TimeContext/TimeContext";
 import { socket, WebSocketContext } from "./Context/websocket";
+import Inplay from "./Pages/Inplay";
+import Sports from "./Pages/Sports";
+import Login from "./Pages/Auth/Login";
+import Multimarket from "./Pages/Multimarket";
 
 function App() {
   return (
@@ -17,16 +21,12 @@ function App() {
           <BrowserRouter>
             <WebSocketContext.Provider value={socket}>
               <Routes>
+                <Route path="/login" element={<Login />} />
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />} />
-                  {/* <Route
-              path="all-games-lobby"
-              element={
-                <PrivateRoute>
-                  <AllGamesLobby />
-                </PrivateRoute>
-              }
-            /> */}
+                  <Route path="inPlay" element={<Inplay />} />
+                  <Route path="multimarket" element={<Multimarket />} />
+                  <Route path="sports" element={<Sports />} />
                 </Route>
               </Routes>
             </WebSocketContext.Provider>
