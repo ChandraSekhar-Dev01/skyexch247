@@ -10,7 +10,34 @@ function Inplay() {
   const userInfos = useSelector((state) => state.events);
 
   const [selectedEvent, setSelectedEvent] = useState("inplay");
-  const [inplayEvents, setInplayEvents] = useState([])
+  const [inplayEvents, setInplayEvents] = useState([]);
+
+
+  function formatOpenDate(openDateStr) {
+    const date = new Date(openDateStr); // "2025/07/29 15:30:00"
+    const now = new Date();
+
+    // Get time part as HH:mm
+    const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+
+    // Format today and tomorrow
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const inputDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+    if (inputDate.getTime() === today.getTime()) {
+      return timeString;
+    } else if (inputDate.getTime() === tomorrow.getTime()) {
+      return `Tomorrow ${timeString}`;
+    } else {
+      // Format as YYYY-MM-DD HH:mm
+      const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+      return `${formattedDate} ${timeString}`;
+    }
+  }
+
 
   useEffect(() => {
     dispatch(
@@ -351,54 +378,59 @@ function Inplay() {
       </div>
       {/* For Mobile */}
       <div className='block lg:hidden'>
-        <div className='flex text-base font-bold bg-[#172832]'>
-          <div className='py-4 px-2'>
-            <span className={` py-2 px-8 border-r border-t border-b border-l border-[#fff] rounded-l-md cursor-pointer ${selectedEvent == "inplay" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
-            <span className={` py-2 px-8 border-r border-t border-b border-l border-[#fff] cursor-pointer ${selectedEvent == "tod" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tod")}>Today</span>
-            <span className={` py-2 px-8 border-r border-t border-b border-l border-[#fff] rounded-r-md cursor-pointer ${selectedEvent == "tom" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
+        <div className='relative flex bg-[#172832]'>
+          <div className='py-[3.8vw] px-2 text-[3.6vw] font-bold'>
+            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] rounded-l-md cursor-pointer ${selectedEvent == "inplay" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
+            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] cursor-pointer ${selectedEvent == "tod" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tod")}>Today</span>
+            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] rounded-r-md cursor-pointer ${selectedEvent == "tom" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
           </div>
 
-          {/* <div className="flex justify-center items-center w-full bg-[#1f5172] [background-image:linear-gradient(-180deg,_rgba(255,255,255,0.15)_0%,_rgba(0,0,0,0.15)_100%)]">
-            <img src="/Images/search-icon.svg" alt="Search" className="w-4 h-4" />
-          </div> */}
-
+          <div className='absolute right-0 w-[15vw] h-full flex justify-center items-center [background-image:linear-gradient(-180deg,_rgba(255,_255,_255,_0.15)_0%,_rgba(0,_0,_0,_0.15)_100%)] border-l border-[#ffffff1a]'>
+            <img src="/Images/search-icon.svg" alt="" className='w-[6vw]' />
+          </div>
         </div>
         {/* Cricket */}
         <div>
-          <span className='flex justify-center items-center p-2 [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-base text-white font-bold'>Cricket</span>
-          <ul className='bg-[#fff] border-b-4 border-[#070707]'>
+          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Cricket</span>
+          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
             {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
                   <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-3' /> : <img src="/Images/icon-no_play.png" alt="" className='w-3' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
                         <div className='flex justify-center items-center gap-1'>
                           {item.is_tv == "True" &&
-                            <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
-                            </span>}
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                          }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
-                        <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                          <img src="/Images/premium-icon.svg" alt="" />
+                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
                         {item.is_inplay == "True" &&
-                          <span className='text-sm text-[#777]'>In-Play</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                        }
+
+                        {item.is_inplay != "True" &&
+                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </span>
                         }
                       </span>
-                      <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
                     </div>
                   </div>
                   <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
                 </div>
               </li>
@@ -408,35 +440,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Cricket</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>
@@ -444,35 +476,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Cricket</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Melbourne Stars SRL T20 vs Brisbane Heat SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>
@@ -481,37 +513,45 @@ function Inplay() {
 
         {/* Soccer */}
         <div className='mt-5'>
-          <span className='flex justify-center items-center p-2 [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-base text-white font-bold'>Soccer</span>
-          <ul className='bg-[#fff] border-b-4 border-[#070707]'>
+          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Soccer</span>
+          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
             {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
                   <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-3' /> : <img src="/Images/icon-no_play.png" alt="" className='w-3' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
                         <div className='flex justify-center items-center gap-1'>
                           {item.is_tv == "True" &&
-                            <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
-                            </span>}
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                          }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
+                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                        </span>
                         {item.is_inplay == "True" &&
-                          <span className='text-sm text-[#777]'>In-Play</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                        }
+                        {item.is_inplay != "True" &&
+                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </span>
                         }
                       </span>
-                      <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
                     </div>
                   </div>
                   <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
                 </div>
               </li>
@@ -520,31 +560,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Soccer</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>PSV Eindhoven SRL vs Olympique Marseille SRL</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>
@@ -552,31 +596,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Soccer</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>HNK Rijeka SRL vs Venezia FC SRL</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>
@@ -585,37 +633,45 @@ function Inplay() {
 
         {/* Tennis */}
         <div className='mt-5'>
-          <span className='flex justify-center items-center p-2 [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-base text-white font-bold'>Tennis</span>
-          <ul className='bg-[#fff] border-b-4 border-[#070707]'>
+          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Tennis</span>
+          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
             {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
                   <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-3' /> : <img src="/Images/icon-no_play.png" alt="" className='w-3' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
                         <div className='flex justify-center items-center gap-1'>
                           {item.is_tv == "True" &&
-                            <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
-                            </span>}
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                          }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
+                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                        </span>
                         {item.is_inplay == "True" &&
-                          <span className='text-sm text-[#777]'>In-Play</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                        }
+                        {item.is_inplay != "True" &&
+                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </span>
                         }
                       </span>
-                      <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
                     </div>
                   </div>
                   <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
                 </div>
               </li>
@@ -624,31 +680,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Tennis</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Paolini, Jasmine SRL vs Linette, Magda SRL</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>
@@ -656,31 +716,35 @@ function Inplay() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center border-r border-[#eee]'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-3' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
                       <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' />
+                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
-                      <span className='bg-[#e4550f] w-4 p-[2px] rounded'>
-                        <img src="/Images/premium-icon.svg" alt="" />
+                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                       </span>
-                      <span className='text-sm text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[10px] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-snug'>
-                        <span className='flex justify-center items-center w-4 h-4 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' px-1' />
+                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
                         </span>
-                        <span className='py-[0px] px-2 bg-[#fff]'>Tennis</span>
+                        <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-md font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Kostyuk, Marta SRL vs Minnen, Greet SRL</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-7' /></span>
+                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                 </div>
               </div>
             </li>

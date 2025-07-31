@@ -374,16 +374,16 @@ const Header = () => {
         </div>
 
         {/* Top Mobile Header */}
-        <div className="block lg:hidden py-1 px-2 [background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] bg-[#000]">
+        <div className="block lg:hidden py-[6px] px-2 h-[14.6666666667vw] [background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] bg-[#000]">
           {!userInfo &&
             <div className="flex sm:hidden items-center justify-between">
               <div className="flex items-center">
-                <img src="/logo.png" alt="Logo" className="w-12" />
+                <img src="/logo.png" alt="Logo" className="h-[11.4566vw] max-h-[12.2666666667vw]  " />
               </div>
-              <div className="flex items-center gap-[2px]">
-                <button className="[background-image:linear-gradient(-180deg,_#666666_0%,_#333333_100%)] border border-[#000] text-white text-xs font-bold px-5 py-2 rounded">Sign up</button>
-                <button className="[background-image:linear-gradient(-180deg,_#f72424_0%,_#bb1c00_100%)] [border:0.2666666667vw_solid_#710b0b] text-white text-xs font-bold px-5 py-2 rounded flex items-center gap-1" onClick={() => { navigate('/login') }}>
-                  <FaUser /> Login
+              <div className="flex items-center gap-[2px] w-[55%]">
+                <button className="[background-image:linear-gradient(-180deg,_#666666_0%,_#333333_100%)] border border-[#000] text-white text-[3.4666666667vw] font-bold h-[8.5333333333vw] rounded w-full max-w-[28.8vw]">Sign up</button>
+                <button className="[background-image:linear-gradient(-180deg,_#f72424_0%,_#bb1c00_100%)] [border:0.2666666667vw_solid_#710b0b] text-white text-[3.4666666667vw] font-bold h-[8.5333333333vw] rounded flex justify-center items-center gap-[2px] w-full max-w-[28.8vw]" onClick={() => { navigate('/login') }}>
+                  <img src="/Images/user-icon.svg" alt="" /> Login
                 </button>
               </div>
             </div>

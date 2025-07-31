@@ -24,3 +24,18 @@ body {
     font-family: Helvetica, Tahoma, sans-serif;
   }
 }
+
+.live-icon {
+  animation: twinkling 1.4s infinite ease;
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}

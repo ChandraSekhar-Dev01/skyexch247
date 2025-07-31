@@ -11,7 +11,7 @@ const Login = ({ onClose }) => {
   const { login, setShowLoginModel } = useAuth();
 
 
-  const [code, setCode] = useState();
+  const [code, setCode] = useState("");
   const [screenHeight, SetScreenHeight] = useState(100);
   const [errorMessage, setErrorMessage] = useState("");
   const [vCode, setVCode] = useState("")
@@ -139,23 +139,23 @@ const Login = ({ onClose }) => {
   }, []);
 
   return (
-    <div className={` lg:hidden relative h-[${String(screenHeight)}px] w-screen`} style={{ background: "#ffb80c" }}>
+    <div className={` lg:hidden relative h-[${String(screenHeight)}px] w-screen h-[110vh]`} style={{ backgroundColor: "rgb(255 184 12)" }}>
       {/*  for back to home page */}
-      <div className=" right-5 top-5 fixed rounded-full bg-[#000000b3] h-8 w-8 flex justify-center items-center" onClick={onClose}>
+      <div className=" right-[1.8666666667vw] top-[1.8666666667vw] fixed rounded-full bg-[#000000b3] h-[9.3333333333vw] w-[9.3333333333vw] flex justify-center items-center" onClick={onClose}>
         <Link to="/">
-          <img src="/Images/cut-white.svg" className=" h-3" alt="" />
+          <img src="/Images/cut-white.svg" className="w-[3.4666666667vw] h-[3.4666666667vw]" alt="" />
         </Link>
       </div>
 
       <img src='/Images/KV-pic.png' alt="" />
-      <img src="/logo.png" className='absolute top-20 right-[35%] h-28' alt="" />
+      <img src="/logo.png" className='absolute top-[11%] right-[35%] h-[29.3333333333vw]' alt="" />
       {/* <div className='absolute  top-56  right-[37%]' style={{top: '16rem'}}>
         <p className='text-[#aaaaaa] text-xs text-center'>Powered By</p>
       <img src={BetfairMobileLogo} className='h-5 text-[#aaaaaa]' alt="" />
       </div> */}
 
       {/* form */}
-      <div className="flex flex-col gap-4 mx-8 mt-12">
+      <div className="flex flex-col mx-8 mt-[12vw]">
         <input
           type="text"
           name="user_name"
@@ -163,7 +163,7 @@ const Login = ({ onClose }) => {
           required
           value={formData.user_name}
           onChange={(e) => handleInputChange(e)}
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className="rounded-lg py-2 pl-2 bg-[#fff] text-[#1e1e1e] focus:bg-[#fff0ca] focus:outline-none"
+          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }} className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
         />
         <input
           type="password"
@@ -172,24 +172,24 @@ const Login = ({ onClose }) => {
           required
           value={formData.password}
           onChange={(e) => handleInputChange(e)}
-          className="rounded-lg py-2 pl-2 bg-[#fff] focus:bg-[#fff0ca] focus:outline-none"
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }}
+          className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
+          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }}
         />
-        <div className='relative flex'>
+        <div className='relative flex mb-[3.2vw]'>
           <input
             type="number"
             maxLength={3}
             name="validation"
-            placeholder='Validation'
+            placeholder='Validation Code'
             value={vCode}
             onChange={(e) => setVCode(e.target.value)}
-            className='rounded-l-lg w-2/3 py-2 pl-2 bg-[#fff] m-0  focus:bg-[#fff0ca] focus:outline-none'
-            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }}
+            className='rounded-l-[1.6vw] w-2/3 bg-[#fff] text-[#1e1e1e] text-[4vw] m-0  focus:bg-[#fff0ca] focus:outline-none'
+            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }}
           />
-          <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", fontSize: '150%' }} className='bg-white w-1/3 rounded-r-lg px-3 pt-2 text-end font-bold text-base'>{code}</div>
+          <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className='bg-white w-1/3 rounded-r-lg px-3 pt-1 text-end font-bold text-[5.5vw]'>{code}</div>
         </div>
         <div className="flex flex-col w-full gap-1">
-          <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg" onClick={(e) => { handleSubmit(e) }}>
+          <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] text-[4vw] font-bold rounded-[1.6vw]" onClick={(e) => { handleSubmit(e) }} style={{lineHeight:"2.6"}}>
             Login
           </button>
           {/* <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg mt-1" onClick={loginDemoID}>
@@ -200,21 +200,21 @@ const Login = ({ onClose }) => {
       </div>
 
       {/* -------------- footer ------------------------------------------*/}
-      <div className={`pb-10 lg:px-40`}>
+      <div className={`pb-10 px-[1.2vw] lg:px-40`}>
         <div className="flex flex-col justify-center lg:border-t mt-0 border-[#0000004d]">
           {/* for mobile view */}
-          <p className="lg:hidden flex justify-center flex-wrap gap-1  text-xs mt-2 text-[#00000099]">
-            <Link className="underline">Privacy Policy </Link>|<Link className="underline">Terms and Conditions</Link>|<Link className="underline">Rules and Regulations </Link>|<Link className="underline"> KYC</Link>|<Link className="underline"> Responsible Gaming</Link>|<Link className="underline"> About Us </Link>|<Link className="underline">Self-exclusion Policy </Link>|<Link className="underline"> Underage Policy </Link>
+          <p className="lg:hidden flex justify-center flex-wrap gap-[4px] text-[3.4666666667vw] mt-2 text-[#000000b3]">
+            <Link className="underline">Privacy Policy</Link><Link className="underline">|Terms and Conditions</Link><Link className="underline">Rules and Regulations</Link>|<Link className="underline"> KYC</Link>|<Link className="underline"> Responsible Gaming</Link>|<Link className="underline"> About Us</Link>|<Link className="underline">Self-exclusion Policy</Link>|<Link className="underline"> Underage Policy</Link>
           </p>
         </div>
 
         <div className="mx-5 lg:mx-36 pt-7">
           <div className="lg:flex justify-between mb-2 ">
-            <div className="py-3 bg-[#ffffff99] lg:w-[49%] mb-2 lg:mb-0 flex gap-2 justify-center items-center rounded-lg  text-sm text-[#000000b3]">
-              <img src="/Images/headphone-black.svg" className="w-8" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
+            <div className="py-3 bg-[#ffffff99] lg:w-[49%] mb-2 lg:mb-0 flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]">
+              <img src="/Images/headphone-black.svg" className="w-[8vw]" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
             </div>
-            <div className="py-3 bg-[#ffffff99] lg:w-[49%] flex gap-2 justify-center items-center rounded-lg  text-sm text-[#000000b3]">
-              <img src="/Images/whatsapp-black.png" className="w-7" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
+            <div className="py-3 bg-[#ffffff99] lg:w-[49%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]">
+              <img src="/Images/whatsapp-black.png" className="w-[8vw]" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
             </div>
           </div>
 
@@ -222,17 +222,17 @@ const Login = ({ onClose }) => {
 
           {/*  for mobile view */}
           <div className="flex lg:hidden justify-between gap-2">
-            <div className="py-4 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-sm text-[#000000b3] hover:text-black cursor-pointer">
+            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[2.9333333333vw] text-[#000000b3] hover:text-black cursor-pointer leading-[6.66vw]">
               {" "}
-              <img src="/Images/skype-black.png" className="w-5" alt="" /> Skype
+              <img src="/Images/skype-black.png" className="w-[6vw]" alt="" /> Skype
             </div>
-            <div className="py-4 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-sm text-[#000000b3] hover:text-black cursor-pointer">
+            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer">
               {" "}
-              <img src="/Images/mail-black.png" className="w-5" alt="" /> Email
+              <img src="/Images/mail-black.png" className="w-[6vw]" alt="" /> Email
             </div>
-            <div className="py-4 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-sm text-[#000000b3] hover:text-black cursor-pointer">
+            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer">
               {" "}
-              <img src="/Images/ig-black.png" className="w-5" alt="" /> Instagram
+              <img src="/Images/ig-black.png" className="w-[6vw]" alt="" /> Instagram
             </div>
           </div>
         </div>
