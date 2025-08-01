@@ -288,7 +288,7 @@ function Sports() {
             {allEvents?.filter(i => i.event_type == selectedSport)?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <div className='flex justify-start items-center border-r border-[#eee]'>
+                  <div className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -329,7 +329,7 @@ function Sports() {
 
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -355,7 +355,7 @@ function Sports() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -365,7 +365,7 @@ function Sports() {
             </li>
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -391,7 +391,7 @@ function Sports() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>

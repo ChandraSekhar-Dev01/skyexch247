@@ -61,7 +61,7 @@ const Footer = () => {
             { to: "/inPlay", icon: images.clockIcon, label: "In-Play", extra: "h-[5.3333333333vw] w-[5.8666666667vw]" },
             { to: "/", icon: images.homeIcon, label: "Home", extra: "h-[5.3333333333vw] w-[6.8666666667vw]" },
             {
-              to: "",
+              to: "/multimarket",
               icon: images.multiBet,
               label: "Multi...",
               extra: "h-[5.3333333333vw] w-[5.8666666667vw]"
@@ -73,13 +73,13 @@ const Footer = () => {
               extra: "h-[5.3333333333vw] w-[5.8666666667vw]"
             },
           ].map(({ to, icon, label, svg, extra = "" }, index) => {
-            const isActive = location.pathname === to;
+            const isActive = location.pathname == to;
             return (
               <Link
                 key={index}
                 to={to}
                 className={`flex flex-col justify-center items-center h-[12.8333333333vw] w-[16.15vw] ${isActive
-                  ? "bg-[linear-gradient(0deg,rgba(4,29,83,1)_7%,rgba(44,88,115,1)_61%)]"
+                  ? "bg-[linear-gradient(-180deg,_#32617f_20%,_#1f4258_91%)]"
                   : "bg-[linear-gradient(-180deg,#243a48_20%,#172732_91%)]"
                   } py-1`}
               >

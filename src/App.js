@@ -11,6 +11,7 @@ import Inplay from "./Pages/Inplay";
 import Sports from "./Pages/Sports";
 import Login from "./Pages/Auth/Login";
 import Multimarket from "./Pages/Multimarket";
+import Matchupdate from "./Pages/Matchupdate";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                   <Route path="inPlay" element={<Inplay />} />
                   <Route path="multimarket" element={<Multimarket />} />
                   <Route path="sports" element={<Sports />} />
+                  <Route path="matchUpdate" element={<Matchupdate />} />
                 </Route>
               </Routes>
             </WebSocketContext.Provider>

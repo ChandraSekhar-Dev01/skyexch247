@@ -163,7 +163,7 @@ const Login = ({ onClose }) => {
           required
           value={formData.user_name}
           onChange={(e) => handleInputChange(e)}
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }} className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
+          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }} className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
         />
         <input
           type="password"
@@ -173,7 +173,7 @@ const Login = ({ onClose }) => {
           value={formData.password}
           onChange={(e) => handleInputChange(e)}
           className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }}
+          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }}
         />
         <div className='relative flex mb-[3.2vw]'>
           <input
@@ -184,12 +184,12 @@ const Login = ({ onClose }) => {
             value={vCode}
             onChange={(e) => setVCode(e.target.value)}
             className='rounded-l-[1.6vw] w-2/3 bg-[#fff] text-[#1e1e1e] text-[4vw] m-0  focus:bg-[#fff0ca] focus:outline-none'
-            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding:"2vw 1.8666666667vw" }}
+            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }}
           />
           <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className='bg-white w-1/3 rounded-r-lg px-3 pt-1 text-end font-bold text-[5.5vw]'>{code}</div>
         </div>
         <div className="flex flex-col w-full gap-1">
-          <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] text-[4vw] font-bold rounded-[1.6vw]" onClick={(e) => { handleSubmit(e) }} style={{lineHeight:"2.6"}}>
+          <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] text-[4vw] font-bold rounded-[1.6vw]" onClick={(e) => { handleSubmit(e) }} style={{ lineHeight: "2.6" }}>
             Login
           </button>
           {/* <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] font-bold py-3 rounded-lg mt-1" onClick={loginDemoID}>
@@ -210,11 +210,11 @@ const Login = ({ onClose }) => {
 
         <div className="mx-5 lg:mx-36 pt-7">
           <div className="lg:flex justify-between mb-2 ">
-            <div className="py-3 bg-[#ffffff99] lg:w-[49%] mb-2 lg:mb-0 flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]">
-              <img src="/Images/headphone-black.svg" className="w-[8vw]" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
+            <div className=" bg-[#ffffff99] lg:w-[49%] mb-2 lg:mb-0 flex gap-2 justify-start items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]" style={{ padding: "8px 0" }}>
+              <img src="/Images/headphone-black.svg" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
             </div>
-            <div className="py-3 bg-[#ffffff99] lg:w-[49%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]">
-              <img src="/Images/whatsapp-black.png" className="w-[8vw]" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
+            <div className="bg-[#ffffff99] lg:w-[49%] flex gap-2 justify-start items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]" style={{ padding: "8px 0" }}>
+              <img src="/Images/whatsapp-black.png" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
             </div>
           </div>
 
@@ -222,15 +222,15 @@ const Login = ({ onClose }) => {
 
           {/*  for mobile view */}
           <div className="flex lg:hidden justify-between gap-2">
-            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[2.9333333333vw] text-[#000000b3] hover:text-black cursor-pointer leading-[6.66vw]">
+            <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[2.9333333333vw] text-[#000000b3] hover:text-black cursor-pointer leading-[6.66vw]" style={{ padding: "8px 0" }}>
               {" "}
               <img src="/Images/skype-black.png" className="w-[6vw]" alt="" /> Skype
             </div>
-            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer">
+            <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
               {" "}
               <img src="/Images/mail-black.png" className="w-[6vw]" alt="" /> Email
             </div>
-            <div className="py-2 bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer">
+            <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
               {" "}
               <img src="/Images/ig-black.png" className="w-[6vw]" alt="" /> Instagram
             </div>

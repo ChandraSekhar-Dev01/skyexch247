@@ -396,7 +396,7 @@ function Home() {
 
       {/* Footer */}
 
-      <div className={` $ pb-10 lg:px-40 bg-[#eeee]`} style={{ marginTop: "" }}>
+      <div className={` pb-0 lg:pb-10 lg:px-40 bg-[#eeee]`} style={{ marginTop: "" }}>
         <div className="flex justify-center items-center">
           <div className='mx-5 lg:mx-36 pt-7 w-full lg:w-[45%]'>
             <div className='lg:flex justify-between mb-2 '>

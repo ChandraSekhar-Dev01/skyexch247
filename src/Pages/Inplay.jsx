@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Helper from '../helper';
 import { getAllEvents } from '../redux/slice/event/eventSlice';
+import { Link } from 'react-router-dom';
 
 function Inplay() {
 
@@ -380,9 +381,9 @@ function Inplay() {
       <div className='block lg:hidden'>
         <div className='relative flex bg-[#172832]'>
           <div className='py-[3.8vw] px-2 text-[3.6vw] font-bold'>
-            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] rounded-l-md cursor-pointer ${selectedEvent == "inplay" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
-            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] cursor-pointer ${selectedEvent == "tod" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tod")}>Today</span>
-            <span className={` py-[2.5vw] px-[6.6vw] border-r border-t border-b border-l border-[#fff] rounded-r-md cursor-pointer ${selectedEvent == "tom" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
+            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] rounded-l-md cursor-pointer ${selectedEvent == "inplay" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
+            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] cursor-pointer ${selectedEvent == "tod" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tod")}>Today</span>
+            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] rounded-r-md cursor-pointer ${selectedEvent == "tom" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
           </div>
 
           <div className='absolute right-0 w-[15vw] h-full flex justify-center items-center [background-image:linear-gradient(-180deg,_rgba(255,_255,_255,_0.15)_0%,_rgba(0,_0,_0,_0.15)_100%)] border-l border-[#ffffff1a]'>
@@ -396,7 +397,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <div className='flex justify-start items-center border-r border-[#eee]'>
+                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -426,9 +427,9 @@ function Inplay() {
                           </span>
                         }
                       </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
                     </div>
-                  </div>
+                  </Link>
                   <div>
                     <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
@@ -438,7 +439,7 @@ function Inplay() {
 
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -464,7 +465,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -474,7 +475,7 @@ function Inplay() {
             </li>
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -500,7 +501,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -518,7 +519,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <div className='flex justify-start items-center border-r border-[#eee]'>
+                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -547,9 +548,9 @@ function Inplay() {
                           </span>
                         }
                       </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
                     </div>
-                  </div>
+                  </Link>
                   <div>
                     <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
@@ -558,7 +559,7 @@ function Inplay() {
             ))}
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -584,7 +585,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -594,7 +595,7 @@ function Inplay() {
             </li>
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -620,7 +621,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -638,7 +639,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <div className='flex justify-start items-center border-r border-[#eee]'>
+                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -667,9 +668,9 @@ function Inplay() {
                           </span>
                         }
                       </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
+                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
                     </div>
-                  </div>
+                  </Link>
                   <div>
                     <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                   </div>
@@ -678,7 +679,7 @@ function Inplay() {
             ))}
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -704,7 +705,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
                   </div>
                 </div>
                 <div>
@@ -714,7 +715,7 @@ function Inplay() {
             </li>
             <li className='py-1 px-2 border-b border-[#e0e6e6]'>
               <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center border-r border-[#eee]'>
+                <div className='flex justify-start items-center'>
 
                   <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
@@ -740,7 +741,7 @@ function Inplay() {
                         <span className='px-2 bg-[#fff]'>Cricket</span>
                       </span>
                     </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                   </div>
                 </div>
                 <div>
