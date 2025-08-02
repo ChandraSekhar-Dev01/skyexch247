@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Helper from '../helper';
 import { getAllEvents } from '../redux/slice/event/eventSlice';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Sports() {
 
@@ -292,7 +292,7 @@ function Sports() {
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
-                    <div className='flex flex-col justify-start items-start'>
+                    <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
                         <div className='flex justify-center items-center gap-1'>
                           {item.is_tv == "True" &&
@@ -318,7 +318,7 @@ function Sports() {
                         }
                       </span>
                       <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[80vw] max-w-[20rem]'>{item.event_name}</span>
-                    </div>
+                    </Link>
                   </div>
                   <div>
                     <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>

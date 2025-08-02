@@ -28,7 +28,7 @@ function App() {
                   <Route path="inPlay" element={<Inplay />} />
                   <Route path="multimarket" element={<Multimarket />} />
                   <Route path="sports" element={<Sports />} />
-                  <Route path="matchUpdate" element={<Matchupdate />} />
+                  <Route path="matchUpdates/:event_id/:is_inplay" element={<Matchupdate />} />
                 </Route>
               </Routes>
             </WebSocketContext.Provider>

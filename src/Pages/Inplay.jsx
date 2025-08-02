@@ -123,10 +123,10 @@ function Inplay() {
                     {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
                       <li className='flex w-full border-b border-[#eee]' key={item.id}>
                         <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <div className='flex justify-between items-start gap-1'>
+                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
                             <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
                             <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce]'>{item.event_name}</span>
+                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
                               <span className='flex justify-start items-center gap-2'>
                                 {item.is_inplay == "True" &&
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
@@ -142,7 +142,7 @@ function Inplay() {
                                 </div>
                               </span>
                             </div>
-                          </div>
+                          </Link>
                           <div>
                             <span className='text-xs text-[#777]'>
                               PIN47.62M
@@ -198,10 +198,10 @@ function Inplay() {
                     {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
                       <li className='flex w-full border-b border-[#eee]' key={item.id}>
                         <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <div className='flex justify-between items-start gap-1'>
+                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
                             <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
                             <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce]'>{item.event_name}</span>
+                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
                               <span className='flex justify-start items-center gap-2'>
                                 {item.is_inplay == "True" &&
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
@@ -217,7 +217,7 @@ function Inplay() {
                                 </div>
                               </span>
                             </div>
-                          </div>
+                          </Link>
                           <div>
                             <span className='text-xs text-[#777]'>
                               PIN47.62M
@@ -273,10 +273,10 @@ function Inplay() {
                     {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
                       <li className='flex w-full border-b border-[#eee]' key={item.id}>
                         <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <div className='flex justify-between items-start gap-1'>
+                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
                             <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
                             <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce]'>{item.event_name}</span>
+                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
                               <span className='flex justify-start items-center gap-2'>
                                 {item.is_inplay == "True" &&
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
@@ -292,7 +292,7 @@ function Inplay() {
                                 </div>
                               </span>
                             </div>
-                          </div>
+                          </Link>
                           <div>
                             <span className='text-xs text-[#777]'>
                               PIN47.62M
@@ -358,9 +358,9 @@ function Inplay() {
                               ? "Soccer"
                               : "Tennis"}
                           <img src="/Images/icon-fromto.png" alt="" className="px-1" />
-                          <span className="text-xs font-bold text-[#2789ce]">
+                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className="text-xs font-bold text-[#2789ce] hover:underline">
                             {item.event_name}
-                          </span>
+                          </Link>
                         </div>
                       </div>
                     </li>
@@ -397,7 +397,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
+                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -519,7 +519,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
+                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
@@ -639,7 +639,7 @@ function Inplay() {
             {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
               <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
                 <div className='flex justify-between items-center'>
-                  <Link to={'/matchUpdate'} className='flex justify-start items-center'>
+                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
                     <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 

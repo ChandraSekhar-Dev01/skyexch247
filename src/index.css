@@ -39,3 +39,26 @@ body {
     opacity: 0.3;
   }
 }
+.typeing ::after{
+  content: "";
+  width: 0.6666666667vw;
+  height: 5.3333333333vw;
+  background-color: #1f72ac;
+  animation: typeing 1s infinite;
+}
+/* .typing-after {
+  animation: typeing 1s infinite;
+} */
+
+@keyframes typeing {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
