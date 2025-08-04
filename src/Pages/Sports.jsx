@@ -114,7 +114,7 @@ function Sports() {
           </ul>
         </div>
         {/* Center Section */}
-        <div className='w-[67%]'>
+        <div className='w-[67%] overflow-hidden overflow-y-scroll h-[calc(100vh_-_0.5vh)] scroll-hide'>
           <div className='w-full mb-3'>
             <img src="/Images/sports_img.jpg" alt="" className='w-full h-60' />
           </div>
@@ -148,7 +148,7 @@ function Sports() {
                       <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                         <div className='flex justify-between items-start gap-1'>
                           <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
-                          <div className='flex flex-col leading-snug'>
+                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex flex-col leading-snug'>
                             <span className='text-xs font-bold text-[#2789ce]'>{item.event_name}</span>
                             <span className='flex justify-start items-center gap-2'>
                               {item.is_inplay == "True" &&
@@ -164,7 +164,7 @@ function Sports() {
                                 }
                               </div>
                             </span>
-                          </div>
+                          </Link>
                         </div>
                         <div>
                           <span className='text-xs text-[#777]'>

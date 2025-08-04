@@ -19,6 +19,14 @@ body {
   background-color: #eee;
 }
 
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hide {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 @media (max-width: 768px) {
   body {
     font-family: Helvetica, Tahoma, sans-serif;
@@ -39,7 +47,7 @@ body {
     opacity: 0.3;
   }
 }
-.typeing ::after{
+.typeing ::after {
   content: "";
   width: 0.6666666667vw;
   height: 5.3333333333vw;

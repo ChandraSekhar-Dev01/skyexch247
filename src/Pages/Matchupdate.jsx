@@ -302,10 +302,10 @@ function Matchupdate() {
     market_name,
     is_manual = "No"
   ) => {
-    if (!userInfo) {
-      setShowLoginModel(true);
-      return;
-    }
+    // if (!userInfo) {
+    //   setShowLoginModel(true);
+    //   return;
+    // }
 
     setShowBetsSlip(true);
     setSelection_id(selection_id);
@@ -335,6 +335,16 @@ function Matchupdate() {
       }
     }
     // console.log('priceNew:', priceNew)
+    console.log('bet place data : ', {
+      event_id: event_id,
+      market_id: market_id,
+      is_back: is_back ? 1 : 0,
+      price: priceNew,
+      is_fancy: is_fancy,
+      selection_id: selection_id,
+      runner_name: runner_name,
+      PM_FANCY: PM_FANCY,
+    })
     setBetPlaceData({
       event_id: event_id,
       market_id: market_id,
@@ -1205,8 +1215,13 @@ function Matchupdate() {
                       id="multiMarketPin"
                       className="absolute left-[1.8666666667vw] w-[6.6666666667vw] h-[6.6666666667vw] bg-[url('/public/Images/fancy-pin.svg')] bg-no-repeat bg-contain lg:left-2 lg:w-6 lg:h-6"
                     />
-                    <h4 className="text-white text-lg leading-[6.9333333333vw] truncate text-left lg:leading-5">England</h4>
-                    <h4 className="text-white text-lg leading-[6.9333333333vw] truncate text-left lg:leading-6">India</h4>
+                    {matchOdds?.marketRunners?.length > 0 &&
+                      matchOdds?.marketRunners?.map((item, index) => (
+                        <>
+                          <h4 className="text-white text-lg leading-[6.9333333333vw] truncate text-left lg:leading-6">{item.runner_name != "The Draw" && item.runner_name}</h4>
+                        </>
+                      ))}
+                    {/* <h4 className="text-white text-lg leading-[6.9333333333vw] truncate text-left lg:leading-6">India</h4> */}
                     <ul
                       id="time"
                       className="text-[2.1333333333vw] font-normal text-[#8eea29] text-left overflow-hidden text-ellipsis whitespace-nowrap in-play lg:text-xs"
@@ -1250,6 +1265,434 @@ function Matchupdate() {
             </table>
           </div>
 
+          <div className="flex justify-between items-center p-2 mb-8 text-[#243a48] bg-[#fff] border-b border-[#7e97a7]">
+            <div className="flex justify-center items-center gap-1 text-[13px]">
+              <span className='flex justify-center items-center w-4 p-[2px] rounded bg-[#243a48]'>
+                <img src="/Images/inplay.svg" alt="" className='' />
+              </span>
+              <p>Mon 04 Aug, 15:30</p>
+            </div>
+            <div>
+              <p
+                className="flex text-[#315195] text-center rounded-sm px-1 py-[1px] text-xs  bg-[#bed5d8] leading-tight"
+              >
+                Max<span className="text-black ml-1">
+                  {
+                    generalSetting.length > 0 ?
+
+                      generalSetting?.map(gen => {
+                        if ((eventType == "Cricket" && matchOdds?.market_name == "Match Odds" && gen.event_name == "cricket") || (eventType == "Soccer" && gen.event_name == "soccer") || (eventType == "Tennis" && gen.event_name == "tennis")) {
+                          return is_inplay == "Inplay" ? (gen.max_stake) : (gen.pre_inplay_stake)
+                        } else if (eventType == "Cricket" && matchOdds?.market_name == "Bookmaker" && gen.event_name == "bookmaker") {
+                          return is_inplay == "Inplay" ? (gen.max_stake) : (gen.pre_inplay_stake)
+                        }
+
+                      })
+                      :
+                      100
+                  }
+                </span>
+              </p>
+            </div>
+            <div className="text-xs">
+              Matched <span className="font-bold ml-1">PTE 197,841,311</span>
+            </div>
+          </div>
+          <div className="overflow-hidden overflow-y-scroll h-[calc(100vh_-_15.5vh)] scroll-hide">
+            {/* Matchodds */}
+            {matchOdds != "" && (
+              <div className="mb-8">
+                <ul>
+                  <li className="flex w-full border-b border-[#7e97a7]">
+                    <div className="w-[40%]">
+                      <span className="text-[11px] text-[#7e97a7]">3 selections</span>
+                    </div>
+                    <div className="flex justify-center items-center text-[11px] w-[60%]">
+                      <span className="w-full text-start">101%</span>
+                      <div className="w-full flex justify-between items-center text-xs px-1 font-bold">
+                        {/* Back all */}
+                        <div className="relative flex h-[22px]">
+                          <img src="/Images/bg-backall-left.png" alt="" className="w-full h-full" />
+                          <span className="absolute inset-0 flex items-center justify-center text-black">Back all</span>
+                        </div>
+
+                        {/* Lay all */}
+                        <div className="relative flex h-[22px]">
+                          <img src="/Images/bg-layall-right.png" alt="" className="w-full h-full" />
+                          <span className="absolute inset-0 flex items-center justify-center text-black">Lay all</span>
+                        </div>
+                      </div>
+                      <span className="w-full text-end">100%</span>
+                    </div>
+                  </li>
+                  {matchOdds?.marketRunners?.length > 0 &&
+                    matchOdds?.marketRunners?.map((item, index) => (
+                      <>
+                        <li id={`MOrunner${index}`} className="flex w-full border-b border-[#7e97a7]">
+                          <div className="flex justify-start items-center gap-1 bg-[#fff] p-2 w-[40%]">
+                            <img src="/Images/icon-chart.png" alt="" className='w-4 h-4' />
+                            <span className="text-xs font-bold text-[#1e1e1e] whitespace-nowrap text-ellipsis overflow-hidden">{item.runner_name}</span>
+                          </div>
+                          <div className="w-[60%]">
+                            <tr className="flex w-full">
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#d7e8f4] w-full border-l border-[#fff]">
+                                <span className="font-bold">{item.back_3_price}</span>
+                                <span className="text-[10px]">{item.back_3_size}</span>
+                              </td>
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#b7d5eb] w-full border-l border-[#fff]">
+                                <span className="font-bold">{item.back_2_price}</span>
+                                <span className="text-[10px]">{item.back_2_size}</span>
+                              </td>
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#72bbef] w-full border-l border-[#fff] cursor-pointer" onClick={() => {
+                                handleOpenBetSlip(
+                                  event_id,
+                                  item.market_id,
+                                  true,
+                                  `moBack_Size${item.selection_id}`,
+                                  false,
+                                  item.selection_id,
+                                  item.runner_name,
+                                  `moBack_Price${item.selection_id}`,
+                                  false,
+                                  "Match Odds")
+                              }}>
+                                <span id={`moBack_Price${item.selection_id}`} className="font-bold">{item.back_1_price}</span>
+                                <span id={`moBack_Size${item.selection_id}`} className="text-[10px]">{item.back_1_size}</span>
+                              </td>
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#faa9ba] w-full border-l border-[#fff] cursor-pointer" onClick={() => {
+                                handleOpenBetSlip(
+                                  event_id,
+                                  item.market_id,
+                                  false,
+                                  `moLay_Size${item.selection_id}`,
+                                  false,
+                                  item.selection_id,
+                                  item.runner_name,
+                                  `moLay_Price${item.selection_id}`,
+                                  false,
+                                  "Match Odds"
+                                );
+                              }}>
+                                <span id={`moLay_Price${item.selection_id}`} className="font-bold">{item.lay_1_price}</span>
+                                <span id={`moLay_Size${item.selection_id}`} className="text-[10px]">{item.lay_1_size}</span>
+                              </td>
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#efd3d9] w-full border-l border-[#fff]">
+                                <span className="font-bold">{item.lay_2_price}</span>
+                                <span className="text-[10px]">{item.lay_2_size}</span>
+                              </td>
+                              <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#f6e6ea] w-full border-l border-[#fff]">
+                                <span className="font-bold">{item.lay_3_price}</span>
+                                <span className="text-[10px]">{item.lay_3_size}</span>
+                              </td>
+                            </tr>
+
+                          </div>
+                        </li>
+                        {BetPlaceData?.selection_id == item.selection_id &&
+                          <div id='' className={`${BetPlaceData?.is_back ? 'bg-[#c7dbe9]' : 'bg-[#f2e5e8]'} border-b border-[#7e97a7] p-2`}>
+                            <div className="flex justify-between items-center">
+                              <div>
+                                <p
+                                  id="acceptAnyOdds"
+                                  className="flex items-center text-sm text-[#1e1e1e] mr-1 no-underline hover:no-underline hover:cursor-pointer outline-none tap-highlight-transparent"
+                                >
+                                  <img
+                                    src="/Images/checked.svg"
+                                    alt=""
+                                    className="bg-[#ffb80c] w-4 h-4  p-[2px] rounded mr-1"
+                                  />
+                                  Accept Any Odds
+                                </p>
+                              </div>
+                              <div className="flex justify-center items-center gap-2">
+                                <button className="text-[13px] font-bold w-16 p-2 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] rounded" onClick={closePlaceBet}>Cancel</button>
+                                <span className="flex justify-center items-center text-[13px] font-bold w-16 p-2 bg-[#ffffff80] rounded">{BetPlaceData?.price}</span>
+                                <span><input type="text" value={inputStake} className="flex justify-center items-center text-[13px] text-end font-bold w-32 p-2 bg-[#fff] rounded" /></span>
+                                <div className="flex justify-center items-center text-[13px] text-[#ffb600] font-bold w-32 p-2 bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded opacity-[0.5]">
+                                  <span>Place Bet</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex justify-end items-center">
+                              <ul className='flex gap-1 my-1 text-[12px]'>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("4", "stake") }}>
+                                    4
+                                  </span>
+                                </li>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("30", "stake") }}>
+                                    30
+                                  </span>
+                                </li>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("50", "stake") }}>
+                                    50
+                                  </span>
+                                </li>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("200", "stake") }}>
+                                    200
+                                  </span>
+                                </li>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("500", "stake") }}>
+                                    500
+                                  </span>
+                                </li>
+                                <li className='flex-1'>
+                                  <span className='flex justify-center items-center w-24 p-1 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_rgba(255,_255,_255,_.5)] border border-[#bbb] rounded cursor-pointer' onClick={(e) => { e.preventDefault(); handleStake("1000", "stake") }}>
+                                    1000
+                                  </span>
+                                </li>
+
+                              </ul>
+                            </div>
+                          </div>
+                        }
+                      </>))}
+                </ul>
+              </div>
+            )}
+            {/* Bookmaker */}
+            {bookmaker != "" && (
+              <div className="mb-8">
+                <div className='flex justify-between items-center text-[13px] bg-[#243a48] border-t border-[#7e97a7]'>
+                  <div className='flex gap-2 items-center text-[#fff]'>
+                    <img src="/Images/bm-add-pin.png" alt="" className='' />
+                    <span className=' font-bold'>Bookmaker Market</span>
+                    <span className='font-normal opacity-[0.7]'>| Zero Commission</span>
+                  </div>
+                </div>
+                <div id='bookmakerMinMax' className='relative flex justify-between items-center text-[13px] font-normal text-[#3b5160] py-1 px-2 bg-[#e4f1f9] border-b border-[#7e97a7]'>
+                  <span className="">Bookmaker</span>
+                  <div className='flex'>
+                    {
+                      generalSetting.length > 0 ?
+                        generalSetting?.map(gen => {
+                          if (eventType == "Cricket" && bookmaker?.market_name == "Bookmaker" && gen.event_name == "bookmaker") {
+                            return is_inplay == "Inplay" ? (
+                              <>
+                                <span className="px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Min</span>gen.min_stake
+                                <span className="ml-1 px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Max</span>gen.max_stake
+                              </>
+                            ) : (
+                              <>
+                                <span className="px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Min</span>gen.min_stake
+                                <span className="ml-1 px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Max</span>gen.pre_inplay_stake
+                              </>)
+                          }
+
+                        })
+                        :
+                        <>
+                          <span className="px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Min</span>100
+                          <span className="ml-1 px-6 pt-[5px] text-[11px] font-normal text-[#bed5d8] bg-[#3b5160] rounded leading-[1]">Max</span> 10k
+                        </>
+                    }
+                  </div>
+                </div>
+
+                <div>
+                  <ul className="bg-[#faf8d8]">
+                    <li className="flex p-1 w-full border-b border-[#7e97a7]">
+                      <div className="w-[40%]"></div>
+                      <div className="w-[60%]">
+                        <tr className="flex">
+                          <td className="w-full"></td>
+                          <td className="w-full"></td>
+                          <td className="text-xs font-bold text-[#1e1e1e] text-center w-full">Back</td>
+                          <td className="text-xs font-bold text-[#1e1e1e] text-center w-full">Lay</td>
+                          <td className="w-full"></td>
+                          <td className="w-full"></td>
+                        </tr>
+                      </div>
+                    </li>
+                    {bookmaker?.marketRunners?.length > 0 &&
+                      bookmaker?.marketRunners?.map((item, index) => (
+                        <>
+                          <li id={`BMrunner${index}`} className="flex w-full border-b border-[#7e97a7]">
+                            <div className="flex justify-start items-center gap-1 p-2 w-[40%]">
+                              <span className="text-xs font-bold text-[#1e1e1e] whitespace-nowrap text-ellipsis overflow-hidden">{item.runner_name}</span>
+                            </div>
+                            <div className="w-[60%]">
+                              <tr className="flex w-full h-full">
+                                <div className="flex bg-[linear-gradient(90deg,_#82b7dd26_0%,_#82b7ddcc_65%)] w-full h-full">
+                                  <td className="flex flex-col justify-center items-center text-xs text-[#59708d] p-1 w-full h-full">
+                                    <span className="font-bold">{item.back_3_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                  <td className="flex flex-col justify-center items-center text-xs text-[#59708d] p-1 w-full h-full">
+                                    <span className="font-bold">{item.back_2_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                  <td className="flex flex-col justify-center items-center text-xs p-1 w-full h-full">
+                                    <span className="flex justify-center items-center font-bold bg-[#72bbef] border border-[#fff] rounded-[4px] h-11 w-20">{item.back_1_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                </div>
+                                <div className="flex bg-[linear-gradient(270deg,_#e7aab826_5%,_#e7aab8cc_60%)] w-full">
+                                  <td className="flex flex-col justify-center items-center text-xs p-1 w-full h-full">
+                                    <span className="flex justify-center items-center font-bold bg-[#faa9ba] border border-[#fff] rounded-[4px] h-11 w-20">{item.lay_1_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                  <td className="flex flex-col justify-center items-center text-xs text-[#a9616d] p-1 w-full h-full">
+                                    <span className="font-bold">{item.lay_2_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                  <td className="flex flex-col justify-center items-center text-xs text-[#a9616d] p-1 w-full h-full">
+                                    <span className="font-bold">{item.lay_3_price}</span>
+                                    {/* <span className="text-[10px]">20,826</span> */}
+                                  </td>
+                                </div>
+                              </tr>
+
+                            </div>
+                          </li>
+                        </>))}
+                  </ul>
+                </div>
+              </div>
+            )}
+            {/* Fancy */}
+            {fancyData?.length > 0 && (
+              <div>
+                <div className="hidden lg:flex text-white text-[13px] border-b-[3px] border-[#0a92a5]">
+                  <div className="flex bg-[#0a92a5] pr-3 h-8">
+                    <span className="flex justify-center items-center gap-2 font-bold pl-2">
+                      <span className='flex justify-center items-center w-4 p-[2px] rounded bg-[linear-gradient(-180deg,_#91d527_0%,_#60ba1e_79%)]'>
+                        <img src="/Images/inplay.svg" alt="" className='' />
+                      </span>
+                      <span>Fancy Bet</span>
+                    </span>
+                  </div>
+
+                  <span className="relative flex h-8">
+                    <img src="/Images/btn-fancybet_rules.png" alt="" className=" object-cover" />
+                    {/* <img src="/Images/rules.svg" alt="" className="absolute left-3 top-2 w-4" /> */}
+                  </span>
+
+                  <div className="relative h-8 ml-4 -z-10">
+                    <img src="/Images/left-slide.svg" alt="" className="absolute top-0 left-[-2rem] w-[2rem] h-full" />
+                    <div className="flex justify-center items-center text-[#c5d0d7] text-[13px] font-bold bg-[#243a48] px-2 h-full">
+                      <span>Premium Cricket</span>
+                    </div>
+                    <img src="/Images/ribbon.svg" alt="" className="absolute bottom-5 -right-7 h-5 w-[4rem] z-10" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6))' }} />
+                    <span className="absolute bottom-6 -right-2 text-white text-[10px] font-bold leading-[1rem] z-20">New</span>
+                    <img src="/Images/right-slide.svg" alt="" className="absolute top-0 right-[-2rem] w-[2rem] h-full" />
+                  </div>
+                </div>
+                <div className="flex justify-center items-center bg-[#0a92a5] shadow-[inset_0_1px_0_0_rgba(0,_0,_0,_.2)] text-white font-bold text-[13px] p-1">
+                  <div className="bg-[#ffffff80] rounded">
+                    <ul className="flex p-[2px]">
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded bg-white">
+                        <span className="text-[#076875]">
+                          All
+                        </span>
+                      </li>
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded">
+                        <span className="text-[#076875]">
+                          Fancy
+                        </span>
+                      </li>
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded">
+                        <span className="text-[#076875]">
+                          Ball by Ball
+                        </span>
+                      </li>
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded">
+                        <span className="text-[#076875]">
+                          Khadda
+                        </span>
+                      </li>
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded">
+                        <span className="text-[#076875]">
+                          Lottery
+                        </span>
+                      </li>
+                      <li className="flex justify-center items-center text-nowrap w-20 rounded">
+                        <span className="text-[#076875]">
+                          Odd/Even
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className='flex justify-between items-center text-[14px] bg-[#243a48] border-t border-[#7e97a7]'>
+                  <div className='flex gap-2 items-center text-[#fff]'>
+                    <img src="/Images/bm-add-pin.png" alt="" className='' />
+                    <span className=' font-bold'>Fancy Bet</span>
+                  </div>
+                </div>
+                <div>
+                  <ul className="bg-[#fff]">
+                    <li className="flex p-1 w-full border-b border-[#7e97a7]">
+                      <div className="w-[40%]"></div>
+                      <div className="w-[60%]">
+                        <tr className="flex">
+                          <td className="w-full"></td>
+                          <td className="w-full"></td>
+                          <td className="text-xs font-bold text-[#1e1e1e] text-center w-full">No</td>
+                          <td className="text-xs font-bold text-[#1e1e1e] text-center w-full">Yes</td>
+                          <td className="w-full"></td>
+                          <td className="w-full"></td>
+                        </tr>
+                      </div>
+                    </li>
+                    {fancyData?.length > 0 &&
+                      fancyData?.map((item, index) => (
+                        <>
+                          <li key={item.selection_id || index} className="flex w-full border-b border-[#7e97a7]">
+                            <div className="flex justify-start items-center gap-1 bg-[#fff] p-2 w-[40%]">
+                              <span className="text-xs font-bold text-[#1e1e1e] whitespace-nowrap text-ellipsis overflow-hidden">{item.runner_name}</span>
+                            </div>
+                            <div className="w-[60%]">
+                              <tr className="flex w-full">
+                                <td className="w-full">
+                                </td>
+                                <td className="w-full">
+                                </td>
+                                <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#faa9ba] w-full border-l border-[#fff]">
+                                  <span className="font-bold">{item.lay_price1}</span>
+                                  <span className="text-[10px]">{item.lay_size1}</span>
+                                </td>
+                                <td className="flex flex-col justify-center items-center text-xs p-1 bg-[#72bbef] w-full border-l border-[#fff]">
+                                  <span className="font-bold">{item.back_price1}</span>
+                                  <span className="text-[10px]">{item.back_size1}</span>
+                                </td>
+                                <td className="flex flex-col p-2 w-full">
+                                  {
+                                    generalSetting.length > 0 ?
+                                      generalSetting?.map(gen => {
+                                        if (gen.event_name == "fancy") {
+                                          return (
+                                            <>
+                                              <span className='text-[2.6666666667vw] text-[#577c94] h-[3.2vw] p-[0.8vw_0_1.0666666667vw]'>Min / Max</span>
+                                              <span className='font-normal pt-[2vw]'>{gen.min_stake} / {gen.max_stake}</span>
+                                            </>)
+                                        }
+                                      })
+                                      :
+                                      <>
+                                        <span className='text-[10px] text-[#577c94]'>Min / Max</span>
+                                        <span className='text-[11px]  font-normal'>100 / 10k</span>
+                                      </>
+                                  }
+                                </td>
+                                <td className="w-full">
+                                </td>
+                              </tr>
+
+                            </div>
+                          </li>
+                        </>))}
+                  </ul>
+                </div>
+
+              </div>
+            )}
+          </div>
+
         </div>
         {/* Left Section */}
         <div className='w-[30%] h-screen bg-[#fff]'>
@@ -1286,8 +1729,12 @@ function Matchupdate() {
                     href="#"
                     className="absolute left-[1.8666666667vw] w-[6.6666666667vw] h-[6.6666666667vw] bg-[url('/public/Images/fancy-pin.svg')] bg-no-repeat bg-contain"
                   />
-                  <h4 className="text-white leading-[7.9333333333vw] truncate text-left">England</h4>
-                  <h4 className="text-white leading-[6.9333333333vw] truncate text-left">India</h4>
+                  {matchOdds?.marketRunners?.length > 0 &&
+                    matchOdds?.marketRunners?.map((item, index) => (
+                      <>
+                        <h4 className="text-white leading-[6.9333333333vw] truncate text-left">{item.runner_name != "The Draw" && item.runner_name}</h4>
+                      </>
+                    ))}
                   <ul
                     id="time"
                     className="text-[2.1333333333vw] font-normal text-[#8eea29] clear-left text-left overflow-hidden text-ellipsis whitespace-nowrap in-play"
@@ -1392,20 +1839,45 @@ function Matchupdate() {
                             <h4 className='text-[4vw] font-bold'>{item.runner_name}</h4>
                           </div>
                           <div className='flex w-[40%]'>
-                            <div className='relative flex flex-col justify-center items-center bg-[#72bbef] w-full border-r border-[#fff]' onClick={() => { handleOpenBetSlip('MOrunner1', 'back', '70') }}>
-                              <div className='absolute top-0 left-0 w-full h-full bg-[#3333]'><img src="/Images/bg-disabled.png" alt="" className='w-full h-full  object-cover' /></div>
-                              <span className=' text-[3.4666666667vw] font-bold '>{item.back_1_price}</span>
-                              <span className='text-[2.9333333333vw]'>{item.back_1_size}</span>
+                            <div className='relative flex flex-col justify-center items-center bg-[#72bbef] w-full border-r border-[#fff]' onClick={() => {
+                              handleOpenBetSlip(
+                                event_id,
+                                item.market_id,
+                                true,
+                                `moBack_Size${item.selection_id}`,
+                                false,
+                                item.selection_id,
+                                item.runner_name,
+                                `moBack_Price${item.selection_id}`,
+                                false,
+                                "Match Odds")
+                            }}>
+                              {/* <div className='absolute top-0 left-0 w-full h-full bg-[#3333]'><img src="/Images/bg-disabled.png" alt="" className='w-full h-full  object-cover' /></div> */}
+                              <span id={`moBack_Price${item.selection_id}`} className=' text-[3.4666666667vw] font-bold '>{item.back_1_price}</span>
+                              <span id={`moBack_Size${item.selection_id}`} className='text-[2.9333333333vw]'>{item.back_1_size}</span>
                             </div>
-                            <div className='flex flex-col justify-center items-center bg-[#faa9ba] w-full border-r border-[#fff]' onClick={() => { handleOpenBetSlip('MOrunner1', 'lay', '75') }}>
-                              <span className=' text-[3.4666666667vw] font-bold'>{item.lay_1_price}</span>
-                              <span className='text-[2.9333333333vw]'>{item.lay_1_size}</span>
+                            <div className='flex flex-col justify-center items-center bg-[#faa9ba] w-full border-r border-[#fff]' onClick={() => {
+                              handleOpenBetSlip(
+                                event_id,
+                                item.market_id,
+                                false,
+                                `moLay_Size${item.selection_id}`,
+                                false,
+                                item.selection_id,
+                                item.runner_name,
+                                `moLay_Price${item.selection_id}`,
+                                false,
+                                "Match Odds"
+                              );
+                            }}>
+                              <span id={`moLay_Price${item.selection_id}`} className=' text-[3.4666666667vw] font-bold'>{item.lay_1_price}</span>
+                              <span id={`moLay_Size${item.selection_id}`} className='text-[2.9333333333vw]'>{item.lay_1_size}</span>
                             </div>
                           </div>
                         </div>
                       </li>
-                      {betSlipData?.index == `MOrunner${index}` &&
-                        <div id='betSlip' className={`${betSlipData?.type == "back" ? 'bg-[#c7dbe9]' : 'bg-[#f2e5e8]'} border-b border-[#7e97a7] pt-[2.6666666667vw]`}>
+                      {BetPlaceData?.selection_id == item.selection_id &&
+                        <div id='' className={`${BetPlaceData?.is_back ? 'bg-[#c7dbe9]' : 'bg-[#f2e5e8]'} border-b border-[#7e97a7] pt-[2.6666666667vw]`}>
                           <ul className="flex p-[0_1.6vw_2.6666666667vw] flex-wrap">
                             <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden'>
                               <p className="mt-0 p-0 text-[2.9333333333vw] text-center text-[#1e1e1e]">&nbsp;</p>
@@ -1416,7 +1888,7 @@ function Matchupdate() {
                               href=""
                             /> */}
                                 <span id="" className="">
-                                  {betSlipData?.price}
+                                  {BetPlaceData?.price}
                                 </span>
                                 {/* <a
                               id=""
@@ -1519,7 +1991,7 @@ function Matchupdate() {
                           </div>
                           <ul className='flex flex-wrap p-[0_1.6vw_2.6666666667vw]'>
                             <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden'>
-                              <span className='flex justify-center items-center h-[10.9333333333vw] leading-[10.9333333333vw] bg-[linear-gradient(-180deg,_#ffffff_0%,_#eeeeee_89%)]  border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#1e1e1e]' onClick={() => { setBetSlipData() }}>Cancel</span>
+                              <span className='flex justify-center items-center h-[10.9333333333vw] leading-[10.9333333333vw] bg-[linear-gradient(-180deg,_#ffffff_0%,_#eeeeee_89%)]  border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#1e1e1e]' onClick={closePlaceBet}>Cancel</span>
                             </li>
                             <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden'>
                               <span className='flex justify-center items-center h-[10.9333333333vw] leading-[10.9333333333vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)]  border border-[#222] rounded-[1.6vw] text-[4vw] font-bold text-[#ffb200] opacity-[0.7]'>Place Bet</span>
@@ -1580,7 +2052,20 @@ function Matchupdate() {
                 <div className='absolute flex text-[#1e1e1e] font-normal top-0 right-[1.8666666667vw] bg-[#fff] rounded-[1.0666666667vw] leading-[3.7333333333vw] z-[9] shadow-[0_6px_10px_rgba(0,_0,_0,_.7)]'>
                   <div className='flex flex-col p-[0_1.8666666667vw_1.8666666667vw] py-1'>
                     <span className='text-[2.6666666667vw] text-[#577c94] h-[3.2vw] p-[0.8vw_0_1.0666666667vw]'>Min / Max</span>
-                    <span className='font-normal pt-[2vw]'> 1.00 /  781.00</span>
+                    <span className='font-normal pt-[2vw]'>
+                      {
+                        generalSetting.length > 0 ?
+
+                          generalSetting?.map(gen => {
+                            if (eventType == "Cricket" && bookmaker?.market_name == "Bookmaker" && gen.event_name == "bookmaker") {
+                              return is_inplay == "Inplay" ? (gen.min_stake / gen.max_stake) : (gen.min_stake / gen.pre_inplay_stake)
+                            }
+
+                          })
+                          :
+                          ' 100 /  10k'
+                      }
+                    </span>
                   </div>
                   <div className=' p-[0_1.8666666667vw_1.8666666667vw] py-1'>
                     <span className='flex justify-center items-center w-[6.6666666667vw] h-[6.6666666667vw]' onClick={() => setOpenMinMax('')}>
@@ -1860,14 +2345,28 @@ function Matchupdate() {
                     <li key={item.selection_id || index} className='bg-[#fff] border-b border-[#7e97a7]'>
                       <div className='relative flex justify-between items-center h-[8.5333333333vw] p-[0_0_0_1.8666666667vw] text-[3.4666666667vw] text-[#3b5160] font-bold bg-[#e4f1f9] leading-[8.5333333333vw]'>
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap">{item.runner_name}</span>
-                        <span className='w-[6vw]' onClick={() => setOpenMinMax('Fancyrunner1')}>
+                        <span className='w-[6vw]' onClick={() => setOpenMinMax(item.selection_id)}>
                           <img src="/Images/i-icon.svg" alt="" className='h-[4vw] w-[4vw]' />
                         </span>
                         {openMinMax == item.selection_id &&
                           <div className='absolute flex text-[#1e1e1e] font-normal top-0 right-[1.8666666667vw] bg-[#fff] rounded-[1.0666666667vw] leading-[3.7333333333vw] z-[9] shadow-[0_6px_10px_rgba(0,_0,_0,_.7)]'>
                             <div className='flex flex-col p-[0_1.8666666667vw_1.8666666667vw] py-1'>
-                              <span className='text-[2.6666666667vw] text-[#577c94] h-[3.2vw] p-[0.8vw_0_1.0666666667vw]'>Min / Max</span>
-                              <span className='font-normal pt-[2vw]'> 1.00 /  781.00</span>
+                              {
+                                generalSetting.length > 0 ?
+                                  generalSetting?.map(gen => {
+                                    if (gen.event_name == "fancy") {
+                                      return (
+                                        <>
+                                          <span className='text-[2.6666666667vw] text-[#577c94] h-[3.2vw] p-[0.8vw_0_1.0666666667vw]'>Min / Max</span>
+                                          <span className='font-normal pt-[2vw]'>{gen.min_stake} / {gen.max_stake}</span>
+                                        </>)
+                                    }
+                                  })
+                                  :
+                                  <>
+                                    <span className='font-normal pt-[2vw]'> 100 /  10k</span>
+                                  </>
+                              }
                             </div>
                             <div className=' p-[0_1.8666666667vw_1.8666666667vw] py-1'>
                               <span className='flex justify-center items-center w-[6.6666666667vw] h-[6.6666666667vw]' onClick={() => setOpenMinMax('')}>

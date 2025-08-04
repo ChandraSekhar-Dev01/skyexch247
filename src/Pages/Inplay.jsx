@@ -102,7 +102,7 @@ function Inplay() {
             <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-r cursor-pointer hover:underline ${selectedEvent == "tom" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
           </div>
           {selectedEvent == "inplay" &&
-            <div className='overflow-y-auto' style={{ height: "calc(100vh - 112px)" }}>
+            <div className='overflow-hidden overflow-y-scroll h-[calc(100vh_-_2.9888vh)] scroll-hide'>
               {/* Cricket */}
               <div className='border-b border-[#7e97a7] bg-[#fff]'>
                 <div className='flex justify-between items-center text-xs leading-6 text-[#fff] bg-[#243a48] px-2'>
