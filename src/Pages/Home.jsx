@@ -5,6 +5,7 @@ import Appconfig from "../config/config";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../redux/slice/event/eventSlice";
+import { Carousel } from 'antd';
 
 function Home() {
 
@@ -16,7 +17,7 @@ function Home() {
 
   const [inplayEvents, setInplayEvents] = useState([])
 
-    const images = {
+  const images = {
     whatsAppIcon: "/Images/whatsApp-icon-grey.png",
     skypeIcon: "/Images/skype-icon-grey.png",
     emailIcon: "/Images/email-icon-grey.png",
@@ -39,10 +40,6 @@ function Home() {
 
 
   const casinoSmall = [
-    {
-      img: "/Images/dashboard-casino-img/spribe.png",
-      p: "Spribe"
-    },
     {
       img: "/Images/dashboard-casino-img/black-jack.png",
       p: "Blackjack"
@@ -225,15 +222,23 @@ function Home() {
     <>
       <div className="w-full lg:w-[74%] mx-auto">
         {/* Slider Banner */}
-        <div className="flex justify-center items-center w-full">
+        <Carousel arrows dots={false} infinite={true} autoplay={true}>
+          <div>
+            <img src="/Images/dashboard-casino-img/banner-1.webp" alt="" className="w-full" />
+          </div>
+          <div>
+            <img src="/Images/dashboard-casino-img/banner-2.webp" alt="" className="w-full" />
+          </div>
+        </Carousel>
+        {/* <div className="flex justify-center items-center w-full">
           <img src="/Images/dashboard-casino-img/banner-1.webp" alt="" className="w-full" />
-        </div>
+        </div> */}
         {/* Sub Banners */}
         <div className='px-1.5 lg:px-0'>
 
           <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 pt-1.5">
             <Link to={"/inplay"} className="relative w-full lg:w-1/2">
-              <div className="absolute z-[3] text-white right-0 top-0 leading-snug [background-image:linear-gradient(180deg,_#000000_0%,_rgba(0,_0,_0,_0.7)_82%,_rgba(0,_0,_0,_0)_100%)] w-[23%] lg:w-[15%]">
+              <div className="absolute z-[3] text-white right-0 top-0 leading-snug [background-image:linear-gradient(180deg,_#000000_0%,_rgba(0,_0,_0,_0.7)_82%,_rgba(0,_0,_0,_0)_100%)] w-[23%] lg:w-[15%] p-[2px] lg:p-0">
                 <span className="flex justify-start w-fit my-1 mx-1 items-center right-[10%] [background-image:linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)]  text-white text-[3.4666666667vw] lg:text-xs rounded-[0.8vw] lg:rounded-sm">
                   <span className="flex justify-center items-center h-[4.6vw] lg:h-4 [background-image:linear-gradient(180deg,_#ffffff_0%,_#e8e8e8_100%)] mr-[1.3333333333vw] lg:mr-2 px-[0.8vw] rounded-[0.8vw_0_0_0.8vw] lg:rounded-sm">
                     <img src="/Images/hotspot.svg" alt="" className='live-icon w-[4.2666666667vw] h-[2.6666666667vw]  lg:w-3 lg:h-3' />
@@ -345,13 +350,13 @@ function Home() {
             <div className=" w-full lg:w-1/2 flex gap-1.5">
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/skycasino.png"
+                  src="/Images/dashboard-casino-img/casino.png"
                   alt=""
                   className="w-full h-full object-contain"
                 />
                 <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
                   <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
-                    SKYCASINO
+                    Live Casino
                   </p>
                   <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
                     Play now
@@ -360,13 +365,13 @@ function Home() {
               </div>
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/casino.png"
+                  src="/Images/dashboard-casino-img/spribe.png"
                   alt=""
                   className="w-full h-full object-contain"
                 />
                 <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
                   <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
-                    Live Casino
+                    Spribe
                   </p>
                   <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
                     Play now
@@ -396,7 +401,7 @@ function Home() {
 
       {/* Footer */}
 
-      <div className={` pb-0 lg:pb-10 lg:px-40 bg-[#eeee]`} style={{ marginTop: "" }}>
+      <div className={` pb-0 lg:px-40 bg-[#eeee]`} style={{ marginTop: "" }}>
         <div className="flex justify-center items-center">
           <div className='mx-5 lg:mx-36 pt-7 w-full lg:w-[45%]'>
             <div className='lg:flex justify-between mb-2 '>
@@ -419,36 +424,38 @@ function Home() {
             </div>
 
             {/* only for pc */}
-            <div className='hidden  border border-[#a6a6a6] mt-6 pb-2 lg:flex justify-center item-center rounded-lg' >
-              <div className=' flex justify-center items-center w-full lg:w-[30%]' >
-                <div className='flex justify-start item-center w-full ml-5 bg-white'>
-                  <img src={images.betFairIcon} className='w-16 h-12' alt="" />
+            <div className='hidden  border border-[#a6a6a6] mt-6 p-2 lg:flex justify-center item-center rounded-lg' >
+              <div className=' flex justify-center items-center w-full' >
+                <div className='flex w-[30%] mr-2'>
+                  <div className='flex justify-start item-center w-[150px] h-[50px] bg-white'>
+                    <img src={images.betFairIcon} className='w-16 h-12' alt="" />
+                  </div>
                 </div>
+                <div className='w-full'>
+                  <div className='text-[11px] py-1 text-[#00000080]'>skyexch.com is operated by skyexch company incorporated under the laws of Curacao with company Registration number 091237 with registered office at Abraham de Veerstraat 9 , Curacao P.O Box 3421 and is licensed and regulated by the Curacao authority as the regulatory body responsible holding a (Sub-license with License number 365/JAZ Sub-License GLH- OCCHKTW0707072023 granted on 6.07.2023).
+                    <br />
+                    Players are requested not to contact any untrusted sources for https://skyexch.com/ accounts as this is an online site and they can only register independently without any agents. Only deposit through the account details generated by the system or provided by our official support team.</div>
 
-                <div className='w-1/2 p-2'>
-                  <img src={images.gcIcon} className=' bg-white' alt="" />
+                  <div className='flex justify-end items-center'>
+
+                    <div className='flex justify-between items-center border-t border-[#a6a6a6] w-[80%]'>
+                      <p className='pt-1 flex justify-center items-center text-xs text-[#00000080]'>
+                        <img src={images.phoneIcon} className='h-4' alt="" />
+                        <span>
+                          +91 0000000000 / +91 0000000000
+                        </span>
+                      </p>
+                      <p className='pt-1 flex justify-center items-center text-xs gap-1 underline text-[#00000080]'>
+                        <img src={images.mailIcon} className='h-4' alt="" />
+                        <span>
+                          support@skyexch.com
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className='w-full lg:w-[70%]'>
-                <div className='text-[12px] py-1 text-[#00000080]'>skyexch.com is operated by skyexch company incorporated under the laws of Curacao with company Registration number 091237 with registered office at Abraham de Veerstraat 9 , Curacao P.O Box 3421 and is licensed and regulated by the Curacao authority as the regulatory body responsible holding a (Sub-license with License number 365/JAZ Sub-License GLH- OCCHKTW0707072023 granted on 6.07.2023).
-                  Players are requested not to contact any untrusted sources for https://skyexch.com/ accounts as this is an online site and they can only register independently without any agents. Only deposit through the account details generated by the system or provided by our official support team.</div>
-
-                <div className='flex justify-between items-center border-t border-[#a6a6a6]'>
-                  <p className='pt-1 flex justify-center items-center text-xs text-[#00000080]'>
-                    <img src={images.phoneIcon} className='h-4' alt="" />
-                    <span>
-                      +91 0000000000 / +91 0000000000
-                    </span>
-                  </p>
-                  <p className='pt-1 flex justify-center items-center text-xs gap-1 underline text-[#00000080]'>
-                    <img src={images.mailIcon} className='h-4' alt="" />
-                    <span>
-                      support@skyexch.com
-                    </span>
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

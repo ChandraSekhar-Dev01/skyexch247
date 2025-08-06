@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import Helper from "../helper";
 // import GlobalContext from "../context/GlobalContext";
 // import Cookies from "js-cookie";
 // import './footer.css'
 
 const Footer = () => {
+  let location = useLocation();
+  const userInfo = Helper();
+
   // Image paths object
   const images = {
     whatsAppIcon: "/Images/whatsApp-icon-grey.png",
@@ -27,7 +31,6 @@ const Footer = () => {
     browserIcon: "/Images/icon-browser-B.png"
   };
 
-  let location = useLocation();
 
   // pages where footer will be shown
   const [isUserLoggedIn, setisUserLoggedIn] = useState(true);
@@ -61,13 +64,13 @@ const Footer = () => {
             { to: "/inPlay", icon: images.clockIcon, label: "In-Play", extra: "h-[5.3333333333vw] w-[5.8666666667vw]" },
             { to: "/", icon: images.homeIcon, label: "Home", extra: "h-[5.3333333333vw] w-[6.8666666667vw]" },
             {
-              to: "/multimarket",
+              to: !userInfo ? "/login" : "/multimarket",
               icon: images.multiBet,
               label: "Multi...",
               extra: "h-[5.3333333333vw] w-[5.8666666667vw]"
             },
             {
-              to: "",
+              to: !userInfo ? "/login" : "/account",
               icon: images.accountIcon,
               label: "Acc...",
               extra: "h-[5.3333333333vw] w-[5.8666666667vw]"

@@ -12,6 +12,9 @@ import Sports from "./Pages/Sports";
 import Login from "./Pages/Auth/Login";
 import Multimarket from "./Pages/Multimarket";
 import Matchupdate from "./Pages/Matchupdate";
+import Accounts from "./Pages/Accounts";
+import Profile from "./Pages/Reports/Profile";
+import DynamicViewport from "./utils/DynamicViewport";
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
       <AuthProvider>
         <TimeProvider>
           <BrowserRouter>
+            <DynamicViewport />
             <WebSocketContext.Provider value={socket}>
               <Routes>
                 <Route path="/login" element={<Login />} />
@@ -28,7 +32,12 @@ function App() {
                   <Route path="inPlay" element={<Inplay />} />
                   <Route path="multimarket" element={<Multimarket />} />
                   <Route path="sports" element={<Sports />} />
-                  <Route path="matchUpdates/:event_id/:is_inplay" element={<Matchupdate />} />
+                  <Route
+                    path="matchUpdates/:event_id/:is_inplay"
+                    element={<Matchupdate />}
+                  />
+                  <Route path="account" element={<Accounts />} />
+                  <Route path="profile" element={<Profile />} />
                 </Route>
               </Routes>
             </WebSocketContext.Provider>

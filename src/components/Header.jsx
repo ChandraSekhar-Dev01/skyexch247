@@ -13,6 +13,7 @@ import apiBaseUrl from "../config/config";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../AuthContext";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -21,7 +22,12 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const AccountMenu = useRef(null);
   const userInfo = Helper();
-  const { login, logout, setShowLoginModel } = useAuth();
+  const dispatch = useDispatch();
+  const userInfos = useSelector((state) => state.events);
+
+
+  const [inplayEvents, setInplayEvents] = useState([])
+  const { login, logout, setShowLoginModel, setCurrentBalance } = useAuth();
   console.log('header userinfo : ', userInfo)
 
   const [activeSportType, setActiveSportType] = useState(null);
@@ -41,7 +47,7 @@ const Header = () => {
   const [exposure, setExposure] = useState(0);
 
   let balanceWithExp = balance - Math.abs(exposure);
-  // setCurrentBalance(balanceWithExp);
+  setCurrentBalance(balanceWithExp);
 
   function getBalance() {
     var data = JSON.stringify({
@@ -154,12 +160,29 @@ const Header = () => {
     { name: "Home", url: "/" },
     { name: "In-Play", url: "/inPlay" },
     { name: "Multi Markets", url: "/multimarket" },
-    { name: "Cricket", live: "", url: "/sports" },
-    { name: "Soccer", live: "", url: "/sports" },
-    { name: "Tennis", live: "", url: "/sports" },
+    { name: "Cricket", live: `${inplayEvents?.filter(item => item.event_type == "4").length}`, url: "/sports" },
+    { name: "Soccer", live: `${inplayEvents?.filter(item => item.event_type == "2").length}`, url: "/sports" },
+    { name: "Tennis", live: `${inplayEvents?.filter(item => item.event_type == "1").length}`, url: "/sports" },
     { name: "Virtual Cricket", url: "" },
-    { name: "E-Soccer", url: "" },
+    { name: "E-Soccer", live: "0", url: "" },
   ];
+
+  useEffect(() => {
+    if (
+      userInfos &&
+      Array.isArray(userInfos.events) &&
+      userInfos.events.length > 0
+    ) {
+      // Flatten all competitions' events into one array
+      const allNewEvents = userInfos.events
+        .flatMap((ev) => ev.competitions || [])
+        .flatMap((comp) => comp.events || []);
+      // console.log('all events : ', allNewEvents)
+
+      const inPlayEvents = allNewEvents?.filter(item => item.is_inplay == "True")
+      setInplayEvents(inPlayEvents)
+    }
+  }, [userInfos]);
 
 
 
@@ -227,7 +250,7 @@ const Header = () => {
                   type="text"
                   maxLength={4}
                   name="validation"
-                  placeholder="Placeholder"
+                  placeholder="Validation"
                   value={vCode}
                   onChange={(e) => setVCode(e.target.value)}
                   className={`${inputClass} w-full text-black px-1 py-[3px]`}
@@ -310,49 +333,49 @@ const Header = () => {
                         GMT+5:30
                       </p>
                     </div>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'profilePage' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
                         My Profile
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'summaryPage' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
                         Balance Overview
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'accountStatement' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
-                        Payment Transfer Log
+                        Account Statement
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'bets' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
                         My Bets
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'bets' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
                         Bets History
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'bets' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
                         Profit & Loss
                       </h1>
                     </Link>
-                    <Link>
+                    <Link to={"/profile"} state={{ state: 'log' }}>
                       <h1
                         className="text-black border-b border-[#e0e6e6] p-1 px-2 hover:bg-[#eee]"
                       >
@@ -456,7 +479,7 @@ const Header = () => {
         <nav className="hidden lg:block bg-[#f7c419] border-t border-b border-yellow-500 text-xs font-bold text-black">
           <div className="flex items-center justify-between px-4">
             {/* Menu Items */}
-            <div className="relative z-10 flex overflow-x-auto">
+            <div className=" flex ">
               {menuItems.map(({ name, live, url }) => {
                 let sportType;
                 if (name === "Cricket") sportType = "4";
@@ -482,25 +505,21 @@ const Header = () => {
                       >
                         {name}
                       </button>
+                      {live && (
+                        <div className="absolute bottom-6 right-1 h-[12px] flex flex-row items-center gap-1 rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,_33,_33,_0.5)] z-[999999999999]">
+
+                          {/* SVG in white circle */}
+                          <div className="flex justify-center items-center bg-white px-1 rounded-l-sm h-[12px]">
+                            <img src="/Images/hotspot.svg" alt="" className='live-icon w-[4.2666666667vw] h-[2.6666666667vw]  lg:w-3 lg:h-2' />
+                          </div>
+
+                          {/* Red badge number */}
+                          <div className="text-white text-[10px] pr-[5px] font-bold">
+                            {live}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    {live && (
-                      <div className="absolute bottom-5 right-1 h-[12px] flex flex-row items-center gap-1 z-[99999] rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,33,33,0.5)]">
-
-                        {/* SVG in white circle */}
-                        <div className="bg-white p-[1px] rounded-sm rounded-tr-none rounded-br-none h-[12px]">
-                          <img
-                            src="data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='rgb(255,0,0)' fill-rule='evenodd'%3E%3Cpath d='M12.012 0l-.698.727c1.734 1.808 1.734 4.738 0 6.546l.698.727c2.117-2.207 2.117-5.79 0-8zM10.3 1.714l-.7.735c.967 1.014.967 2.66 0 3.673l.7.735c1.352-1.418 1.352-3.721 0-5.143zM1.588 0l.698.727c-1.734 1.808-1.734 4.738 0 6.546L1.588 8c-2.117-2.207-2.117-5.79 0-8zM3.3 1.714l.7.735c-.967 1.014-.967 2.66 0 3.673l-.7.735c-1.352-1.418-1.352-3.721 0-5.143z'/%3E%3Ccircle cx='6.8' cy='4.4' r='1.6'/%3E%3C/g%3E%3C/svg%3E"
-                            alt="live"
-                            className="w-5 h-5 animate-pulse"
-                          />
-                        </div>
-
-                        {/* Red badge number */}
-                        <div className="text-white text-[10px] pr-[5px] font-bold">
-                          {live}
-                        </div>
-                      </div>
-                    )}
                   </>
                 );
               })}
@@ -515,7 +534,7 @@ const Header = () => {
 
               {/* One Click Bet */}
               <div className="flex items-center gap-1 bg-[#3c3c3c] text-yellow-400 h-full py-1 px-2">
-                <input type="checkbox" id="oneclick" className="bg-[#3c3c3c] w-4 h-4 rounded-sm" />
+                <input type="checkbox" id="oneclick" className="bg-[#fff] w-4 h-4 rounded-sm" />
                 <label htmlFor="oneclick" className="cursor-pointer font-semibold text-xs">
                   One Click Bet
                 </label>
