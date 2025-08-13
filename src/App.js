@@ -15,6 +15,14 @@ import Matchupdate from "./Pages/Matchupdate";
 import Accounts from "./Pages/Accounts";
 import Profile from "./Pages/Reports/Profile";
 import DynamicViewport from "./utils/DynamicViewport";
+import Privacy from "./Pages/Regulations/Privacy";
+import TermsCondition from "./Pages/Regulations/TermsCondition";
+import RulesRegulation from "./Pages/Regulations/RulesRegulation";
+import Kyc from "./Pages/Regulations/Kyc";
+import ResponsibleGaming from "./Pages/Regulations/ResponsibleGaming";
+import AboutUs from "./Pages/Regulations/AboutUs";
+import SelfExPolicy from "./Pages/Regulations/SelfExPolicy";
+import UnderAgePolicy from "./Pages/Regulations/UnderAgePolicy";
 
 function App() {
   return (
@@ -39,6 +47,17 @@ function App() {
                   <Route path="account" element={<Accounts />} />
                   <Route path="profile" element={<Profile />} />
                 </Route>
+                <Route path="privacy" element={<Privacy />} />
+                <Route path="siteTerms" element={<TermsCondition />} />
+                <Route path="siteRules" element={<RulesRegulation />} />
+                <Route path="kyc" element={<Kyc />} />
+                <Route path="rg" element={<ResponsibleGaming />} />
+                <Route path="au" element={<AboutUs />} />
+                <Route
+                  path="skyExSelfExclusionPolicy"
+                  element={<SelfExPolicy />}
+                />
+                <Route path="skyUnderagePolicy" element={<UnderAgePolicy />} />
               </Routes>
             </WebSocketContext.Provider>
           </BrowserRouter>

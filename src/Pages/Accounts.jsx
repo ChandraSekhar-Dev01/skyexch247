@@ -43,15 +43,15 @@ function Accounts() {
             Account Statement
             <img src="/Images/right-angle.svg" alt="" className="text-black font-bold text-center flex justify-center items-center h-[6.4vw] w-[6.4vw] rounded border border-[#e0e6e6]" />
           </Link>
-          <Link to={"/profile"} state={{ state: 'bets' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
+          <Link to={"/profile"} state={{ state: 'bets', eventType: 'cb' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
             My Bets
             <img src="/Images/right-angle.svg" alt="" className="text-black font-bold text-center flex justify-center items-center h-[6.4vw] w-[6.4vw] rounded border border-[#e0e6e6]" />
           </Link>
-          <Link to={"/profile"} state={{ state: 'bets' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
+          <Link to={"/profile"} state={{ state: 'bets', eventType: 'bh' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
             Bets History
             <img src="/Images/right-angle.svg" alt="" className="text-black font-bold text-center flex justify-center items-center h-[6.4vw] w-[6.4vw] rounded border border-[#e0e6e6]" />
           </Link>
-          <Link to={"/profile"} state={{ state: 'bets' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
+          <Link to={"/profile"} state={{ state: 'bets', eventType: 'pl' }} className="text-[4vw] font-bold p-2 border-b border-[#e0e6e6] flex justify-between items-center" style={{ fontFamily: "Helvetica, Tahoma, sans-serif", borderBottom: "1px solid #e0e6e6", lineHeight: "1.6" }}>
             Profit & Loss
             <img src="/Images/right-angle.svg" alt="" className="text-black font-bold text-center flex justify-center items-center h-[6.4vw] w-[6.4vw] rounded border border-[#e0e6e6]" />
           </Link>
