@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainLayout from "./utils/MainLayout";
+import { AuthProvider } from "./AuthContext";
+import { TimeProvider } from "./TimeContext/TimeContext";
+import { socket, WebSocketContext } from "./Context/websocket";
+import Login from "./Pages/Auth/Login";
+import DynamicViewport from "./utils/DynamicViewport";
+import Downline from "./Pages/Downline";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {" "}
+      <AuthProvider>
+        <TimeProvider>
+          <BrowserRouter>
+            <DynamicViewport />
+            <WebSocketContext.Provider value={socket}>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<MainLayout />}>
+                  <Route index element={<Downline />} />
+                </Route>
+              </Routes>
+            </WebSocketContext.Provider>
+          </BrowserRouter>
+        </TimeProvider>
+      </AuthProvider>
+    </>
   );
 }
 
