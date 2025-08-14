@@ -9,6 +9,7 @@ import { socket, WebSocketContext } from "./Context/websocket";
 import Login from "./Pages/Auth/Login";
 import DynamicViewport from "./utils/DynamicViewport";
 import Downline from "./Pages/Downline";
+import Profile from "./Pages/Reports/Profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Downline />} />
+                  <Route path="profile" element={<Profile />} />
                 </Route>
               </Routes>
             </WebSocketContext.Provider>

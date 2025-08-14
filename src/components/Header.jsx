@@ -34,7 +34,7 @@ const Header = () => {
 
   const menuItems = [
     { name: "Downline List", url: "/" },
-    { name: "My Account", url: "" },
+    { name: "My Account", url: "/profile" },
     {
       name: "My Report",
       dropdown: [
@@ -112,7 +112,7 @@ const Header = () => {
                   <div key={name} className="relative group">
                     {/* Menu Button */}
                     <button
-                      onClick={() => navigate(url)}
+                      onClick={() => { url == "/profile" ? navigate(url, { state: { state: 'summaryPage' } }) : navigate(url) }}
                       className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
                         ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
                         : "hover:bg-[#fff3]"
