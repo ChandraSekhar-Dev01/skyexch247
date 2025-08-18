@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 function Downline() {
+  const navigate = useNavigate()
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCRMOpen, setIsCRMOpen] = useState(false);
   const [isCSMOpen, setIsCSMOpen] = useState(false);
@@ -416,7 +419,7 @@ function Downline() {
                         <img src="/Images/status.png" alt="" />
                       </span>
                     </li>
-                    <li className='float-left cursor-pointer'>
+                    <li className='float-left cursor-pointer' onClick={() => { navigate("/profile", { state: { state: 'summaryPage', accountType: 'child' } }) }}>
                       <span className='w-[26px] h-[26px] ml-[3px] float-right'>
                         <img src="/Images/person.png" alt="" />
                       </span>

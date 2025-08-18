@@ -38,26 +38,23 @@ const Header = () => {
     {
       name: "My Report",
       dropdown: [
-        "Profit/Loss Report by Downline",
-        "Profit/Loss Report by Market",
+        { tab: "Profit/Loss Report by Downline", url: "/myReport/downlineProfitLoss" },
+        { tab: "Profit/Loss Report by Market", url: "/myReport/marketProfitLoss" },
       ],
-      url: "",
     },
-    { name: "BetList", url: "" },
+    { name: "BetList", url: "/betList" },
     {
       name: "Risk",
-      dropdown: ["Risk Management"],
-      url: "",
+      dropdown: [{ tab: "Risk Management", url: "" }],
     },
-    { name: "Banking", url: "" },
+    { name: "Banking", url: "/cashBanking" },
     {
       name: "Player Log & Report",
       dropdown: [
-        "Balance Log",
-        "Player Betting History",
-        "Player Profit and Loss",
+        { tab: "Balance Log", url: "" },
+        { tab: "Player Betting History", url: "/playerBettingHistory" },
+        { tab: "Player Profit and Loss", url: "/playerProfitLoss" },
       ],
-      url: ""
     },
   ];
 
@@ -112,7 +109,7 @@ const Header = () => {
                   <div key={name} className="relative group">
                     {/* Menu Button */}
                     <button
-                      onClick={() => { url == "/profile" ? navigate(url, { state: { state: 'summaryPage' } }) : navigate(url) }}
+                      onClick={() => { url == "/profile" ? navigate(url, { state: { state: 'summaryPage', accountType: 'parent' } }) : navigate(url) }}
                       className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
                         ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
                         : "hover:bg-[#fff3]"
@@ -129,10 +126,11 @@ const Header = () => {
                       <ul className="absolute hidden group-hover:flex flex-col font-bold bg-[#ffbd14] border-t border-[#00000033] z-[99] w-max">
                         {dropdown.map((item) => (
                           <li
-                            key={item}
+                            key={item.id}
                             className="border-b border-[#00000033] leading-[30px] text-[12px] flex whitespace-nowrap hover:bg-[#fff3] cursor-pointer"
+                            onClick={() => { navigate(item.url) }}
                           >
-                            <span className="text-[#000] px-[10px]">{item}</span>
+                            <span className="text-[#000] px-[10px]">{item.tab}</span>
                           </li>
                         ))}
                       </ul>
