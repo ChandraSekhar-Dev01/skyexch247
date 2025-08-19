@@ -16,6 +16,8 @@ import BetList from "./Pages/Reports/BetList";
 import Banking from "./Pages/Reports/Banking";
 import PlayerPL from "./Pages/Reports/PlayerLog&Report/PlayerPL";
 import PlayerBettingHistory from "./Pages/Reports/PlayerLog&Report/PlayerBettingHistory";
+import BalanceLog from "./Pages/Reports/PlayerLog&Report/BalanceLog";
+import RiskManagement from "./Pages/Reports/Risk Management/RiskManagement";
 
 function App() {
   return (
@@ -40,11 +42,22 @@ function App() {
                     element={<PLMarket />}
                   />
                   <Route path="betList" element={<BetList />} />
-                  <Route path="cashBanking" element={<Banking />} />
-                  <Route path="playerProfitLoss" element={<PlayerPL />} />
                   <Route
-                    path="playerBettingHistory"
+                    path="riskManagement/riskManagement"
+                    element={<RiskManagement />}
+                  />
+                  <Route path="cashBanking" element={<Banking />} />
+                  <Route
+                    path="playerLogReport/playerBettingHistory"
                     element={<PlayerBettingHistory />}
+                  />
+                  <Route
+                    path="playerLogReport/playerProfitLoss"
+                    element={<PlayerPL />}
+                  />
+                  <Route
+                    path="playerLogReport/balanceLog"
+                    element={<BalanceLog />}
                   />
                 </Route>
               </Routes>

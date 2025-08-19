@@ -45,15 +45,15 @@ const Header = () => {
     { name: "BetList", url: "/betList" },
     {
       name: "Risk",
-      dropdown: [{ tab: "Risk Management", url: "" }],
+      dropdown: [{ tab: "Risk Management", url: "/riskManagement/riskManagement" }],
     },
     { name: "Banking", url: "/cashBanking" },
     {
       name: "Player Log & Report",
       dropdown: [
-        { tab: "Balance Log", url: "" },
-        { tab: "Player Betting History", url: "/playerBettingHistory" },
-        { tab: "Player Profit and Loss", url: "/playerProfitLoss" },
+        { tab: "Balance Log", url: "playerLogReport/balanceLog" },
+        { tab: "Player Betting History", url: "playerLogReport/playerBettingHistory" },
+        { tab: "Player Profit and Loss", url: "playerLogReport/playerProfitLoss" },
       ],
     },
   ];

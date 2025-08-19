@@ -9,7 +9,7 @@ function MainLayout() {
   return (
     <>
       <Header />
-      <div className={` ${(location.pathname == '/betList' || location.pathname == '/cashBanking') ? " m-[0_auto]" : "w-[1350px] m-[0_auto]"}`}>
+      <div className={` ${(location.pathname == '/betList' || location.pathname == '/cashBanking' || location.pathname == '/playerLogReport/balanceLog') ? " m-[0_auto]" : "w-[1350px] m-[0_auto]"}`}>
         <Outlet />
       </div>
       <Footer />
