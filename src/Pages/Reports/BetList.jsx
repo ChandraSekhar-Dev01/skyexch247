@@ -5,7 +5,7 @@ function BetList() {
   const [toggleUser, setToggleUser] = useState(false);
   return (
     <>
-      <div className="relative min-w-[1350px] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
+      <div className="relative min-w-[content-screen-width] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
         <h2 className='flex w-full text-[13px] text-[#243a48] leading-[20px] font-bold pt-[6px] mb-[6px]'>Bet List</h2>
         <ul className="mb-[5px] mr-[5px] block clear-both text-[12px] text-[#1e1e1e] leading-[15px] after:content-[''] after:block after:clear-both">
           <li

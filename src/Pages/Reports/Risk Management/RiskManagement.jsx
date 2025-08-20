@@ -3,7 +3,7 @@ import React from 'react'
 function RiskManagement() {
   return (
     <>
-      <div className="relative min-w-[1350px] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
+      <div className="relative min-w-[content-screen-width] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
         <div className="m-[13px_0_10px_0] p-[0_5px]">
           <h2 className='block font-bold text-[16px] text-[#243a48] float-left leading-[20px] pt-[2px] mt-[6px]'>Risk Management Summary</h2>
           <span className='flex justify-center items-center h-[32px] w-[32px] m-[0_0_0_10px] bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded text-[#1e1e1e] font-bold leading-[23px] text-[12px] box-border text-center float-right cursor-pointer'>

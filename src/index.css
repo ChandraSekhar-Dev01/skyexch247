@@ -90,3 +90,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateX(-100%);
   }
 }
+
+.content-screen-width {
+  width: 100%;
+}
+
+@media (min-width: 1355px) {
+  .content-screen-width {
+  width: 1350px;
+}  
+}

@@ -3,7 +3,7 @@ import React from 'react'
 function BalanceLog() {
   return (
     <>
-      <div className="relative min-w-[1350px] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
+      <div className="relative min-w-[content-screen-width] max-w-[calc(100%-40px)] h-[calc(100%-105px)] my-0 mx-auto text-[12px] text-[#1e1e1e] leading-[15px]">
         <h2 className='flex w-full text-[13px] text-[#243a48] leading-[20px] font-bold pt-[6px] mb-[6px]'>Balance log</h2>
         <div>
           <div className='relative p-[10px_10px_0] bg-[#e0e6e6] border-b border-[#7e97a7] mb-[10px]'>

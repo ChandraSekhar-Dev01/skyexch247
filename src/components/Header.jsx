@@ -64,7 +64,7 @@ const Header = () => {
       <header className="w-full">
         {/* Top PC Header */}
         <div className="hidden lg:block [background-image:linear-gradient(180deg,_#383838_0%,_#010101_100%)] bg-[#000] pt-3 pb-2 px-4">
-          <div className="hidden sm:flex items-center justify-between w-[1350px] m-[0_auto]">
+          <div className="hidden sm:flex items-center justify-between content-screen-width m-[0_auto]">
             {/* Logo + Search */}
             <div className="flex items-center gap-4 ml-2">
               <img src="/logo.png" alt="Logo" className="w-14 cursor-pointer" onClick={() => { navigate("/") }} />
@@ -100,7 +100,7 @@ const Header = () => {
 
         {/* Menu Bar */}
         <nav className="hidden lg:block bg-[#f7c419] border-t border-b border-yellow-500 text-xs font-bold text-black">
-          <div className="flex items-center justify-between w-[1350px] m-[0_auto]">
+          <div className="flex items-center justify-between content-screen-width m-[0_auto]">
             {/* Menu Items */}
             <div className=" flex ">
               {menuItems.map(({ name, dropdown, url }) => {

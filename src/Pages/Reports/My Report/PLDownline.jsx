@@ -94,6 +94,103 @@ function PLDownline() {
           <span className='block clear-both'></span>
         </ul>
       </div>
+      <div className='m-[13px_0_10px_0] p-[0 5px] text-[12px] text-[#1e1e1e] leading-[15px]'>
+        <div className='m-0 float-left'>
+          <ul className='block clear-both bg-[#eee] p-[0_5px_0_5px] shadow-[inset_0_1px_0_0_#fff] border border-[#7e97a7] rounded-[3px] float-left'>
+            <li className='hidden relative text-[16px] font-bold leading-[30px] pr-[5px] float-left'>
+              <span className='block text-[#1e1e1e] leading-[26px] h-[30px]'>
+                <span className="w-[26px] h-[15px] leading-[15px] no-underline text-white rounded-[4px] mr-[5px] text-[10px] inline-block text-center mt-[8px] font-extralight bg-[#d77319]">
+                  COM
+                </span>
+                <strong className='text-[#1e1e1e] leading-[26px]'>
+                  teamj
+                  <img src="/Images/ag_path_arrow.png" alt="" className='ml-1 inline-block p-[0_5px_0_5px]' />
+                </strong>
+              </span>
+            </li>
+            <li className='hidden relative text-[16px] font-bold leading-[30px] pr-[5px] float-left'>
+              <span className='block text-[#1e1e1e] leading-[26px] h-[30px]'>
+                <span className="w-[26px] h-[15px] leading-[15px] no-underline text-white rounded-[4px] mr-[5px] text-[10px] inline-block text-center mt-[8px] font-extralight bg-[#d65d5d]">
+                  SS
+                </span>
+                <strong className='text-[#1e1e1e] leading-[26px]'>
+                  teamj
+                  <img src="/Images/ag_path_arrow.png" alt="" className='ml-1 inline-block p-[0_5px_0_5px]' />
+                </strong>
+              </span>
+            </li>
+            <li className='hidden relative text-[16px] font-bold leading-[30px] pr-[5px] float-left'>
+              <span className='block text-[#1e1e1e] leading-[26px] h-[30px]'>
+                <span className="w-[26px] h-[15px] leading-[15px] no-underline text-white rounded-[4px] mr-[5px] text-[10px] inline-block text-center mt-[8px] font-extralight bg-[#a762b5]">
+                  SUP
+                </span>
+                <strong className='text-[#1e1e1e] leading-[26px]'>
+                  teamj
+                  <img src="/Images/ag_path_arrow.png" alt="" className='ml-1 inline-block p-[0_5px_0_5px]' />
+                </strong>
+              </span>
+            </li>
+            <li className='block relative text-[16px] font-bold leading-[30px] pr-[5px] float-left'>
+              <span className='block text-[#1e1e1e] leading-[26px] h-[30px]'>
+                <span className="w-[26px] h-[15px] leading-[15px] no-underline text-white rounded-[4px] mr-[5px] text-[10px] inline-block text-center mt-[8px] font-extralight bg-[#85b352]">
+                  MA
+                </span>
+                <strong className='text-[#1e1e1e] leading-[26px]'>
+                  teamj
+                </strong>
+              </span>
+            </li>
+
+            <li className='hidden relative text-[16px] font-bold leading-[30px] pr-[5px] float-left'>
+              <span className='block text-[#1e1e1e] leading-[26px] h-[30px]'>
+                <img src="/Images/ag_path_arrow.png" alt="" className='ml-1 inline-block p-[0_5px_0_5px]' />
+                <span className="w-[26px] h-[15px] leading-[15px] no-underline text-white rounded-[4px] mr-[5px] text-[10px] inline-block text-center mt-[8px] font-extralight bg-[#568bc8]">
+                  PL
+                </span>
+                <strong className='text-[#1e1e1e] leading-[26px]'>jp1122user</strong>
+              </span>
+            </li>
+            <span className='block clear-both'></span>
+          </ul>
+          <span className='block clear-both'></span>
+        </div>
+        <span className='block clear-both'></span>
+      </div>
+      <table className="w-full text-[11px] m-[20px_0_0] text-[#1e1e1e] border-collapse border-b border-[#7e97a7]">
+        <thead>
+          <tr className="">
+            <th className="text-[#243a48] bg-[#e4e4e4] w-[5%] text-left p-[8px_5px] border-y border-[#7e97a7]">Serial No</th>
+            <th className="text-[#243a48] bg-[#e4e4e4] text-left p-[8px_5px] border-y border-[#7e97a7]">UID</th>
+            <th className="text-[#243a48] bg-[#e4e4e4] w-[18%] p-[8px_5px] border-y border-[#7e97a7]">Stake</th>
+            <th className="text-[#243a48] bg-[#e4e4e4] w-[18%] p-[8px_5px] border-y border-[#7e97a7]">Player P/L</th>
+            <th className="text-[#243a48] bg-[#e4e4e4] w-[18%] p-[8px_5px] border-y border-[#7e97a7]">Master Comm.</th>
+            <th className="text-[#243a48] bg-[#e4e4e4] w-[18%] p-[8px_5px] border-y border-[#7e97a7]">Upline P/L</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className='bg-[#fff] border-y border-[#7e97a7]'>
+            <td className='text-center p-[8px_3px]'>1</td>
+            <td className='p-[8px_3px] relative border-t border-[#eee] align-middle text-left'>
+              <span className='align-middle inline-block bg-[#568bc8] w-[26px] h-[15px] leading-[15px] text-[#fff] rounded mr-[5px] text-[10px] text-center'>PL</span>
+              <span className="break-all w-[calc(100%-69px)] align-middle inline-block text-left text-[#2789ce] underline">
+                jp1122user
+              </span>
+            </td>
+            <td className='text-center p-[8px_3px]'>1,173.00</td>
+            <td className='text-center p-[8px_3px] text-[#d0021b]'>( 293.30)</td>
+            <td className='text-center p-[8px_3px]'>0.00</td>
+            <td className='text-center p-[8px_3px]'>293.30</td>
+          </tr>
+          <tr className='bg-[#fff] border-y border-[#7e97a7]'>
+            <td className='text-center p-[8px_3px]'></td>
+            <td className='text-left text-[#243a48] font-bold p-[8px_3px] relative overflow-hidden text-ellipsis whitespace-nowrap align-middle'>Total</td>
+            <td className='text-center text-[#243a48] font-bold p-[8px_3px] relative overflow-hidden text-ellipsis whitespace-nowrap align-middle'>1,173.00</td>
+            <td className='text-center font-bold p-[8px_3px] relative overflow-hidden text-ellipsis whitespace-nowrap align-middle text-[#d0021b]'>( 293.30)</td>
+            <td className='text-center text-[#243a48] font-bold p-[8px_3px] relative overflow-hidden text-ellipsis whitespace-nowrap align-middle'>0.00</td>
+            <td className='text-center text-[#243a48] font-bold p-[8px_3px] relative overflow-hidden text-ellipsis whitespace-nowrap align-middle'>293.30</td>
+          </tr>
+        </tbody>
+      </table>
     </>
   )
 }

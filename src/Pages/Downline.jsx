@@ -630,7 +630,7 @@ function Downline() {
 
         {/* Footer */}
         <div className='sticky bottom-0 w-full z-[51]'>
-          <div className='relative w-[1350px] m-[0_auto] bg-[#eee] border-t border-[#d4d4d4]'>
+          <div className='relative content-screen-width m-[0_auto] bg-[#eee] border-t border-[#d4d4d4]'>
             <ul className='m-[0_auto] p-[5px_0] float-right text-[11px] flex text-[#1e1e1e]'>
               <li className='h-[26px] text-[11px] flex'>
                 <img src="/Images/bank.png" alt="" className='' />

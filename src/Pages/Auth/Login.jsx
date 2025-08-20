@@ -147,7 +147,7 @@ const Login = ({ onClose }) => {
         style={{ backgroundImage: "url('/Images/bg-login.jpg')" }}
       >
         {/* Scrollable content */}
-        <div className="h-screen overflow-y-auto scroll-hide">
+        <div className="h-[100vh] relative overflow-y-auto scroll-hide">
           <div className="bg-[linear-gradient(180deg,_#ffb600_1%,_#ffb600_100%)] absolute top-[15%] left-[calc(50%-270px)] w-[540px] h-[408px] rounded-lg shadow-[0_5px_20px_#00000080]">
             <div className="relative w-[250px] h-full rounded-[8px_0_0_8px] float-left" style={{ backgroundImage: "url('/Images/bg-login_wrap.png')" }}></div>
             <dl className="text-[#243a48] m-[100px_0_0_25px] float-left">
@@ -159,8 +159,8 @@ const Login = ({ onClose }) => {
                 <input type="password" placeholder="Password" className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
               </dd>
               <dd className="block relative w-[220px] mb-[7px]">
-                <input type="text" placeholder="Validation Code" maxLength={4} className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
-                <span className="absolute right-[5px] top-[5px] font-black">3677</span>
+                <input type="text" placeholder="Validation Code" maxLength={4} value={vCode} onChange={(e) => setVCode(e.target.value)} className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
+                <span className="absolute right-[5px] top-[-2px] text-end font-black text-[20px] text-[#000] tracking-tighter">{code}</span>
               </dd>
               <dd className="block relative w-[220px] mb-[7px]">
                 <span className="w-full h-[38px] text-[15px] leading-[36px] font-bold border border-[#222] shadow-[initial] m-[15px_0_0] text-[#ffb600] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded box-border block text-center cursor-pointer">
@@ -231,16 +231,16 @@ const Login = ({ onClose }) => {
 
 
       {/* For Mobile */}
-      <div className={` lg:hidden relative h-[${String(screenHeight)}px] w-screen h-[110vh]`} style={{ backgroundColor: "rgb(255 184 12)" }}>
+      <div className={` lg:hidden relative h-[${String(screenHeight)}px] w-screen min-h-[858px]`} style={{ backgroundColor: "rgb(255 184 12)" }}>
         {/*  for back to home page */}
-        <div className=" right-[1.8666666667vw] top-[1.8666666667vw] fixed rounded-full bg-[#000000b3] h-[9.3333333333vw] w-[9.3333333333vw] flex justify-center items-center" onClick={onClose}>
+        {/* <div className=" right-[1.8666666667vw] top-[1.8666666667vw] fixed rounded-full bg-[#000000b3] h-[9.3333333333vw] w-[9.3333333333vw] flex justify-center items-center" onClick={onClose}>
           <Link to="/">
             <img src="/Images/cut-white.svg" className="w-[3.4666666667vw] h-[3.4666666667vw]" alt="" />
           </Link>
-        </div>
+        </div> */}
 
         <img src='/Images/KV-pic.png' alt="" />
-        <img src="/logo.png" className='absolute top-[11%] right-[35%] h-[29.3333333333vw]' alt="" />
+        <img src="/logo.png" className='absolute top-[24vw] left-[34.5vw] h-[29.3333333333vw]' alt="" />
         {/* <div className='absolute  top-56  right-[37%]' style={{top: '16rem'}}>
         <p className='text-[#aaaaaa] text-xs text-center'>Powered By</p>
       <img src={BetfairMobileLogo} className='h-5 text-[#aaaaaa]' alt="" />
@@ -278,7 +278,7 @@ const Login = ({ onClose }) => {
               className='rounded-l-[1.6vw] w-2/3 bg-[#fff] text-[#1e1e1e] text-[4vw] m-0  focus:bg-[#fff0ca] focus:outline-none'
               style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }}
             />
-            <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className='bg-white w-1/3 rounded-r-lg px-3 pt-1 text-end font-bold text-[5.5vw]'>{code}</div>
+            <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className='bg-white w-1/3 rounded-r-lg px-3 pt-1 text-end font-[900] text-[5.5vw] tracking-tighter'>{code}</div>
           </div>
           <div className="flex flex-col w-full gap-1">
             <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] text-[4vw] font-bold rounded-[1.6vw]" onClick={(e) => { handleSubmit(e) }} style={{ lineHeight: "2.6" }}>
@@ -292,15 +292,8 @@ const Login = ({ onClose }) => {
         </div>
 
         {/* -------------- footer ------------------------------------------*/}
-        <div className={`pb-10 px-[1.2vw] lg:px-40`}>
-          <div className="flex flex-col justify-center lg:border-t mt-0 border-[#0000004d]">
-            {/* for mobile view */}
-            <p className="lg:hidden flex justify-center flex-wrap gap-[4px] text-[3.4666666667vw] mt-2 text-[#000000b3]">
-              <Link className="underline">Privacy Policy</Link><Link className="underline">|Terms and Conditions</Link><Link className="underline">Rules and Regulations</Link>|<Link className="underline"> KYC</Link>|<Link className="underline"> Responsible Gaming</Link>|<Link className="underline"> About Us</Link>|<Link className="underline">Self-exclusion Policy</Link>|<Link className="underline"> Underage Policy</Link>
-            </p>
-          </div>
-
-          <div className="mx-5 lg:mx-36 pt-7">
+        <div className={`pb-10 px-0 lg:px-40`}>
+          <div className="mx-8 lg:mx-36 pt-3">
             <div className="lg:flex justify-between mb-2 ">
               <div className=" bg-[#ffffff99] lg:w-[49%] mb-2 lg:mb-0 flex gap-2 justify-start items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]" style={{ padding: "8px 0" }}>
                 <img src="/Images/headphone-black.svg" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
@@ -313,18 +306,28 @@ const Login = ({ onClose }) => {
             <div className="w-full bg-[#ffffff99] h-4 mb-2 rounded-lg"></div>
 
             {/*  for mobile view */}
-            <div className="flex lg:hidden justify-between gap-2">
-              <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[2.9333333333vw] text-[#000000b3] hover:text-black cursor-pointer leading-[6.66vw]" style={{ padding: "8px 0" }}>
+            <div className="flex lg:hidden justify-between gap-2  text-[3.4666666667vw] text-[#000000b3]">
+              <div className="bg-[#ffffff99] w-full text-center p-[8px_0] rounded-lg text-[#000000b3] hover:text-black cursor-pointer align-middle">
                 {" "}
-                <img src="/Images/skype-black.png" className="w-[6vw]" alt="" /> Skype
+                <img src="/Images/skype-black.png" className="w-[5.8666666667vw] h-[5.8666666667vw] mr-[2vw] inline-block" alt="" />
+                <span className="text-[2.9333333333vw] leading-[6.6666666667vw] text-[#000000b3]">
+                  Skype
+                </span>
               </div>
-              <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
+              <div className="bg-[#ffffff99] w-full text-center p-[8px_0] rounded-lg text-[#000000b3] hover:text-black cursor-pointer align-middle">
                 {" "}
-                <img src="/Images/mail-black.png" className="w-[6vw]" alt="" /> Email
+                <img src="/Images/mail-black.png" className="w-[5.8666666667vw] h-[5.8666666667vw] mr-[2vw] inline-block" alt="" />
+                <span className="text-[2.9333333333vw] leading-[6.6666666667vw] text-[#000000b3]">
+                  Email
+                </span>
+
               </div>
-              <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
+              <div className="bg-[#ffffff99] w-full text-center p-[8px_0] rounded-lg text-[#000000b3] hover:text-black cursor-pointer align-middle">
                 {" "}
-                <img src="/Images/ig-black.png" className="w-[6vw]" alt="" /> Instagram
+                <img src="/Images/ig-black.png" className="w-[5.8666666667vw] h-[5.8666666667vw] mr-[0.5333333333vw] inline-block" alt="" />
+                <span className="text-[2.9333333333vw] leading-[6.6666666667vw] text-[#000000b3]">
+                  skyexchindia
+                </span>
               </div>
             </div>
           </div>
