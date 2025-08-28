@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     // Save user data and authentication status (you can also store a token here)
+    window.location.href = "/";
     setUser(userData);
     setIsAuthenticated(true);
     dispatch(setUserInfo({ key: "userdata", value: userData && userData }));

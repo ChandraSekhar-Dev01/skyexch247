@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Helper from '../helper';
 import { getAllEvents } from '../redux/slice/event/eventSlice';
 import { Link } from 'react-router-dom';
+import News from '../components/News';
 
 function Inplay() {
 
@@ -96,7 +97,9 @@ function Inplay() {
       <div className='hidden lg:flex gap-4 px-4 pt-[1px]'>
         {/* Right Section */}
         <div className='w-[75%]'>
-          <div className='text-xs font-bold mb-4 mt-[6px]'>
+          {/* News Marquee */}
+          <News />
+          <div className='text-xs font-bold my-4'>
             <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-l cursor-pointer hover:underline ${selectedEvent == "inplay" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
             <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] cursor-pointer hover:underline ${selectedEvent == "tod" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tod")}>Today</span>
             <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-r cursor-pointer hover:underline ${selectedEvent == "tom" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
@@ -132,13 +135,16 @@ function Inplay() {
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
                                 }
                                 <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
+                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
                                   {item.is_fancy == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
                                   }
                                   {item.is_bm == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
                                   }
+                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
+                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
+                                  </span>
                                 </div>
                               </span>
                             </div>
@@ -207,13 +213,16 @@ function Inplay() {
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
                                 }
                                 <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
+                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
                                   {item.is_fancy == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
                                   }
                                   {item.is_bm == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
                                   }
+                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
+                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
+                                  </span>
                                 </div>
                               </span>
                             </div>
@@ -282,13 +291,16 @@ function Inplay() {
                                   <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
                                 }
                                 <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
+                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
                                   {item.is_fancy == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
                                   }
                                   {item.is_bm == "True" &&
                                     <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
                                   }
+                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
+                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
+                                  </span>
                                 </div>
                               </span>
                             </div>

@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { getAllBets } from "../redux/slice/openBet/openBetSlice";
 import { Modal } from "antd";
 import { DesktopOutlined } from "@ant-design/icons";
+import News from "../components/News";
 
 function Matchupdate() {
 
@@ -2129,6 +2130,10 @@ function Matchupdate() {
             </div>
             {/* Center Section */}
             <div className='w-[70%]'>
+
+              {/* News Marquee */}
+               <News />
+              
               {/* Score Panel */}
               <div className="bg-[#172832]">
                 <table

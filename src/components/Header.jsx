@@ -25,9 +25,15 @@ const Header = () => {
   const dispatch = useDispatch();
   const userInfos = useSelector((state) => state.events);
   const accountMenuRef = useRef(null);
+  const editStakeRef = useRef(null);
 
 
+
+  const [errorMessage, setErrorMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModal, setIsLoginModal] = useState(false);
+  const [editStakeOpen, setEditStakeOpen] = useState(false);
+  const [openBetsOpen, setOpenBetsOpen] = useState(false);
   const [inplayEvents, setInplayEvents] = useState([])
   const { login, logout, setShowLoginModel, setCurrentBalance } = useAuth();
   console.log('header userinfo : ', userInfo)
@@ -95,6 +101,7 @@ const Header = () => {
 
 
   const handleInputChange = (e) => {
+    setErrorMessage("");
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -106,22 +113,22 @@ const Header = () => {
     event.preventDefault();
 
     if (formData?.user_name == "") {
-      toast.error("Please Enter Your Username", { autoClose: 1000 });
+      setErrorMessage("Username is empty");
       return;
     }
 
     if (formData?.password == "") {
-      toast.error("Please Enter Your Password", { autoClose: 1000 });
+      setErrorMessage("password is empty");
       return;
     }
 
     if (vCode == "") {
-      toast.error("Validation code is empty", { autoClose: 1000 });
+      setErrorMessage("Validation code is empty");
       return;
     }
 
     if (vCode != validationCode) {
-      toast.error("Invalid validation code!", { autoClose: 1000 });
+      setErrorMessage("Invalid validation code!");
       return;
     }
 
@@ -137,12 +144,11 @@ const Header = () => {
     axios(config)
       .then(function (response) {
         if (response.data.result) {
-          toast.success(response.data.resultMessage, { autoClose: 500 });
           login(response.data.resultData);
           setShowLoginModel(false);
           console.log('response data : ', response)
         } else {
-          toast.error("Invalid Credentials", { autoClose: 800 });
+          setErrorMessage("Login name or password is invalid! Please try again.");
         }
         formData.user_name = "";
         formData.password = "";
@@ -156,7 +162,8 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    // setShowSidebar(false);
+    window.location.href = "/";
+    setIsMyAccountModelOpen(false);
   };
 
   const menuItems = [
@@ -205,6 +212,9 @@ const Header = () => {
     if (location.pathname === "/sports" && location.state?.sportType) {
       setActiveSportType(location.state.sportType);
     }
+    if (location.pathname === "/profile") {
+      setIsMyAccountModelOpen(false);
+    }
   }, [location]);
 
 
@@ -218,11 +228,22 @@ const Header = () => {
         setIsMyAccountModelOpen(false);
       }
     };
+    const handleClickOutsideEditStake = (event) => {
+      if (
+        editStakeRef.current &&
+        !editStakeRef.current.contains(event.target)
+      ) {
+        setEditStakeOpen(false);
+      }
+    };
 
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutsideEditStake);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutsideEditStake);
+
     };
   }, []);
 
@@ -230,9 +251,65 @@ const Header = () => {
 
   return (
     <>
-      {/* {isModalOpen && (
-      )} */}
-      {/* Modal */}
+      {/* Login Modal */}
+      {!userInfo && isLoginModal &&
+        <div className="block fixed top-0 left-0 w-full h-full bg-[#0000004d] z-[100] text-[#1e1e1e] text-[12px] leading-[15px]">
+          <div className="bg-[linear-gradient(180deg,_#ffb600_1%,_#ffb600_100%)] absolute top-[18%] left-[calc(50%-270px)] w-[540px] h-[408px] rounded-lg shadow-[0_5px_20px_#00000080]">
+            <div className="relative w-[250px] h-full rounded-[8px_0_0_8px] float-left" style={{ backgroundImage: "url('/Images/bg-login_wrap.png')" }}></div>
+            <dl className="text-[#243a48] m-[100px_0_0_25px] float-left">
+              <dt className="text-[#000] text-[20px] leading-[24px] mb-[15px]">Please login to continue</dt>
+              <dd className="relative w-[220px] mb-[7px]">
+                <input
+                  name="user_name"
+                  type="text"
+                  placeholder="Username"
+                  required
+                  value={formData.user_name}
+                  onChange={(e) => handleInputChange(e)}
+                  className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
+              </dd>
+              <dd className="relative w-[220px] mb-[7px]">
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                  value={formData.password}
+                  onChange={(e) => handleInputChange(e)}
+                  className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
+              </dd>
+              <dd className="block relative w-[220px] mb-[7px]">
+                <input
+                  name="validation"
+                  type="text"
+                  placeholder="Validation Code"
+                  maxLength={4}
+                  value={vCode}
+                  onChange={(e) => setVCode(e.target.value)}
+                  className="w-full h-[33px] text-[14px] leading-[21px] border border-[#aaa] shadow-[inset_0px_2px_0px_0px_#0000001a] m-0 text-[#1e1e1e] bg-[#fff] rounded p-[5px] box-border" />
+                <span className="absolute right-[5px] top-[7px] text-end font-black text-[20px] text-[#000] tracking-tighter">{validationCode}</span>
+              </dd>
+              <dd className="block relative w-[220px] mb-[7px]">
+                <span
+                  className="w-full h-[38px] text-[15px] leading-[36px] font-bold border border-[#222] shadow-[initial] m-[15px_0_0] text-[#ffb600] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded box-border block text-center cursor-pointer"
+                  onClick={(e) => { handleSubmit(e) }}
+                >
+                  Login
+                  <img src="/Images/login.svg" alt="" className="bg-no-repeat w-[10px] h-[11px] absolute top-[14px] right-[80px]" />
+                </span>
+              </dd>
+              <dd className="hidden text-[#d0021b] text-[13px] leading-[16px] relative w-[220px] mb-[7px]">error</dd>
+            </dl>
+            <span
+              className="absolute mt-[10px] ml-[15px] w-[20px] h-[20px] cursor-pointer"
+              style={{ backgroundImage: "url('/Images/black-cross.svg')" }}
+              onClick={() => { setIsLoginModal(false); }}
+            ></span>
+            <span className='block clear-both'></span>
+          </div>
+        </div>
+      }
+      {/* Balance Overview Modal */}
       <div
         className={`fixed top-0 left-0 w-screen h-screen bg-[#000000b3] z-[99999] flex flex-col justify-start items-center transition-opacity duration-300 ${isModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
@@ -309,6 +386,141 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Open Bets section */}
+      <div className={`${openBetsOpen ? "block" : "hidden"} fixed top-0 left-0 w-[100vw] h-full bg-[#000000b3] z-[99] openBetsAnimation`}>
+        <div className="flex flex-col relative w-full h-full bg-[#eee] shadow-[0.5333333333vw_0_1.6vw_0_#00000080] rounded-[0_1.6vw_1.6vw_0]">
+          <div className="flex flex-[0_0_10.4vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[0_1.6vw_0_0]">
+            <h3 className="flex flex-1 items-center relative text-center text-[#ffb200] p-[0_1.8666666667vw] leading-[2.6] text-[4vw] font-bold bg-transparent">
+              <img src="/Images/bets-icon.svg" alt="" className="bg-no-repeat bg-contain float-left w-[5.3333333333vw] h-[5.3333333333vw] align-middle mr-[1.333vw]" />
+              Open Bets
+            </h3>
+            <span
+              className="flex justify-center items-center p-[0_3.4666667vw] border-l border-[#ffb2004d]"
+              onClick={() => { setOpenBetsOpen(false); }}
+            >
+              <img src="/Images/cross-yellow.svg" alt="" className="block bg-contain w-[2.4vw] h-[2.4vw]" />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Open Edit Stake Setting section */}
+      <div className={`${editStakeOpen ? "block lg:hidden" : "hidden"} fixed top-0 left-0 w-[100vw] h-full bg-[#000000b3] z-[99] openBetsAnimation`}>
+        <div className="flex flex-col relative w-full h-full bg-[#eee] shadow-[0.5333333333vw_0_1.6vw_0_#00000080] rounded-[0_1.6vw_1.6vw_0]">
+          <div className="flex flex-[0_0_10.4vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[0_1.6vw_0_0]">
+            <h3 className="flex flex-1 items-center relative text-center text-[#ffb200] p-[0_1.8666666667vw] leading-[2.6] text-[4vw] font-bold bg-transparent">
+              <img src="/Images/setting-yellow.svg" alt="" className="bg-no-repeat bg-contain float-left w-[5.3333333333vw] h-[5.3333333333vw] align-middle mr-[1.333vw]" />
+              Setting
+            </h3>
+            <span
+              className="flex justify-center items-center p-[0_3.4666667vw] border-l border-[#ffb2004d]"
+              onClick={() => { setEditStakeOpen(false); }}
+            >
+              <img src="/Images/cross-yellow.svg" alt="" className="block bg-contain w-[2.4vw] h-[2.4vw]" />
+            </span>
+          </div>
+          <div className="rounded-[0_0_0_1.6vw]">
+            <h3 className="flex justify-between items-center p-[0_1.8666666667vw] bg-[linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[#fff] text-[3.7333333333vw] leading-[2.2] font-bold">Stake</h3>
+            <dl className="flex flex-wrap text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-1 items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                Default stake
+                <input type="number" name="" id="" pattern="[0-9]" className="w-[26.6666666667vw] m-[0_0_0_1.3333333333vw] text-right relative bg-[#fff] border border-[#aaa] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[#1e1e1e] text-[4vw] p-[2.6666666667vw_1.8666666667vw]" />
+              </dt>
+            </dl>
+
+            <dl className="flex flex-wrap text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-[1_1_100%] items-center box-border p-[0_1.8666666667vw_1.8666666667vw_0]">Quick Stakes</dt>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">100</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">10000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">30000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">50000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">100000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">150000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">300000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block flex-1 text-[#ffb600] leading-[2.2] bg-[#444] border border-[#222] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[4vw] font-bold text-center">500000</span>
+              </dd>
+              <dd className="flex flex-[1_1_25%] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block w-full leading-[2.6] font-bold text-center text-[#243a48] bg-[#c5d0d766] border-[0.2666666667vw] border-[#7e97a7] shadow-[inset_0_0.5333333333vw_0_0_#ffffffcc] rounded-[1.6vw]">
+                  Edit Stake
+                  <span className="w-[4vw] h-[4vw] bg-no-repeat bg-contain align-top mt-[2.6666666667vw] ml-[1.3333333333vw] inline-block" style={{ backgroundImage: "url('/Images/edit-pen1.svg')" }}></span>
+                </span>
+              </dd>
+            </dl>
+            <h3 className="flex justify-between items-center p-[0_1.8666666667vw] bg-[linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[#fff] text-[3.7333333333vw] leading-[2.2] font-bold">Odds</h3>
+            <dl className="flex text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-[1_1_100%] items-center box-border p-[0_1.8666666667vw_1.8666666667vw_0]">Highlight when odds change</dt>
+              <dd className="flex flex-[0_1_9.3333333333vw] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block relative w-[9.3333333333vw] h-[9.3333333333vw] bg-[#6bbd11] shadow-[inset_0_0.2666666667vw_0.8vw_0_#00000080] rounded-[1.6vw] overflow-hidden float-right">
+                  <span className="flex justify-center items-center absolute right-[1.0666666667vw] top-[1.0666666667vw] w-[2.6666666667vw] h-[7.2vw] bg-[#fff] shadow-[0_0.5333333333vw_1.0666666667vw_0_#00000080,_inset_0_-0.8vw_0_0_#cad5d5] rounded-[1.0666666667vw]">
+                    <span className="w-[1.0666666667vw] h-[1.3333333333vw] bg-[#e0e6e6] shadow-[inset_0_0.2666666667vw_0.2666666667vw_0_#00000042] rounded-[0.5333333333vw] block"></span>
+                  </span>
+                </span>
+              </dd>
+            </dl>
+            <h3 className="flex justify-between items-center p-[0_1.8666666667vw] bg-[linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[#fff] text-[3.7333333333vw] leading-[2.2] font-bold">FancyBet</h3>
+            <dl className="flex text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-[1_1_100%] items-center box-border p-[0_1.8666666667vw_1.8666666667vw_0]">Accept Any Odds</dt>
+              <dd className="flex flex-[0_1_9.3333333333vw] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block relative w-[9.3333333333vw] h-[9.3333333333vw] bg-[#6bbd11] shadow-[inset_0_0.2666666667vw_0.8vw_0_#00000080] rounded-[1.6vw] overflow-hidden float-right">
+                  <span className="flex justify-center items-center absolute right-[1.0666666667vw] top-[1.0666666667vw] w-[2.6666666667vw] h-[7.2vw] bg-[#fff] shadow-[0_0.5333333333vw_1.0666666667vw_0_#00000080,_inset_0_-0.8vw_0_0_#cad5d5] rounded-[1.0666666667vw]">
+                    <span className="w-[1.0666666667vw] h-[1.3333333333vw] bg-[#e0e6e6] shadow-[inset_0_0.2666666667vw_0.2666666667vw_0_#00000042] rounded-[0.5333333333vw] block"></span>
+                  </span>
+                </span>
+              </dd>
+            </dl>
+            <h3 className="flex justify-between items-center p-[0_1.8666666667vw] bg-[linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[#fff] text-[3.7333333333vw] leading-[2.2] font-bold">SportsBook</h3>
+            <dl className="flex text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-[1_1_100%] items-center box-border p-[0_1.8666666667vw_1.8666666667vw_0]">Accept Any Odds</dt>
+              <dd className="flex flex-[0_1_9.3333333333vw] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block relative w-[9.3333333333vw] h-[9.3333333333vw] bg-[#6bbd11] shadow-[inset_0_0.2666666667vw_0.8vw_0_#00000080] rounded-[1.6vw] overflow-hidden float-right">
+                  <span className="flex justify-center items-center absolute right-[1.0666666667vw] top-[1.0666666667vw] w-[2.6666666667vw] h-[7.2vw] bg-[#fff] shadow-[0_0.5333333333vw_1.0666666667vw_0_#00000080,_inset_0_-0.8vw_0_0_#cad5d5] rounded-[1.0666666667vw]">
+                    <span className="w-[1.0666666667vw] h-[1.3333333333vw] bg-[#e0e6e6] shadow-[inset_0_0.2666666667vw_0.2666666667vw_0_#00000042] rounded-[0.5333333333vw] block"></span>
+                  </span>
+                </span>
+              </dd>
+            </dl>
+            <h3 className="flex justify-between items-center p-[0_1.8666666667vw] bg-[linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[#fff] text-[3.7333333333vw] leading-[2.2] font-bold">Win Selection forecast</h3>
+            <dl className="flex text-[4vw] text-[#243a48] border-b border-[#e0e6e6] p-[1.8666666667vw_0_0_1.8666666667vw]">
+              <dt className="flex flex-[1_1_100%] items-center box-border p-[0_1.8666666667vw_1.8666666667vw_0]">With Commission</dt>
+              <dd className="flex flex-[0_1_9.3333333333vw] items-center p-[0_1.8666666667vw_1.8666666667vw_0] box-border">
+                <span className="block relative w-[9.3333333333vw] h-[9.3333333333vw] bg-[#a2b1ba] shadow-[inset_0_0.2666666667vw_0.8vw_0_#00000080] rounded-[1.6vw] overflow-hidden float-right">
+                  <span className="flex justify-center items-center absolute left-[1.0666666667vw] top-[1.0666666667vw] w-[2.6666666667vw] h-[7.2vw] bg-[#fff] shadow-[0_0.5333333333vw_1.0666666667vw_0_#00000080,_inset_0_-0.8vw_0_0_#cad5d5] rounded-[1.0666666667vw]">
+                    <span className="w-[1.0666666667vw] h-[1.3333333333vw] bg-[#e0e6e6] shadow-[inset_0_0.2666666667vw_0.2666666667vw_0_#00000042] rounded-[0.5333333333vw] block"></span>
+                  </span>
+                </span>
+              </dd>
+            </dl>
+            <ul className="flex flex-wrap mt-[1.8666666667vw] p-[0_1.6vw_2.6666666667vw]">
+              <li
+                className="flex flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden"
+                onClick={() => { setEditStakeOpen(false); }}
+              >
+                <span className="block text-center font-bold text-[4vw]  text-[#1e1e1e] h-[10.9333vw] w-full leading-[10.9333vw] rounded-[1.6vw] border-[0.2666666667vw] border-[#aaa] bg-[linear-gradient(-180deg,#ffffff_0%,#eeeeee_89%)]">Cancel</span>
+              </li>
+              <li className="flex flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden">
+                <span className="block text-center font-bold text-[4vw]  text-[#ffb200] h-[10.9333vw] w-full leading-[10.9333vw] rounded-[1.6vw] border-[0.2666666667vw] border-[#222] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)]">Save</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Header Content */}
       <header className="w-full">
         {/* Top PC Header */}
         <div className="hidden lg:block [background-image:linear-gradient(180deg,_#383838_0%,_#010101_100%)] bg-[#000] pt-3 pb-2 px-4">
@@ -316,27 +528,31 @@ const Header = () => {
             {/* Logo + Search */}
             <div className="flex items-center gap-4 ml-2">
               <img src="/logo.png" alt="Logo" className="w-14 cursor-pointer" onClick={() => { navigate("/") }} />
-              <div className="relative w-72 leading-0  mb-3">
+              <div className="relative w-72 leading-0  mb-3 float-left">
                 {/* <FaSearch className="absolute left-2 top-1.5 text-black font-light w-4 " /> */}
-                <SearchOutlined className="absolute left-2 top-1 text-black font-light w-3.5 " />
+                <img src="/Images/searchD-icon.svg" alt="" className="absolute z-[1] top-[50%] left-[2px] block w-[19px] h-[19px] bg-no-repeat bg-contain [transform:translateY(-50%)]" />
                 <input
                   type="text"
                   placeholder="Search Events"
-                  className={`${inputClass} w-full px-1 py-[3px] pl-7`}
+                  className={`${inputClass} h-[25px] w-[280px] pl-[25px] py-[3px] m-0 box-border`}
                 />
               </div>
             </div>
 
             {/* Login Fields */}
-            {!userInfo && <div className="flex items-center gap-1 mb-2">
-              <FaUser className="text-yellow-400 w-3 mr-1" />
+            {!userInfo && <div className="relative flex items-center gap-1 mb-2">
+              <span className="absolute top-[25px] text-[12px] text-[#f8d61c] m-[0_5px_2px_0] pl-[22px] float-left">
+                {errorMessage}
+              </span>
+              <img src="/Images/user-icon-yellow.svg" alt="" className="bg-no-repeat mr-1" />
               <input
                 type="text"
                 name="user_name"
                 placeholder="Username"
                 required
                 value={formData.user_name}
-                onChange={(e) => handleInputChange(e)} className={`${inputClass} px-1 py-[3px]`} />
+                onChange={(e) => handleInputChange(e)}
+                className={`${inputClass} px-1 py-[3px] h-[25px] w-[130px] m-0`} />
               <input
                 type="password"
                 name="password"
@@ -344,9 +560,9 @@ const Header = () => {
                 required
                 value={formData.password}
                 onChange={(e) => handleInputChange(e)}
-                className={`${inputClass} px-1 py-[3px]`}
+                className={`${inputClass} px-1 py-[3px] h-[25px] w-[130px] m-0`}
               />
-              <div className="relative w-[150px]">
+              <div className="relative">
                 <input
                   type="text"
                   maxLength={4}
@@ -354,22 +570,21 @@ const Header = () => {
                   placeholder="Validation"
                   value={vCode}
                   onChange={(e) => setVCode(e.target.value)}
-                  className={`${inputClass} w-full text-black px-1 py-[3px]`}
+                  className={`${inputClass}text-black pl-1 py-[3px] h-[25px] w-[130px] m-0`}
                 />
-                {/* <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none">
-                  Validation
-                </span> */}
-                <span className="absolute left-[100px] top-1/2 -translate-y-1/2 text-base text-black font-bold pointer-events-none">
+                <span className="absolute top-0 right-0 h-[15px] w-[50px] text-base text-black font-bold pointer-events-none">
                   {validationCode}
                 </span>
               </div>
               <button
                 onClick={(e) => { handleSubmit(e) }}
-                className="bg-[#e83523] [background:linear-gradient(-180deg,#f72424_0%,#bb1c00_100%)] text-white px-3 py-1 ml-1 text-xs font-bold rounded flex items-center gap-1"
+                className="bg-[#e83523] [background:linear-gradient(-180deg,#f72424_0%,#bb1c00_100%)] text-white ml-1 text-xs font-bold rounded block text-center h-[25px] w-[80px] leading-[25px] float-left"
               >
-                Login <FaSignInAlt />
+                Login 
+                <img src="/Images/loginD.svg" alt="" className="w-[10px] h-[11px] m-[-3px_0_0_3px] align-middle bg-no-repeat inline-block" />
+
               </button>
-              <button className="bg-[#666] [background:linear-gradient(-180deg,#666666_0%,#333333_100%)] text-white px-3 py-1 text-xs font-bold rounded">Sign up</button>
+              <button className="bg-[#666] [background:linear-gradient(-180deg,#666666_0%,#333333_100%)] text-white text-xs font-bold rounded block text-center h-[25px] w-[80px] leading-[25px] float-left">Sign up</button>
             </div>}
 
             {/* for pc view */}
@@ -587,6 +802,7 @@ const Header = () => {
               <div className="flex justify-between">
                 <div
                   className="flex lg:hidden gap-2 items-center justify-center w-[130px] h-[40px] pr-[3%] rounded-[1.0666666667vw] border border-black text-white bg-[rgba(51,51,51,0.4)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)]"
+                  onClick={() => { setOpenBetsOpen(true); }}
                 >
                   <Link className="flex gap-1 items-center">
                     <img src="/Images/bet-icon-gold.svg" alt="" height={10} width={23} />
@@ -611,7 +827,7 @@ const Header = () => {
                         </span>
                       </p>
                       <p>
-                        <span className="font-semibold opacity-70">Exposer</span>
+                        <span className="font-semibold opacity-70">Exposure</span>
                         <span className="font-bold">
                           {Math.abs(exposure).toFixed()}
                         </span>
@@ -634,6 +850,7 @@ const Header = () => {
                   {/* Settings Button */}
                   <div
                     className="h-[39px] w-[36px] ml-1 flex justify-center items-center bg-[rgba(51,51,51,0.4)] rounded-[1.0666666667vw] border border-black shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)] text-white"
+                    onClick={() => { setEditStakeOpen(true); }}
                   >
                     <IoSettingsSharp
                       className="text-2xl text-[#ffb200] cursor-pointer"
@@ -704,18 +921,126 @@ const Header = () => {
               </div>
 
               {/* One Click Bet */}
-              <div className="flex items-center gap-1 bg-[#3c3c3c] text-yellow-400 h-full py-1 px-2">
-                <input type="checkbox" id="oneclick" className="bg-[#fff] w-4 h-4 rounded-sm" />
-                <label htmlFor="oneclick" className="cursor-pointer font-semibold text-xs">
-                  One Click Bet
-                </label>
-              </div>
+              <span
+                className="block relative mt-[-3px] indent-[30px] text-[#ffc828] font-bold leading-[30px] p-[0_12px_0_7px] border-t-[3px] border-[#ffb600] bg-[linear-gradient(180deg,_#4b4b4b_0%,_#1e1e1e_100%)] cursor-pointer"
+                onClick={() => { setIsLoginModal(true); }}
+              >
+                One Click Bet
+                <span className="absolute top-0 left-[10%] translate-y-[50%] flex w-[16px] h-[16px] rounded z-[1] bg-[#ffffff33]"></span>
+              </span>
 
-              <div className="flex font-semibold">Setting <img src="/Images/setting-icon.png" alt="" className="ml-2 w-4 h-4" /></div>
+              <div
+                className="flex font-semibold cursor-pointer"
+                onClick={() => {
+                  !userInfo ?
+                    setIsLoginModal(true) : setEditStakeOpen(true)
+                }}
+              >
+                Setting
+                <img src="/Images/setting-icon.png" alt="" className="ml-2 w-4 h-4" />
+              </div>
             </div>
+            {/* Edit stake Setting */}
+            {editStakeOpen &&
+              <div ref={editStakeRef} className="block absolute top-[11%] right-0 w-[282px] z-[99] rounded-[0_0_4px_4px] shadow-[0_4px_5px_#00000080]">
+                <div className="clear-both min-h-[100px] bg-[#e0e6e6] text-[11px] text-[#3b5160] p-[10px] rounded-[0_0_4px_4px]">
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dd className="w-full flex items-center m-[0_5px_5px_0] float-left">
+                      <label className="cursor-pointer">
+                        <strong>Default stake</strong>
+                      </label>
+                      <input type="text" maxLength={7} className="w-[29.1666666667%] text-[11px] ml-[5px] h-[20px] leading-[20px] p-[0_5px] m-[0_5px_0_0] text-[#1e1e1e] bg-[#fff] shadow-[inset_0px_1px_0px_#00000080] rounded box-border" />
+                    </dd>
+
+
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dt className="mb-[5px] font-bold">Stake</dt>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">100</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">10000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">30000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">50000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">100000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">150000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">300000</span>
+                    </dd>
+                    <dd className="w-[50px] m-[0_5px_5px_0] float-left">
+                      <span className="block text-[#ffb600] bg-[#444] border border-[#222] leading-[18px] font-normal text-[11px] m-0 p-0 shadow-[inset_0_2px_0_0_#0000001a] rounded text-center cursor-pointer">500000</span>
+                    </dd>
+                    <dd className="absolute top-[20px] right-0 w-[42px] mr-0 float-left">
+                      <span className="block text-center text-[#3b5160] font-normal h-[45px] leading-[43px] rounded shadow-[inset_0_1px_0_0_#ffffffcc] border border-[#7e97a7]">
+                        Edit
+                        <img src="/Images/icon-stake_edit.png" alt="" className="h-[9px] w-[9px] ml-1 bg-no-repeat bg-right inline-block" />
+                      </span>
+                    </dd>
+
+
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dt className="mb-[5px] font-bold">Odds</dt>
+                    <dd className="w-full flex items-center m-[0_5px_5px_0] float-left">
+                      <input type="checkbox" className="text-[12px] h-auto w-auto leading-[20px] p-0 m-[0_5px_0_0] text-[#1e1e1e] bg-[#00000000] accent-[#0275ff] box-border" />
+                      <label className="cursor-pointer font-normal">Highlight when odds change</label>
+                    </dd>
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dt className="mb-[5px] font-bold">FancyBet</dt>
+                    <dd className="w-full flex items-center m-[0_5px_5px_0] float-left">
+                      <input type="checkbox" className="text-[12px] h-auto w-auto leading-[20px] p-0 m-[0_5px_0_0] text-[#1e1e1e] bg-[#00000000] accent-[#0275ff] box-border" />
+                      <label className="cursor-pointer font-normal">Accept Any Odds</label>
+                    </dd>
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dt className="mb-[5px] font-bold">SportBook</dt>
+                    <dd className="w-full flex items-center m-[0_5px_5px_0] float-left">
+                      <input type="checkbox" className="text-[12px] h-auto w-auto leading-[20px] p-0 m-[0_5px_0_0] text-[#1e1e1e] bg-[#00000000] accent-[#0275ff] box-border" />
+                      <label className="cursor-pointer font-normal">Accept Any Odds</label>
+                    </dd>
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <dl className="relative border-b border-[#7e97a7] shadow-[0_1px_0_#ffffffcc] leading-[15px] pb-[2px] mb-[5px]">
+                    <dt className="mb-[5px] font-bold">Win Selection forecast</dt>
+                    <dd className="w-full flex items-center m-[0_5px_5px_0] float-left">
+                      <input type="checkbox" className="text-[12px] h-auto w-auto leading-[20px] p-0 m-[0_5px_0_0] text-[#1e1e1e] bg-[#00000000] accent-[#0275ff] box-border" />
+                      <label className="cursor-pointer font-normal">With Commission</label>
+                    </dd>
+                    <span className="block clear-both"></span>
+                  </dl>
+                  <ul className="block clear-both mb-0">
+                    <li className="block float-left w-[50%]">
+                      <span
+                        className="cursor-pointer font-bold leading-[23px] w-[80%] m-0 text-[11px] text-[#1e1e1e] p-0 block bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] text-center rounded"
+                        onClick={() => setEditStakeOpen(false)}
+                      > Cancel</span>
+                    </li>
+                    <li className="block float-left w-[50%] border-r border-[#00000033]">
+                      <span className="cursor-pointer font-bold leading-[23px] w-[95%] m-0 float-right text-[11px] text-[#ffb600] p-0 block bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] shadow-[initial] border border-[#222] text-center rounded">Save</span>
+                    </li>
+                    <span className="block clear-both"></span>
+                  </ul>
+                </div>
+              </div>
+            }
           </div>
         </nav>
-      </header>
+      </header >
     </>
   );
 };

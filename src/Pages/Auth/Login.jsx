@@ -34,22 +34,22 @@ const Login = ({ onClose }) => {
     event.preventDefault();
 
     if (formData?.user_name == "") {
-      toast.error("Please Enter Your Username", { autoClose: 1000 });
+      setErrorMessage("Username is empty");
       return;
     }
 
     if (formData?.password == "") {
-      toast.error("Please Enter Your Password", { autoClose: 1000 });
+      setErrorMessage("password is empty");
       return;
     }
 
     if (vCode == "") {
-      toast.error("Validation code is empty", { autoClose: 1000 });
+      setErrorMessage("Validation code is empty");
       return;
     }
 
     if (vCode != code) {
-      toast.error("Invalid validation code!", { autoClose: 1000 });
+      setErrorMessage("Invalid validation code!");
       return;
     }
 
@@ -65,13 +65,12 @@ const Login = ({ onClose }) => {
     axios(config)
       .then(function (response) {
         if (response.data.result) {
-          toast.success(response.data.resultMessage, { autoClose: 500 });
           login(response.data.resultData);
           setShowLoginModel(false);
-          navigate('/');
           console.log('response data : ', response)
+          navigate('/');
         } else {
-          toast.error("Invalid Credentials", { autoClose: 800 });
+          setErrorMessage("Login name or password is invalid! Please try again.");
         }
         formData.user_name = "";
         formData.password = "";
@@ -156,26 +155,38 @@ const Login = ({ onClose }) => {
 
       {/* form */}
       <div className="flex flex-col mx-8 mt-[12vw]">
-        <input
-          type="text"
-          name="user_name"
-          placeholder="Username"
-          required
-          value={formData.user_name}
-          onChange={(e) => handleInputChange(e)}
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }} className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          value={formData.password}
-          onChange={(e) => handleInputChange(e)}
-          className="rounded-[1.6vw] bg-[#fff] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw]"
-          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }}
-        />
-        <div className='relative flex mb-[3.2vw]'>
+        <span className="relative w-full">
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Username"
+            required
+            value={formData.user_name}
+            onChange={(e) => handleInputChange(e)}
+            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }} className={`rounded-[1.6vw] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw] ${errorMessage === "Username is empty" ? "bg-[#fbd7d3] border border-[#d0021b]" : "bg-[#fff] border border-none"} w-full`}
+          />
+          {errorMessage === "Username is empty" && (
+            <img src="/Images/invalid.svg" alt="" className="absolute top-[3.2vw] right-[1.8666666667vw] w-[4.2666666667vw] h-[4.2666666667vw] bg-no-repeat bg-contain" />
+          )}
+        </span>
+        <span className="relative w-full">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            value={formData.password}
+            onChange={(e) => handleInputChange(e)}
+            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }} className={`rounded-[1.6vw] text-[#1e1e1e] text-[4vw] focus:bg-[#fff0ca] focus:outline-none mb-[3.2vw] ${errorMessage === "password is empty" ? "bg-[#fbd7d3] border border-[#d0021b]" : "bg-[#fff] border border-none"} w-full`}
+          />
+          {errorMessage === "password is empty" && (
+            <img src="/Images/invalid.svg" alt="" className="absolute top-[3.2vw] right-[1.8666666667vw] w-[4.2666666667vw] h-[4.2666666667vw] bg-no-repeat bg-contain" />
+          )}
+        </span>
+        <div
+          style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }}
+          className={`relative flex mb-[3.2vw] ${(errorMessage === "Validation code is empty" || errorMessage === "Invalid validation code!") ? "bg-[#fbd7d3] border border-[#d0021b]" : "bg-[#fff] border border-none"} rounded-[1.6vw] focus:bg-[#fff0ca] focus:outline-none`}
+        >
           <input
             type="number"
             maxLength={3}
@@ -183,12 +194,15 @@ const Login = ({ onClose }) => {
             placeholder='Validation Code'
             value={vCode}
             onChange={(e) => setVCode(e.target.value)}
-            className='rounded-l-[1.6vw] w-2/3 bg-[#fff] text-[#1e1e1e] text-[4vw] m-0  focus:bg-[#fff0ca] focus:outline-none'
-            style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)", padding: "2vw 1.8666666667vw" }}
+            style={{ padding: "2vw 1.8666666667vw" }}
+            className='rounded-l-[1.6vw] w-full bg-transparent text-[#1e1e1e] text-[4vw] m-0 rounded-[1.6vw] focus:bg-[#fff0ca] focus:outline-none'
           />
-          <div style={{ boxShadow: "inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1)" }} className='bg-white w-1/3 rounded-r-lg px-3 pt-1 text-end font-bold text-[5.5vw]'>{code}</div>
+          <div className={`absolute top-[1.2vw] right-[1.8666666667vw] w-[18.6666666667vw] h-[7.0666666667vw] pr-[0.5vw] bg-[#fff] text-end font-bold text-[5.5vw] rounded-[1.0666666667vw] ${(errorMessage === "Validation code is empty" || errorMessage === "Invalid validation code!") && "mr-[6.1333333333vw]"}`}>{code}</div>
+          {(errorMessage === "Validation code is empty" || errorMessage === "Invalid validation code!") && (
+            <img src="/Images/invalid.svg" alt="" className="absolute top-[3.2vw] right-[1.8666666667vw] w-[4.2666666667vw] h-[4.2666666667vw] bg-no-repeat bg-contain" />
+          )}
         </div>
-        <div className="flex flex-col w-full gap-1">
+        <div className="flex flex-col w-full gap-1 mb-[3.2vw]">
           <button className="[background-image:linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[#ffb80c] text-[4vw] font-bold rounded-[1.6vw]" onClick={(e) => { handleSubmit(e) }} style={{ lineHeight: "2.6" }}>
             Login
           </button>
@@ -196,14 +210,16 @@ const Login = ({ onClose }) => {
             Login with Demo Id{" "}
           </button> */}
         </div>
-        <h1 className="text-red-500 text-center"> {errorMessage} </h1>
+        {errorMessage && (
+          <h1 className="text-[3.2vw] text-[#d0021b] text-start mb-[2vw]"> {errorMessage} </h1>
+        )}
       </div>
 
       {/* -------------- footer ------------------------------------------*/}
       <div className={`pb-10 px-[1.2vw] lg:px-40`}>
         <div className="flex flex-col justify-center lg:border-t mt-0 border-[#0000004d]">
           {/* for mobile view */}
-          <p className="lg:hidden flex justify-center flex-wrap gap-[4px] text-[3.4666666667vw] mt-2 text-[#000000b3]">
+          <p className="lg:hidden flex justify-center flex-wrap gap-[4px] text-[3.4666666667vw] text-[#000000b3]">
             <Link className="underline">Privacy Policy</Link><Link className="underline">|Terms and Conditions</Link><Link className="underline">Rules and Regulations</Link>|<Link className="underline"> KYC</Link>|<Link className="underline"> Responsible Gaming</Link>|<Link className="underline"> About Us</Link>|<Link className="underline">Self-exclusion Policy</Link>|<Link className="underline"> Underage Policy</Link>
           </p>
         </div>

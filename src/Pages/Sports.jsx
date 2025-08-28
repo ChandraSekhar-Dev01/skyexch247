@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Helper from '../helper';
 import { getAllEvents } from '../redux/slice/event/eventSlice';
 import { Link, useLocation } from 'react-router-dom';
+import News from '../components/News';
 
 function Sports() {
 
@@ -115,6 +116,9 @@ function Sports() {
         </div>
         {/* Center Section */}
         <div className='w-[67%] overflow-hidden overflow-y-scroll h-[calc(100vh_-_0.5vh)] scroll-hide'>
+          {/* News Marquee */}
+          <News />
+
           <div className='w-full mb-3'>
             <img src="/Images/sports_img.jpg" alt="" className='w-full h-60' />
           </div>
@@ -155,13 +159,16 @@ function Sports() {
                                 <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
                               }
                               <div className='flex justify-center items-center gap-1'>
-                                <span className='flex justify-center items-center w-4 h-4 rounded-sm bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
+                                <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
                                 {item.is_fancy == "True" &&
                                   <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
                                 }
                                 {item.is_bm == "True" &&
                                   <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
                                 }
+                                <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
+                                  <img src="/Images/premium-icon.svg" alt="" className='w-3' />
+                                </span>
                               </div>
                             </span>
                           </Link>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Helper from '../helper';
 import { getAllEvents } from '../redux/slice/event/eventSlice';
 import { useLocation } from 'react-router-dom';
+import News from '../components/News';
 
 function Multimarket() {
 
@@ -74,7 +75,9 @@ function Multimarket() {
           </ul>
         </div>
         {/* Center Section */}
-        <div className='w-[70%] p-1'>
+        <div className='w-[70%] px-1'>
+          {/* News Marquee */}
+          <News />
           <div>
             <span className='text-xs font-bold'>Multi Markets</span>
             <p className='text-xs'>There are no followed multi markets.</p>
@@ -90,12 +93,14 @@ function Multimarket() {
       </div>
 
       {/* For Mobile View */}
-      <div className='block lg:hidden text-[#7e97a7] text-[4.2666vw] m-[5.3333333333vw_2.6666666667vw] p-[2.6666666667vw_1.8666666667vw_5.3333333333vw] rounded-[1.6vw] border border-[#7e97a7] bg-[#fff]'>
-        <h3 className='flex items-center justify-center text-center text-[5.3333333333vw] text-[#7e97a7] mb-[1.3333vw] p-[1.8666666667vw_0] border-b border-[#e0e6e6] leading-loose'>
-          <img src="/Images/icon-nodata.svg" alt="" className='w-[6.266vw] h-[6.533vw] mr-[1.333vw] bg-contain' />
-          There are currently no followed multi markets.
-        </h3>
-        <p className='text-[4.2666666667vw] text-[#7e97a7] text-center'>Please add some markets from events.</p>
+      <div className='block lg:hidden'>
+        <div className='block lg:hidden text-[#7e97a7] text-[4.2666vw] m-[5.3333333333vw_2.6666666667vw] p-[2.6666666667vw_1.8666666667vw_5.3333333333vw] rounded-[1.6vw] border border-[#7e97a7] bg-[#fff]'>
+          <h3 className='flex items-center justify-center text-center text-[5.3333333333vw] text-[#7e97a7] mb-[1.3333vw] p-[1.8666666667vw_0] border-b border-[#e0e6e6] leading-loose'>
+            <img src="/Images/icon-nodata.svg" alt="" className='w-[6.266vw] h-[6.533vw] mr-[1.333vw] bg-contain' />
+            There are currently no followed multi markets.
+          </h3>
+          <p className='text-[4.2666666667vw] text-[#7e97a7] text-center'>Please add some markets from events.</p>
+        </div>
       </div>
     </>
   )

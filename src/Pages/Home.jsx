@@ -6,6 +6,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../redux/slice/event/eventSlice";
 import { Carousel } from 'antd';
+import News from '../components/News';
 
 function Home() {
 
@@ -4322,6 +4323,481 @@ function Home() {
                 </div>
 
               </>}
+            {isModalOpen === "KYC" &&
+              <>
+                <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
+                  <h3 className='flex flex-1 justify-center items-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[4vw_1.8666666667vw] '>KYC</h3>
+                </div>
+                <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">KNOW YOUR CUSTOMER POLICY</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    To maintain the highest level of security, we require all our members to
+                    provide us with certain documentation in order to validate their accounts.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Please note that the identification procedures shall be done before a
+                    cardholder starts operating and using services of our merchants.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">Why do I need to provide documentation?</h3>
+                  <p className="m-[0_0_3.2vw_0]">There are several reasons:</p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    We are committed to providing a socially responsible platform for online
+                    gaming. All of our members must be 18 or older and we are bound by our
+                    licensing agreement to verify this.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Secondly, as a respected online and global company it is in our interests to
+                    guarantee maximum security on all transactions.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Thirdly, our payment processors require that our policies are in line with
+                    international banking standards. A proven business relationship with each
+                    and every member is mandatory for the protection of all parties. Our
+                    licensing agreement also obliges us to comply with this.{" "}
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Finally, by ensuring that your account details are absolutely correct, the
+                    inconvenience of 'missing payments' can be avoided. It can take weeks (and
+                    sometimes months) to trace, recall and resend using the correct information.
+                    This lengthy process also results in additional fees from our processors.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">WHAT DOCUMENTS DO I NEED TO PROVIDE?</h3>
+                  <p className="m-[0_0_3.2vw_0]">PROOF OF ID:</p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    A color copy of a valid government issued form of ID (Driver's License,
+                    Passport, State ID or Military ID)
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">PROOF OF ADDRESS:</h3>
+                  <p className="m-[0_0_3.2vw_0]">A copy of a recent utility bill showing your address</p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Note: If your government Id shows your address, you do not need to provide
+                    further proof of address.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Additional documentation might be required depending on the withdrawal
+                    method you choose
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">When do I need to provide these documents?</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    We greatly appreciate your cooperation in providing these at your earliest
+                    possible convenience to avoid any delays in processing your transactions. We
+                    must be in receipt of the documents before any cash transactions can be sent
+                    back to you. Under special circumstances we may require the documents before
+                    further activity (deposits and wagering) can take place on your account
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Please understand, if we do not have the required documents on file, your
+                    pending withdrawals will be cancelled and credited back to your account. You
+                    will be notified when this happens via the notification system.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">How can I send you these documents?</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Please scan your documents, or take a high quality digital camera picture,
+                    save the images as jpegs, then upload the files using our secure form.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">How do I know my documents are safe with you?</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The security of your documentation is of paramount importance. All files are
+                    protected with the highest level of encryption at every step of the review
+                    process. All documentation received is treated with the utmost respect and
+                    confidentiality.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    We’d like to thank you for your cooperation in helping us make Skyexch.art a
+                    safer place to play. As always, if you have any questions about this policy,
+                    or anything else, don’t hesitate to contact us using the contact us links on
+                    this page.
+                  </p>
+                </div>
+
+              </>}
+            {isModalOpen === "RG" &&
+              <>
+                <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
+                  <h3 className='flex flex-1 justify-center items-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[4vw_1.8666666667vw] '>Responsible Gaming</h3>
+                </div>
+                <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art is committed to endorsing responsible wagering among its
+                    customers as well as promoting the awareness of problem gambling and
+                    improving prevention, intervention and treatment.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art’s Responsible Gambling Policy sets out its commitment to
+                    minimizing the negative effects of problem gambling and to promoting
+                    responsible gambling practices.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art supports the generation of online gamblers offering them a wide
+                    range of games and entertainment. We also take responsibility for our
+                    product line-up.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The aim of Skyexch.art is to provide the world’s safest and most innovative
+                    gaming platform for adults. The offered clear and safe products allow each
+                    user to play within his financial means and to receive the highest quality
+                    service. Integrity, fairness and reliability are the guiding principles of
+                    Skyexch.art’s work. It is therefore clear that Skyexch.art should do its
+                    best to avoid and reduce the problems, which can arise from participation in
+                    gambling, particularly in cases of immoderate playing. At the same time it
+                    is important to respect the rights of those who take part in games of chance
+                    to a reasonable extent as means of entertainment.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Responsible Gaming at Skyexch.art is based on three fundamental principles:
+                    Security of the player, Security of the game and Protection against gaming
+                    addiction. Together with research institutes, associations and therapy
+                    institutions, we work on creation of a responsible, secure and reliable
+                    framework for online gaming.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>Player security</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    We take responsibility for the security of our players. Protection of the
+                    players is based on forbidding the attendance of the minors from
+                    participation in games and the protection of privacy, which involves
+                    responsible processing of personal data and payments. Fairness and the
+                    random nature of the products offered are monitored closely by independent
+                    organizations. Marketing communication is also geared towards player
+                    protection: we promise only what players can receive in our transparent
+                    line.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>
+                      Protection against gaming addiction: research – prevention – intervention
+                    </strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The majority of users who make sports bets, casino bets and other gaming
+                    offers play in moderation for entertainment. Certain habits and behavior
+                    patterns (such as shopping, playing sports, eating or consumption of
+                    alcohol) which are considered to be normal and not causing any concern can
+                    develop into addiction for some people and cause problems. In the same way,
+                    bets on sports and gambling can lead to problems for a small group of
+                    customers.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Clients with gaming addiction are prohibited from further participation in
+                    the gaming line-up. Subsequently the customers are provided with contacts of
+                    organizations where they can receive professional advice and support.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>
+                      Self-responsibility is the most sustainable form of prevention
+                    </strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The basic principle promoted by Skyexch.art is that the final decision and
+                    responsibility on whether to play or not, and how much money can be spent on
+                    the game should be assumed by the customer himself.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Self-responsibility of the customer is therefore the most effective form of
+                    protection from addiction. Skyexch.art sees its responsibility in assisting
+                    the customers by providing transparent products, full information and
+                    keeping a clear line of conduct.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>Protection of minors</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art does not allow minors (persons under the age of 18) to
+                    participate in games and make bets. That’s why the confirmation of having
+                    reached the age of majority and the confirmation of date of birth are
+                    mandatory requirements during registration. Skyexch.art considers the issue
+                    of minors taking part in games and betting very seriously. In order to offer
+                    the best possible protection of minors, we also rely on the support of
+                    parents and caregivers. Please keep your data for account access in a safe
+                    place (user ID and password).
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Furthermore, we would recommend that you install filter software. This
+                    software will allow you to restrict the access to Internet resources
+                    inappropriate for children and teenagers.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>Responsibility towards problems</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art offers a variety of games and bets, which are forms of
+                    entertainment for the majority of customers. At the same time the company
+                    takes responsibility for its customers by providing support and tools for
+                    maintenance of a secure and entertaining environment taking into account the
+                    associated risks.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The clients who have difficulty in assessing risks, recognizing their own
+                    limits or those who suffer from gambling addiction are not able to enjoy our
+                    product line-up responsibly and perceive it as a form of entertainment.
+                    Skyexch.art takes responsibility for such users by blocking their access to
+                    its products for their own protection.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>Get informed with the main issues!</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Most people play for pleasure. Moderate participation in games within their
+                    financial capacity is fully acceptable. However, for a small percentage of
+                    people gambling is not a form of entertainment, it is a challenge that must
+                    be considered seriously.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>What is the problematic game behavior?</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    A problematic game behavior is considered to be such behavior, which
+                    interferes mode of life, work, financial position or health of a person or
+                    his family. Long participation in games is counter indicative to such person
+                    as it can lead to negative consequences.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    In 1980 the pathological game dependence has been officially recognized and
+                    enlisted in the list of psychological diseases of international
+                    classification system DSM-IV and ICD-10. It is defined as long, repeating
+                    and frequently amplifying inclination for game, despite of existing negative
+                    personal and social circumstances, such as a debt, rupture of family
+                    relations and delay of professional growth.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>
+                      In what cases behavior of a person should be considered as dependence?
+                    </strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    It is necessary to underline that the diagnoses of game dependence can be
+                    qualified only by experts. The material presented on this web-page will help
+                    you to estimate and define your own game behaviour.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    The special hazard of addictions that are not associated with any substance
+                    is that it is very difficult to define the line between pleasure and
+                    addiction. Nevertheless, there are some diagnostic signals that may point
+                    out the existing problems. In the presence of at least five of the following
+                    symptoms, the likelihood of the severe dependence is high:
+                  </p>
+                  <ol className="list-decimal ml-[6.4vw]">
+                    <li className='mb-[3.4666666667vw]'>
+                      The player is deeply involved in gambling, all his thoughts are only about
+                      the game.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>Bet sum increases in course of time.</li>
+                    <li className='mb-[3.4666666667vw]'>
+                      Attempts to quit or control his participation in the games appear to be
+                      unsuccessful.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      When limiting his participation in gambling, a person experiences
+                      irritation and disappointment.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>The game is a way to escape from problems or discomfort.</li>
+                    <li className='mb-[3.4666666667vw]'>The player tries to win back the lost amount,</li>
+                    <li className='mb-[3.4666666667vw]'>Lies about his playing behavior,</li>
+                    <li className='mb-[3.4666666667vw]'>Commits illegal acts,</li>
+                    <li className='mb-[3.4666666667vw]'>Spoils or breaks the relationship with family and colleagues,</li>
+                    <li className='mb-[3.4666666667vw]'>Borrows to participate in the games.</li>
+                  </ol>
+                  <p className="m-[0_0_3.2vw_0]">
+                    <strong>Rules for responsible games</strong>
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Following the rules placed below, you can enjoy the game without anxiety:
+                  </p>
+                  <ol className="list-decimal ml-[6.4vw]">
+                    <li className='mb-[3.4666666667vw]'>Start playing only when you are calm and concentrated.</li>
+                    <li className='mb-[3.4666666667vw]'>Take regular breaks.</li>
+                    <li className='mb-[3.4666666667vw]'>
+                      Define for yourself beforehand the monthly amount you can spend on the
+                      game.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>Once setting a maximum limit, do not further increase it.</li>
+                    <li className='mb-[3.4666666667vw]'>
+                      Before you start playing, define the maximum amount of winning, after
+                      reaching of which you should stop playing.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>Define the amount you can afford to lose beforehand.</li>
+                    <li className='mb-[3.4666666667vw]'>Do not start playing under alcohol or drug influence.</li>
+                    <li className='mb-[3.4666666667vw]'>Do not start playing in a depressed state.</li>
+                  </ol>
+                </div>
+              </>}
+            {isModalOpen === "AU" &&
+              <>
+                <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
+                  <h3 className='flex flex-1 justify-center items-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[4vw_1.8666666667vw] '>About Us</h3>
+                </div>
+                <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
+                  <ul className='list-disc ml-[6.4vw]'>
+                    <li className='mb-[3.4666666667vw]'>
+                      Sky Infotech Group is one of the upcoming providers for online gaming
+                      entertainment across Sports Betting, Online and Live Casino operating in
+                      the emerging and the regulated markets.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      We aim to utilize the latest technologies to provide innovative and
+                      interactive gaming experiences in a secure environment.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      <strong>
+                        We have dedicated ourselves to offering our customers a seamless and
+                        thrilling gaming experience while you are on the go. We aim to provide
+                        an exceptional and fully customizable online betting experience.
+                      </strong>
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      <strong>
+                        We are innovative, ambitious and passionate about what we do. We do it
+                        in a credible and responsible way, always aiming for the top.
+                      </strong>
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      We only operate in regulated markets where we hold the appropriate
+                      licenses. We take our responsibilities to customers and our other
+                      stakeholders seriously and place great emphasis on working to a
+                      ‘compliance first’ model across the business.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      <strong>Dedicated Customer Service Team:</strong> We are here for you
+                      every step of the way with dedicated customer service managers standing by
+                      to provide you with a 24/7 top notch customer care service, handling any
+                      issues quickly and efficiently.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      When customers bet on our site they can rest assured that they are getting
+                      a wide variety of betting options, up to date information and the best
+                      odds available.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      Our customers also have peace of mind, knowing that when it’s time to
+                      collect, they are betting with a well-known reputable company.
+                    </li>
+                    <li className='mb-[3.4666666667vw]'>
+                      We have integrated best and secured payment methods on our site and a
+                      transaction process that is quick, easy enabling our players to cash out
+                      their winnings quickly and securely.
+                    </li>
+                  </ul>
+                  <h2 className="mb-[4.8vw] pb-[2.1333333333vw] text-[5.8666666667vw] leading-[1.2] text-[#1b2d38] font-bold border-b border-dotted border-[#e0e6e6]">BUSINESS ADDRESS</h2>
+                  <address className="text-[3.4666666667vw] mb-[4vw]">
+                    Name- Sky Infotech N.V.
+                    <br />
+                    Address- Abraham de Veerstraat 9 , Curacao P.O Box 3421
+                  </address>
+                  <address className="text-[3.4666666667vw] mb-[4vw]">
+                    Name- Sky Technology Limited
+                    <br />
+                    Address- 71-75 Shelton Street Covent Garden London WC2H 9JQ
+                  </address>
+                </div>
+              </>}
+            {isModalOpen === "SEP" &&
+              <>
+                <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
+                  <h3 className='flex flex-1 justify-center items-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[4vw_1.8666666667vw] '>Self-Exclusion Policy</h3>
+                </div>
+                <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
+                  <p className="m-[0_0_3.2vw_0]">
+                    If you feel you are at risk of developing a gambling problem or believe you
+                    currently have a gambling problem, please consider using Self-Exclusion
+                    which prevents you gambling with Skyexch.art for a specified period of 6
+                    months, 1 year, 2 years, 5 years or permanently.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    If you want to stop playing for other reasons, please consider a Time-Out or
+                    using Account Closure.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">What happens when you self-exclude?</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    During a period of Self-Exclusion you will not be able to use your account
+                    for betting, although you will still be able to login and withdraw any
+                    remaining balance. It will not be possible to re-open your account for any
+                    reason, and Skyexch.art will do all it can to detect and close any new
+                    accounts you may open.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">Next steps</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Whilst we will remove you from our marketing databases, we also suggest that
+                    you remove Skyexch.art from your notifications and delete/uninstall all
+                    Skyexch.art apps, downloads and social media links. You may also wish to
+                    consider installing software that blocks access to gambling websites, click
+                    here for more information.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    We recommend that you seek support from a problem gambling support service
+                    to help you deal with your problem.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    You can self-exclude your account in the My Gambling Controls section of
+                    Members by choosing Self-Exclusion.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Alternatively you can contact our customer care team for assistance and
+                    further information.
+                  </p>
+                  <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]"> Self-Exclusion Notice</h3>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Should you opt to self-exclude from Skyexch.art, we strongly recommend that
+                    you seek exclusion from all other gambling operators you have an account
+                    with.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    You can self-exclude by contacting other gambling operators directly or you
+                    can exclude from other licensed operators by completing a Self-Exclusion
+                    Notice form.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Once completed the Self-Exclusion Notice form should be submitted to the
+                    nominated site, sports bookmaker or betting exchange operator.
+                  </p>
+                </div>
+              </>}
+            {isModalOpen === "UP" &&
+              <>
+                <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
+                  <h3 className='flex flex-1 justify-center items-center text-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[2vw_1.8666666667vw] '>Underage Gaming Policy – Skyexch.art</h3>
+                </div>
+                <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
+                  <p className="m-[0_0_3.2vw_0]">
+                    It is illegal for anyone under the age of 18 to open an account or gamble
+                    with{" "}
+                    <a className="text-[#2789ce]">
+                      https://www.skyexch.art/
+                    </a>
+                    (hereinafter "Skyexch.art"). We strictly prohibit minors from registering or
+                    gambling, and we require new members to declare that they are over 18 years
+                    of age.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art takes all reasonable steps to prevent underage gamblers from
+                    accessing and using our services, including the use of identity verification
+                    services to ensure that all users are eligible to play. As a registered
+                    user, you can help us prevent underage gambling online.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Especially if you access your Skyexch.art account on a shared computer, or
+                    if you have underage individuals in your household, it's important that you
+                    take precautions to prevent underage gambling. Do not use software that
+                    saves your username and password on shared devices, and consider installing
+                    parental control programs that can help prevent minors from accessing online
+                    gambling websites.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Skyexch.art includes several mechanisms that can help you detect
+                    unauthorized use of your player account. Note the last login time and IP
+                    address when you log into your account, and review your game transactions
+                    and financial transactions in your account details to ensure that there is
+                    no suspicious activity.
+                  </p>
+                  <p className="m-[0_0_3.2vw_0]">
+                    Parents with immediate concerns about underage gambling should report
+                    immediately to either email
+                    <a className="text-[#2789ce]">support@skyexch.art</a> or the support
+                    chat.
+                  </p>
+                </div>
+
+              </>}
+
             {/* Footer */}
             <div className='flex justify-center items-center p-[2.1333333333vw_0] border-t border-[#e0e6e6] rounded-[0_0_1.3333333333vw_1.3333333333vw] bg-[#fff]'>
               <button className='m-[0_auto] w-[45.3333333333vw] h-[10.6666666667vw] text-[4vw] font-bold leading-[10.6666666667vw] text-[#ffb200] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border-[0.2666666667vw] border-[#222] rounded-[1.6vw]' onClick={() => setIsModalOpen("")}>CLOSE</button>
@@ -4332,7 +4808,11 @@ function Home() {
 
       {/* Footer */}
 
-      <div className="w-full lg:w-[74%] mx-auto">
+      <div className="w-full lg:w-[74%] mx-auto mt-[1px]">
+        {/* News Marquee */}
+        <div className="hidden lg:block">
+          <News />
+        </div>
         {/* Slider Banner */}
         <Carousel arrows dots={false} infinite={true} autoplay={true}>
           <div>
@@ -4674,11 +5154,11 @@ function Home() {
             <Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("PP")}>Privacy Policy </Link>
             |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("TC")}>Terms and Conditions</Link>
             |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("RR")} >Rules and Regulations </Link>
-            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' > KYC</Link>
-            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' > Responsible Gaming</Link>
-            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' > About Us </Link>
-            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' >Self-exclusion Policy </Link>
-            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' > Underage Policy </Link>
+            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("KYC")} > KYC</Link>
+            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("RG")} > Responsible Gaming</Link>
+            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("AU")} > About Us </Link>
+            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("SEP")} >Self-exclusion Policy </Link>
+            |<Link className='underline mb-[1.3333333333vw] mr-[0.8vw] text-[#666]' onClick={() => setIsModalOpen("UP")} > Underage Policy </Link>
           </p>
 
           {/* for pc view */}
