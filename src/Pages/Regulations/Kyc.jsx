@@ -84,7 +84,7 @@ function Kyc() {
           confidentiality.
         </p>
         <p className='mb-[12px]'>
-          We’d like to thank you for your cooperation in helping us make Skyexch.art a
+          We’d like to thank you for your cooperation in helping us make exchsky.art a
           safer place to play. As always, if you have any questions about this policy,
           or anything else, don’t hesitate to contact us using the contact us links on
           this page.

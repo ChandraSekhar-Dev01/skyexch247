@@ -50,9 +50,9 @@ function Multimarket() {
   return (
     <>
       {/* For Pc View */}
-      <div className='hidden lg:flex gap-2 px-4 pt-[1px]'>
-        {/* Right Section */}
-        <div className='w-[20%] h-screen bg-[#fff]'>
+      <div className='hidden lg:block relative min-w-[1350px] max-w-[calc(100%-40px)] h-[calc(100vh-11.8vh)] m-[0_auto] mt-[1px] text-[12px] text-[#1e1e1e] leading-[15px]'>
+        {/* Left Section */}
+        <div className='h-full absolute left-0 top-0 w-[17.3611111111%] overflow-hidden bg-[#fff]'>
           <ul>
             <li className='text-xs text-white bg-[#000] border-b border-[#eee1c0] w-full py-1 px-2'>
               <span>Sports</span>
@@ -75,7 +75,7 @@ function Multimarket() {
           </ul>
         </div>
         {/* Center Section */}
-        <div className='w-[70%] px-1'>
+        <div className="h-full ml-[17.3611111111%] mr-[26.0416666667%] p-[0_15px]">
           {/* News Marquee */}
           <News />
           <div>
@@ -83,8 +83,8 @@ function Multimarket() {
             <p className='text-xs'>There are no followed multi markets.</p>
           </div>
         </div>
-        {/* Left Section */}
-        <div className='w-[30%] h-screen bg-[#fff]'>
+        {/* Right Section */}
+        <div className='h-full absolute top-0 right-0 w-[26.0416666667%] bg-[#fff]'>
           <div className='flex justify-between items-center text-xs leading-6 text-[#fff] bg-[#243a48] px-2'>
             <div>Bet Slip</div>
             <div className='flex justify-center items-center rounded-sm h-3 w-3 border border-[#fff]'><span>-</span></div>

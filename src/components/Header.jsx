@@ -174,7 +174,10 @@ const Header = () => {
     { name: "Soccer", live: `${inplayEvents?.filter(item => item.event_type == "2").length}`, url: "/sports" },
     { name: "Tennis", live: `${inplayEvents?.filter(item => item.event_type == "1").length}`, url: "/sports" },
     { name: "Virtual Cricket", url: "" },
-    { name: "E-Soccer", live: "0", url: "" },
+    { name: "E-Soccer", live: "0", url: "/sports" },
+    { name: "Kabaddi", live: "0", url: "/sports" },
+    { name: "Casino", url: "" },
+    { name: "Result", url: "/eventResult" },
   ];
 
   useEffect(() => {
@@ -580,7 +583,7 @@ const Header = () => {
                 onClick={(e) => { handleSubmit(e) }}
                 className="bg-[#e83523] [background:linear-gradient(-180deg,#f72424_0%,#bb1c00_100%)] text-white ml-1 text-xs font-bold rounded block text-center h-[25px] w-[80px] leading-[25px] float-left"
               >
-                Login 
+                Login
                 <img src="/Images/loginD.svg" alt="" className="w-[10px] h-[11px] m-[-3px_0_0_3px] align-middle bg-no-repeat inline-block" />
 
               </button>
@@ -873,6 +876,8 @@ const Header = () => {
                 if (name === "Cricket") sportType = "4";
                 else if (name === "Soccer") sportType = "1";
                 else if (name === "Tennis") sportType = "2";
+                else if (name === "E-Soccer") sportType = "0";
+                else if (name === "Kabaddi") sportType = "10";
 
                 const isActive =
                   location.pathname === url &&
@@ -880,34 +885,57 @@ const Header = () => {
 
                 return (
                   <>
-                    <div key={name} className="relative">
-                      <button
-                        onClick={() => {
-                          if (sportType) setActiveSportType(sportType);
-                          navigate(url, sportType ? { state: { sportType } } : undefined);
-                        }}
-                        className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
-                          ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
-                          : "hover:bg-[#f0b800]"
-                          }`}
-                      >
-                        {name}
-                      </button>
-                      {live && (
-                        <div className="absolute bottom-6 right-1 h-[12px] flex flex-row items-center gap-1 rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,_33,_33,_0.5)] z-[999999999999]">
+                    {name !== "Casino" &&
+                      <div key={name} className="relative">
+                        <button
+                          onClick={() => {
+                            if (sportType) setActiveSportType(sportType);
+                            navigate(url, sportType ? { state: { sportType } } : undefined);
+                          }}
+                          className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
+                            ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
+                            : "hover:bg-[#f0b800]"
+                            }`}
+                        >
+                          {name}
+                        </button>
+                        {live && (
+                          <div className="absolute bottom-6 right-1 h-[12px] flex flex-row items-center gap-1 rounded-sm bg-[linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)] shadow-[0_0_5px_0_rgba(83,_33,_33,_0.5)] z-[999999999999]">
 
-                          {/* SVG in white circle */}
-                          <div className="flex justify-center items-center bg-white px-1 rounded-l-sm h-[12px]">
-                            <img src="/Images/hotspot.svg" alt="" className='live-icon w-[4.2666666667vw] h-[2.6666666667vw]  lg:w-3 lg:h-2' />
-                          </div>
+                            {/* SVG in white circle */}
+                            <div className="flex justify-center items-center bg-white px-1 rounded-l-sm h-[12px]">
+                              <img src="/Images/hotspot.svg" alt="" className='live-icon w-[4.2666666667vw] h-[2.6666666667vw]  lg:w-3 lg:h-2' />
+                            </div>
 
-                          {/* Red badge number */}
-                          <div className="text-white text-[10px] pr-[5px] font-bold">
-                            {live}
+                            {/* Red badge number */}
+                            <div className="text-white text-[10px] pr-[5px] font-bold">
+                              {live}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
+                        )}
+                      </div>
+                    }
+                    {name === "Casino" &&
+                      <div key={name} className="block relative bg-[linear-gradient(#4b4b4b,_#1e1e1e)] text-[#fff] float-left border-r border-[#383838]">
+                        <button
+                          onClick={() => {
+                            if (sportType) setActiveSportType(sportType);
+                            navigate(url, sportType ? { state: { sportType } } : undefined);
+                          }}
+                          className={`block relative p-[0_10px_0_20px] transform-none`}
+                        >
+                          <span
+                            className="absolute top-0 left-0 w-[29px] h-[29px]"
+                            style={{ background: "url('/Images/menu-tagnew.png')" }}
+                          ></span>
+                          {name}
+                          <span
+                            className="inline-block relative top-[4px] left-[2px] w-[18px] h-[18px] bg-no-repeat"
+                            style={{ background: "url('/Images/menu-casino.png')" }}
+                          ></span>
+                        </button>
+                      </div>
+                    }
                   </>
                 );
               })}

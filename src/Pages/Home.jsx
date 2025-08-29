@@ -21,9 +21,9 @@ function Home() {
 
 
   const images = {
-    whatsAppIcon: "/Images/whatsApp-icon-grey.png",
-    skypeIcon: "/Images/skype-icon-grey.png",
-    emailIcon: "/Images/email-icon-grey.png",
+    whatsAppIcon: "/Images/whatsApp-icon-grey.svg",
+    skypeIcon: "/Images/skype-icon-grey.svg",
+    emailIcon: "/Images/email-icon-grey.svg",
     igIcon: "/Images/ig-icon-grey.png",
     betFairIcon: "/Images/not-verified.png",
     accountIcon: "/Images/account-icon-white.png",
@@ -33,7 +33,7 @@ function Home() {
     clockIcon: "/Images/clock-icon-white.png",
     referral: "/Images/Referral.webp",
     SportsGiff: "/Images/gamesGiff.gif",
-    headphoneIcon: "/Images/headphone-icon-grey.png",
+    headphoneIcon: "/Images/headphone-icon-grey.svg",
     gcIcon: "/Images/gc-logo.png",
     phoneIcon: "/Images/phone-icon.png",
     mailIcon: "/Images/mail-icon.png",
@@ -43,10 +43,10 @@ function Home() {
 
 
   const casinoSmall = [
-    {
-      img: "/Images/dashboard-casino-img/black-jack.png",
-      p: "Blackjack"
-    },
+    // {
+    //   img: "/Images/dashboard-casino-img/black-jack.png",
+    //   p: "Blackjack"
+    // },
     {
       img: "/Images/dashboard-casino-img/7up7down.png",
       p: "7 Up Down"
@@ -250,7 +250,7 @@ function Home() {
                     will explain these to you.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    This Privacy Policy explains how Skyexch.art uses your personal information
+                    This Privacy Policy explains how exchsky.art uses your personal information
                     when you are using one of our website.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -271,11 +271,11 @@ function Home() {
                     Who is in control of your information?
                   </h2>
                   <p className="m-[0_0_3.2vw_0]">
-                    Throughout this Privacy Policy, " Skyexch.art", "we", "our" and "us" relates
+                    Throughout this Privacy Policy, " exchsky.art", "we", "our" and "us" relates
                     to Sky Infotech N.V., a limited liability company, registered in Curacao
                     with company number 152377, having its registered address at Abraham de
                     Veerstraat 9, Curacao. We control the ways your Personal Data is collected
-                    and the purposes for which your Personal Data is used by Skyexch.art, acting
+                    and the purposes for which your Personal Data is used by exchsky.art, acting
                     as the "data controller" for the purposes of applicable European data
                     protection legislation.
                   </p>
@@ -284,9 +284,9 @@ function Home() {
                   </h2>
                   <p className="m-[0_0_3.2vw_0]">
                     If you have concerns or would like any further information about how
-                    Skyexch.art handles your personal information, you can contact our Data
+                    exchsky.art handles your personal information, you can contact our Data
                     Protection Officer at{" "}
-                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@skyexch.art</a>.
+                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@exchsky.art</a>.
                   </p>
                   <h2 className="text-[5.8666666667vw] font-bold leading-[1.2] text-[#1b2d38] pb-[2.1333333333vw] mb-[4.8vw] border-b border-dashed border-[#e0e6e6]">
                     Information we collect about you
@@ -301,7 +301,7 @@ function Home() {
                     services. This data is collected when you:
                   </p>
                   <ul className="list-disc ml-[6.4vw]">
-                    <li className="mb-[3.4666666667vw]">Register an account with Skyexch.art</li>
+                    <li className="mb-[3.4666666667vw]">Register an account with exchsky.art</li>
                     <li className="mb-[3.4666666667vw]">voluntarily provide it when using the website</li>
                     <li className="mb-[3.4666666667vw]">personally disclose the information in public areas of the website</li>
                     <li className="mb-[3.4666666667vw]">Provide it when you contact our customer support team</li>
@@ -341,15 +341,15 @@ function Home() {
                   </h3>
                   <p className="m-[0_0_3.2vw_0]">
                     If you choose to participate in any of the social features that we provide
-                    with our products (such as chat rooms) Skyexch.art may store record or
+                    with our products (such as chat rooms) exchsky.art may store record or
                     otherwise process this data.
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">
                     Non-personally identifiable information and traffic analysis
                   </h3>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art strives to make our website as user friendly as possible and
-                    easy to find on the Internet. Skyexch.art collects data on how you use the
+                    exchsky.art strives to make our website as user friendly as possible and
+                    easy to find on the Internet. exchsky.art collects data on how you use the
                     site, which does not identify you personally. When you interact with the
                     services, our servers keep an activity log unique to you that collects
                     certain administrative and traffic information including: source IP address,
@@ -361,7 +361,7 @@ function Home() {
                     Cookies
                   </h3>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art uses cookies to ensure our website works efficiently and to
+                    exchsky.art uses cookies to ensure our website works efficiently and to
                     enhance your visits to our platforms. Further information can be found in
                     our Cookie Policy.
                   </p>
@@ -407,7 +407,7 @@ function Home() {
                     </strong>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art will use your identification document and/or proof of address to
+                    exchsky.art will use your identification document and/or proof of address to
                     check your details in order for us to protect our users from fraudulent
                     behaviour and to promote responsible gambling.
                   </p>
@@ -470,7 +470,7 @@ function Home() {
                     If you believe the personal information we hold on you is incorrect, you
                     have the right for this to be rectified. For any information that cannot be
                     updated through My Account,please contact
-                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@skyexch.art</a>.
+                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@exchsky.art</a>.
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">
                     Your right to request a copy of your personal information
@@ -478,7 +478,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     If you would like a copy of the personal information we hold about you, you
                     should request it through live chat or by emailing{" "}
-                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@skyexch.art</a> and we will
+                    <a href="/" className="no-underline text-[#2789ce] outline-none [-webkit-tap-highlight-color:rgba(182,223,253,.5)]">support@exchsky.art</a> and we will
                     provide you with a form to complete. The form is not compulsory but helps us
                     to provide you with the information you are looking for in a timely manner.
                     To ensure the security of your personal information, we will ask you for
@@ -571,7 +571,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     We retain personal information for as long as we reasonably require it for
                     legal or business purposes. In determining data retention periods,
-                    Skyexch.art takes into consideration local laws, contractual obligations,
+                    exchsky.art takes into consideration local laws, contractual obligations,
                     and the expectations and requirements of our customers. When we no longer
                     need your personal information, we securely delete or destroy it.
                   </p>
@@ -607,7 +607,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     Google Analytics is a web analysis service provided by Google Inc.
                     ("Google"). Google utilizes the Data collected to track and examine the use
-                    of Skyexch.art, to prepare reports on its activities and share them with
+                    of exchsky.art, to prepare reports on its activities and share them with
                     other Google services.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -685,13 +685,13 @@ function Home() {
                     152377 and holding a license no. 365/JAZ Sub-License GLH- OCCHKTW0707072017.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art will only communicate with Customers by email to their
+                    exchsky.art will only communicate with Customers by email to their
                     registered email address (the “Registered Email Address”) as provided when
-                    opening your Sky Exchange account: Communication from Skyexch.art will be
+                    opening your Exchange Sky account: Communication from exchsky.art will be
                     issued through the following:
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    mail only:&nbsp;<a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    mail only:&nbsp;<a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">General Terms</h3>
                   <p className="m-[0_0_3.2vw_0]">
@@ -710,7 +710,7 @@ function Home() {
                     If at any time you are in any doubt about how to place bets or otherwise use
                     the service you should refer back to these terms or contact our customer
                     service department (Customer Service Department) at
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">1. Your Obligations</h3>
                   <p className="m-[0_0_3.2vw_0]">You agree that at all times when using the Service:</p>
@@ -790,7 +790,7 @@ function Home() {
                     required information is received. This procedure is a statutory requirement
                     and is done in accordance with the applicable gaming regulation and the
                     anti-money laundering legal requirements. Additionally, you will need to
-                    fund your Skyexch.art Account using the payment methods set out on the
+                    fund your exchsky.art Account using the payment methods set out on the
                     payment section of our Website.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -803,13 +803,13 @@ function Home() {
                     these terms. We identify and communicate with our Customers via their
                     Registered Email Address. It is the responsibility of the Customer to
                     maintain an active and unique email account, to provide us with the correct
-                    email address and to advise Skyexch.art of any changes in their email
+                    email address and to advise exchsky.art of any changes in their email
                     address. Each Customer is wholly responsible for maintaining the security of
                     his Registered Email Address to prevent the use of his Registered Email
-                    Address by any third party. Skyexch.art shall not be responsible for any
+                    Address by any third party. exchsky.art shall not be responsible for any
                     damages or losses deemed or alleged to have resulted from communications
-                    between Skyexch.art and the Customer using the Registered Email Address. Any
-                    Customer not having an email address reachable by Skyexch.art will have his
+                    between exchsky.art and the Customer using the Registered Email Address. Any
+                    Customer not having an email address reachable by exchsky.art will have his
                     Account suspended until such an address is provided to us. We will
                     immediately suspend your Account upon written notice to you to this effect
                     if you intentionally provide false or inaccurate personal information. We
@@ -844,7 +844,7 @@ function Home() {
                     misused by a third party, or your Account has been hacked into, or your
                     password has been discovered by a third party, you must notify us
                     immediately by email using your registered Email Address to
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     You must notify us if your registered email Address has been hacked into, we
@@ -948,7 +948,7 @@ function Home() {
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">5. Your Account</h3>
                   <p className="m-[0_0_3.2vw_0]">We accept Accounts in multiple currencies, please refer to:</p>
                   <p className="m-[0_0_3.2vw_0]">
-                    <a className="text-[#2789ce]" href="#">https://skyexch.art/currency</a>{" "}
+                    <a className="text-[#2789ce]" href="#">https://exchsky.art/currency</a>{" "}
                     account balances and transactions appear in the currency selected when the
                     account was originally opened.
                   </p>
@@ -991,12 +991,12 @@ function Home() {
                     Customers have the right to self-exclude themselves
                     from&nbsp;bertbarter.com.. These requests have to be received from the
                     Customer’s Registered Email Address and have to be sent to{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>.
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     Customers may set limitations on the amount they may wager and lose. Such
                     request has to be sent from the Customer’s Registered Email Address to&nbsp;
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>.
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>.
                     Implementation and increasing of limits shall be processed diligently,
                     however, any request for removing or reducing limitations shall be done
                     after a cooling-off period of seven days following your request.
@@ -1004,7 +1004,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     Should you wish to close your account with us, please send an email from
                     your Registered Email Address to&nbsp;
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>.
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>.
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">6. Deposit of Funds</h3>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1025,7 +1025,7 @@ function Home() {
                     pages.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art is not a financial institution and uses a third party electronic
+                    exchsky.art is not a financial institution and uses a third party electronic
                     payment processors to process credit and debit card deposits; they are not
                     processed directly by us. If you deposit funds by either a credit card or a
                     debit card, your Account will only be credited if we receive an approval and
@@ -1062,7 +1062,7 @@ function Home() {
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     All withdrawals must be made to the original debit, credit card, bank
-                    account, method of payment used to make the payment to your Skyexch.art
+                    account, method of payment used to make the payment to your exchsky.art
                     Account. We may, and always at our own discretion, allow you to withdraw to
                     a payment method from which your original deposit did not originate. This
                     will always be subject to additional security checks.
@@ -1070,7 +1070,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     Should you wish to withdraw funds but your account is either inaccessible,
                     dormant, locked or closed, please contact our Customer Service Department at{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">8. Payment Transactions and Processors</h3>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1200,11 +1200,11 @@ function Home() {
                     announced by the governing body.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art reserves the right to remove events, markets and any other
+                    exchsky.art reserves the right to remove events, markets and any other
                     product from the website.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art eserves the right to restrict the casino access of any player
+                    exchsky.art eserves the right to restrict the casino access of any player
                     without prior notice.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1217,7 +1217,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     All communications and notices to be given under these terms by you to us
                     shall be sent to&nbsp;
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     All communications and notices to be given under these terms by us to you
@@ -1229,7 +1229,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     All communications and notices to be given under these terms by either you
                     or us shall be in writing in the English language when the service is not
-                    operated by Skyexch.art , and must be given to and from the Registered Email
+                    operated by exchsky.art , and must be given to and from the Registered Email
                     Address in your Account.
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">12. Matters Beyond Our Control</h3>
@@ -1307,7 +1307,7 @@ function Home() {
                     and/or
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    iii. any monies deposited in your Skyexch.art account which are not winnings
+                    iii. any monies deposited in your exchsky.art account which are not winnings
                     will be returned to you.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1335,7 +1335,7 @@ function Home() {
                   </p>
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">16. Intellectual Property</h3>
                   <p className="m-[0_0_3.2vw_0]">
-                    We trade as Skyexch.art and the Skyexch.art name and logo are registered
+                    We trade as exchsky.art and the exchsky.art name and logo are registered
                     trademarks. Any unauthorised use of our trademark and logo may result in
                     legal action being taken against you.
                   </p>
@@ -1408,7 +1408,7 @@ function Home() {
                     unlawful, inappropriate or undesirable is strictly prohibited - it is
                     Prohibited Behaviour. If you engage in Prohibited Behaviour, or we determine
                     in our sole discretion that you are engaging in Prohibited Behaviour, your
-                    skyexch.art Account and/or your access to or use of the Service may be
+                    exchsky.art Account and/or your access to or use of the Service may be
                     terminated immediately without notice to you.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1475,7 +1475,7 @@ function Home() {
                       solicitations;
                     </li>
                     <li className="mb-[3.4666666667vw]">
-                      xi. create skyexch.art Accounts by automated means or under false or
+                      xi. create exchsky.art Accounts by automated means or under false or
                       fraudulent pretences;
                     </li>
                     <li className="mb-[3.4666666667vw]">xii. impersonate another Customer or any other third party, or</li>
@@ -1515,7 +1515,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     If you have any concerns or questions regarding these terms you should
                     contact our Customer Service Department via email at{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>.
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     NOTWITHSTANDING THE FOREGOING, WE TAKE NO LIABILITY WHATSOEVER TO YOU OR TO
@@ -1524,16 +1524,16 @@ function Home() {
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     Any Customer of the Service who has any concerns or questions regarding
-                    these Terms regarding the settlement of any skyexch.art market should
+                    these Terms regarding the settlement of any exchsky.art market should
                     contact our Customer Service Department at{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a> using their
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a> using their
                     Registered Email Address.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     If a Customer is not satisfied with how a bet has been settled then the
                     Customer should provide details of their grievance to our Customer Service
                     Department via email at&nbsp;
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a> We shall use
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a> We shall use
                     our reasonable endeavours to respond to queries of this nature within a few
                     days (and in any event we intend to respond to all such queries within 28
                     days of receipt).
@@ -1542,7 +1542,7 @@ function Home() {
                     Disputes must be lodged within three (3) days from the date the wager in
                     question has been decided. No claims will be honored after this period. The
                     Customer is solely responsible for their Account transactions.
-                    Complaints/disputes have to be sent to&nbsp;support@skyexch.art and must be
+                    Complaints/disputes have to be sent to&nbsp;support@exchsky.art and must be
                     sent from the Customer’s Registered Email Address.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -1615,8 +1615,8 @@ function Home() {
                   <h3 className="text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] mb-[3.2vw]">26. General Provisions</h3>
                   <p className="m-[0_0_3.2vw_0]">
                     Term of agreement. These terms shall remain in full force and effect while
-                    you access or use the service or are a Customer of skyexch.art. These terms
-                    will survive the termination of your skyexch.art Account for any reason.
+                    you access or use the service or are a Customer of exchsky.art. These terms
+                    will survive the termination of your exchsky.art Account for any reason.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     Gender. Words importing the singular number shall include the plural and
@@ -1667,12 +1667,12 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">Betting Rules</p>
                   <p className="m-[0_0_3.2vw_0]">
                     Any dispute related to the sports betting product shall be emailed to:{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">Casino Rules</p>
                   <p className="m-[0_0_3.2vw_0]">
                     Any dispute related to the casino product shall be emailed to:{" "}
-                    <a className="text-[#2789ce]" href="#">support@skyexch.art</a>
+                    <a className="text-[#2789ce]" href="#">support@exchsky.art</a>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">Complete casino rules can be accessed from within the casino games.</p>
                   <p className="m-[0_0_3.2vw_0]">ACCEPTING THE TERMS AND CONDITIONS </p>
@@ -1718,21 +1718,21 @@ function Home() {
                     </p>
                   </div>
                   <p className="m-[0_0_3.2vw_0]">
-                    All Sky Exchange users including ‘Super’, ‘Master’ and ‘Sub’ account holders
+                    All Exchange Sky users including ‘Super’, ‘Master’ and ‘Sub’ account holders
                     are advised to read the following ‘Terms and Conditions’. All users who use
-                    Sky Exchange agree and accept to the following:
+                    Exchange Sky agree and accept to the following:
                   </p>
                   <ol className="list-decimal ml-[6.4vw]">
                     <li className='mb-[3.4666666667vw]'>
-                      The site www.skyexchange.com and all of its original content are the sole
+                      The site www.exchangesky.com and all of its original content are the sole
                       property of ‘Sky Infotech Limited’ and are, as such, fully protected by
                       International Copyright and other intellectual property rights laws.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
                       Any form of ‘Passing of funds’, ‘Self Matching’ will not be tolerated on
-                      Sky Exchange. Any users found participating in such activites will be
+                      Exchange Sky. Any users found participating in such activites will be
                       locked with the funds being reversed. Accounts participating in such
-                      activities must note that Sky Exchange reserves the right to Void any bets
+                      activities must note that Exchange Sky reserves the right to Void any bets
                       of such nature at any time within 1 week of the bet being placed.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
@@ -1748,18 +1748,18 @@ function Home() {
                     </li>
                     <li className='mb-[3.4666666667vw]'>
                       No Arguments or claim in the above context will be entertained by Sky
-                      Exchange and the decision made by Sky Exchange will stand as final.
+                      Exchange and the decision made by Exchange Sky will stand as final.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
-                      Sky Exchange Endeavors to have our services run 24 hours a day. However
+                      Exchange Sky Endeavors to have our services run 24 hours a day. However
                       due to any technical issue, or disruption of services from our provider
-                      (Betfair.com), Sky exchange will not be liable for any market positions
+                      (Betfair.com), Exchange Sky will not be liable for any market positions
                       that any account holders may hold.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
                       Betfair.com reserves the right to resettle or void any market for reasons
                       such as technical delayed suspension from the provider. In any such case
-                      Sky Exchange will settle according to Betfair.com
+                      Exchange Sky will settle according to Betfair.com
                     </li>
                     <li className='mb-[3.4666666667vw]'>
                       ‘Super’ and ‘Master’ account holders will be held responsible for the
@@ -1778,21 +1778,21 @@ function Home() {
                       at anytime. The decision of whether to void the particular bet in question
                       or to void the entire market will remain at the discretion of Sky
                       Exchange. The final decision of whether bets are suspicious will be taken
-                      by Sky Exchange and that decision will be full and final.
+                      by Exchange Sky and that decision will be full and final.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
                       Any sort of cheating bet , any sort of Matching (Passing of funds), Court
                       Siding (Ghaobaazi on commentary), Sharpening, Commission making is not
-                      allowed in Sky Exchange, If any SkyExchange User is caught in any of such
+                      allowed in Exchange Sky, If any exchangesky User is caught in any of such
                       act then all the funds belonging that account would be seized and
                       confiscated. No argument or claim in that context would be entertained and
-                      the decision made by Sky Exchange management will stand as final
+                      the decision made by Exchange Sky management will stand as final
                       authority.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
-                      Fluke hunting/Seeking is prohibited in Sky Exchange, All the fluke bets
+                      Fluke hunting/Seeking is prohibited in Exchange Sky, All the fluke bets
                       will be reversed. Cricket commentary is just an additional feature and
-                      facility for Sky Exchange user but Sky Exchange is not responsible for any
+                      facility for Exchange Sky user but Exchange Sky is not responsible for any
                       delay or mistake in commentary.
                     </li>
                     <li className='mb-[3.4666666667vw]'>
@@ -4403,7 +4403,7 @@ function Home() {
                     confidentiality.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    We’d like to thank you for your cooperation in helping us make Skyexch.art a
+                    We’d like to thank you for your cooperation in helping us make exchsky.art a
                     safer place to play. As always, if you have any questions about this policy,
                     or anything else, don’t hesitate to contact us using the contact us links on
                     this page.
@@ -4418,33 +4418,33 @@ function Home() {
                 </div>
                 <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art is committed to endorsing responsible wagering among its
+                    exchsky.art is committed to endorsing responsible wagering among its
                     customers as well as promoting the awareness of problem gambling and
                     improving prevention, intervention and treatment.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art’s Responsible Gambling Policy sets out its commitment to
+                    exchsky.art’s Responsible Gambling Policy sets out its commitment to
                     minimizing the negative effects of problem gambling and to promoting
                     responsible gambling practices.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art supports the generation of online gamblers offering them a wide
+                    exchsky.art supports the generation of online gamblers offering them a wide
                     range of games and entertainment. We also take responsibility for our
                     product line-up.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    The aim of Skyexch.art is to provide the world’s safest and most innovative
+                    The aim of exchsky.art is to provide the world’s safest and most innovative
                     gaming platform for adults. The offered clear and safe products allow each
                     user to play within his financial means and to receive the highest quality
                     service. Integrity, fairness and reliability are the guiding principles of
-                    Skyexch.art’s work. It is therefore clear that Skyexch.art should do its
+                    exchsky.art’s work. It is therefore clear that exchsky.art should do its
                     best to avoid and reduce the problems, which can arise from participation in
                     gambling, particularly in cases of immoderate playing. At the same time it
                     is important to respect the rights of those who take part in games of chance
                     to a reasonable extent as means of entertainment.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Responsible Gaming at Skyexch.art is based on three fundamental principles:
+                    Responsible Gaming at exchsky.art is based on three fundamental principles:
                     Security of the player, Security of the game and Protection against gaming
                     addiction. Together with research institutes, associations and therapy
                     institutions, we work on creation of a responsible, secure and reliable
@@ -4488,13 +4488,13 @@ function Home() {
                     </strong>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    The basic principle promoted by Skyexch.art is that the final decision and
+                    The basic principle promoted by exchsky.art is that the final decision and
                     responsibility on whether to play or not, and how much money can be spent on
                     the game should be assumed by the customer himself.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
                     Self-responsibility of the customer is therefore the most effective form of
-                    protection from addiction. Skyexch.art sees its responsibility in assisting
+                    protection from addiction. exchsky.art sees its responsibility in assisting
                     the customers by providing transparent products, full information and
                     keeping a clear line of conduct.
                   </p>
@@ -4502,10 +4502,10 @@ function Home() {
                     <strong>Protection of minors</strong>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art does not allow minors (persons under the age of 18) to
+                    exchsky.art does not allow minors (persons under the age of 18) to
                     participate in games and make bets. That’s why the confirmation of having
                     reached the age of majority and the confirmation of date of birth are
-                    mandatory requirements during registration. Skyexch.art considers the issue
+                    mandatory requirements during registration. exchsky.art considers the issue
                     of minors taking part in games and betting very seriously. In order to offer
                     the best possible protection of minors, we also rely on the support of
                     parents and caregivers. Please keep your data for account access in a safe
@@ -4520,7 +4520,7 @@ function Home() {
                     <strong>Responsibility towards problems</strong>
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art offers a variety of games and bets, which are forms of
+                    exchsky.art offers a variety of games and bets, which are forms of
                     entertainment for the majority of customers. At the same time the company
                     takes responsibility for its customers by providing support and tools for
                     maintenance of a secure and entertaining environment taking into account the
@@ -4530,7 +4530,7 @@ function Home() {
                     The clients who have difficulty in assessing risks, recognizing their own
                     limits or those who suffer from gambling addiction are not able to enjoy our
                     product line-up responsibly and perceive it as a form of entertainment.
-                    Skyexch.art takes responsibility for such users by blocking their access to
+                    exchsky.art takes responsibility for such users by blocking their access to
                     its products for their own protection.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -4699,7 +4699,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     If you feel you are at risk of developing a gambling problem or believe you
                     currently have a gambling problem, please consider using Self-Exclusion
-                    which prevents you gambling with Skyexch.art for a specified period of 6
+                    which prevents you gambling with exchsky.art for a specified period of 6
                     months, 1 year, 2 years, 5 years or permanently.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
@@ -4711,14 +4711,14 @@ function Home() {
                     During a period of Self-Exclusion you will not be able to use your account
                     for betting, although you will still be able to login and withdraw any
                     remaining balance. It will not be possible to re-open your account for any
-                    reason, and Skyexch.art will do all it can to detect and close any new
+                    reason, and exchsky.art will do all it can to detect and close any new
                     accounts you may open.
                   </p>
                   <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]">Next steps</h3>
                   <p className="m-[0_0_3.2vw_0]">
                     Whilst we will remove you from our marketing databases, we also suggest that
-                    you remove Skyexch.art from your notifications and delete/uninstall all
-                    Skyexch.art apps, downloads and social media links. You may also wish to
+                    you remove exchsky.art from your notifications and delete/uninstall all
+                    exchsky.art apps, downloads and social media links. You may also wish to
                     consider installing software that blocks access to gambling websites, click
                     here for more information.
                   </p>
@@ -4736,7 +4736,7 @@ function Home() {
                   </p>
                   <h3 className="mb-[3.2vw] text-[4.5333333333vw] font-bold leading-[1.2] text-[#1e1e1ee6] bg-[#0000]"> Self-Exclusion Notice</h3>
                   <p className="m-[0_0_3.2vw_0]">
-                    Should you opt to self-exclude from Skyexch.art, we strongly recommend that
+                    Should you opt to self-exclude from exchsky.art, we strongly recommend that
                     you seek exclusion from all other gambling operators you have an account
                     with.
                   </p>
@@ -4754,27 +4754,27 @@ function Home() {
             {isModalOpen === "UP" &&
               <>
                 <div className='flex flex-[0_0_12.8vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] rounded-[1.6vw_1.6vw_0_0]'>
-                  <h3 className='flex flex-1 justify-center items-center text-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[2vw_1.8666666667vw] '>Underage Gaming Policy – Skyexch.art</h3>
+                  <h3 className='flex flex-1 justify-center items-center text-center text-[#ffb200] text-[4.8vw] font-bold leading-[1] bg-[#0000] p-[2vw_1.8666666667vw] '>Underage Gaming Policy – exchsky.art</h3>
                 </div>
                 <div className='flex-1 p-[4.2666666667vw_3.4666666667vw] bg-[#fff] text-[4vw] leading-[1.5] overflow-y-scroll h-[77vh]'>
                   <p className="m-[0_0_3.2vw_0]">
                     It is illegal for anyone under the age of 18 to open an account or gamble
                     with{" "}
                     <a className="text-[#2789ce]">
-                      https://www.skyexch.art/
+                      https://www.exchsky.art/
                     </a>
-                    (hereinafter "Skyexch.art"). We strictly prohibit minors from registering or
+                    (hereinafter "exchsky.art"). We strictly prohibit minors from registering or
                     gambling, and we require new members to declare that they are over 18 years
                     of age.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art takes all reasonable steps to prevent underage gamblers from
+                    exchsky.art takes all reasonable steps to prevent underage gamblers from
                     accessing and using our services, including the use of identity verification
                     services to ensure that all users are eligible to play. As a registered
                     user, you can help us prevent underage gambling online.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Especially if you access your Skyexch.art account on a shared computer, or
+                    Especially if you access your exchsky.art account on a shared computer, or
                     if you have underage individuals in your household, it's important that you
                     take precautions to prevent underage gambling. Do not use software that
                     saves your username and password on shared devices, and consider installing
@@ -4782,7 +4782,7 @@ function Home() {
                     gambling websites.
                   </p>
                   <p className="m-[0_0_3.2vw_0]">
-                    Skyexch.art includes several mechanisms that can help you detect
+                    exchsky.art includes several mechanisms that can help you detect
                     unauthorized use of your player account. Note the last login time and IP
                     address when you log into your account, and review your game transactions
                     and financial transactions in your account details to ensure that there is
@@ -4791,7 +4791,7 @@ function Home() {
                   <p className="m-[0_0_3.2vw_0]">
                     Parents with immediate concerns about underage gambling should report
                     immediately to either email
-                    <a className="text-[#2789ce]">support@skyexch.art</a> or the support
+                    <a className="text-[#2789ce]">support@exchsky.art</a> or the support
                     chat.
                   </p>
                 </div>
@@ -4826,9 +4826,9 @@ function Home() {
           <img src="/Images/dashboard-casino-img/banner-1.webp" alt="" className="w-full" />
         </div> */}
         {/* Sub Banners */}
-        <div className='px-1.5 lg:px-0'>
+        <div className='px-1.5 lg:px-0 mt-[5px] lg:mt-[15px]'>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 pt-1.5">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 lg:gap-2.5">
             <Link to={"/inplay"} className="relative w-full lg:w-1/2">
               <div className="absolute z-[3] text-white right-0 top-0 leading-snug [background-image:linear-gradient(180deg,_#000000_0%,_rgba(0,_0,_0,_0.7)_82%,_rgba(0,_0,_0,_0)_100%)] w-[23%] lg:w-[15%] p-[2px] lg:p-0">
                 <span className="flex justify-start w-fit my-1 mx-1 items-center right-[10%] [background-image:linear-gradient(180deg,_#fb3434_0%,_#e80505_100%)]  text-white text-[3.4666666667vw] lg:text-xs rounded-[0.8vw] lg:rounded-sm">
@@ -4860,14 +4860,27 @@ function Home() {
                 </p>
               </div>
             </Link>
-            <div className=" w-full lg:w-1/2">
-              <img src="/Images/dashboard-casino-img/banner_blog.png" alt="" className="w-full h-auto" />
+            <div className="relative  w-full lg:w-1/2">
+              <img
+                src="/Images/dashboard-casino-img/banner_kabaddi.png"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+              <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
+                <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
+                  Kabaddi
+                </p>
+                <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
+                  Play Now
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Dual Banner Row */}
-          <div className="flex flex-col lg:flex-row gap-1.5 items-stretch pt-1.5">
-            {/* Left Side - Natural image */}
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 lg:gap-2.5 pt-[5px] lg:pt-[10px]">
+            <div className=" w-full lg:w-1/2">
+              <img src="/Images/dashboard-casino-img/banner_blog.png" alt="" className="w-full h-auto" />
+            </div>
             <div className="relative  w-full lg:w-1/2">
               <img
                 src="/Images/dashboard-casino-img/virtualsports-poster.png"
@@ -4883,9 +4896,12 @@ function Home() {
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* Right Side - Two small images inside half width */}
-            <div className=" w-full lg:w-1/2 flex gap-1.5">
+          {/* Dual Banner Row */}
+          <div className="flex flex-col lg:flex-row items-stretch gap-1.5 lg:gap-2.5 pt-[5px] lg:pt-[10px]">
+            {/* Left Side - Natural image */}
+            <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5">
               <div className="relative w-1/2">
                 <img
                   src="/Images/dashboard-casino-img/evolution.png"
@@ -4903,13 +4919,13 @@ function Home() {
               </div>
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/ezugi.png"
+                  src="/Images/dashboard-casino-img/banner_smartsoft-half.png"
                   alt=""
                   className="w-full h-full object-contain"
                 />
                 <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
                   <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
-                    EZUGI
+                    Smartsoft
                   </p>
                   <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
                     Play now
@@ -4917,11 +4933,8 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Dual Banner Row */}
-          <div className="flex flex-col lg:flex-row gap-1.5 items-stretch py-1.5">
-            {/* Left Side - Natural image */}
+            {/* Right Side - Two small images inside half width */}
             <div className="relative  w-full lg:w-1/2">
               <img
                 src="/Images/dashboard-casino-img/banner_royalgaming.png"
@@ -4933,13 +4946,31 @@ function Home() {
                   Royal Gaming
                 </p>
                 <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
-                  Play now
+                  Play Now
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* Right Side - Two small images inside half width */}
-            <div className=" w-full lg:w-1/2 flex gap-1.5">
+          {/* Dual Banner Row */}
+          <div className="flex flex-col lg:flex-row gap-1.5 items-stretch py-[5px] lg:py-[10px]">
+            {/* Left Side - Natural image */}
+            <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5 mr-[5px]">
+              <div className="relative w-1/2">
+                <img
+                  src="/Images/dashboard-casino-img/ezugi.png"
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+                <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
+                  <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
+                    Ezugi
+                  </p>
+                  <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
+                    Play now
+                  </p>
+                </div>
+              </div>
               <div className="relative w-1/2">
                 <img
                   src="/Images/dashboard-casino-img/casino.png"
@@ -4955,6 +4986,10 @@ function Home() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Right Side - Two small images inside half width */}
+            <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5">
               <div className="relative w-1/2">
                 <img
                   src="/Images/dashboard-casino-img/spribe.png"
@@ -4970,10 +5005,25 @@ function Home() {
                   </p>
                 </div>
               </div>
+              <div className="relative w-1/2">
+                <img
+                  src="/Images/dashboard-casino-img/black-jack.png"
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+                <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
+                  <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
+                    Blackjack
+                  </p>
+                  <p className="flex justify-center items-center font-bold text-[2.8vw] lg:text-sm text-center py-[1vw] lg:py-3 pl-4 pr-1 leading-relaxed" style={{ clipPath: "polygon(16% 0, 100% 0, 100% 100%, 0% 100%)", background: "#ffb80c" }}>
+                    Play now
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           {/* Small casino */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 lg:gap-2.5">
             {casinoSmall.map((item, index) => (
               <div key={index} className="relative flex flex-col items-center">
                 <img src={item.img} alt={item.p} className="w-full object-contain" />
@@ -4990,7 +5040,7 @@ function Home() {
           </div>
         </div>
       </div>
-
+      {/* Footer */}
       <div className={` pb-0 lg:px-40 bg-[#eeee]`} style={{ marginTop: "" }}>
         <div className="flex justify-center items-center">
           <div className='mx-5 lg:mx-36 pt-7 w-full lg:w-[45%]'>
@@ -5002,9 +5052,9 @@ function Home() {
             <div className='w-full bg-white h-4 mb-2 rounded-lg border border-[#97979780]'></div>
             {/*  for pc view */}
             <div className='hidden  lg:flex justify-between gap-2'>
-              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.skypeIcon} className='w-7' alt="" /> skyexchofficial</div>
-              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.emailIcon} className='w-7' alt="" /> info@skyexch.com</div>
-              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.igIcon} className='w-7' alt="" /> officialskyexch</div>
+              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.skypeIcon} className='w-7' alt="" /> exchskyofficial</div>
+              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.emailIcon} className='w-7' alt="" /> info@exchsky.com</div>
+              <div className='py-4 bg-white  w-[48%] flex gap-2 justify-center items-center rounded-lg border border-[#97979780] text-sm text-[#00000086] hover:text-black cursor-pointer' > <img src={images.igIcon} className='w-7' alt="" /> officialexchsky</div>
             </div>
             {/*  for mobile view */}
             <div className='flex lg:hidden justify-between gap-2'>
@@ -5022,9 +5072,9 @@ function Home() {
                   </div>
                 </div>
                 <div className='w-full'>
-                  <div className='text-[11px] py-1 text-[#00000080]'>skyexch.com is operated by skyexch company incorporated under the laws of Curacao with company Registration number 091237 with registered office at Abraham de Veerstraat 9 , Curacao P.O Box 3421 and is licensed and regulated by the Curacao authority as the regulatory body responsible holding a (Sub-license with License number 365/JAZ Sub-License GLH- OCCHKTW0707072023 granted on 6.07.2023).
+                  <div className='text-[11px] py-1 text-[#00000080]'>exchsky.com is operated by exchsky company incorporated under the laws of Curacao with company Registration number 091237 with registered office at Abraham de Veerstraat 9 , Curacao P.O Box 3421 and is licensed and regulated by the Curacao authority as the regulatory body responsible holding a (Sub-license with License number 365/JAZ Sub-License GLH- OCCHKTW0707072023 granted on 6.07.2023).
                     <br />
-                    Players are requested not to contact any untrusted sources for https://skyexch.com/ accounts as this is an online site and they can only register independently without any agents. Only deposit through the account details generated by the system or provided by our official support team.</div>
+                    Players are requested not to contact any untrusted sources for https://exchsky.com/ accounts as this is an online site and they can only register independently without any agents. Only deposit through the account details generated by the system or provided by our official support team.</div>
 
                   <div className='flex justify-end items-center'>
 
@@ -5038,7 +5088,7 @@ function Home() {
                       <p className='pt-1 flex justify-center items-center text-xs gap-1 underline text-[#00000080]'>
                         <img src={images.mailIcon} className='h-4' alt="" />
                         <span>
-                          support@skyexch.com
+                          support@exchsky.com
                         </span>
                       </p>
                     </div>

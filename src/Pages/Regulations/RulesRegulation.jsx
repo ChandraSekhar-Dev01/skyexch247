@@ -6,7 +6,7 @@ function RulesRegulation() {
       <div className="fixed w-full h-[56px] bg-white pl-[24px] border-b border-[#e0e6e6]">
         <h1 className='flex justify-start items-center text-[20px] text-[#000] font-bold leading-[56px]'>
           <span className='flex w-[6px] h-[24px] mr-[8px] rounded-[100px] bg-[#ffbd14]'></span>
-          Sky Exchange Rules and Regulations
+          Exchange Sky Rules and Regulations
         </h1>
       </div>
       <div className="p-[16px_24px] mt-[40px] text-[14px] leading-[24px] overflow-y-scroll h-[95vh]">
@@ -21,12 +21,12 @@ function RulesRegulation() {
         </div>
 
         <p className="mb-3">
-          All Sky Exchange users including ‘Super’, ‘Master’ and ‘Sub’ account holders are advised to read the following ‘Terms and Conditions’.
-          All users who use Sky Exchange agree and accept to the following:
+          All Exchange Sky users including ‘Super’, ‘Master’ and ‘Sub’ account holders are advised to read the following ‘Terms and Conditions’.
+          All users who use Exchange Sky agree and accept to the following:
         </p>
         <ol className='list-decimal ml-[32px] mb-[16px]'>
           <li>
-            The site www.skyexchange.com and all of its original content are the sole
+            The site www.exchangesky.com and all of its original content are the sole
             property of ‘Sky Infotech Limited’ and are, as such, fully protected by
             International Copyright and other intellectual property rights laws.
           </li>
@@ -34,7 +34,7 @@ function RulesRegulation() {
             Any form of ‘Passing of funds’, ‘Self Matching’ will not be tolerated on Sky
             Exchange. Any users found participating in such activites will be locked
             with the funds being reversed. Accounts participating in such activities
-            must note that Sky Exchange reserves the right to Void any bets of such
+            must note that Exchange Sky reserves the right to Void any bets of such
             nature at any time within 1 week of the bet being placed.
           </li>
           <li>
@@ -50,12 +50,12 @@ function RulesRegulation() {
           </li>
           <li>
             No Arguments or claim in the above context will be entertained by Sky
-            Exchange and the decision made by Sky Exchange will stand as final.
+            Exchange and the decision made by Exchange Sky will stand as final.
           </li>
           <li>
-            Sky Exchange Endeavors to have our services run 24 hours a day. However due
+            Exchange Sky Endeavors to have our services run 24 hours a day. However due
             to any technical issue, or disruption of services from our provider
-            (Betfair.com), Sky exchange will not be liable for any market positions that
+            (Betfair.com), Exchange Sky will not be liable for any market positions that
             any account holders may hold.
           </li>
           <li>
@@ -78,22 +78,22 @@ function RulesRegulation() {
             Any bets which are deemed of being suspicious, including bets which have
             been placed from the stadium or from a source at the stadium maybe voided at
             anytime. The decision of whether to void the particular bet in question or
-            to void the entire market will remain at the discretion of Sky Exchange. The
-            final decision of whether bets are suspicious will be taken by Sky Exchange
+            to void the entire market will remain at the discretion of Exchange Sky. The
+            final decision of whether bets are suspicious will be taken by Exchange Sky
             and that decision will be full and final.
           </li>
           <li>
             Any sort of cheating bet , any sort of Matching (Passing of funds), Court
             Siding (Ghaobaazi on commentary), Sharpening, Commission making is not
-            allowed in Sky Exchange, If any SkyExchange User is caught in any of such
+            allowed in Exchange Sky, If any exchangesky User is caught in any of such
             act then all the funds belonging that account would be seized and
             confiscated. No argument or claim in that context would be entertained and
-            the decision made by Sky Exchange management will stand as final authority.
+            the decision made by Exchange Sky management will stand as final authority.
           </li>
           <li>
-            Fluke hunting/Seeking is prohibited in Sky Exchange, All the fluke bets will
+            Fluke hunting/Seeking is prohibited in Exchange Sky, All the fluke bets will
             be reversed. Cricket commentary is just an additional feature and facility
-            for Sky Exchange user but Sky Exchange is not responsible for any delay or
+            for Exchange Sky user but Exchange Sky is not responsible for any delay or
             mistake in commentary.
           </li>
           <li>

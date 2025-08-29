@@ -11,9 +11,9 @@ const Footer = () => {
 
   // Image paths object
   const images = {
-    whatsAppIcon: "/Images/whatsApp-icon-grey.png",
-    skypeIcon: "/Images/skype-icon-grey.png",
-    emailIcon: "/Images/email-icon-grey.png",
+    whatsAppIcon: "/Images/whatsApp-icon-grey.svg",
+    skypeIcon: "/Images/skype-icon-grey.svg",
+    emailIcon: "/Images/email-icon-grey.svg",
     igIcon: "/Images/ig-icon-grey.png",
     betFairIcon: "/Images/not-verified.png",
     accountIcon: "/Images/account-icon-white.png",
@@ -23,7 +23,7 @@ const Footer = () => {
     clockIcon: "/Images/clock-icon-white.png",
     referral: "/Images/Referral.webp",
     SportsGiff: "/Images/gamesGiff.gif",
-    headphoneIcon: "/Images/headphone-icon-grey.png",
+    headphoneIcon: "/Images/headphone-icon-grey.svg",
     gcIcon: "/Images/gc-logo.png",
     phoneIcon: "/Images/phone-icon.png",
     mailIcon: "/Images/mail-icon.png",

@@ -18,7 +18,7 @@ function Privacy() {
             we will explain these to you.
           </p>
           <p className="mb-3">
-            This Privacy Policy explains how Skyexch.art uses your personal
+            This Privacy Policy explains how exchsky.art uses your personal
             information when you are using one of our website.
           </p>
           <p className="mb-3">
@@ -37,20 +37,20 @@ function Privacy() {
           </p>
           <h2 className='text-[20px] text-[#1b2d38] font-bold m-[16px_0] pb-[8px] border-b border-dotted border-[#ccc] leading-[20px]'>Who is in control of your information?</h2>
           <p className="mb-3">
-            Throughout this Privacy Policy, " Skyexch.art", "we", "our" and "us"
+            Throughout this Privacy Policy, " exchsky.art", "we", "our" and "us"
             relates to Sky Infotech N.V., a limited liability company, registered in
             Curacao with company number 152377, having its registered address at
             Abraham de Veerstraat 9, Curacao. We control the ways your Personal Data
             is collected and the purposes for which your Personal Data is used by
-            Skyexch.art, acting as the "data controller" for the purposes of
+            exchsky.art, acting as the "data controller" for the purposes of
             applicable European data protection legislation.
           </p>
           <h2 className='text-[20px] text-[#1b2d38] font-bold m-[16px_0] pb-[8px] border-b border-dotted border-[#ccc] leading-[20px]'>Our Data Protection Officer</h2>
           <p className="mb-3">
             If you have concerns or would like any further information about how
-            Skyexch.art handles your personal information, you can contact our Data
+            exchsky.art handles your personal information, you can contact our Data
             Protection Officer at{" "}
-            <a href='/' className="text-blue-500">support@skyexch.art</a>.
+            <a href='/' className="text-blue-500">support@exchsky.art</a>.
           </p>
           <h2 className='text-[20px] text-[#1b2d38] font-bold m-[16px_0] pb-[8px] border-b border-dotted border-[#ccc] leading-[20px]'>Information we collect about you</h2>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Personally identifiable information</h3>
@@ -61,7 +61,7 @@ function Privacy() {
             and related services. This data is collected when you:
           </p>
           <ul className="list-disc pl-5 mb-3">
-            <li>Register an account with Skyexch.art</li>
+            <li>Register an account with exchsky.art</li>
             <li>voluntarily provide it when using the website</li>
             <li>
               personally disclose the information in public areas of the website
@@ -99,13 +99,13 @@ function Privacy() {
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Social Features of Our Products</h3>
           <p className="mb-3">
             If you choose to participate in any of the social features that we provide
-            with our products (such as chat rooms) Skyexch.art may store record or
+            with our products (such as chat rooms) exchsky.art may store record or
             otherwise process this data.
           </p>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Non-personally identifiable information and traffic analysis</h3>
           <p className="mb-3">
-            Skyexch.art strives to make our website as user friendly as possible and
-            easy to find on the Internet. Skyexch.art collects data on how you use the
+            exchsky.art strives to make our website as user friendly as possible and
+            easy to find on the Internet. exchsky.art collects data on how you use the
             site, which does not identify you personally. When you interact with the
             services, our servers keep an activity log unique to you that collects
             certain administrative and traffic information including: source IP
@@ -115,7 +115,7 @@ function Privacy() {
           </p>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Cookies</h3>
           <p className="mb-3">
-            Skyexch.art uses cookies to ensure our website works efficiently and to
+            exchsky.art uses cookies to ensure our website works efficiently and to
             enhance your visits to our platforms. Further information can be found in
             our Cookie Policy.
           </p>
@@ -157,7 +157,7 @@ function Privacy() {
             </strong>
           </p>
           <p className="mb-3">
-            Skyexch.art will use your identification document and/or proof of address
+            exchsky.art will use your identification document and/or proof of address
             to check your details in order for us to protect our users from fraudulent
             behaviour and to promote responsible gambling.
           </p>
@@ -213,13 +213,13 @@ function Privacy() {
             If you believe the personal information we hold on you is incorrect, you
             have the right for this to be rectified. For any information that cannot
             be updated through My Account,please contact
-            <a href="/" className="text-blue-500">support@skyexch.art</a>.
+            <a href="/" className="text-blue-500">support@exchsky.art</a>.
           </p>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Your right to request a copy of your personal information</h3>
           <p className="mb-3">
             If you would like a copy of the personal information we hold about you,
             you should request it through live chat or by emailing{" "}
-            <a href="/" className="text-blue-500">support@skyexch.art</a> and we will
+            <a href="/" className="text-blue-500">support@exchsky.art</a> and we will
             provide you with a form to complete. The form is not compulsory but helps
             us to provide you with the information you are looking for in a timely
             manner. To ensure the security of your personal information, we will ask
@@ -305,7 +305,7 @@ function Privacy() {
           <p className="mb-3">
             We retain personal information for as long as we reasonably require it for
             legal or business purposes. In determining data retention periods,
-            Skyexch.art takes into consideration local laws, contractual obligations,
+            exchsky.art takes into consideration local laws, contractual obligations,
             and the expectations and requirements of our customers. When we no longer
             need your personal information, we securely delete or destroy it.
           </p>
@@ -337,7 +337,7 @@ function Privacy() {
           <p className="mb-3">
             Google Analytics is a web analysis service provided by Google Inc.
             ("Google"). Google utilizes the Data collected to track and examine the
-            use of Skyexch.art, to prepare reports on its activities and share them
+            use of exchsky.art, to prepare reports on its activities and share them
             with other Google services.
           </p>
           <p className="mb-3">

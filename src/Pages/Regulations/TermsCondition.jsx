@@ -36,13 +36,13 @@ function TermsCondition() {
           152377 and holding a license no. 365/JAZ Sub-License GLH- OCCHKTW0707072017.
         </p>
         <p className="mb-3">
-          Skyexch.art will only communicate with Customers by email to their
+          exchsky.art will only communicate with Customers by email to their
           registered email address (the “Registered Email Address”) as provided when
-          opening your Sky Exchange account: Communication from Skyexch.art will be
+          opening your Exchange Sky account: Communication from exchsky.art will be
           issued through the following:
         </p>
         <p className="mb-3">
-          mail only:&nbsp;<a href='/' className="text-blue-500">support@skyexch.art</a>
+          mail only:&nbsp;<a href='/' className="text-blue-500">support@exchsky.art</a>
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>General Terms</h3>
         <p className="mb-3">
@@ -61,7 +61,7 @@ function TermsCondition() {
           If at any time you are in any doubt about how to place bets or otherwise use
           the service you should refer back to these terms or contact our customer
           service department (Customer Service Department) at
-          <a href='/' className="text-blue-500">support@skyexch.art</a>
+          <a href='/' className="text-blue-500">support@exchsky.art</a>
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>1. Your Obligations</h3>
         <p className="mb-3">You agree that at all times when using the Service:</p>
@@ -141,7 +141,7 @@ function TermsCondition() {
           required information is received. This procedure is a statutory requirement
           and is done in accordance with the applicable gaming regulation and the
           anti-money laundering legal requirements. Additionally, you will need to
-          fund your Skyexch.art Account using the payment methods set out on the
+          fund your exchsky.art Account using the payment methods set out on the
           payment section of our Website.
         </p>
         <p className="mb-3">
@@ -154,13 +154,13 @@ function TermsCondition() {
           these terms. We identify and communicate with our Customers via their
           Registered Email Address. It is the responsibility of the Customer to
           maintain an active and unique email account, to provide us with the correct
-          email address and to advise Skyexch.art of any changes in their email
+          email address and to advise exchsky.art of any changes in their email
           address. Each Customer is wholly responsible for maintaining the security of
           his Registered Email Address to prevent the use of his Registered Email
-          Address by any third party. Skyexch.art shall not be responsible for any
+          Address by any third party. exchsky.art shall not be responsible for any
           damages or losses deemed or alleged to have resulted from communications
-          between Skyexch.art and the Customer using the Registered Email Address. Any
-          Customer not having an email address reachable by Skyexch.art will have his
+          between exchsky.art and the Customer using the Registered Email Address. Any
+          Customer not having an email address reachable by exchsky.art will have his
           Account suspended until such an address is provided to us. We will
           immediately suspend your Account upon written notice to you to this effect
           if you intentionally provide false or inaccurate personal information. We
@@ -195,7 +195,7 @@ function TermsCondition() {
           misused by a third party, or your Account has been hacked into, or your
           password has been discovered by a third party, you must notify us
           immediately by email using your registered Email Address to
-          <a href='/' className="text-blue-500">support@skyexch.art</a>
+          <a href='/' className="text-blue-500">support@exchsky.art</a>
         </p>
         <p className="mb-3">
           You must notify us if your registered email Address has been hacked into, we
@@ -299,7 +299,7 @@ function TermsCondition() {
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>5. Your Account</h3>
         <p className="mb-3">We accept Accounts in multiple currencies, please refer to:</p>
         <p className="mb-3">
-          <a href="https://skyexch.art/currency">https://skyexch.art/currency</a>{" "}
+          <a href="https://exchsky.art/currency">https://exchsky.art/currency</a>{" "}
           account balances and transactions appear in the currency selected when the
           account was originally opened.
         </p>
@@ -342,12 +342,12 @@ function TermsCondition() {
           Customers have the right to self-exclude themselves from bertbarter.com..
           These requests have to be received from the Customer’s Registered Email
           Address and have to be sent to{" "}
-          <a href="/.">support@skyexch.art</a>.
+          <a href="/.">support@exchsky.art</a>.
         </p>
         <p className="mb-3">
           Customers may set limitations on the amount they may wager and lose. Such
           request has to be sent from the Customer’s Registered Email Address to&nbsp;
-          <a href="/.">support@skyexch.art</a>.
+          <a href="/.">support@exchsky.art</a>.
           Implementation and increasing of limits shall be processed diligently,
           however, any request for removing or reducing limitations shall be done
           after a cooling-off period of seven days following your request.
@@ -355,7 +355,7 @@ function TermsCondition() {
         <p className="mb-3">
           Should you wish to close your account with us, please send an email from
           your Registered Email Address to&nbsp;
-          <a href="/.">support@skyexch.art</a>.
+          <a href="/.">support@exchsky.art</a>.
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>6. Deposit of Funds</h3>
         <p className="mb-3">
@@ -376,7 +376,7 @@ function TermsCondition() {
           pages.
         </p>
         <p className="mb-3">
-          Skyexch.art is not a financial institution and uses a third party electronic
+          exchsky.art is not a financial institution and uses a third party electronic
           payment processors to process credit and debit card deposits; they are not
           processed directly by us. If you deposit funds by either a credit card or a
           debit card, your Account will only be credited if we receive an approval and
@@ -413,7 +413,7 @@ function TermsCondition() {
         </p>
         <p className="mb-3">
           All withdrawals must be made to the original debit, credit card, bank
-          account, method of payment used to make the payment to your Skyexch.art
+          account, method of payment used to make the payment to your exchsky.art
           Account. We may, and always at our own discretion, allow you to withdraw to
           a payment method from which your original deposit did not originate. This
           will always be subject to additional security checks.
@@ -421,7 +421,7 @@ function TermsCondition() {
         <p className="mb-3">
           Should you wish to withdraw funds but your account is either inaccessible,
           dormant, locked or closed, please contact our Customer Service Department at{" "}
-          <a href="/.">support@skyexch.art</a>
+          <a href="/.">support@exchsky.art</a>
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>8. Payment Transactions and Processors</h3>
         <p className="mb-3">
@@ -551,11 +551,11 @@ function TermsCondition() {
           announced by the governing body.
         </p>
         <p className="mb-3">
-          Skyexch.art reserves the right to remove events, markets and any other
+          exchsky.art reserves the right to remove events, markets and any other
           product from the website.
         </p>
         <p className="mb-3">
-          Skyexch.art eserves the right to restrict the casino access of any player
+          exchsky.art eserves the right to restrict the casino access of any player
           without prior notice.
         </p>
         <p className="mb-3">
@@ -568,7 +568,7 @@ function TermsCondition() {
         <p className="mb-3">
           All communications and notices to be given under these terms by you to us
           shall be sent to&nbsp;
-          <a href="/.">support@skyexch.art</a>
+          <a href="/.">support@exchsky.art</a>
         </p>
         <p className="mb-3">
           All communications and notices to be given under these terms by us to you
@@ -580,7 +580,7 @@ function TermsCondition() {
         <p className="mb-3">
           All communications and notices to be given under these terms by either you
           or us shall be in writing in the English language when the service is not
-          operated by Skyexch.art , and must be given to and from the Registered Email
+          operated by exchsky.art , and must be given to and from the Registered Email
           Address in your Account.
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>12. Matters Beyond Our Control</h3>
@@ -658,7 +658,7 @@ function TermsCondition() {
           and/or
         </p>
         <p className="mb-3">
-          iii. any monies deposited in your Skyexch.art account which are not winnings
+          iii. any monies deposited in your exchsky.art account which are not winnings
           will be returned to you.
         </p>
         <p className="mb-3">
@@ -686,7 +686,7 @@ function TermsCondition() {
         </p>
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>16. Intellectual Property</h3>
         <p className="mb-3">
-          We trade as Skyexch.art and the Skyexch.art name and logo are registered
+          We trade as exchsky.art and the exchsky.art name and logo are registered
           trademarks. Any unauthorised use of our trademark and logo may result in
           legal action being taken against you.
         </p>
@@ -759,7 +759,7 @@ function TermsCondition() {
           unlawful, inappropriate or undesirable is strictly prohibited - it is
           Prohibited Behaviour. If you engage in Prohibited Behaviour, or we determine
           in our sole discretion that you are engaging in Prohibited Behaviour, your
-          skyexch.art Account and/or your access to or use of the Service may be
+          exchsky.art Account and/or your access to or use of the Service may be
           terminated immediately without notice to you.
         </p>
         <p className="mb-3">
@@ -826,7 +826,7 @@ function TermsCondition() {
             solicitations;
           </li>
           <li>
-            xi. create skyexch.art Accounts by automated means or under false or
+            xi. create exchsky.art Accounts by automated means or under false or
             fraudulent pretences;
           </li>
           <li>xii. impersonate another Customer or any other third party, or</li>
@@ -866,7 +866,7 @@ function TermsCondition() {
         <p className="mb-3">
           If you have any concerns or questions regarding these terms you should
           contact our Customer Service Department via email at{" "}
-          <a href='/' className="text-blue-500">support@skyexch.art</a>.
+          <a href='/' className="text-blue-500">support@exchsky.art</a>.
         </p>
         <p className="mb-3">
           NOTWITHSTANDING THE FOREGOING, WE TAKE NO LIABILITY WHATSOEVER TO YOU OR TO
@@ -875,16 +875,16 @@ function TermsCondition() {
         </p>
         <p className="mb-3">
           Any Customer of the Service who has any concerns or questions regarding
-          these Terms regarding the settlement of any skyexch.art market should
+          these Terms regarding the settlement of any exchsky.art market should
           contact our Customer Service Department at{" "}
-          <a href='/' className="text-blue-500">support@skyexch.art</a> using their
+          <a href='/' className="text-blue-500">support@exchsky.art</a> using their
           Registered Email Address.
         </p>
         <p className="mb-3">
           If a Customer is not satisfied with how a bet has been settled then the
           Customer should provide details of their grievance to our Customer Service
           Department via email at&nbsp;
-          <a href='/' className="text-blue-500">support@skyexch.art</a> We shall use
+          <a href='/' className="text-blue-500">support@exchsky.art</a> We shall use
           our reasonable endeavours to respond to queries of this nature within a few
           days (and in any event we intend to respond to all such queries within 28
           days of receipt).
@@ -893,7 +893,7 @@ function TermsCondition() {
           Disputes must be lodged within three (3) days from the date the wager in
           question has been decided. No claims will be honored after this period. The
           Customer is solely responsible for their Account transactions.
-          Complaints/disputes have to be sent to&nbsp;support@skyexch.art and must be
+          Complaints/disputes have to be sent to&nbsp;support@exchsky.art and must be
           sent from the Customer’s Registered Email Address.
         </p>
         <p className="mb-3">
@@ -966,8 +966,8 @@ function TermsCondition() {
         <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>26. General Provisions</h3>
         <p className="mb-3">
           Term of agreement. These terms shall remain in full force and effect while
-          you access or use the service or are a Customer of skyexch.art. These terms
-          will survive the termination of your skyexch.art Account for any reason.
+          you access or use the service or are a Customer of exchsky.art. These terms
+          will survive the termination of your exchsky.art Account for any reason.
         </p>
         <p className="mb-3">
           Gender. Words importing the singular number shall include the plural and
@@ -1018,12 +1018,12 @@ function TermsCondition() {
         <p className="mb-3">Betting Rules</p>
         <p className="mb-3">
           Any dispute related to the sports betting product shall be emailed to:{" "}
-          <a href='/' className="text-blue-500">support@skyexch.art</a>
+          <a href='/' className="text-blue-500">support@exchsky.art</a>
         </p>
         <p className="mb-3">Casino Rules</p>
         <p className="mb-3">
           Any dispute related to the casino product shall be emailed to:{" "}
-          <a href='/' className="text-blue-500">support@skyexch.art</a>
+          <a href='/' className="text-blue-500">support@exchsky.art</a>
         </p>
         <p className="mb-3">Complete casino rules can be accessed from within the casino games.</p>
         <p className="mb-3">ACCEPTING THE TERMS AND CONDITIONS </p>

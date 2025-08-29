@@ -12,33 +12,33 @@ function ResponsibleGaming() {
       <div className="p-[16px_24px] mt-[40px] text-[14px] leading-[24px] overflow-y-scroll h-[95vh]">
         <div className="tc-content">
           <p  className="mb-3">
-            Skyexch.art is committed to endorsing responsible wagering among its
+            exchsky.art is committed to endorsing responsible wagering among its
             customers as well as promoting the awareness of problem gambling and
             improving prevention, intervention and treatment.
           </p>
           <p  className="mb-3">
-            Skyexch.art’s Responsible Gambling Policy sets out its commitment to
+            exchsky.art’s Responsible Gambling Policy sets out its commitment to
             minimizing the negative effects of problem gambling and to promoting
             responsible gambling practices.
           </p>
           <p  className="mb-3">
-            Skyexch.art supports the generation of online gamblers offering them a wide
+            exchsky.art supports the generation of online gamblers offering them a wide
             range of games and entertainment. We also take responsibility for our
             product line-up.
           </p>
           <p  className="mb-3">
-            The aim of Skyexch.art is to provide the world’s safest and most innovative
+            The aim of exchsky.art is to provide the world’s safest and most innovative
             gaming platform for adults. The offered clear and safe products allow each
             user to play within his financial means and to receive the highest quality
             service. Integrity, fairness and reliability are the guiding principles of
-            Skyexch.art’s work. It is therefore clear that Skyexch.art should do its
+            exchsky.art’s work. It is therefore clear that exchsky.art should do its
             best to avoid and reduce the problems, which can arise from participation in
             gambling, particularly in cases of immoderate playing. At the same time it
             is important to respect the rights of those who take part in games of chance
             to a reasonable extent as means of entertainment.
           </p>
           <p  className="mb-3">
-            Responsible Gaming at Skyexch.art is based on three fundamental principles:
+            Responsible Gaming at exchsky.art is based on three fundamental principles:
             Security of the player, Security of the game and Protection against gaming
             addiction. Together with research institutes, associations and therapy
             institutions, we work on creation of a responsible, secure and reliable
@@ -82,13 +82,13 @@ function ResponsibleGaming() {
             </strong>
           </p>
           <p  className="mb-3">
-            The basic principle promoted by Skyexch.art is that the final decision and
+            The basic principle promoted by exchsky.art is that the final decision and
             responsibility on whether to play or not, and how much money can be spent on
             the game should be assumed by the customer himself.
           </p>
           <p  className="mb-3">
             Self-responsibility of the customer is therefore the most effective form of
-            protection from addiction. Skyexch.art sees its responsibility in assisting
+            protection from addiction. exchsky.art sees its responsibility in assisting
             the customers by providing transparent products, full information and
             keeping a clear line of conduct.
           </p>
@@ -96,10 +96,10 @@ function ResponsibleGaming() {
             <strong className='text-[#243a48]'>Protection of minors</strong>
           </p>
           <p  className="mb-3">
-            Skyexch.art does not allow minors (persons under the age of 18) to
+            exchsky.art does not allow minors (persons under the age of 18) to
             participate in games and make bets. That’s why the confirmation of having
             reached the age of majority and the confirmation of date of birth are
-            mandatory requirements during registration. Skyexch.art considers the issue
+            mandatory requirements during registration. exchsky.art considers the issue
             of minors taking part in games and betting very seriously. In order to offer
             the best possible protection of minors, we also rely on the support of
             parents and caregivers. Please keep your data for account access in a safe
@@ -114,7 +114,7 @@ function ResponsibleGaming() {
             <strong className='text-[#243a48]'>Responsibility towards problems</strong>
           </p>
           <p  className="mb-3">
-            Skyexch.art offers a variety of games and bets, which are forms of
+            exchsky.art offers a variety of games and bets, which are forms of
             entertainment for the majority of customers. At the same time the company
             takes responsibility for its customers by providing support and tools for
             maintenance of a secure and entertaining environment taking into account the
@@ -124,7 +124,7 @@ function ResponsibleGaming() {
             The clients who have difficulty in assessing risks, recognizing their own
             limits or those who suffer from gambling addiction are not able to enjoy our
             product line-up responsibly and perceive it as a form of entertainment.
-            Skyexch.art takes responsibility for such users by blocking their access to
+            exchsky.art takes responsibility for such users by blocking their access to
             its products for their own protection.
           </p>
           <p  className="mb-3">

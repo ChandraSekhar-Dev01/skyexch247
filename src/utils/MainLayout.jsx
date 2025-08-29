@@ -15,7 +15,7 @@ function MainLayout() {
           <News />
         </div>
       }
-      <div className="mb-[20vw] lg:mb-24">
+      <div className="mb-[20vw] lg:mb-0">
         <Outlet />
       </div>
       <Footer />

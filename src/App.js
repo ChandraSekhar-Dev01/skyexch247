@@ -23,6 +23,7 @@ import ResponsibleGaming from "./Pages/Regulations/ResponsibleGaming";
 import AboutUs from "./Pages/Regulations/AboutUs";
 import SelfExPolicy from "./Pages/Regulations/SelfExPolicy";
 import UnderAgePolicy from "./Pages/Regulations/UnderAgePolicy";
+import Result from "./Pages/Result";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
                   <Route path="inPlay" element={<Inplay />} />
                   <Route path="multimarket" element={<Multimarket />} />
                   <Route path="sports" element={<Sports />} />
+                  <Route path="eventResult" element={<Result />} />
                   <Route
                     path="matchUpdates/:event_id/:is_inplay"
                     element={<Matchupdate />}

@@ -89,7 +89,7 @@ function Profile() {
         </div>
       </Modal>
 
-      <div className='flex w-full lg:max-w-[1320px] m-[0_auto]'>
+      <div className='flex w-full lg:max-w-[1320px] m-[0_auto] mt-[1px]'>
         {/* Left Section */}
         <div className='hidden lg:block w-full lg:w-[23.361111%]'>
           <ul className='border-b border-[#7e97a7]'>

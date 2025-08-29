@@ -5,15 +5,16 @@ import { getAllEvents } from '../redux/slice/event/eventSlice';
 import { Link } from 'react-router-dom';
 import News from '../components/News';
 
-function Inplay() {
+function Result() {
 
   const userInfo = Helper();
   const dispatch = useDispatch();
   const userInfos = useSelector((state) => state.events);
 
-  const [selectedEvent, setSelectedEvent] = useState("inplay");
+  const [selectedEvent, setSelectedEvent] = useState("tod");
   const [inplayEvents, setInplayEvents] = useState([]);
-  const [filterOpen, setFilterOpen] = useState(false);
+  const [filterOpen, setFilterOpen] = useState("4");
+  const [fancyBetMarket, setFancyBetMarket] = useState("1");
 
 
   function formatOpenDate(openDateStr) {
@@ -102,340 +103,314 @@ function Inplay() {
           {/* News Marquee */}
           <News />
           <div className='text-xs font-bold my-4'>
-            <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-l cursor-pointer hover:underline ${selectedEvent == "inplay" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
-            <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] cursor-pointer hover:underline ${selectedEvent == "tod" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tod")}>Today</span>
-            <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-r cursor-pointer hover:underline ${selectedEvent == "tom" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
+            <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-l cursor-pointer hover:underline ${selectedEvent === "tod" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tod")}>Today</span>
+            <span className={`py-[6px] px-[4.5rem] border-r border-t border-b border-l border-[#243a38] rounded-r cursor-pointer hover:underline ${selectedEvent === "tom" ? 'text-[#fff] bg-[#3b5160]' : 'text-[#3b5160] bg-white'}`} onClick={() => setSelectedEvent("tom")}>Yesterday</span>
+            <select
+              name=""
+              id=""
+              className='text-[14px] leading-[29px] font-normal mt-[-6px] w-[180px] h-[29px] float-right cursor-pointer border border-[#767676]'
+              onChange={(e) => setFilterOpen(e.target.value)}
+            >
+              <option value="4" className='p-[3px] text-[#222]'>CRICKET</option>
+              <option value="1" className='p-[3px] text-[#222]'>SOCCER</option>
+              <option value="137" className='p-[3px] text-[#222]'>E_SOCCER</option>
+              <option value="999999" className='p-[3px] text-[#222]'>FANCYBET</option>
+            </select>
           </div>
-          {selectedEvent == "inplay" &&
-            <div className='overflow-hidden overflow-y-scroll h-[calc(100vh-19.5vh)] scroll-hide'>
-              {/* Cricket */}
-              <div className='border-b border-[#7e97a7] bg-[#fff]'>
-                <div className='flex justify-between items-center text-xs leading-6 text-[#fff] bg-[#243a48] px-2'>
-                  <div>Cricket</div>
-                  <div className='flex justify-center items-center rounded-sm h-3 w-3 border border-[#fff]'><span>-</span></div>
-                </div>
-                <div className='flex justify-end text-xs bg-[#ced5da] w-full'>
-                  <div className='flex w-[54%]'>
-                    <span className='w-full text-end'>Matched</span>
-                    <span className='w-full text-center'>1</span>
-                    <span className='w-full text-center'>x</span>
-                    <span className='w-full text-center'>2</span>
-                  </div>
-                </div>
-                <div>
-                  <ul>
+          <div className='overflow-hidden overflow-y-scroll h-[calc(100vh-19.5vh)] scroll-hide'>
+            {filterOpen !== "999999" &&
+              <table className='w-full bg-[#fff] border-collapse border-b border-[#7e97a7] mb-[15px] text-right'>
+                <caption className='bg-[#3b5160] border-b border-[#7e97a7] text-[#fff] leading-[24px] font-bold p-[0_10px] text-left'>Result </caption>
+                <tbody>
+                  <tr className=''>
+                    <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] text-left w-[20%]'>
+                      Event Date/Time
+                    </th>
+                    <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] text-left'>
+                      Event Name
+                    </th>
+                    {filterOpen === "4" &&
+                      <>
+                        <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] w-[20%]'>
+                          Home
+                        </th>
+                        <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] w-[20%]'>
+                          Away
+                        </th>
+                      </>
+                    }
+                    {filterOpen !== "4" &&
+                      <>
+                        <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] w-[20%]'>
+                          HT
+                        </th>
+                        <th className='text-[#243a48] bg-[#e4e4e4] border-y border-[#7e97a7] p-[8px_10px] w-[20%]'>
+                          FT
+                        </th>
+                      </>
+                    }
+                  </tr>
+                </tbody>
+                {filterOpen === "4" &&
+                  <tbody>
+                    <tr>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        2025-08-27 09:30
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        Islamabad United SRL T20 v Quetta Gladiators SRL T20
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>169/3</span>
+                        </strong>
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>168/5</span>
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        2025-08-27 10:00
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        Boost Defenders v Band-e-Amir Dragons
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>311</span>
+                        </strong>
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>264/8</span>
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        2025-08-27 11:30
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        New Zealand SRL T20 v Australia SRL T20
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>205/3</span>
+                        </strong>
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>188/3</span>
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        2025-08-27 13:30
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        Rajasthan Royals SRL T20 v Delhi Capitals SRL T20
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>134/9</span>
+                        </strong>
+                      </td>
+                      <td className='border-t border-[#eee] p-[8px_10px] align-middle text-right'>
+                        <strong>
+                          <span>250/4</span>
+                        </strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                }
+                {filterOpen !== "4" &&
+                  <tbody>
+                    <tr>
+                      <td colSpan={4} className='border-t border-[#eee] p-[8px_10px] align-middle text-left'>
+                        There are no events to be displayed.
+                      </td>
+                    </tr>
+                  </tbody>
+                }
+              </table>
+            }
 
-                    {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
-                      <li className='flex w-full border-b border-[#eee]' key={item.id}>
-                        <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
-                            <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
-                            <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
-                              <span className='flex justify-start items-center gap-2'>
-                                {item.is_inplay == "True" &&
-                                  <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
-                                }
-                                <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
-                                  {item.is_fancy == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  {item.is_bm == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
-                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
-                                  </span>
-                                </div>
-                              </span>
-                            </div>
-                          </Link>
-                          <div>
-                            <span className='text-xs text-[#777]'>
-                              PIN47.62M
-                            </span>
-                          </div>
-                        </div>
-                        <div className=' w-[38%]'>
-                          <ul className='flex py-[2px]'>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee]'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className='flex justify-center items-center w-[2%]'>
-                          <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              {/* Soccer */}
-              <div className='border-b border-[#7e97a7] bg-[#fff] mt-4'>
-                <div className='flex justify-between items-center text-xs leading-6 text-[#fff] bg-[#243a48] px-2'>
-                  <div>Soccer</div>
-                  <div className='flex justify-center items-center rounded-sm h-3 w-3 border border-[#fff]'><span>-</span></div>
-                </div>
-                <div className='flex justify-end text-xs bg-[#ced5da] w-full'>
-                  <div className='flex w-[54%]'>
-                    <span className='w-full text-end'>Matched</span>
-                    <span className='w-full text-center'>1</span>
-                    <span className='w-full text-center'>x</span>
-                    <span className='w-full text-center'>2</span>
+            {/* FancyBet Table */}
+            {filterOpen === "999999" &&
+              <div className='block'>
+                {/* Expandable Block */}
+                <div className='block mb-[1px]'>
+                  <div className='relative flex items-center bg-[#243a48] min-h-[26px] p-[5px]'>
+                    <label className='text-[#fff] text-center bg-[#63727d] w-[130px] p-[5px] rounded mr-[8px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'>
+                      2025/08/28 19:00:00
+                    </label>
+                    <strong className='block text-[#fff] leading-[16px] w-[calc(100%-145px)] mr-[10px]'>North Delhi Strikers v New Delhi Tigers</strong>
+                    <span className='block bg-no-repeat w-[9px] h-[9px]' style={{ background: "url('/Images/close-minus.svg')" }}></span>
                   </div>
-                </div>
-                <div>
-                  <ul>
-                    {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
-                      <li className='flex w-full border-b border-[#eee]' key={item.id}>
-                        <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
-                            <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
-                            <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
-                              <span className='flex justify-start items-center gap-2'>
-                                {item.is_inplay == "True" &&
-                                  <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
-                                }
-                                <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
-                                  {item.is_fancy == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  {item.is_bm == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
-                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
-                                  </span>
-                                </div>
-                              </span>
-                            </div>
-                          </Link>
-                          <div>
-                            <span className='text-xs text-[#777]'>
-                              PIN47.62M
-                            </span>
-                          </div>
-                        </div>
-                        <div className=' w-[38%]'>
-                          <ul className='flex py-[2px]'>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee]'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className='flex justify-center items-center w-[2%]'>
-                          <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              {/* Tennis */}
-              <div className='border-b border-[#7e97a7] bg-[#fff] mt-4'>
-                <div className='flex justify-between items-center text-xs leading-6 text-[#fff] bg-[#243a48] px-2'>
-                  <div>Tennis</div>
-                  <div className='flex justify-center items-center rounded-sm h-3 w-3 border border-[#fff]'><span>-</span></div>
-                </div>
-                <div className='flex justify-end text-xs bg-[#ced5da] w-full'>
-                  <div className='flex w-[54%]'>
-                    <span className='w-full text-end'>Matched</span>
-                    <span className='w-full text-center'>1</span>
-                    <span className='w-full text-center'>x</span>
-                    <span className='w-full text-center'>2</span>
-                  </div>
-                </div>
-                <div>
-                  <ul>
-                    {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
-                      <li className='flex w-full border-b border-[#eee]' key={item.id}>
-                        <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
-                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-between items-start gap-1'>
-                            <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
-                            <div className='flex flex-col leading-snug'>
-                              <span className='text-xs font-bold text-[#2789ce] hover:underline'>{item.event_name}</span>
-                              <span className='flex justify-start items-center gap-2'>
-                                {item.is_inplay == "True" &&
-                                  <span className='text-xs font-bold text-[#508d30]'>In-Play</span>
-                                }
-                                <div className='flex justify-center items-center gap-1'>
-                                  <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
-                                  {item.is_fancy == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  {item.is_bm == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
-                                  }
-                                  <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
-                                    <img src="/Images/premium-icon.svg" alt="" className='w-3' />
-                                  </span>
-                                </div>
-                              </span>
-                            </div>
-                          </Link>
-                          <div>
-                            <span className='text-xs text-[#777]'>
-                              PIN47.62M
-                            </span>
-                          </div>
-                        </div>
-                        <div className=' w-[38%]'>
-                          <ul className='flex py-[2px]'>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee] pl-[2px] pr-1'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                            <li className='w-full border-r border-[#eee]'>
-                              <div className='flex '>
-                                <div className='w-full h-8 bg-[#72bbef] mx-[1px]'></div>
-                                <div className='w-full h-8 bg-[#faa9ba] mx-[1px]'></div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className='flex justify-center items-center w-[2%]'>
-                          <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>}
-
-          {selectedEvent != "inplay" &&
-            <>
-              {/* Filter Section */}
-              <div className='relative p-[10px_10px_0] mb-[10px] bg-[#e0e6e6] border-b border-[#7e97a7] text-[12px] text-[#1e1e1e] leading-[15px]'>
-                <ul className='block clear-both mb-[5px] mr-[5px]'>
-                  <li className='block float-left w-[85px] font-bold leading-[25px] m-[0_5px_5px_0] whitespace-nowrap'>Sport Filters:</li>
-                  <li className='block float-left w-[calc(100%-195px)] h-[25px] overflow-hidden text-ellipsis whitespace-nowrap leading-[25px] m-[0_5px_5px_0]'>
-                    <span className='pl-0 mr-[5px] text-[#243a48] whitespace-nowrap leading-[25px]'>Cricket</span>
-                    <span className='pl-[10px] mr-[5px] text-[#243a48] whitespace-nowrap leading-[25px] bg-no-repeat bg-left' style={{ backgroundImage: "url('/Images/filter_dot.png')" }}>E-Soccer</span>
-                    <span className='pl-[10px] mr-[5px] text-[#243a48] whitespace-nowrap leading-[25px] bg-no-repeat bg-left' style={{ backgroundImage: "url('/Images/filter_dot.png')" }}>Kabaddi</span>
-                    <span className='pl-[10px] mr-[5px] text-[#243a48] whitespace-nowrap leading-[25px] bg-no-repeat bg-left' style={{ backgroundImage: "url('/Images/filter_dot.png')" }}>Soccer</span>
-                    <span className='pl-[10px] mr-[5px] text-[#243a48] whitespace-nowrap leading-[25px] bg-no-repeat bg-left' style={{ backgroundImage: "url('/Images/filter_dot.png')" }}>Tennis</span>
-                  </li>
-                  <li className='block float-leftw-[95px] leading-[25px] m-[0_5px_5px_0] whitespace-nowrap'>
-                    <span
-                      className='block float-left text-center whitespace-nowrap w-[93px] min-w-[95px] m-0 font-normal bg-[linear-gradient(180deg,#ffffff_0%,#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded text-[#1e1e1e] leading-[23px] text-[12px] cursor-pointer hover:bg-[linear-gradient(0deg,_#ffffff_0%,_#ececec_89%)] hover:shadow-[inset_0_0px_0_0_#ffffff80]'
-                      onClick={() => setFilterOpen(!filterOpen)}
-                    >
-                      Filter
-                    </span>
-                  </li>
-                  <span className='block clear-both'></span>
-                </ul>
-                {filterOpen &&
-                  <div className='block absolute right-0 w-[500px] rounded bg-[#fff] p-[8px_8px_0] ml-[-500px] z-[3] shadow-[0_4px_5px_#00000080]'>
-                    <ul className='flex clear-both mb-[5px]'>
-                      <li className='block w-[250px]'>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>All</label>
+                  {/* Expandable Block */}
+                  <div className='expandable-block block'>
+                    <div className='bg-[#fff] p-[8px] text-[13px]'>
+                      <button
+                        className={`${fancyBetMarket === "1" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("1")}
+                      >
+                        All
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "2" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("2")}
+                      >
+                        Three Selections
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "3" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("3")}
+                      >
+                        Overs
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "4" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("4")}
+                      >
+                        Batsman
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "5" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("5")}
+                      >
+                        Single Over
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "6" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("6")}
+                      >
+                        Ball by Ball
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "7" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("7")}
+                      >
+                        Khadda
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "8" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("8")}
+                      >
+                        Lottery
+                      </button>
+                      <button
+                        className={`${fancyBetMarket === "9" ? "bg-[#417393] text-[#fff]" : "bg-[#e3e3e3]"} h-[30px] min-w-[60px] rounded leading-[30px] p-[0_10px] m-[3px] cursor-pointe`}
+                        onClick={() => setFancyBetMarket("9")}
+                      >
+                        Odd Event
+                      </button>
+                    </div>
+                    <div>
+                      <ul className='flex items-center bg-[#ced5da] border-b border-[#a4b7c4] h-[32px]'>
+                        <li className='flex basis-[75%] text-left items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px]'>
+                          <p className='w-full font-bold'> Market Name</p>
                         </li>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='-1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>Tennis</label>
+                        <li className='flex basis-[10%] items-center text-right text-[13px] text-[#243a48] h-[30px] p-[2px_8px]'>
+                          <p className='w-full font-bold'>Result (Runs)</p>
                         </li>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='-1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>E-Soccer</label>
+                        <li className='flex basis-[15%] items-center text-right text-[13px] text-[#243a48] h-[30px] p-[2px_8px]'>
+                          <p className='w-full font-bold'>Result Source</p>
                         </li>
-                      </li>
-                      <li className='block w-[250px]'>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='-1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>Soccer</label>
+                      </ul>
+                      <ul className='flex items-center bg-[#fff] border-b border-[#e0e0e0]'>
+                        <li className='flex basis-[75%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-left'>
+                          <p className='w-full'>6 Over NDS</p>
                         </li>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='-1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>Cricket</label>
+                        <li className='flex basis-[10%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>61</p>
                         </li>
-                        <li className="block float-left list-none w-[250px] mb-[3px]">
-                          <input name='sportFilter' type='checkbox' value='-1' defaultChecked className='w-auto h-auto p-0 text-[#1e1e1e] text-[12px] bg-[#fff] m-[0_5px_5px_0] box-border [accent-color:#0275ff] inline-block' />
-                          <label className='cursor-pointer'>Kabaddi</label>
+                        <li className='flex basis-[15%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>-</p>
                         </li>
-                      </li>
-                      <span className='block clear-both'></span>
-                    </ul>
-                    <div className='block clear-both border-t border-[#ccc] pt-[8px] mb-[7px] text-[12px] text-[#1e1e1e] leading-[15px]'>
-                      <span className='block text-center w-[20%] mr-[10px] float-left m-0 text-[#ffb600] border border-[#222] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] box-[initial] rounded font-bold leading-[23px] text-[12px]'>Save</span>
-                      <span className='block text-center w-[15%] mr-[10px] float-left m-0 text-[#1e1e1e] border border-[#bbb] bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] rounded font-bold leading-[23px] text-[12px]'>Cancel</span>
-                      <span className='block clear-both'></span>
+                      </ul>
+                      <ul className='flex items-center bg-[#fff] border-b border-[#e0e0e0]'>
+                        <li className='flex basis-[75%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-left'>
+                          <p className='w-full'>6 Over NDS</p>
+                        </li>
+                        <li className='flex basis-[10%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>61</p>
+                        </li>
+                        <li className='flex basis-[15%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>-</p>
+                        </li>
+                      </ul>
+                      <ul className='flex items-center bg-[#fff] border-b border-[#e0e0e0]'>
+                        <li className='flex basis-[75%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-left'>
+                          <p className='w-full'>6 Over NDS</p>
+                        </li>
+                        <li className='flex basis-[10%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>61</p>
+                        </li>
+                        <li className='flex basis-[15%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>-</p>
+                        </li>
+                      </ul>
+                      <ul className='flex items-center bg-[#fff] border-b border-[#e0e0e0]'>
+                        <li className='flex basis-[75%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-left'>
+                          <p className='w-full'>6 Over NDS</p>
+                        </li>
+                        <li className='flex basis-[10%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>61</p>
+                        </li>
+                        <li className='flex basis-[15%] items-center text-[13px] text-[#243a48] h-[30px] p-[2px_8px] text-right'>
+                          <p className='w-full'>-</p>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-                }
+                </div>
+                {/* Non-Expandable Block */}
+                <div className='block mb-[1px]'>
+                  <div className='relative flex items-center bg-[#243a48] min-h-[26px] p-[5px]'>
+                    <label className='text-[#fff] text-center bg-[#63727d] w-[130px] p-[5px] rounded mr-[8px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'>
+                      2025/08/28 19:00:00
+                    </label>
+                    <strong className='block text-[#fff] leading-[16px] w-[calc(100%-145px)] mr-[10px]'>North Delhi Strikers v New Delhi Tigers</strong>
+                    <span className='block bg-no-repeat w-[9px] h-[9px]' style={{ background: "url('/Images/close-plus.svg')" }}></span>
+                  </div>
+                </div>
+                {/* Non-Expandable Block */}
+                <div className='block mb-[1px]'>
+                  <div className='relative flex items-center bg-[#243a48] min-h-[26px] p-[5px]'>
+                    <label className='text-[#fff] text-center bg-[#63727d] w-[130px] p-[5px] rounded mr-[8px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'>
+                      2025/08/28 19:00:00
+                    </label>
+                    <strong className='block text-[#fff] leading-[16px] w-[calc(100%-145px)] mr-[10px]'>North Delhi Strikers v New Delhi Tigers</strong>
+                    <span className='block bg-no-repeat w-[9px] h-[9px]' style={{ background: "url('/Images/close-plus.svg')" }}></span>
+                  </div>
+                </div>
+                {/* Non-Expandable Block */}
+                <div className='block mb-[1px]'>
+                  <div className='relative flex items-center bg-[#243a48] min-h-[26px] p-[5px]'>
+                    <label className='text-[#fff] text-center bg-[#63727d] w-[130px] p-[5px] rounded mr-[8px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'>
+                      2025/08/28 19:00:00
+                    </label>
+                    <strong className='block text-[#fff] leading-[16px] w-[calc(100%-145px)] mr-[10px]'>North Delhi Strikers v New Delhi Tigers</strong>
+                    <span className='block bg-no-repeat w-[9px] h-[9px]' style={{ background: "url('/Images/close-plus.svg')" }}></span>
+                  </div>
+                </div>
+                {/* Non-Expandable Block */}
+                <div className='block mb-[1px]'>
+                  <div className='relative flex items-center bg-[#243a48] min-h-[26px] p-[5px]'>
+                    <label className='text-[#fff] text-center bg-[#63727d] w-[130px] p-[5px] rounded mr-[8px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'>
+                      2025/08/28 19:00:00
+                    </label>
+                    <strong className='block text-[#fff] leading-[16px] w-[calc(100%-145px)] mr-[10px]'>North Delhi Strikers v New Delhi Tigers</strong>
+                    <span className='block bg-no-repeat w-[9px] h-[9px]' style={{ background: "url('/Images/close-plus.svg')" }}></span>
+                  </div>
+                </div>
               </div>
-
-              {/* Events Listing */}
-              <ul className='mt-2 bg-[#fff] overflow-y-auto h-[calc(100vh-26vh)]'>
-                {inplayEvents?.map((item) => {
-                  const time = new Date(item.open_date).toTimeString().slice(0, 5);
-
-                  return (
-                    <li className="p-2 border-b border-[#e0e6e6]" key={item.id}>
-                      <div className="flex text-xs">
-                        <span className="font-bold pr-7 text-[#243a48]">{time}</span>
-                        <div className="flex justify-center items-center text-xs">
-                          {item.event_type === "4"
-                            ? "Cricket"
-                            : item.event_type === "1"
-                              ? "Soccer"
-                              : "Tennis"}
-                          <img src="/Images/icon-fromto.png" alt="" className="px-1" />
-                          <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className="text-xs font-bold text-[#2789ce] hover:underline">
-                            {item.event_name}
-                          </Link>
-                        </div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </>}
+            }
+          </div>
           <span className='block clear-both'></span>
         </div>
         {/* Left Section */}
@@ -825,4 +800,4 @@ function Inplay() {
   )
 }
 
-export default Inplay
+export default Result

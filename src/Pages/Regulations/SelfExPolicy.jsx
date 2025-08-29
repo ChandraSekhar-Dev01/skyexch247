@@ -14,7 +14,7 @@ function SelfExPolicy() {
           <p className="mb-3">
             If you feel you are at risk of developing a gambling problem or believe you
             currently have a gambling problem, please consider using Self-Exclusion
-            which prevents you gambling with Skyexch.art for a specified period of 6
+            which prevents you gambling with exchsky.art for a specified period of 6
             months, 1 year, 2 years, 5 years or permanently.
           </p>
           <p className="mb-3">
@@ -26,14 +26,14 @@ function SelfExPolicy() {
             During a period of Self-Exclusion you will not be able to use your account
             for betting, although you will still be able to login and withdraw any
             remaining balance. It will not be possible to re-open your account for any
-            reason, and Skyexch.art will do all it can to detect and close any new
+            reason, and exchsky.art will do all it can to detect and close any new
             accounts you may open.
           </p>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'>Next steps</h3>
           <p className="mb-3">
             Whilst we will remove you from our marketing databases, we also suggest that
-            you remove Skyexch.art from your notifications and delete/uninstall all
-            Skyexch.art apps, downloads and social media links. You may also wish to
+            you remove exchsky.art from your notifications and delete/uninstall all
+            exchsky.art apps, downloads and social media links. You may also wish to
             consider installing software that blocks access to gambling websites, click
             here for more information.
           </p>
@@ -51,7 +51,7 @@ function SelfExPolicy() {
           </p>
           <h3 className='text-[18px] text-[#1e1e1ee6] font-bold mt-[16px] mb-[8px] leading-[24px]'> Self-Exclusion Notice</h3>
           <p className="mb-3">
-            Should you opt to self-exclude from Skyexch.art, we strongly recommend that
+            Should you opt to self-exclude from exchsky.art, we strongly recommend that
             you seek exclusion from all other gambling operators you have an account
             with.
           </p>

@@ -21,7 +21,7 @@ function News() {
               </span>
               <span className="flex items-center h-[25px] leading-[25px] font-bold text-[#6ac2ff] mr-[100px]">
                 <span className="h-[15px] leading-[15px] text-[11px] italic font-normal text-[#1c2834] bg-[#6ac2ff] rounded-[2px] px-[5px] mr-[5px]">04 Sep 2021</span>
-                WHITE LABEL OF SKYEXCHANGE IS AVAILABLE NOW - CONTACT YOUR UPLINE.
+                WHITE LABEL OF EXCHANGESKY IS AVAILABLE NOW - CONTACT YOUR UPLINE.
               </span>
             </div>
           </div>
