@@ -32,11 +32,12 @@ const Header = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
+  const [isVirtualCricketModal, setIsVirtualCricketModal] = useState(false);
   const [editStakeOpen, setEditStakeOpen] = useState(false);
   const [openBetsOpen, setOpenBetsOpen] = useState(false);
   const [inplayEvents, setInplayEvents] = useState([])
   const { login, logout, setShowLoginModel, setCurrentBalance } = useAuth();
-  console.log('header userinfo : ', userInfo)
+  // console.log('header userinfo : ', userInfo)
 
   const [activeSportType, setActiveSportType] = useState(null);
   const [isMyAccountModelOpen, setIsMyAccountModelOpen] = useState(false);
@@ -174,10 +175,12 @@ const Header = () => {
     { name: "Soccer", live: `${inplayEvents?.filter(item => item.event_type == "2").length}`, url: "/sports" },
     { name: "Tennis", live: `${inplayEvents?.filter(item => item.event_type == "1").length}`, url: "/sports" },
     { name: "Virtual Cricket", url: "" },
-    { name: "E-Soccer", live: "0", url: "/sports" },
+    { name: "E-Soccer", live: "1", url: "/sports" },
     { name: "Kabaddi", live: "0", url: "/sports" },
-    { name: "Casino", url: "" },
-    { name: "Result", url: "/eventResult" },
+    ...(userInfo ? [
+      { name: "Casino", url: "" },
+      { name: "Result", url: "/eventResult" }
+    ] : [])
   ];
 
   useEffect(() => {
@@ -312,6 +315,72 @@ const Header = () => {
           </div>
         </div>
       }
+
+      {/* Virtual Cricket Modal */}
+      {userInfo && isVirtualCricketModal &&
+        <div className="block fixed top-0 left-0 w-full h-full bg-[#0000004d] z-[100] text-[#1e1e1e] text-[12px] leading-[15px]">
+          <div className="relative w-[540px] text-[#243a48] top-[20%] ml-[-270px] bg-[#fff] rounded-lg z-[20] left-[50%] shadow-[0_4px_5px_#00000080]">
+            <span
+              className="absolute top-[10px] right-[10px] h-[20px] w-[20px] cursor-pointer"
+              style={{
+                backgroundImage: "url('/Images/cross2.svg')",
+              }}
+              onClick={() => { setIsVirtualCricketModal(false); }}
+            ></span>
+            <div className="p-[15px_20px] border-b border-[#8fa6b5]">
+              <h2 className="text-[20px] mb-0 pt-0 leading-[20px] font-bold">BetRadar</h2>
+            </div>
+            <div className="flex justify-[inherit]">
+              <h4 className="relative border-r border-r-[#c3d5e0] h-[90px] p-[5px_20px] text-[20px] font-bold leading-[25px] text-left w-[50%] border-b border-b-[#fff3]">
+                <span className="block text-[14px] font-normal">Main Balance</span>
+                <label className="cursor-pointer">{balanceWithExp.toFixed(2)}</label>
+              </h4>
+              <h4 className="h-[90px] p-[5px_20px] text-[20px] font-bold leading-[25px] text-right w-[50%] border-b border-[#fff3]">
+                <span className="block text-[14px] font-normal">Casino Balance</span>
+                <label className="cursor-pointer">0.00</label>
+              </h4>
+            </div>
+            <div className="flex justify-center items-center relative bg-[#cde3f0] border-y border-y-[#8fa6b5] h-[85px] mb-[10px]">
+              <div className="absolute z-[1] top-[-42px] left-[50%] leading-[20px] bg-[#fff] border border-[#da8700] rounded text-[#5e7ea3] text-[20px] indent-0  transform -translate-x-1/2">
+                <span className="absolute left-[50%] bottom-[-6px] w-[10px] h-[10px] bg-[#fff] border-b border-b-[#da8700] border-r border-r-[#da8700] transform -translate-x-1/2 rotate-45"></span>
+                <input type="text" className="w-[240px] p-[5px] text-[#2963a7] text-[20px] font-bold leading-[20px] rounded-[3px] text-center shadow-[inset_0_2px_2px_0_#00000045]" defaultValue={0} />
+              </div>
+              <ul className="flex justify-center items-center w-[510px] h-[60px] leading-[inherit] float-left">
+                <li className=" flex justify-center items-center text-center border border-[#bbb] rounded-[5px_0_0_5px] text-[15px] leading-[60px] font-bold cursor-pointer w-[60px] bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)] p-0 float-left">0</li>
+
+                <li className="relative flex flex-1 justify-center items-center text-center border-y border-y-[#bbb] text-[10px] leading-[60px] cursor-pointer w-[60px] bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)] p-[30px] float-left h-full">
+                  <div className="absolute top-0 w-[350px] flex justify-between">
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                    <div className="bg-[#c7d4e300] block w-[3px] h-[6px]"></div>
+                  </div>
+                  <input type="text" className="absolute w-[1px] h-[1px] overflow-hidden opacity-0 text-[#1e1e1e] text-[12px] bg-[#fff] shadow-[inset_0px_1px_0px_#00000080] rounded p-[5px] m-[0_5px_5px_0] box-border inline-block" />
+                  <div className="relative w-[350px] h-[12px] bg-[#d1dde5] shadow-[inset_0_1px_1px_0_#0000004d] rounded-[5px] m-0 cursor-pointer">
+                    <div className="w-[11px] absolute top-0 h-[10px] bg-[linear-gradient(180deg,_#ffb80c_15%,_#ffa00c_100%)] border border-[#cb8009] rounded-[5px]"></div>
+                    <div className="absolute left-0 z-[3] top-[-6px] w-[20px] h-[20px] bg-[linear-gradient(180deg,_#ffb80c_15%,_#ffa00c_100%)] border border-[#cb8009] rounded-[12px] shadow-[inset_0_1px_0_0_#ffffff80]"></div>
+                  </div>
+                </li>
+                <li className="border border-[#bbb] rounded-[0_5px_5px_0] text-[15px] leading-[60px] flex justify-center items-center text-center font-bold cursor-pointer w-[60px] p-0 bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)] float-left">Max</li>
+
+                <span className="block clear-both"></span>
+              </ul>
+            </div>
+            {/* Error Block */}
+            <p className="indent-[20px] text-[12px] text-[#d0021b] leading-[18px] bg-[#00000000] mb-[7px]"></p>
+            <div className="flex p-[7px_10px_10px] clear-both">
+              <span className="flex-1 mr-[10px] leading-[31px] w-[80%] m-0 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded-[4px] text-[#1e1e1e] text-[12px] font-bold block text-center cursor-pointer">Cancel</span>
+              <span className="flex-1 mr-0 leading-[31px] w-[95%] m-0 float-right bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#222] rounded-[4px] text-[#ffb600] text-[12px] font-bold block text-center cursor-pointer">Transfer and Enter</span>
+
+              <span className="block clear-both"></span>
+            </div>
+          </div>
+        </div>
+      }
+
+
       {/* Balance Overview Modal */}
       <div
         className={`fixed top-0 left-0 w-screen h-screen bg-[#000000b3] z-[99999] flex flex-col justify-start items-center transition-opacity duration-300 ${isModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -889,8 +958,13 @@ const Header = () => {
                       <div key={name} className="relative">
                         <button
                           onClick={() => {
-                            if (sportType) setActiveSportType(sportType);
-                            navigate(url, sportType ? { state: { sportType } } : undefined);
+                            if (name === "Virtual Cricket") {
+                              userInfo ?
+                                setIsVirtualCricketModal(true) : setIsLoginModal(true);
+                            } else {
+                              if (sportType) setActiveSportType(sportType);
+                              navigate(url, sportType ? { state: { sportType } } : undefined);
+                            }
                           }}
                           className={`px-3 py-1.5 border-r border-[#0003] whitespace-nowrap flex items-center transition-all duration-200 ${isActive
                             ? "bg-[#ffdc7a] text-black shadow-[inset_0_0_5px_0_rgba(83,33,33,0.5)]"
@@ -913,7 +987,7 @@ const Header = () => {
                             </div>
                           </div>
                         )}
-                      </div>
+                      </div >
                     }
                     {name === "Casino" &&
                       <div key={name} className="block relative bg-[linear-gradient(#4b4b4b,_#1e1e1e)] text-[#fff] float-left border-r border-[#383838]">
