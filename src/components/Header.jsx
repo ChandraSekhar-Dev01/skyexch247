@@ -371,7 +371,7 @@ const Header = () => {
             {/* Error Block */}
             <p className="indent-[20px] text-[12px] text-[#d0021b] leading-[18px] bg-[#00000000] mb-[7px]"></p>
             <div className="flex p-[7px_10px_10px] clear-both">
-              <span className="flex-1 mr-[10px] leading-[31px] w-[80%] m-0 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded-[4px] text-[#1e1e1e] text-[12px] font-bold block text-center cursor-pointer">Cancel</span>
+              <span className="flex-1 mr-[10px] leading-[31px] w-[80%] m-0 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded-[4px] text-[#1e1e1e] text-[12px] font-bold block text-center cursor-pointer" onClick={() => { setIsVirtualCricketModal(false); }}>Cancel</span>
               <span className="flex-1 mr-0 leading-[31px] w-[95%] m-0 float-right bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#222] rounded-[4px] text-[#ffb600] text-[12px] font-bold block text-center cursor-pointer">Transfer and Enter</span>
 
               <span className="block clear-both"></span>

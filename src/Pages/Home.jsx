@@ -4849,9 +4849,12 @@ function Home() {
                 <div className="flex text-[2.6666666667vw] lg:text-xs my-1 justify-between px-1 inPlay-sport">
                   Tennis <span className="text-[#333] h-[3.7333333333vw] lg:h-4 min-w-[3.7333333333vw] lg:min-w-3 px-1 bg-white rounded-[0.5333333333vw] lg:rounded-sm">{inplayEvents?.filter(item => item.event_type == "2").length}</span>{" "}
                 </div>
+                <div className="flex text-[2.6666666667vw] lg:text-xs my-1 justify-between px-1 inPlay-sport">
+                  Kabaddi <span className="text-[#333] h-[3.7333333333vw] lg:h-4 min-w-[3.7333333333vw] lg:min-w-3 px-1 bg-white rounded-[0.5333333333vw] lg:rounded-sm">0</span>{" "}
+                </div>
               </div>
               <img src="/Images/dashboard-casino-img/banner_sports.png" alt="" className="w-full h-auto" />
-              <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c]">
+              <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c] z-[9]">
                 <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
                   Sports
                 </p>
