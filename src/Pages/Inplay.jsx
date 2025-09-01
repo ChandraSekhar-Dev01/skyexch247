@@ -12,6 +12,8 @@ function Inplay() {
   const userInfos = useSelector((state) => state.events);
 
   const [selectedEvent, setSelectedEvent] = useState("inplay");
+  const [selectedResultEvent, setSelectedResultEvent] = useState("tod");
+  const [resultFilter, setResultFilter] = useState("4");
   const [inplayEvents, setInplayEvents] = useState([]);
   const [filterOpen, setFilterOpen] = useState(false);
 
@@ -448,378 +450,558 @@ function Inplay() {
       </div>
       {/* For Mobile */}
       <div className='block lg:hidden'>
-        <div className='relative flex bg-[#172832]'>
-          <div className='py-[3.8vw] px-2 text-[3.6vw] font-bold'>
-            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] rounded-l-md cursor-pointer ${selectedEvent == "inplay" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("inplay")}>In-Play</span>
-            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] cursor-pointer ${selectedEvent == "tod" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tod")}>Today</span>
-            <span className={` py-[2.5vw] px-[6.7vw] border-r border-t border-b border-l border-[#fff] rounded-r-md cursor-pointer ${selectedEvent == "tom" ? 'text-[#3b5160] bg-white' : 'text-[#fff] '}`} onClick={() => setSelectedEvent("tom")}>Tomorrow</span>
-          </div>
+        {selectedEvent !== "result" &&
+          <>
+            <div className='bg-[#172832] text-[#fff] text-[3.46666vw] leading-[8.8vw] font-bold box-border flex'>
+              <ul className='border border-[#fff] rounded-[1.6vw] flex flex-1 m-[1.6vw_1.86666vw]'>
+                <li
+                  className={`${selectedEvent == "inplay" ? 'text-[#172832] bg-[#fff]' : 'text-[#fff] '} flex flex-1 items-center justify-center border-r border-[#fff] rounded-[1.3333333333vw_0_0_1.3333333333vw] text-center list-none`}
+                  onClick={() => setSelectedEvent("inplay")}
+                >
+                  <span className='block'>In-Play</span>
+                </li>
+                <li
+                  className={`${selectedEvent == "tod" ? 'text-[#172832] bg-[#fff]' : 'text-[#fff] '} flex flex-1 items-center justify-center border-r border-r-[#fff] text-center list-none`}
+                  onClick={() => setSelectedEvent("tod")}
+                >
+                  <span className='block'>Today</span>
+                </li>
+                <li
+                  className={`${selectedEvent == "tom" ? 'text-[#172832] bg-[#fff]' : 'text-[#fff] '} flex flex-1 items-center justify-center text-center list-none ${userInfo ? "border-r border-r-[#fff]" : "rounded-[0_1.3333333333vw_1.3333333333vw_0]"}`}
+                  onClick={() => setSelectedEvent("tom")}
+                >
+                  <span className='block'>Tomorrow</span>
+                </li>
+                {userInfo &&
+                  <li
+                    className={`${selectedEvent == "result" ? 'text-[#172832] bg-[#fff]' : 'text-[#fff] '} flex flex-1 items-center justify-center border-r border-r-[#fff] text-center list-none rounded-[0_1.3333333333vw_1.3333333333vw_0]`}
+                    onClick={() => setSelectedEvent("result")}
+                  >
+                    <span className='block'>Result</span>
+                  </li>
+                }
+              </ul>
+              <span className='flex-[0_1_12.5333333333vw] relative bg-[linear-gradient(-180deg,_#ffffff26_0%,_#00000026_100%)] text-[#fff] block z-[2] right-0 w-[12.8vw] h-[12.26666vw] p-0 border-l border-l-[#ffffff1a] indent-[-99999px]'>
+                <span
+                  className='absolute top-[25%] left-[25%] [transform-translate(-50%, -50%)] w-[5.866666vw] h-[5.8666666vw] bg-no-repeat bg-center bg-cover'
+                  style={{ backgroundImage: "url('/Images/search-icon.svg')" }}></span>
+              </span>
+            </div>
 
-          <div className='absolute right-0 w-[15vw] h-full flex justify-center items-center [background-image:linear-gradient(-180deg,_rgba(255,_255,_255,_0.15)_0%,_rgba(0,_0,_0,_0.15)_100%)] border-l border-[#ffffff1a]'>
-            <img src="/Images/search-icon.svg" alt="" className='w-[6vw]' />
-          </div>
-        </div>
-        {/* Cricket */}
-        <div>
-          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Cricket</span>
-          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
-            {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
-              <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
-                <div className='flex justify-between items-center'>
-                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
+            {/* Cricket */}
+            <div>
+              <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Cricket</span>
+              <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
+                {inplayEvents?.filter(i => i.event_type == "4")?.map((item) => (
+                  <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
+                    <div className='flex justify-between items-center'>
+                      <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
+                        <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
-                    <div className='flex flex-col justify-start items-start'>
-                      <span className='flex justify-start items-center gap-1'>
-                        <div className='flex justify-center items-center gap-1'>
-                          {item.is_tv == "True" &&
+                        <div className='flex flex-col justify-start items-start'>
+                          <span className='flex justify-start items-center gap-1'>
+                            <div className='flex justify-center items-center gap-1'>
+                              {item.is_tv == "True" &&
+                                <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                                </span>
+                              }
+                              {item.is_fancy == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                              {item.is_bm == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                            </div>
+                            <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                              <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                            {item.is_inplay == "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                            }
+
+                            {item.is_inplay != "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                              </span>
+                            }
+                          </span>
+                          <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                        </div>
+                      </Link>
+                      <div>
+                        <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
+
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
+
                             <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                             </span>
-                          }
-                          {item.is_fancy == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                          {item.is_bm == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                        </div>
-                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-                        {item.is_inplay == "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                        }
-
-                        {item.is_inplay != "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                           </span>
-                        }
-                      </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
+                        </span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                      </div>
                     </div>
-                  </Link>
-                  <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
 
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
 
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
-
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                      </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
-                        </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
-                  </div>
-                </div>
-                <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
-                </div>
-              </div>
-            </li>
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
-
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
-
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
-
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                      </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
-                        </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
-                  </div>
-                </div>
-                <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        {/* Soccer */}
-        <div className='mt-5'>
-          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Soccer</span>
-          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
-            {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
-              <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
-                <div className='flex justify-between items-center'>
-                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
-
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
-
-                    <div className='flex flex-col justify-start items-start'>
-                      <span className='flex justify-start items-center gap-1'>
-                        <div className='flex justify-center items-center gap-1'>
-                          {item.is_tv == "True" &&
                             <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                             </span>
-                          }
-                          {item.is_fancy == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                          {item.is_bm == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                        </div>
-                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-                        {item.is_inplay == "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                        }
-                        {item.is_inplay != "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                           </span>
-                        }
-                      </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
+                        </span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                      </div>
                     </div>
-                  </Link>
-                  <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
+                </li>
+              </ul>
+            </div>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+            {/* Soccer */}
+            <div className='mt-5'>
+              <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Soccer</span>
+              <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
+                {inplayEvents?.filter(i => i.event_type == "1")?.map((item) => (
+                  <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
+                    <div className='flex justify-between items-center'>
+                      <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
+                        <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <div className='flex flex-col justify-start items-start'>
+                          <span className='flex justify-start items-center gap-1'>
+                            <div className='flex justify-center items-center gap-1'>
+                              {item.is_tv == "True" &&
+                                <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                                </span>
+                              }
+                              {item.is_fancy == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                              {item.is_bm == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                            </div>
+                            <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                              <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                            {item.is_inplay == "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                            }
+                            {item.is_inplay != "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                              </span>
+                            }
+                          </span>
+                          <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                        </div>
+                      </Link>
+                      <div>
+                        <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                       </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
-                        </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
-                  </div>
-                </div>
-                <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
-                </div>
-              </div>
-            </li>
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
+                    </div>
+                  </li>
+                ))}
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                      </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
-                        </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
-                  </div>
-                </div>
-                <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        {/* Tennis */}
-        <div className='mt-5'>
-          <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Tennis</span>
-          <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
-            {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
-              <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
-                <div className='flex justify-between items-center'>
-                  <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
-
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
-
-                    <div className='flex flex-col justify-start items-start'>
-                      <span className='flex justify-start items-center gap-1'>
-                        <div className='flex justify-center items-center gap-1'>
-                          {item.is_tv == "True" &&
                             <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                             </span>
-                          }
-                          {item.is_fancy == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                          {item.is_bm == "True" &&
+
                             <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-                          }
-                        </div>
-                        <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                          <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-                        {item.is_inplay == "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                        }
-                        {item.is_inplay != "True" &&
-                          <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                           </span>
-                        }
-                      </span>
-                      <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
+                        </span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                      </div>
                     </div>
-                  </Link>
-                  <div>
-                    <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
+                </li>
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
 
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                          </span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
                         </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
                       </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
-                        </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                    </div>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
-                </div>
-              </div>
-            </li>
-            <li className='py-1 px-2 border-b border-[#e0e6e6]'>
-              <div className='flex justify-between items-center'>
-                <div className='flex justify-start items-center'>
+                </li>
+              </ul>
+            </div>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+            {/* Tennis */}
+            <div className='mt-5'>
+              <span className='flex justify-center items-center p-[1.5vw] [background-image:linear-gradient(-180deg,_#2e4b5e_0%,_#243a48_82%)] text-[3.7333333333vw] text-white font-bold'>Tennis</span>
+              <ul className='bg-[#fff] border-b-[0.8vw] border-[#070707]'>
+                {inplayEvents?.filter(i => i.event_type == "2")?.map((item) => (
+                  <li key={item.id} className='py-1 px-2 border-b border-[#e0e6e6]'>
+                    <div className='flex justify-between items-center'>
+                      <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                  <div className='flex flex-col justify-start items-start'>
-                    <span className='flex justify-start items-center gap-1'>
-                      <div className='flex justify-center items-center gap-1'>
+                        <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
-                        <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                        </span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
-
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <div className='flex flex-col justify-start items-start'>
+                          <span className='flex justify-start items-center gap-1'>
+                            <div className='flex justify-center items-center gap-1'>
+                              {item.is_tv == "True" &&
+                                <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                                </span>
+                              }
+                              {item.is_fancy == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                              {item.is_bm == "True" &&
+                                <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                              }
+                            </div>
+                            <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                              <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+                            {item.is_inplay == "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                            }
+                            {item.is_inplay != "True" &&
+                              <span className='text-[3.2vw] text-[#777]'>{formatOpenDate(item.open_date)}
+                              </span>
+                            }
+                          </span>
+                          <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>{item.event_name}</span>
+                        </div>
+                      </Link>
+                      <div>
+                        <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
                       </div>
-                      <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
-                        <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
-                      </span>
-                      <span className='text-[3.2vw] text-[#777]'>In-Play</span>
-                      <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
-                        <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
-                          <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                    </div>
+                  </li>
+                ))}
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
+
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
+
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                          </span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
                         </span>
-                        <span className='px-2 bg-[#fff]'>Cricket</span>
-                      </span>
-                    </span>
-                    <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Durban Super Giants SRL T20 vs Pretoria Capitals SRL T20</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
+                  </div>
+                </li>
+                <li className='py-1 px-2 border-b border-[#e0e6e6]'>
+                  <div className='flex justify-between items-center'>
+                    <div className='flex justify-start items-center'>
+
+                      <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+
+                      <div className='flex flex-col justify-start items-start'>
+                        <span className='flex justify-start items-center gap-1'>
+                          <div className='flex justify-center items-center gap-1'>
+
+                            <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                            </span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                          </div>
+                          <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
+                            <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
+                          </span>
+                          <span className='text-[3.2vw] text-[#777]'>In-Play</span>
+                          <span className='flex justify-center items-center text-[2.4vw] font-bold border border-[#1f5172] text-[#1f5172] rounded leading-[4vw]'>
+                            <span className='flex justify-center items-center p-1 bg-[#1f5172]'>
+                              <img src="/Images/E-icon.svg" alt="" className=' w-[1.8666666667vw] h-[2.1333333333vw]' />
+                            </span>
+                            <span className='px-2 bg-[#fff]'>Cricket</span>
+                          </span>
+                        </span>
+                        <span className='text-[4vw] font-bold text-[#2789ce] leading-snug truncate w-[82vw] max-w-[22rem]'>Brisbane Heat SRL T20 vs Perth Scorchers SRL T20</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </>}
+
+        {/* Result */}
+        {selectedEvent === "result" &&
+          <>
+            <div className='block p-[1.6vw_1.8666666667vw] bg-[#172832] text-[#fff] text-[3.4666666vw] leading-[8.8vw] font-bold box-border'>
+              <ul className='m-0 mb-[1.866666vw] border border-[#fff] rounded-[1.6vw] flex'>
+                <li
+                  className={`${selectedResultEvent === "tod" ? "text-[#172832] bg-[#fff]" : "text-[#fff]"} rounded-[1.3333333333vw_0_0_1.3333333333vw] flex-1 border-r border-r-[#fff] text-center`}
+                  onClick={() => setSelectedResultEvent('tod')}
+                >
+                  <span className='block'>Today</span>
+                </li>
+                <li
+                  className={`${selectedResultEvent === "yes" ? "text-[#172832] bg-[#fff]" : "text-[#fff]"} rounded-[0_1.3333333333vw_1.3333333333vw_0] flex-1 border-r border-r-[#fff] text-center`}
+                  onClick={() => setSelectedResultEvent('yes')}
+                >
+                  <span className='block'>Yesterday</span>
+                </li>
+              </ul>
+              <div className='mb-0 relative w-full h-[10.6666vw] m-0 bg-[#fff] rounded-[1.6vw] text-[#1e1e1e]'>
+                <select
+                  name=""
+                  id=""
+                  className='w-full h-full m-0 p-0 px-[1rem] bg-[#00000000] text-[#1e1e1e] font-normal cursor-pointer text-[4.26666vw] leading-[4.8vw] rounded-[1.6vw]'
+                  onChange={(e) => setResultFilter(e.target.value)}
+                >
+                  <option value="4" className=''>CRICKET</option>
+                  <option value="1" className=''>SOCCER</option>
+                  <option value="999999" className=''>E_SOCCER</option>
+                  <option value="11" className=''>FANCYBET</option>
+                </select>
+
+                <span className='absolute top-[44%] right-[0.133333%] [transform-translate(0,-50%)] border-t-[2.13333vw] border-t-[#1e1e1e] border-l-[2.133333vw] border-l-[#00000000] border-r-[2.1333333vw] border-r-[#00000000]'></span>
+              </div>
+            </div>
+            {resultFilter !== "11" &&
+              <div className='block mb-[2.666vw]'>
+                <dl className='flex items-stretch min-h-[17.3333vw] bg-[#fff] border-b border-b-[#7e97a7] text-[#666] box-border'>
+                  <dt className='flex flex-[2] text-[4.266666vw] leading-[5.33333vw] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute left-[1.6vw] w-full top-[1.6vw] text-[2.93333vw] leading-[3.7333333vw] box-border'>2025-09-01 09:30</p>
+                    <strong className=''>Islamabad United SRL T20 v Karachi Kings SRL T20</strong>
+                  </dt>
+                  <dd className='flex flex-1 text-center text-[5.3333vw] border-l border-l-[#e0e6e6] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute w-full top-[1.6vw] left-0 text-[2.933333vw] leading-[3.733333vw] box-border'>{resultFilter === '4' ? 'Home' : 'HT'}</p>
+                    <strong className='text-[#000] w-full'>{resultFilter === '4' ? '181/5' : '0-0'}</strong>
+                  </dd>
+                  <dd className='flex flex-1 text-center text-[5.3333vw] border-l border-l-[#e0e6e6] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute w-full top-[1.6vw] left-0 text-[2.933333vw] leading-[3.733333vw] box-border'>{resultFilter === '4' ? 'Away' : 'FT'}</p>
+                    <strong className='text-[#000] w-full'>{resultFilter === '4' ? '176/2' : '0-0'}</strong>
+                  </dd>
+                </dl>
+                <dl className='flex items-stretch min-h-[17.3333vw] bg-[#fff] border-b border-b-[#7e97a7] text-[#666] box-border'>
+                  <dt className='flex flex-[2] text-[4.266666vw] leading-[5.33333vw] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute left-[1.6vw] w-full top-[1.6vw] text-[2.93333vw] leading-[3.7333333vw] box-border'>2025-09-01 09:30</p>
+                    <strong className=''>Chennai Super Kings SRL T20 v Sunrisers Hyderabad SRL T20</strong>
+                  </dt>
+                  <dd className='flex flex-1 text-center text-[5.3333vw] border-l border-l-[#e0e6e6] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute w-full top-[1.6vw] left-0 text-[2.933333vw] leading-[3.733333vw] box-border'>{resultFilter === '4' ? 'Home' : 'HT'}</p>
+                    <strong className='text-[#000] w-full'>{resultFilter === '4' ? '181/5' : '0-0'}</strong>
+                  </dd>
+                  <dd className='flex flex-1 text-center text-[5.3333vw] border-l border-l-[#e0e6e6] relative justify-start items-center p-[6.6666666667vw_1.6vw_1.6vw_1.6vw] box-border'>
+                    <p className='absolute w-full top-[1.6vw] left-0 text-[2.933333vw] leading-[3.733333vw] box-border'>{resultFilter === '4' ? 'Away' : 'FT'}</p>
+                    <strong className='text-[#000] w-full'>{resultFilter === '4' ? '176/2' : '0-0'}</strong>
+                  </dd>
+                </dl>
+              </div>
+            }
+            {resultFilter === "11" &&
+              <div className='block'>
+                <dl className='relative flex items-center flex-wrap p-[2.133333vw] bg-[#fff] border-b-[0.26666vw] border-b-[#89aec4]'>
+                  <p className='text-[2.93333vw] leading-[2.93333vw] mb-[1.3333vw] text-[#777]'>2025/08/31 14:30:00</p>
+                  <strong className='text-[4vw] w-[95%]'>Trivandrum Royals v Aries Kollam Sailors</strong>
+                  <span
+                    className='block absolute top-[35%] right-[2%] [transform-translate(-50%, -50%)] w-[4vw] h-[4vw] bg-no-repeat bg-contain'
+                    style={{ backgroundImage: "url('/Images/collapse.svg')" }}
+                  ></span>
+                </dl>
+                {/* Expandable block Start*/}
+                <div className='bg-[#b8c8d1] block p-[1.6vw_1.86666vw] text-[#fff] text-[3.466666vw] leading-[8.8vw] font-bold box-border'>
+                  <div className='mb-0 relative w-full h-[10.6666vw] m-0 bg-[#fff] rounded-[1.6vw] text-[#1e1e1e]'>
+                    <select name="" id="" className='w-full h-full m-0 p-0 px-[1rem] bg-[#00000000] text-[#1e1e1e] font-normal cursor-pointer text-[4.266666vw] leading-[8.8vw] rounded-[1.6vw]'>
+                      <option value="All">All</option>
+                      <option value="7">Three Selections</option>
+                      <option value="1">Overs</option>
+                      <option value="2">Batsman</option>
+                      <option value="3">Single Over</option>
+                      <option value="8">Ball by Ball</option>
+                      <option value="4">Khadda</option>
+                      <option value="5">Lottery</option>
+                      <option value="6">Odd Event</option>
+                    </select>
+
+
+                    <span className='absolute top-[42%] right-[0.13333vw] [transform-translate(0, -50%)] border-t-[2.13333vw] border-t-[#1e1e1e] border-l-[2.133333vw] border-l-[#00000000] border-r-[2.1333333vw] border-r-[#00000000]'></span>
                   </div>
                 </div>
+                {/* Listing */}
                 <div>
-                  <span className=''><img src="/Images/bookmark-pin.svg" alt="" className='w-[6.6666666667vw] h-[6.6666666667vw]' /></span>
+                  <dl className='flex bg-[#e7eff3] border-b-[0.2666666vw] border-b-[#7e97a7]'>
+                    <dt className='flex flex-[8] flex-wrap items-center p-[2.13333vw]'>
+                      <label className='block text-[2.933333vw] leading-[2.933333vw] mb-[1.333333vw] text-[#536a74]'>cricbuzz</label>
+                      <strong className='block text-[3.7333333vw] w-full'>6 Over TR</strong>
+                    </dt>
+                    <dd className='flex flex-1 flex-wrap items-center p-[2.133333vw] border-l-[0.266666vw] border-l-[#bfcfd9]'>
+                      <label className='block text-[2.933333vw] leading-[2.933333vw] mb-[1.333333vw] text-[#536a74]'>Runs</label>
+                      <strong className='block text-[3.7333333vw] w-full'>60</strong>
+                    </dd>
+                  </dl>
                 </div>
+
+                <div>
+                  <dl className='flex bg-[#e7eff3] border-b-[0.2666666vw] border-b-[#7e97a7]'>
+                    <dt className='flex flex-[8] flex-wrap items-center p-[2.13333vw]'>
+                      <label className='block text-[2.933333vw] leading-[2.933333vw] mb-[1.333333vw] text-[#536a74]'>cricbuzz</label>
+                      <strong className='block text-[3.7333333vw] w-full'>10 Over TR</strong>
+                    </dt>
+                    <dd className='flex flex-1 flex-wrap items-center p-[2.133333vw] border-l-[0.266666vw] border-l-[#bfcfd9]'>
+                      <label className='block text-[2.933333vw] leading-[2.933333vw] mb-[1.333333vw] text-[#536a74]'>Runs</label>
+                      <strong className='block text-[3.7333333vw] w-full'>87</strong>
+                    </dd>
+                  </dl>
+                </div>
+                {/* Expandable block End*/}
+                <dl className='relative flex items-center flex-wrap p-[2.133333vw] bg-[#fff] border-b-[0.26666vw] border-b-[#89aec4]'>
+                  <p className='text-[2.93333vw] leading-[2.93333vw] mb-[1.3333vw] text-[#777]'>2025/08/31 14:30:00</p>
+                  <strong className='text-[4vw] w-[95%]'>Trivandrum Royals v Aries Kollam Sailors</strong>
+                  <span
+                    className='block absolute top-[35%] right-[2%] [transform-translate(-50%, -50%)] w-[4vw] h-[4vw] bg-no-repeat bg-contain'
+                    style={{ backgroundImage: "url('/Images/expand.svg')" }}
+                  ></span>
+                </dl>
+                <dl className='relative flex items-center flex-wrap p-[2.133333vw] bg-[#fff] border-b-[0.26666vw] border-b-[#89aec4]'>
+                  <p className='text-[2.93333vw] leading-[2.93333vw] mb-[1.3333vw] text-[#777]'>2025/08/31 14:30:00</p>
+                  <strong className='text-[4vw] w-[95%]'>Trivandrum Royals v Aries Kollam Sailors</strong>
+                  <span
+                    className='block absolute top-[35%] right-[2%] [transform-translate(-50%, -50%)] w-[4vw] h-[4vw] bg-no-repeat bg-contain'
+                    style={{ backgroundImage: "url('/Images/expand.svg')" }}
+                  ></span>
+                </dl>
+                <dl className='relative flex items-center flex-wrap p-[2.133333vw] bg-[#fff] border-b-[0.26666vw] border-b-[#89aec4]'>
+                  <p className='text-[2.93333vw] leading-[2.93333vw] mb-[1.3333vw] text-[#777]'>2025/08/31 14:30:00</p>
+                  <strong className='text-[4vw] w-[95%]'>Trivandrum Royals v Aries Kollam Sailors</strong>
+                  <span
+                    className='block absolute top-[35%] right-[2%] [transform-translate(-50%, -50%)] w-[4vw] h-[4vw] bg-no-repeat bg-contain'
+                    style={{ backgroundImage: "url('/Images/expand.svg')" }}
+                  ></span>
+                </dl>
               </div>
-            </li>
-          </ul>
-        </div>
+            }
+          </>
+        }
+
       </div>
     </>
   )

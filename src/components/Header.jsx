@@ -1018,9 +1018,11 @@ const Header = () => {
 
             {/* Right Side */}
             <div className="flex items-center gap-4 text-xs">
-              <div className="text-[#0009] font-extralight">
-                Time Zone: <span className="text-[#000] font-bold">GMT+5:30</span>
-              </div>
+              {!userInfo &&
+                <div className="text-[#0009] font-extralight">
+                  Time Zone: <span className="text-[#000] font-bold">GMT+5:30</span>
+                </div>
+              }
 
               {/* One Click Bet */}
               <span
