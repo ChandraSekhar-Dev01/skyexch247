@@ -25,6 +25,8 @@ import SelfExPolicy from "./Pages/Regulations/SelfExPolicy";
 import UnderAgePolicy from "./Pages/Regulations/UnderAgePolicy";
 import Result from "./Pages/Result";
 import SkyHeader from "./components/SkyLobby/SkyHeader";
+import SkyLobbyLayout from "./utils/SkyLobbyLayout";
+import Recent from "./components/SkyLobby/skyPages/Recent";
 
 function App() {
   return (
@@ -38,6 +40,9 @@ function App() {
               <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/sky" element={<SkyHeader />} />
+                <Route path="/lobby" element={<SkyLobbyLayout />}>
+                  <Route index element={<Recent />} />
+                </Route>
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />} />
                   <Route path="inPlay" element={<Inplay />} />
