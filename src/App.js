@@ -27,6 +27,8 @@ import Result from "./Pages/Result";
 import SkyHeader from "./components/SkyLobby/SkyHeader";
 import SkyLobbyLayout from "./utils/SkyLobbyLayout";
 import Recent from "./components/SkyLobby/skyPages/Recent";
+import Favorite from "./components/SkyLobby/skyPages/Favorite";
+import Ranking from "./components/SkyLobby/skyPages/Ranking";
 
 function App() {
   return (
@@ -41,7 +43,9 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/sky" element={<SkyHeader />} />
                 <Route path="/lobby" element={<SkyLobbyLayout />}>
-                  <Route index element={<Recent />} />
+                  <Route index element={<Ranking />} />
+                  <Route path="favorite" element={<Favorite />} />
+                  <Route path="recent" element={<Recent />} />
                 </Route>
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />} />

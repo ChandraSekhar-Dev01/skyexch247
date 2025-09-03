@@ -3,9 +3,14 @@ import { MdOutlineFeedback, MdOutlineHistory } from "react-icons/md";
 import { FaRegFileAlt } from "react-icons/fa";
 import React, { useState } from 'react'
 import { CloseOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Helper from "../../helper";
 
 function SkyHeader() {
+
+  const location = useLocation();
+  const userInfo = Helper();
+
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
   const [balanceEye, setBalanceEye] = useState(false);
@@ -26,13 +31,13 @@ function SkyHeader() {
               <span className='mx-1 block w-[0.875rem]'>
                 <img src="/Images/skyLobby/userIcon.webp" alt="" className='block align-middle w-full max-w-full h-auto' />
               </span>
-              <span>001jp1122user</span>
+              <span>{userInfo?.user_name}</span>
             </li>
             <li className='flex items-center'>
               <span className='mx-1 block w-[0.875rem]'>
                 <img src="/Images/skyLobby/balance.webp" alt="" className='block align-middle w-full max-w-full h-auto' />
               </span>
-              <span>{`${balanceEye ? '63.00' : '************'}`}</span>
+              <span>{`${balanceEye ? '01.00' : '************'}`}</span>
             </li>
             <li className='flex justify-self-end items-center w-[2rem] row-span-2'>
               <button className='cursor-pointer bg-transparent' onClick={() => setBalanceEye(!balanceEye)}>
@@ -187,31 +192,31 @@ function SkyHeader() {
       <nav
         className="hidden md:block md:bg-[linear-gradient(to_bottom,#665030,#1c1202)] md:text-[.875rem] md:leading-[1.25rem] md:text-[#efebe6] md:sticky md:top-0 z-30">
         <div className="flex max-w-7xl lg:mx-auto">
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center text-[#ffcd79] lg:max-w-[165px] lg:hover:bg-[#00000020] bg-center" style={{ backgroundImage: "url('/Images/skyLobby/nav-active-bg.webp')", backgroundSize: "100% 100%" }}>
+          <Link to={'/lobby/recent'} className={`pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] ${location.pathname == '/lobby/recent' ? "nav-active text-[#ffcd79] bg-center" : ""}`}>
             <span className="relative mx-auto inline-block p-[0.375rem]">
-              <img src="/Images/skyLobby/recent-white.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7 opacity-50" />
+              <img src="/Images/skyLobby/recent-white.webp" alt="" className={`overflow-hidden w-8 h-8 lg:w-7 lg:h-7 ${location.pathname == '/lobby/recent' ? "opacity-50" : ""}`} />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Recent</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center text-[#fff] lg:max-w-[165px] lg:hover:bg-[#00000020]">
+          <Link to={'/lobby/favorite'} className={`pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] ${location.pathname == '/lobby/favorite' ? "nav-active text-[#ffcd79] bg-center" : ""}`}>
             <span className="relative mx-auto inline-block p-[0.375rem]">
-              <img src="/Images/skyLobby/fvrt-star.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
+              <img src="/Images/skyLobby/fvrt-star.webp" alt="" className={`overflow-hidden w-8 h-8 lg:w-7 lg:h-7 ${location.pathname == '/lobby/favorite' ? "opacity-50" : ""}`} />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Favorite</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center text-[#fff] lg:max-w-[165px] lg:hover:bg-[#00000020]">
+          <Link to={'/lobby'} className={`pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] ${location.pathname == '/lobby' ? "nav-active text-[#ffcd79] bg-center" : ""}`}>
             <span className="relative mx-auto inline-block p-[0.375rem]">
-              <img src="/Images/skyLobby/ranking-star.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
+              <img src="/Images/skyLobby/ranking-star.webp" alt="" className={`overflow-hidden w-8 h-8 lg:w-7 lg:h-7 ${location.pathname == '/lobby' ? "opacity-50" : ""}`} />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Rankings</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center text-[#fff] lg:max-w-[165px] lg:hover:bg-[#00000020]">
+          <Link className="pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] text-[#fff]">
             <span className="relative mx-auto inline-block p-[0.375rem]">
               <img src="/Images/skyLobby/games.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Games</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center text-[#fff] lg:max-w-[165px] lg:hover:bg-[#00000020]">
+          <Link className="pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] text-[#fff]">
             <span className="relative mx-auto inline-block p-[0.375rem]">
               <img src="/Images/skyLobby/platform.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
             </span>

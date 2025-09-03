@@ -104,3 +104,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 1;
   }
 }
+
+.nav-active {
+  background-image: url(/public/Images/skyLobby/nav-active-bg.webp);
+  background-size: 100% 100%;
+}
+
+@media (min-width: 976px) {
+  .lg\:bg-index-img {
+    background-image: url(/public/Images/skyLobby/bg-lobby-homepage.webp);
+  }
+}

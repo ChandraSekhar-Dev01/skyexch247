@@ -4974,7 +4974,7 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="relative w-1/2">
+              <div className="relative w-1/2" onClick={() => navigate('/lobby')}>
                 <img
                   src="/Images/dashboard-casino-img/casino.png"
                   alt=""
