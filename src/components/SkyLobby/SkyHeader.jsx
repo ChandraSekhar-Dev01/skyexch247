@@ -210,9 +210,9 @@ function SkyHeader() {
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Rankings</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] text-[#fff]">
+          <Link to={'/lobby/babe/hot'} className={`pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] ${location.pathname == '/lobby/babe/hot' ? "nav-active text-[#ffcd79] bg-center" : ""}`}>
             <span className="relative mx-auto inline-block p-[0.375rem]">
-              <img src="/Images/skyLobby/games.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
+              <img src="/Images/skyLobby/games.webp" alt="" className={`overflow-hidden w-8 h-8 lg:w-7 lg:h-7 ${location.pathname == '/lobby/babe/hot' ? "opacity-50" : ""}`} />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Games</span>
           </Link>

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 function SkyFooter() {
   const location = useLocation();
+  const isBabe = location.pathname.startsWith("/lobby/babe");
   // console.log('location path name : ', location.pathname)
   return (
     <>
@@ -53,12 +54,17 @@ function SkyFooter() {
               Rankings
             </span>
           </Link>
-          <Link className='pb-0.5 flex-1 text-center md:nav-icon-lg lg:max-w-nav lg:hover:bg-glass md:SANA:text-fifth'>
-            <span className='relative mx-auto inline-block p-[0.375rem]'>
+          <Link
+            to={'/lobby/babe/hot'}
+            className={`pb-0.5 flex-1 text-center ${isBabe ? "text-[#663333]" : ""} md:nav-icon-lg lg:max-w-nav lg:hover:bg-glass`}
+          >
+            <span
+              className={`relative mx-auto inline-block p-[0.375rem] ${isBabe ? "top-[-0.5rem] mb-[-0.5rem] rounded-[9999px] border-[4px] border-[#fff] bg-[linear-gradient(to_bottom,_#9a734b,_#64401d,_#b16c28)] text-[#fff]" : ""}`}
+            >
               <img
-                src='/Images/skyLobby/games-grey.webp'
+                src={`/Images/skyLobby/${isBabe ? "games-white" : "games-grey"}.webp`}
                 alt=''
-                className="w-8 h-8 lg:w-7 lg:h-7"
+                className="w-8 h-8 lg:w-7 lg:h-7 p-1"
               />
             </span>
             <span className='flex-grow text-center md:-ml-4 block'>

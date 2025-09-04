@@ -115,3 +115,68 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url(/public/Images/skyLobby/bg-lobby-homepage.webp);
   }
 }
+
+.animate-delay-750 {
+  animation-delay: 0.75s;
+}
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+.animate-delay-250 {
+  animation-delay: 0.25s;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+.animate-fadeIn-right {
+  animation: fadeInRight 0.8s ease-in-out forwards;
+}
+.animate-fadeIn-left {
+  animation: fadeInLeft 0.8s ease-in-out forwards;
+}
+.animate-balloon-normal {
+  animation: balloon 1.6s ease-in-out infinite;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -5px;
+  }
+}
