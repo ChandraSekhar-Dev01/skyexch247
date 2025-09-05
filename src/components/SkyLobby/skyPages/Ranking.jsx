@@ -1,5 +1,6 @@
 import { Carousel } from 'antd'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Ranking() {
   const [filterClicked, setFilterClicked] = useState(false);
@@ -26,42 +27,42 @@ function Ranking() {
             </Carousel>
           </div>
           <div className='flex items-center flex-wrap px-1 py-3 bg-white text-[#553d11] lg:col-span-2 lg:bg-transparent lg:p-0'>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            <Link to={'/lobby/babe/hot'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/hot.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Hot</span>
-            </span>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            </Link>
+            <Link to={'/lobby/babe/live'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/live.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Live</span>
-            </span>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            </Link>
+            <Link to={'/lobby/babe/fh'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/fishing.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Fishing</span>
-            </span>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            </Link>
+            <Link to={'/lobby/babe/slot'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/slots.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Slots</span>
-            </span>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            </Link>
+            <Link to={'/lobby/babe/table'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/table.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Table</span>
-            </span>
-            <span className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
+            </Link>
+            <Link to={'/lobby/babe/sports'} className='flex-none p-1 mb-2 text-xs text-center text-[#663333] lg:text-[#d5b565] lg:bg-[linear-gradient(to_bottom,_#665030,_#1c1202)] lg:[#665030_#665030] lg:[#1c1202] lg:flex items-center lg:flex-wrap lg:rounded-md lg:shadow-xl lg:bg-opacity-80 lg:mx-1 lg:h-[48%] lg:min-h-[6rem] hover:lg:bg-[linear-gradient(to_top,_#665030,_#1c1202)] lg:hover:scale-110 lg:transition-all lg:SANA:shadow-xl lg:SANA:border-secondary lg:SANA:border-2 w-1/6 lg:w-[calc(20%-0.5rem)] lg:IN2:w-1/12 lg:SANA:w-1/8 lg:SANA:border  lg:SANA:shadow-none lg:SANA:bg-entrance-bg-pattern lg:SANA:bg-cover lg:SANA:bg-center'>
               <span className='block w-9 md:w-12 lg:-mb-5 mb-1 mx-auto'>
                 <img src="/Images/skyLobby/sports.webp" alt="" className='w-full h-auto block align-middle' />
               </span>
               <span className='min-w-full SANA:text-primary'>Sports</span>
-            </span>
+            </Link>
           </div>
 
           <div className='relative bg-[#efebe6] py-3 lg:col-span-4 lg:rounded-md lg:shadow-xl lg:bg-[#efebe6e6] lg:pt-0 lg:pb-3 md:SANA:bg-tertiary'>

@@ -30,6 +30,7 @@ import Recent from "./components/SkyLobby/skyPages/Recent";
 import Favorite from "./components/SkyLobby/skyPages/Favorite";
 import Ranking from "./components/SkyLobby/skyPages/Ranking";
 import Games from "./components/SkyLobby/skyPages/Games";
+import Platform from "./components/SkyLobby/skyPages/Platform";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
                   <Route path="favorite" element={<Favorite />} />
                   <Route path="recent" element={<Recent />} />
                   <Route path="babe/:type" element={<Games />} />
+                  <Route path="platform" element={<Platform />} />
                 </Route>
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />} />
