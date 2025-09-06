@@ -46,7 +46,7 @@ function SkyHeader() {
               </button>
             </li>
           </ul>
-          <div className='relative hidden md:flex mx-4 w-1/5 md:w-[36%] flex-center rounded-full bg-[#fff]'>
+          <div className={`relative hidden md:flex mx-4 w-1/5 md:w-[36%] flex-center rounded-full bg-[#fff]`}>
             <img src="/Images/searchD-icon.svg" alt="" className='w-10 h-10 relative mx-auto inline-block p-[0.375rem]' />
             <input type="text" placeholder="Search game" className='w-[90%] h-10 px-2 pr-10 bg-transparent rounded-full focus:outline-none focus:border-brown-highlight' onClick={() => setIsSearchClicked(true)} />
             {isSearchClicked &&
@@ -160,20 +160,22 @@ function SkyHeader() {
             ></div>
           </div>
         </div>
-        <div className='relative flex md:hidden p-[0.5rem] [background-position:0%_70%] w-full'>
-          <div className='bg-[#ffffff] rounded-[9999px] w-full relative flex items-center border'>
-            <span className='text-[#663333] relative mx-auto inline-block p-[0.375rem]'>
-              <img src="/Images/searchD-icon.svg" alt="" className='w-6 h-6' />
-            </span>
-            <input type="text" name="" id="" placeholder='Search game' className='w-[90%] px-2 pr-10 text-[#1e1e1e] bg-transparent rounded-full focus:outline-none focus:border-brown-highlight' onClick={() => setIsSearchClicked(true)} />
-            {isSearchClicked &&
-              <span className='absolute right-3 rounded-full w-4 h-4 bg-[#b07d4a] cursor-pointer ml-auto mr-auto inline-block p-[0.375rem]' onClick={() => setIsSearchClicked(false)}>
-
-                <span className='text-[3.2vw] font-normal mt-[-2vw] ml-[-0.56vw] overflow-hidden block align-middle'>x</span>
+        {location.pathname !== '/lobby/platform' &&
+          <div className='relative flex md:hidden p-[0.5rem] [background-position:0%_70%] w-full'>
+            <div className='bg-[#ffffff] rounded-[9999px] w-full relative flex items-center border'>
+              <span className='text-[#663333] relative mx-auto inline-block p-[0.375rem]'>
+                <img src="/Images/searchD-icon.svg" alt="" className='w-6 h-6' />
               </span>
-            }
+              <input type="text" name="" id="" placeholder='Search game' className='w-[90%] px-2 pr-10 text-[#1e1e1e] bg-transparent rounded-full focus:outline-none focus:border-brown-highlight' onClick={() => setIsSearchClicked(true)} />
+              {isSearchClicked &&
+                <span className='absolute right-3 rounded-full w-4 h-4 bg-[#b07d4a] cursor-pointer ml-auto mr-auto inline-block p-[0.375rem]' onClick={() => setIsSearchClicked(false)}>
+
+                  <span className='text-[3.2vw] font-normal mt-[-2vw] ml-[-0.56vw] overflow-hidden block align-middle'>x</span>
+                </span>
+              }
+            </div>
           </div>
-        </div>
+        }
         {isSearchClicked &&
           <div className='w-full h-screen z-[35] absolute'>
             <div className='absolute w-full top-0 left-0 bg-[#2a282a] py-6 md:py-10 z-50'>
@@ -217,9 +219,9 @@ function SkyHeader() {
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Games</span>
           </Link>
-          <Link className="pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] text-[#fff]">
+          <Link to={'/lobby/platform'} className={`pb-0.5 flex-1 text-center md:flex items-center lg:max-w-[165px] lg:hover:bg-[#00000020] ${location.pathname == '/lobby/platform' ? "nav-active text-[#ffcd79] bg-center" : ""}`}>
             <span className="relative mx-auto inline-block p-[0.375rem]">
-              <img src="/Images/skyLobby/platform.webp" alt="" className="overflow-hidden w-8 h-8 lg:w-7 lg:h-7" />
+              <img src="/Images/skyLobby/platform.webp" alt="" className={`overflow-hidden w-8 h-8 lg:w-7 lg:h-7 ${location.pathname == '/lobby/platform' ? "opacity-50" : ""}`} />
             </span>
             <span className="flex-grow text-center md:-ml-4 block">Platform</span>
           </Link>
