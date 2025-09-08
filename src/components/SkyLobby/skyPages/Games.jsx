@@ -28,7 +28,7 @@ function Games() {
   };
 
   const tabs = [
-    { type: "hot", label: "Hot", img: "Hot.webp" },
+    { type: "hot", label: "Hot", img: "hot.webp" },
     { type: "live", label: "Live", img: "live.webp" },
     { type: "fh", label: "Fishing", img: "fishing.webp" },
     { type: "slot", label: "Slot", img: "slots.webp" },
