@@ -14,21 +14,21 @@ const Footer = () => {
     whatsAppIcon: "/Images/whatsApp-icon-grey.svg",
     skypeIcon: "/Images/skype-icon-grey.svg",
     emailIcon: "/Images/email-icon-grey.svg",
-    igIcon: "/Images/ig-icon-grey.png",
-    betFairIcon: "/Images/not-verified.png",
-    accountIcon: "/Images/account-icon-white.png",
+    igIcon: "/Images/ig-icon-grey.webp",
+    betFairIcon: "/Images/not-verified.webp",
+    accountIcon: "/Images/account-icon-white.webp",
     homeIcon: "/Images/home-icon.svg",
     multiBet: "/Images/multiBet-pin.svg",
     trophyIcon: "/Images/trophy.svg",
-    clockIcon: "/Images/clock-icon-white.png",
+    clockIcon: "/Images/clock-icon-white.webp",
     referral: "/Images/Referral.webp",
     SportsGiff: "/Images/gamesGiff.gif",
     headphoneIcon: "/Images/headphone-icon-grey.svg",
-    gcIcon: "/Images/gc-logo.png",
-    phoneIcon: "/Images/phone-icon.png",
-    mailIcon: "/Images/mail-icon.png",
-    AndroidAppIcon: "/Images/AndroidAppIcon.png",
-    browserIcon: "/Images/icon-browser-B.png"
+    gcIcon: "/Images/gc-logo.webp",
+    phoneIcon: "/Images/phone-icon.webp",
+    mailIcon: "/Images/mail-icon.webp",
+    AndroidAppIcon: "/Images/AndroidAppIcon.webp",
+    browserIcon: "/Images/icon-browser-B.webp"
   };
 
 

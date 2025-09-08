@@ -111,12 +111,12 @@ function Ranking() {
                   <div
                     className='absolute h-full left-0 bottom-0 bg-contain bg-no-repeat z-0'
                     style={{
-                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-043.png')"
+                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-043.webp')"
                     }}
                   >
-                    <img src="/Images/skyLobby/char-JILI-SLOT-043.png" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
+                    <img src="/Images/skyLobby/char-JILI-SLOT-043.webp" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
                   </div>
-                  <div class="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
+                  <div className="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
                   <div className='relative z-[1] flex-[1_1_auto] overflow-hidden rounded-md w-[30%] md:max-w-[280px] px-1 text-right text-[0.75rem] leading-[1rem]'>
                     <div className='flex items-center justify-end text-[#663333]'>
                       <span className='block w-6'>
@@ -132,7 +132,7 @@ function Ranking() {
                       </div>
                     </button>
                   </div>
-                  <button class="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
+                  <button className="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='w-full h-auto block align-middle' />
                   </button>
                 </div>
@@ -149,12 +149,12 @@ function Ranking() {
                   <div
                     className='absolute h-full left-0 bottom-0 bg-contain bg-no-repeat z-0'
                     style={{
-                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-029.png')"
+                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-029.webp')"
                     }}
                   >
-                    <img src="/Images/skyLobby/char-JILI-SLOT-029.png" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
+                    <img src="/Images/skyLobby/char-JILI-SLOT-029.webp" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
                   </div>
-                  <div class="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
+                  <div className="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
                   <div className='relative z-[1] flex-[1_1_auto] overflow-hidden rounded-md w-[30%] md:max-w-[280px] px-1 text-right text-[0.75rem] leading-[1rem]'>
                     <div className='flex items-center justify-end text-[#663333]'>
                       <span className='block w-6'>
@@ -170,7 +170,7 @@ function Ranking() {
                       </div>
                     </button>
                   </div>
-                  <button class="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
+                  <button className="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='w-full h-auto block align-middle' />
                   </button>
                 </div>
@@ -187,12 +187,12 @@ function Ranking() {
                   <div
                     className='absolute h-full left-0 bottom-0 bg-contain bg-no-repeat z-0'
                     style={{
-                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-014.png')"
+                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-014.webp')"
                     }}
                   >
-                    <img src="/Images/skyLobby/char-JILI-SLOT-014.png" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
+                    <img src="/Images/skyLobby/char-JILI-SLOT-014.webp" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
                   </div>
-                  <div class="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
+                  <div className="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
                   <div className='relative z-[1] flex-[1_1_auto] overflow-hidden rounded-md w-[30%] md:max-w-[280px] px-1 text-right text-[0.75rem] leading-[1rem]'>
                     <div className='flex items-center justify-end text-[#663333]'>
                       <span className='block w-6'>
@@ -208,7 +208,7 @@ function Ranking() {
                       </div>
                     </button>
                   </div>
-                  <button class="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
+                  <button className="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='w-full h-auto block align-middle' />
                   </button>
                 </div>
@@ -222,12 +222,12 @@ function Ranking() {
                   <div
                     className='absolute h-full left-0 bottom-0 bg-contain bg-no-repeat z-0'
                     style={{
-                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-027.png')"
+                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-027.webp')"
                     }}
                   >
-                    <img src="/Images/skyLobby/char-JILI-SLOT-027.png" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
+                    <img src="/Images/skyLobby/char-JILI-SLOT-027.webp" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
                   </div>
-                  <div class="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
+                  <div className="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
                   <div className='relative z-[1] flex-[1_1_auto] overflow-hidden rounded-md w-[30%] md:max-w-[280px] px-1 text-right text-[0.75rem] leading-[1rem]'>
                     <div className='flex items-center justify-end text-[#663333]'>
                       <span className='block w-6'>
@@ -243,7 +243,7 @@ function Ranking() {
                       </div>
                     </button>
                   </div>
-                  <button class="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
+                  <button className="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='w-full h-auto block align-middle' />
                   </button>
                 </div>
@@ -257,12 +257,12 @@ function Ranking() {
                   <div
                     className='absolute h-full left-0 bottom-0 bg-contain bg-no-repeat z-0'
                     style={{
-                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-076.png')"
+                      backgroundImage: "url('/Images/skyLobby/bg-JILI-SLOT-076.webp')"
                     }}
                   >
-                    <img src="/Images/skyLobby/char-JILI-SLOT-076.png" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
+                    <img src="/Images/skyLobby/char-JILI-SLOT-076.webp" alt="" className='h-[108%] w-auto mt-[-.425rem] lg:mt-[-.525rem]' />
                   </div>
-                  <div class="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
+                  <div className="relative z-[1] overflow-hidden rounded-md flex-none w-16 my-1 ml-2.5 lg:w-24"></div>
                   <div className='relative z-[1] flex-[1_1_auto] overflow-hidden rounded-md w-[30%] md:max-w-[280px] px-1 text-right text-[0.75rem] leading-[1rem]'>
                     <div className='flex items-center justify-end text-[#663333]'>
                       <span className='block w-6'>
@@ -278,7 +278,7 @@ function Ranking() {
                       </div>
                     </button>
                   </div>
-                  <button class="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
+                  <button className="relative z-[1] overflow-hidden rounded-md w-10 p-2 ml-2 flex-none">
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='w-full h-auto block align-middle' />
                   </button>
                 </div>

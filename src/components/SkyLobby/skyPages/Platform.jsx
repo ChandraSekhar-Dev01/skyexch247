@@ -9,24 +9,24 @@ function Platform() {
 
   return (
     <>
-      <div className='pb-16 bg-cover p-3 min-h-[calc(100vh-70px)] lg:pb-0 IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
+      <div className='pb-16 bg-cover p-3 min-h-[calc(100vh-70px)] lg:pb-0 IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
         <div className='sticky top-0 flex items-center text-white bg-[#665030] font-bold py-2 mb-4 mx-auto z-20 lg:col-span-4 max-w-7xl lg:top-10 IN2:text-primary SANA:bg-black/55 SANA:rounded-full SANA:backdrop-blur-sm'>
           <span className='ml-4 flex-1 min-w-[100px]'>
             Platform List
           </span>
-          <div className='relative icon-info flex items-center mr-1 ml-3 lg:mx-4'>
+          <div className='relative icon-info flex items-center mr-1 ml-3 lg:mx-4 gap-2'>
             <span className='mr-0 hidden lg:mr-2 lg:block'>List Mode</span>
             <button className={`${listView && 'text-[#fadda6]'} cursor-pointer`} onClick={() => setListView(true)}>
-              <span className='relative mx-auto inline-block p-[0.375rem]'>
-                <img src={`/Images/skyLobby/${listView ? 'list-brown' : 'list-white'}.webp`} alt="" className='block align-middle overflow-hidden w-6 h-6 lg:w-8 lg:h-8' />
+              <span className='relative mx-auto inline-block w-full'>
+                <img src={`/Images/skyLobby/list-brown.webp`} alt="" className={`block align-middle overflow-hidden w-6 h-6 lg:w-8 lg:h-8 ${!listView && 'invert brightness-0'}`} />
               </span>
             </button>
             <button className={`${!listView && 'text-[#fadda6]'} cursor-pointer`} onClick={() => setListView(false)}>
               <span className='relative mx-auto inline-block w-full'>
-                <img src={`/Images/skyLobby/${!listView ? 'tiles-brown' : 'tiles-white'}.webp`} alt="" className='block align-middle overflow-hidden w-6 h-6 lg:w-8 lg:h-8' />
+                <img src={`/Images/skyLobby/tiles-brown.webp`} alt="" className={`block align-middle overflow-hidden w-6 h-6 lg:w-8 lg:h-8 ${listView && 'invert brightness-0'}`} />
               </span>
             </button>
-            <div className={`overflow-hidden [transition:all_.4s_ease-in-out,background-position_.3s_ease-in] ${listView ? 'absolute bottom-0 w-5 h-0.5 bg-[#fadda6] lg:w-7 right-11 lg:right-[3.25rem]' : "absolute bottom-0 w-5 h-0.5 bg-[#fadda6] lg:w-7 right-2"}`}></div>
+            <div className={`overflow-hidden [transition:all_.4s_ease-in-out,background-position_.3s_ease-in] ${listView ? 'absolute bottom-0 w-5 h-0.5 bg-[#fadda6] lg:w-7 right-6 md:right-10' : "absolute bottom-0 w-5 h-0.5 bg-[#fadda6] lg:w-7 right-0"}`}></div>
           </div>
           <div className=' flex flex-grow items-center bg-[#fff] p-2 mr-4 rounded-full lg:flex-none'>
             <input type="text" placeholder='Search' className='w-3/4 bg-transparent px-2 rounded-full text-[#663333] focus:outline-none focus:border-brown-highlight SANA:text-gray-600' />
@@ -35,10 +35,10 @@ function Platform() {
         <div className='lg:col-span-4 max-w-7xl mx-auto'>
           {listView &&
             <div className='flex items-center flex-wrap lg:grid lg:grid-cols-4 lg:gap-4'>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/BETGAMES1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/BETGAMES1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -55,10 +55,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/HORSEBOOK1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/HORSEBOOK1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -75,10 +75,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }} onClick={()=> navigate('/lobby/platform/JDB')}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }} onClick={() => navigate('/lobby/platform/JDB')}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/JDB.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/JDB.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -98,10 +98,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/JILI.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/JILI.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -121,10 +121,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/KINGMAKER.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/KINGMAKER.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -144,10 +144,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SEVENMOJOS1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SEVENMOJOS1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -167,10 +167,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SEXYBCRT1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SEXYBCRT1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -187,10 +187,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SKYCASINO1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SKYCASINO1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -207,10 +207,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SPADE1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SPADE1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -230,10 +230,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SPORTRADAR1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SPORTRADAR1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -250,10 +250,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SUPERNOWA1.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SUPERNOWA1.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -270,10 +270,10 @@ function Platform() {
                   </div>
                 </div>
               </div>
-              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}>
+              <div className='relative flex items-center w-full bg-cover p-2 my-2 cursor-pointer IN2:bg-platform-green IN2:p-0 IN2:shadow-lg SANA:rounded-md SANA:bg-entrance-bg-pattern SANA:bg-tertiary SANA:bg-contain SANA:bg-right SANA:bg-no-repeat SANA:shadow-md' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}>
                 <div className='relative w-20 h-20 p-0.5 bg-[linear-gradient(to_right_top,#654302,#f7c972,#644202,#f7c972,#694809,#f7c972,#6f4d0c)] rounded-full IN2:rounded-none IN2:p-0 SANA:rounded-md SANA:bg-none'>
-                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.jpg')" }}>
-                    <img src="/Images/skyLobby/SV3881.png" alt="" className='w-full max-w-full h-auto block align-middle' />
+                  <div className='p-1 bg-cover rounded-full min-h-16 IN2:rounded-none IN2:min-h-20 SANA:rounded-md SANA:bg-none SANA:bg-fifth' style={{ backgroundImage: "url('/Images/skyLobby/bg-platform.webp')" }}>
+                    <img src="/Images/skyLobby/SV3881.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
                   </div>
                 </div>
                 <div className='mx-4'>
@@ -297,20 +297,20 @@ function Platform() {
               {[
                 {
                   title: "BETGAMES",
-                  cover: "/Images/skyLobby/BETGAMES_cover.png",
+                  cover: "/Images/skyLobby/BETGAMES_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: ["/Images/skyLobby/live.webp"],
                 },
                 {
                   title: "HORSEBOOK",
-                  cover: "/Images/skyLobby/HORSEBOOK_cover.png",
+                  cover: "/Images/skyLobby/HORSEBOOK_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: ["/Images/skyLobby/live.webp"],
                 },
                 {
                   url: "/lobby/platform/JDB",
                   title: "JDB",
-                  cover: "/Images/skyLobby/JDB_cover.png",
+                  cover: "/Images/skyLobby/JDB_cover.webp",
                   button: '/Images/skyLobby/btn-viewmore.webp',
                   icons: [
                     "/Images/skyLobby/slots.webp",
@@ -319,7 +319,7 @@ function Platform() {
                 },
                 {
                   title: "JILI",
-                  cover: "/Images/skyLobby/JILI_cover.png",
+                  cover: "/Images/skyLobby/JILI_cover.webp",
                   button: '/Images/skyLobby/btn-viewmore.webp',
                   icons: [
                     "/Images/skyLobby/table.webp",
@@ -328,7 +328,7 @@ function Platform() {
                 },
                 {
                   title: "KINGMAKER",
-                  cover: "/Images/skyLobby/KINGMAKER_cover.png",
+                  cover: "/Images/skyLobby/KINGMAKER_cover.webp",
                   button: '/Images/skyLobby/btn-viewmore.webp',
                   icons: [
                     "/Images/skyLobby/table.webp",
@@ -336,7 +336,7 @@ function Platform() {
                 },
                 {
                   title: "SEVENMOJOS",
-                  cover: "/Images/skyLobby/SEVENMOJOS_cover.png",
+                  cover: "/Images/skyLobby/SEVENMOJOS_cover.webp",
                   button: '/Images/skyLobby/btn-viewmore.webp',
                   icons: [
                     "/Images/skyLobby/slots.webp",
@@ -345,7 +345,7 @@ function Platform() {
                 },
                 {
                   title: "SEXYBCRT",
-                  cover: "/Images/skyLobby/SEXYBCRT_cover.png",
+                  cover: "/Images/skyLobby/SEXYBCRT_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: [
                     // "/Images/skyLobby/slots.webp",
@@ -354,7 +354,7 @@ function Platform() {
                 },
                 {
                   title: "SKYCASINO",
-                  cover: "/Images/skyLobby/SKYCASINO_cover.png",
+                  cover: "/Images/skyLobby/SKYCASINO_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: [
                     // "/Images/skyLobby/slots.webp",
@@ -363,7 +363,7 @@ function Platform() {
                 },
                 {
                   title: "SPADE",
-                  cover: "/Images/skyLobby/SPADE_cover.png",
+                  cover: "/Images/skyLobby/SPADE_cover.webp",
                   button: '/Images/skyLobby/btn-viewmore.webp',
                   icons: [
                     "/Images/skyLobby/slots.webp",
@@ -372,7 +372,7 @@ function Platform() {
                 },
                 {
                   title: "SPORTRADAR",
-                  cover: "/Images/skyLobby/SPORTRADAR_cover.png",
+                  cover: "/Images/skyLobby/SPORTRADAR_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: [
                     "/Images/skyLobby/sports.webp",
@@ -381,7 +381,7 @@ function Platform() {
                 },
                 {
                   title: "SUPERNOWA",
-                  cover: "/Images/skyLobby/SUPERNOWA_cover.png",
+                  cover: "/Images/skyLobby/SUPERNOWA_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: [
                     // "/Images/skyLobby/sports.webp",
@@ -390,7 +390,7 @@ function Platform() {
                 },
                 {
                   title: "SV388",
-                  cover: "/Images/skyLobby/SV388_cover.png",
+                  cover: "/Images/skyLobby/SV388_cover.webp",
                   button: '/Images/skyLobby/btn-playnow.webp',
                   icons: [
                     // "/Images/skyLobby/sports.webp",
@@ -405,7 +405,7 @@ function Platform() {
                 >
                   <div
                     className="relative bg-cover IN2:bg-mask-black SANA:bg-entrance-bg-pattern-dark"
-                    style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.jpg')" }}
+                    style={{ backgroundImage: "url('/Images/skyLobby/bg-platform1.webp')" }}
                   >
                     <div>
                       <img

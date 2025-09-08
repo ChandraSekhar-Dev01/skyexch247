@@ -1341,7 +1341,7 @@ function Matchupdate() {
                                 }}>
                                   <div className="absolute inset-0 bg-[#3333]">
                                     <img
-                                      src="/Images/bg-disabled.png"
+                                      src="/Images/bg-disabled.webp"
                                       alt=""
                                       className="w-full h-full object-fill"
                                     />
@@ -1365,7 +1365,7 @@ function Matchupdate() {
                                 }}>
                                   <div className="absolute inset-0 bg-[#3333]">
                                     <img
-                                      src="/Images/bg-disabled.png"
+                                      src="/Images/bg-disabled.webp"
                                       alt=""
                                       className="w-full h-full object-fill"
                                     />
@@ -2124,7 +2124,7 @@ function Matchupdate() {
                   <span>{eventName}</span>
                 </li>
                 <li className='text-xs text-white bg-[#0009] w-full py-1 px-2'>
-                  <span className="flex justify-start items-center gap-2"> <span className=''>{isInplay ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>Match Odds</span>
+                  <span className="flex justify-start items-center gap-2"> <span className=''>{isInplay ? <img src="/Images/icon-in_play.webp" alt="" /> : <img src="/Images/icon-no_play.webp" alt="" />} </span>Match Odds</span>
                 </li>
               </ul>
             </div>
@@ -2247,13 +2247,13 @@ function Matchupdate() {
                             <div className="w-full flex justify-between items-center text-xs px-1 font-bold">
                               {/* Back all */}
                               <div className="relative flex h-[22px]">
-                                <img src="/Images/bg-backall-left.png" alt="" className="w-full h-full" />
+                                <img src="/Images/bg-backall-left.webp" alt="" className="w-full h-full" />
                                 <span className="absolute inset-0 flex items-center justify-center text-black">Back all</span>
                               </div>
 
                               {/* Lay all */}
                               <div className="relative flex h-[22px]">
-                                <img src="/Images/bg-layall-right.png" alt="" className="w-full h-full" />
+                                <img src="/Images/bg-layall-right.webp" alt="" className="w-full h-full" />
                                 <span className="absolute inset-0 flex items-center justify-center text-black">Lay all</span>
                               </div>
                             </div>
@@ -2265,7 +2265,7 @@ function Matchupdate() {
                             <>
                               <li id={`MOrunner${index}`} className="flex w-full border-b border-[#7e97a7]">
                                 <div className="flex justify-start items-center gap-1 bg-[#fff] p-2 w-[40%]">
-                                  <img src="/Images/icon-chart.png" alt="" className='w-4 h-4' />
+                                  <img src="/Images/icon-chart.webp" alt="" className='w-4 h-4' />
                                   <span className="text-xs font-bold text-[#1e1e1e] whitespace-nowrap text-ellipsis overflow-hidden">{item.runner_name}</span>
                                 </div>
                                 <div className="w-[60%]">
@@ -2394,7 +2394,7 @@ function Matchupdate() {
                     <div className="mb-8">
                       <div className='flex justify-between items-center text-[13px] bg-[#243a48] border-t border-[#7e97a7]'>
                         <div className='flex gap-2 items-center text-[#fff]'>
-                          <img src="/Images/bm-add-pin.png" alt="" className='' />
+                          <img src="/Images/bm-add-pin.webp" alt="" className='' />
                           <span className=' font-bold'>Bookmaker Market</span>
                           <span className='font-normal opacity-[0.7]'>| Zero Commission</span>
                         </div>
@@ -2592,7 +2592,7 @@ function Matchupdate() {
                         </div>
 
                         <span className="relative flex h-8">
-                          <img src="/Images/btn-fancybet_rules.png" alt="" className=" object-cover" />
+                          <img src="/Images/btn-fancybet_rules.webp" alt="" className=" object-cover" />
                           {/* <img src="/Images/rules.svg" alt="" className="absolute left-3 top-2 w-4" /> */}
                         </span>
 
@@ -2644,7 +2644,7 @@ function Matchupdate() {
                       </div>
                       <div className='flex justify-between items-center text-[14px] bg-[#243a48] border-t border-[#7e97a7]'>
                         <div className='flex gap-2 items-center text-[#fff]'>
-                          <img src="/Images/bm-add-pin.png" alt="" className='' />
+                          <img src="/Images/bm-add-pin.webp" alt="" className='' />
                           <span className=' font-bold'>Fancy Bet</span>
                         </div>
                       </div>

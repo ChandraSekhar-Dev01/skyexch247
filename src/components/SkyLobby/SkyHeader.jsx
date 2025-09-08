@@ -3,12 +3,13 @@ import { MdOutlineFeedback, MdOutlineHistory } from "react-icons/md";
 import { FaRegFileAlt } from "react-icons/fa";
 import React, { useState } from 'react'
 import { CloseOutlined } from "@ant-design/icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Helper from "../../helper";
 
 function SkyHeader() {
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isBabe = location.pathname.startsWith("/lobby/babe");
   const userInfo = Helper();
 
@@ -21,7 +22,7 @@ function SkyHeader() {
       <header
         className='py-1 bg-no-repeat [background-size:100%] md:bg-auto md:bg-repeat bg-[#fff] text-[#fff]'
         style={{
-          backgroundImage: "url('/Images/skyLobby/head-bg.jpg')",
+          backgroundImage: "url('/Images/skyLobby/head-bg.webp')",
         }}>
         <div className='mx-auto relative flex items-center lg:max-w-screen-xl'>
           <span className='w-[20%] md:w-[5.5rem] md:max-w-[130px] mx-2'>
@@ -109,7 +110,7 @@ function SkyHeader() {
                 </div>
                 <ul>
                   <span>
-                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]'>
+                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]' onClick={() => { navigate('/lobby/transaction'); setOpenSidebar(false); }}>
                       <MdOutlineHistory className='overflow-hidden fill-[#663333] w-7 h-7' />
                       <span className='flex-grow ml-2'>
                         Transaction History
@@ -118,8 +119,8 @@ function SkyHeader() {
                     </li>
                   </span>
                   <span>
-                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]'>
-                      <FaRegFileAlt className='overflow-hidden fill-[#663333] w-6 h-6' />
+                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]' onClick={() => { navigate('/lobby/promotion'); setOpenSidebar(false); }}>
+                      <img src="/Images/skyLobby/promotion.webp" alt="" className='overflow-hidden fill-[#663333] w-6 h-6' />
                       <span className='flex-grow ml-2'>
                         Promotion Report
                       </span>
@@ -127,8 +128,8 @@ function SkyHeader() {
                     </li>
                   </span>
                   <span>
-                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]'>
-                      <FaGifts className='overflow-hidden fill-[#663333] w-7 h-7' />
+                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]' onClick={() => { navigate('/lobby/tip'); setOpenSidebar(false); }}>
+                      <img src="/Images/skyLobby/tips.webp" alt="" className='overflow-hidden fill-[#663333] w-6 h-6' />
                       <span className='flex-grow ml-2'>
                         Tip History
                       </span>
@@ -141,15 +142,15 @@ function SkyHeader() {
                 </div>
                 <ul>
                   <span>
-                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]'>
-                      <MdOutlineFeedback className='overflow-hidden fill-[#663333] w-7 h-7' />
+                    <li className='flex justify-between items-center m-2 p-2 rounded-md cursor-pointer text-[#663333]' onClick={() => { navigate('/lobby/feedback'); setOpenSidebar(false); }}>
+                      <img src="/Images/skyLobby/feedback.webp" alt="" className='overflow-hidden fill-[#663333] w-6 h-6' />
                       <span className='flex-grow ml-2'>
                         Feedback
                       </span>
                     </li>
                   </span>
                 </ul>
-                <span className="block text-sm text-center underline mt-10">Quit</span>
+                <span className="block text-sm text-center underline mt-10 cursor-pointer"  onClick={() => { navigate('/'); setOpenSidebar(false); }}>Quit</span>
               </div>
             </div>
             {/* Overlay */}

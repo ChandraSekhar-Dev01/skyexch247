@@ -44,7 +44,7 @@ function Profile() {
         <div className="bg-[#eee] p-[15px] rounded-[5px]">
           <div className='flex justify-between items-center mb-[18px]'>
             <h1 className="text-[#3b5160] text-[16px] font-bold">Change Password</h1>
-            <img src="/Images/close_pop.png" alt="" className='cursor-pointer' onClick={() => { setIsModalOpen(false); }} />
+            <img src="/Images/close_pop.webp" alt="" className='cursor-pointer' onClick={() => { setIsModalOpen(false); }} />
           </div>
 
           <div className="flex flex-col gap-2 w-full text-[12px]">
@@ -152,7 +152,7 @@ function Profile() {
                       </span>
                       <span className='flex justify-between items-center w-[24rem] min-h-[16px] p-[5px_10px_5px_10px]'>
                         <span>*******************************</span>
-                        <span className='flex justify-center items-center text-[#2789ce] text-[13px] hover:underline cursor-pointer' onClick={showModal}>Edit <img src="/Images/edit-pen.png" alt="" className='pl-1  h-[15px]' /></span>
+                        <span className='flex justify-center items-center text-[#2789ce] text-[13px] hover:underline cursor-pointer' onClick={showModal}>Edit <img src="/Images/edit-pen.webp" alt="" className='pl-1  h-[15px]' /></span>
                       </span>
                     </li>
                   </ul>
@@ -303,7 +303,7 @@ function Profile() {
                   <td className='text-right p-[8px_10px]'>-</td>
                   <td className='text-right p-[8px_10px]'>500.00</td>
                   <td className='text-right p-[8px_10px]'></td>
-                  <td className='flex justify-end items-center text-right p-[8px_10px]'><span>Master Agent</span><img src="/Images/icon-fromto.png" alt="" className="m-[0_5px] h-[8px] w-[7px]" /> <span>jp1122user</span></td>
+                  <td className='flex justify-end items-center text-right p-[8px_10px]'><span>Master Agent</span><img src="/Images/icon-fromto.webp" alt="" className="m-[0_5px] h-[8px] w-[7px]" /> <span>jp1122user</span></td>
                 </tr>
               </tbody>
             </table>
@@ -410,7 +410,7 @@ function Profile() {
                           type="date"
                           placeholder="YYYY-MM-DD"
                           className="p-[5px] w-[110px] m-[0_5px_5px_0] cursor-pointer bg-white bg-no-repeat bg-right shadow-[inset_0px_1px_0px_rgba(0,_0,_0,_.5)] rounded-[4px] leading-[15px]"
-                          style={{ backgroundImage: "url('/Images/btn-cala.png')" }}
+                          style={{ backgroundImage: "url('/Images/btn-cala.webp')" }}
                         />
                         <input
                           type="text"
@@ -422,7 +422,7 @@ function Profile() {
                           type="date"
                           placeholder="YYYY-MM-DD"
                           className="p-[5px] w-[110px] m-[0_5px_5px_0] cursor-pointer bg-white bg-no-repeat bg-right shadow-[inset_0px_1px_0px_rgba(0,_0,_0,_.5)] rounded-[4px] leading-[15px]"
-                          style={{ backgroundImage: "url('/Images/btn-cala.png')" }}
+                          style={{ backgroundImage: "url('/Images/btn-cala.webp')" }}
                         />
                         <input
                           type="text"
@@ -554,8 +554,8 @@ function Profile() {
                 <div className='p-[7px_10px_5px] mb-[15px] text-[12px] text-[#3b5160] bg-[#fff] border-b border-[#7e97a7] leading-[15px]'>
                   <h3 className='text-[15px] font-bold mb-[7px] w-[85%]'>Profit & Loss - Main wallet</h3>
                   <ul className='flex mb-[5px] leading-[15px]'>
-                    <li className='flex justify-start gap-1 items-center mr-[15px]'> <img src="/Images/icon-user.png" alt="" className='w-4 h-4 bg-no-repeat' /><span>{userInfo?.user_name}</span></li>
-                    <li className='flex justify-start gap-1 items-center mr-[15px]'> <img src="/Images/icon-time.png" alt="" className='w-4 h-4 bg-no-repeat' /><span>2025-08-07 14:37</span></li>
+                    <li className='flex justify-start gap-1 items-center mr-[15px]'> <img src="/Images/icon-user.webp" alt="" className='w-4 h-4 bg-no-repeat' /><span>{userInfo?.user_name}</span></li>
+                    <li className='flex justify-start gap-1 items-center mr-[15px]'> <img src="/Images/icon-time.webp" alt="" className='w-4 h-4 bg-no-repeat' /><span>2025-08-07 14:37</span></li>
                   </ul>
                   {/* Select Market Type Section */}
                   <ul className='mt-[16px] relative text-[15px] font-bold leading-[15px]'>
@@ -601,7 +601,7 @@ function Profile() {
                           type="date"
                           placeholder="YYYY-MM-DD"
                           className="p-[5px] w-[110px] m-[0_5px_5px_0] cursor-pointer bg-white bg-no-repeat bg-right shadow-[inset_0px_1px_0px_rgba(0,_0,_0,_.5)] rounded-[4px] leading-[15px]"
-                          style={{ backgroundImage: "url('/Images/btn-cala.png')" }}
+                          style={{ backgroundImage: "url('/Images/btn-cala.webp')" }}
                         />
                         <input
                           type="text"
@@ -613,7 +613,7 @@ function Profile() {
                           type="date"
                           placeholder="YYYY-MM-DD"
                           className="p-[5px] w-[110px] m-[0_5px_5px_0] cursor-pointer bg-white bg-no-repeat bg-right shadow-[inset_0px_1px_0px_rgba(0,_0,_0,_.5)] rounded-[4px] leading-[15px]"
-                          style={{ backgroundImage: "url('/Images/btn-cala.png')" }}
+                          style={{ backgroundImage: "url('/Images/btn-cala.webp')" }}
                         />
                         <input
                           type="text"

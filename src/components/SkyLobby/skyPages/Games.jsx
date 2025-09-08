@@ -102,7 +102,7 @@ function Games() {
         </div>
 
         {type == "hot" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games1.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games1.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className='absolute w-36 left-4 top-4 lg:w-52 lg:top-16'>
@@ -134,7 +134,7 @@ function Games() {
                 </div>
               </div>
               <div>
-                <img src="/Images/skyLobby/bg-games2.jpg" alt="" className='w-full max-w-full h-auto block align-middle' />
+                <img src="/Images/skyLobby/bg-games2.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
               </div>
             </div>
             <div className='relative flex flex-wrap mx-1 md:mx-4 lg:max-w-7xl lg:mx-auto z-[1] -mt-12 IN2:mt-6 lg:-mt-8 lg:SANA:bg-tertiary lg:SANA:rounded-md lg:SANA:shadow-md lg:SANA:p-6 SANA:z-2 text-[#ffd489]'>
@@ -149,7 +149,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/SV388.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SV388.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -168,7 +168,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/KM-TABLE-032.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/KM-TABLE-032.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -187,7 +187,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/JILI-SLOT-040.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/JILI-SLOT-040.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -206,7 +206,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/KM-TABLE-015.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/KM-TABLE-015.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -225,7 +225,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/SEXYBCRT.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SEXYBCRT.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -244,7 +244,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/HORSEBOOK.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/HORSEBOOK.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -256,7 +256,7 @@ function Games() {
           </div>
         }
         {type == "live" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games3.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games3.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className='absolute w-7 left-56 top-40 animate-fadeIn lg:w-12 lg:left-80 lg:top-48'>
@@ -319,7 +319,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SEVENMOJOS.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SEVENMOJOS.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -338,7 +338,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SKYCASINO.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SKYCASINO.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -357,7 +357,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/SV388.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SV388.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -376,7 +376,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/HORSEBOOK.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/HORSEBOOK.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -395,7 +395,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SUPERNOWA.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SUPERNOWA.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -414,7 +414,7 @@ function Games() {
                   <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div>
-                  <img src="/Images/skyLobby/SEXYBCRT.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SEXYBCRT.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -433,7 +433,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/BETGAMES.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/BETGAMES.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -445,7 +445,7 @@ function Games() {
           </div>
         }
         {type == "fh" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games4.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games4.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className='absolute w-6/12 md:w-52 lg:w-1/5 lg:top-14 top-6 left-8 animate-fadeIn-left'>
@@ -476,7 +476,7 @@ function Games() {
 
 
               <div>
-                <img src="/Images/skyLobby/bg-games4-sub.jpg" alt="" className='w-full max-w-full h-auto block align-middle' />
+                <img src="/Images/skyLobby/bg-games4-sub.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
               </div>
             </div>
 
@@ -492,7 +492,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/JDB.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/JDB.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button>
@@ -504,7 +504,7 @@ function Games() {
           </div>
         }
         {type == "slot" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games3.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games3.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className='relative w-9/12 sm:w-[420px] lg:w-[540px] m-auto mt-[4.5rem] lg:mt-14'>
@@ -556,7 +556,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/JDB.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/JDB.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -575,7 +575,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SPADE.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SPADE.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -594,7 +594,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/JILI.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/JILI.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -613,7 +613,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SEVENMOJOS.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SEVENMOJOS.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -625,7 +625,7 @@ function Games() {
           </div>
         }
         {type == "table" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games5.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games5.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className="animate-fadeIn">
@@ -683,7 +683,7 @@ function Games() {
                 </div>
               </div>
               <div>
-                <img src="/Images/skyLobby/bg-games6.jpg" alt="" className='w-full max-w-full h-auto block align-middle' />
+                <img src="/Images/skyLobby/bg-games6.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
               </div>
             </div>
 
@@ -699,7 +699,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/JILI.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/JILI.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -718,7 +718,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/KINGMAKER.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/KINGMAKER.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}
@@ -730,7 +730,7 @@ function Games() {
           </div>
         }
         {type == "sports" &&
-          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games7.jpg')" }}>
+          <div className='relative min-h-[calc(100vh-70px)] w-full overflow-hidden bg-cover bg-fixed bg-no-repeat bg-new-img bg-[#18090a] IN2:bg-index-red SANA:bg-index-blue' style={{ backgroundImage: "url('/Images/skyLobby/bg-games7.webp')" }}>
             <div className='overflow-hidden h-[240px] lg:h-[280px]'>
               <div className='absolute w-full h-[240px] max-w-7xl overflow-hidden lg:overflow-visible left-2/4 -translate-x-2/4'>
                 <div className="relative z-[1] w-[135%] -left-10 top-12 md:w-3/5 md:left-20 lg:w-[50%] lg:left-40 lg:top-16 animate-fadeIn-left">
@@ -747,7 +747,7 @@ function Games() {
                 </div>
               </div>
               <div className=''>
-                <img src="/Images/skyLobby/bg-games8.jpg" alt="" className='w-full max-w-full h-auto block align-middle' />
+                <img src="/Images/skyLobby/bg-games8.webp" alt="" className='w-full max-w-full h-auto block align-middle' />
               </div>
             </div>
 
@@ -763,7 +763,7 @@ function Games() {
                   {/* <div className="absolute -left-2 -top-3 z-[1] w-[4rem]">
                     <img src="/Images/skyLobby/hotTag.webp" alt="" className='w-full h-full block align-middle' />
                   </div> */}
-                  <img src="/Images/skyLobby/SPORTRADAR.png" alt="" className='absolute p-2 w-full h-full block align-middle' />
+                  <img src="/Images/skyLobby/SPORTRADAR.webp" alt="" className='absolute p-2 w-full h-full block align-middle' />
                   {/* <button className='flex-none w-14 p-3 absolute z-10 -bottom-6 -right-3.5 lg:-right-2'>
                     <img src="/Images/skyLobby/empty-star.webp" alt="" className='block align-middle' />
                   </button> */}

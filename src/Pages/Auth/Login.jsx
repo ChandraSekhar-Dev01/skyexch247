@@ -146,7 +146,7 @@ const Login = ({ onClose }) => {
         </Link>
       </div>
 
-      <img src='/Images/KV-pic.png' alt="" />
+      <img src='/Images/KV-pic.webp' alt="" />
       <img src="/logo.png" className='absolute top-[11%] right-[35%] h-[29.3333333333vw]' alt="" />
       {/* <div className='absolute  top-56  right-[37%]' style={{top: '16rem'}}>
         <p className='text-[#aaaaaa] text-xs text-center'>Powered By</p>
@@ -230,7 +230,7 @@ const Login = ({ onClose }) => {
               <img src="/Images/headphone-black.svg" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black"> Customer support1 </span> | <span className="cursor-pointer hover:text-black"> support2 </span>
             </div>
             <div className="bg-[#ffffff99] lg:w-[49%] flex gap-2 justify-start items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3]" style={{ padding: "8px 0" }}>
-              <img src="/Images/whatsapp-black.png" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
+              <img src="/Images/whatsapp-black.webp" className="w-[8vw] h-[8vw] ml-[12%]" alt="" /> <span className="cursor-pointer hover:text-black">WhatsApp 3 </span> | <span className="cursor-pointer hover:text-black"> WhatsApp 4 </span>
             </div>
           </div>
 
@@ -240,15 +240,15 @@ const Login = ({ onClose }) => {
           <div className="flex lg:hidden justify-between gap-2">
             <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[2.9333333333vw] text-[#000000b3] hover:text-black cursor-pointer leading-[6.66vw]" style={{ padding: "8px 0" }}>
               {" "}
-              <img src="/Images/skype-black.png" className="w-[6vw]" alt="" /> Skype
+              <img src="/Images/skype-black.webp" className="w-[6vw]" alt="" /> Skype
             </div>
             <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
               {" "}
-              <img src="/Images/mail-black.png" className="w-[6vw]" alt="" /> Email
+              <img src="/Images/mail-black.webp" className="w-[6vw]" alt="" /> Email
             </div>
             <div className="bg-[#ffffff99]  w-[48%] flex gap-2 justify-center items-center rounded-lg  text-[3.4666666667vw] text-[#000000b3] hover:text-black cursor-pointer" style={{ padding: "8px 0" }}>
               {" "}
-              <img src="/Images/ig-black.png" className="w-[6vw]" alt="" /> Instagram
+              <img src="/Images/ig-black.webp" className="w-[6vw]" alt="" /> Instagram
             </div>
           </div>
         </div>

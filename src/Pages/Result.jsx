@@ -443,7 +443,7 @@ function Result() {
                 <div className='flex justify-between items-center'>
                   <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
@@ -453,10 +453,10 @@ function Result() {
                             </span>
                           }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
                         <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
@@ -485,7 +485,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -494,9 +494,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -521,7 +521,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -530,9 +530,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -565,7 +565,7 @@ function Result() {
                 <div className='flex justify-between items-center'>
                   <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
@@ -575,10 +575,10 @@ function Result() {
                             </span>
                           }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
                         <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
@@ -605,7 +605,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -614,9 +614,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -641,7 +641,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -650,9 +650,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -685,7 +685,7 @@ function Result() {
                 <div className='flex justify-between items-center'>
                   <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex justify-start items-center'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <div className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
@@ -695,10 +695,10 @@ function Result() {
                             </span>
                           }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
                         <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
@@ -725,7 +725,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -734,9 +734,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -761,7 +761,7 @@ function Result() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -770,9 +770,9 @@ function Result() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />

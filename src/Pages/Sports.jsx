@@ -26,21 +26,21 @@ function Sports() {
     whatsAppIcon: "/Images/whatsApp-icon-grey.svg",
     skypeIcon: "/Images/skype-icon-grey.svg",
     emailIcon: "/Images/email-icon-grey.svg",
-    igIcon: "/Images/ig-icon-grey.png",
-    betFairIcon: "/Images/not-verified.png",
-    accountIcon: "/Images/account-icon-white.png",
+    igIcon: "/Images/ig-icon-grey.webp",
+    betFairIcon: "/Images/not-verified.webp",
+    accountIcon: "/Images/account-icon-white.webp",
     homeIcon: "/Images/home-icon.svg",
     multiBet: "/Images/multiBet-pin.svg",
     trophyIcon: "/Images/trophy.svg",
-    clockIcon: "/Images/clock-icon-white.png",
+    clockIcon: "/Images/clock-icon-white.webp",
     referral: "/Images/Referral.webp",
     SportsGiff: "/Images/gamesGiff.gif",
     headphoneIcon: "/Images/headphone-icon-grey.svg",
-    gcIcon: "/Images/gc-logo.png",
-    phoneIcon: "/Images/phone-icon.png",
-    mailIcon: "/Images/mail-icon.png",
-    AndroidAppIcon: "/Images/AndroidAppIcon.png",
-    browserIcon: "/Images/icon-browser-B.png"
+    gcIcon: "/Images/gc-logo.webp",
+    phoneIcon: "/Images/phone-icon.webp",
+    mailIcon: "/Images/mail-icon.webp",
+    AndroidAppIcon: "/Images/AndroidAppIcon.webp",
+    browserIcon: "/Images/icon-browser-B.webp"
   };
 
   function formatOpenDate(openDateStr) {
@@ -151,7 +151,7 @@ function Sports() {
               <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden'>
                 <span className='h-[10.9333333vw] leading-[10.9333333vw] bg-[linear-gradient(-180deg,_#ffffff_0%,_#eeeeee_89%)] border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#1e1e1e] block text-center' onClick={() => setCasinoModalOpen(false)}>Cancel</span>
               </li>
-              <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden w-full'>
+              <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden w-full' onClick={() => navigate('/lobby/platform')}>
                 <span className='h-[10.9333333vw] leading-[10.9333333vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#ffb200] block text-center'>Enter</span>
               </li>
             </ul>
@@ -212,7 +212,7 @@ function Sports() {
           {/* Scrollable Events Section */}
           <div className="h-[calc(100vh-14.5vh)] overflow-y-auto scroll-hide">
             <div className="w-full mb-3 min-h-[182px]">
-              <img src={`/Images/${sportType == "0" ? "kv_e-soccer" : sportType == "1" ? "kv_soccer" : sportType == "2" ? "kv_tennis" : sportType == "4" ? "sports_img" : sportType == "10" ? "kv10" : ""}.jpg`} alt="" className="w-full h-full" />
+              <img src={`/Images/${sportType == "0" ? "kv_e-soccer" : sportType == "1" ? "kv_soccer" : sportType == "2" ? "kv_tennis" : sportType == "4" ? "sports_img" : sportType == "10" ? "kv10" : ""}.webp`} alt="" className="w-full h-full" />
             </div>
 
             <div>
@@ -245,7 +245,7 @@ function Sports() {
                       <li className='flex w-full border-b border-[#eee]' key={item.id}>
                         <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                           <div className='flex justify-between items-start gap-1'>
-                            <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" /> : <img src="/Images/icon-no_play.png" alt="" />} </span>
+                            <span className='pt-1'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.webp" alt="" /> : <img src="/Images/icon-no_play.webp" alt="" />} </span>
                             <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex flex-col leading-snug'>
                               <span className='text-xs font-bold text-[#2789ce]'>{item.event_name}</span>
                               <span className='flex justify-start items-center gap-[6px]'>
@@ -259,10 +259,10 @@ function Sports() {
                                 <div className='flex justify-center items-center gap-1'>
                                   <span className='flex justify-center items-center w-[18px] h-4 rounded-[3px] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='w-3' /></span>
                                   {item.is_fancy == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
+                                    <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/fancy.svg" alt="" className='w-3' /></span></span>
                                   }
                                   {item.is_bm == "True" &&
-                                    <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
+                                    <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm' /><span className='flex justify-center items-center w-4 h-4 rounded-r-sm bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='w-3' /></span></span>
                                   }
                                   <span className='flex justify-center items-center w-4 h-4 rounded-[3px] bg-[#e4550f]'>
                                     <img src="/Images/premium-icon.svg" alt="" className='w-3' />
@@ -300,7 +300,7 @@ function Sports() {
                           </ul>
                         </div>
                         <div className='flex justify-center items-center w-[2%]'>
-                          <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
+                          <span className=''><img src="/Images/add-pin-s.webp" alt="" /></span>
                         </div>
                       </li>
                     ))}
@@ -309,7 +309,7 @@ function Sports() {
                         <li className='flex w-full border-b border-[#eee]'>
                           <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                             <div className='flex justify-between items-start gap-1'>
-                              <span className='pt-1'><img src="/Images/icon-in_play.png" alt="" /> </span>
+                              <span className='pt-1'><img src="/Images/icon-in_play.webp" alt="" /> </span>
                               <div className='flex flex-col leading-snug'>
                                 <span className='text-xs font-bold text-[#2789ce]'>Real Madrid (Puyol) v Athletic Bilbao (Hussein)</span>
                                 <span className='flex justify-start items-center gap-[6px]'>
@@ -357,13 +357,13 @@ function Sports() {
                             </ul>
                           </div>
                           <div className='flex justify-center items-center w-[2%]'>
-                            <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
+                            <span className=''><img src="/Images/add-pin-s.webp" alt="" /></span>
                           </div>
                         </li>
                         <li className='flex w-full border-b border-[#eee]'>
                           <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                             <div className='flex justify-between items-start gap-1'>
-                              <span className='pt-1'><img src="/Images/icon-no_play.png" alt="" /> </span>
+                              <span className='pt-1'><img src="/Images/icon-no_play.webp" alt="" /> </span>
                               <div className='flex flex-col leading-snug'>
                                 <span className='text-xs font-bold text-[#2789ce]'>FC Barcelona (Razvan) v FC Barcelona (Razvan)</span>
                                 <span className='flex justify-start items-center gap-[6px]'>
@@ -412,7 +412,7 @@ function Sports() {
                             </ul>
                           </div>
                           <div className='flex justify-center items-center w-[2%]'>
-                            <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
+                            <span className=''><img src="/Images/add-pin-s.webp" alt="" /></span>
                           </div>
                         </li>
                       </>
@@ -422,7 +422,7 @@ function Sports() {
                         <li className='flex w-full border-b border-[#eee]'>
                           <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                             <div className='flex justify-between items-start gap-1'>
-                              <span className='pt-1'><img src="/Images/icon-no_play.png" alt="" /> </span>
+                              <span className='pt-1'><img src="/Images/icon-no_play.webp" alt="" /> </span>
                               <div className='flex flex-col leading-snug'>
                                 <span className='text-xs font-bold text-[#2789ce]'>Telugu Titans v Tamil Thalaivas</span>
                                 <span className='flex justify-start items-center gap-[6px]'>
@@ -465,13 +465,13 @@ function Sports() {
                             </ul>
                           </div>
                           <div className='flex justify-center items-center w-[2%]'>
-                            <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
+                            <span className=''><img src="/Images/add-pin-s.webp" alt="" /></span>
                           </div>
                         </li>
                         <li className='flex w-full border-b border-[#eee]'>
                           <div className='flex justify-between items-center w-[60%] px-2 border-r border-[#eee]'>
                             <div className='flex justify-between items-start gap-1'>
-                              <span className='pt-1'><img src="/Images/icon-no_play.png" alt="" /> </span>
+                              <span className='pt-1'><img src="/Images/icon-no_play.webp" alt="" /> </span>
                               <div className='flex flex-col leading-snug'>
                                 <span className='text-xs font-bold text-[#2789ce]'>Bengaluru Bulls v Puneri Paltan</span>
                                 <span className='flex justify-start items-center gap-[6px]'>
@@ -514,7 +514,7 @@ function Sports() {
                             </ul>
                           </div>
                           <div className='flex justify-center items-center w-[2%]'>
-                            <span className=''><img src="/Images/add-pin-s.png" alt="" /></span>
+                            <span className=''><img src="/Images/add-pin-s.webp" alt="" /></span>
                           </div>
                         </li>
                       </>
@@ -694,7 +694,7 @@ function Sports() {
                   New
                 </span>
 
-                <img src='/Images/menu-casino.png' alt="" className="w-[5.5vw]" />
+                <img src='/Images/menu-casino.webp' alt="" className="w-[5.5vw]" />
                 Casino
 
                 <img src="/Images/open-link.svg" alt="" className='block w-[2.6666666667vw] h-[2.6666666667vw] bg-cover' />
@@ -807,7 +807,7 @@ function Sports() {
                 <div className='flex justify-between items-center'>
                   <div className='flex justify-start items-center'>
 
-                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
+                    <span className='pt-4 pr-2'>{item.is_inplay == "True" ? <img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> : <img src="/Images/icon-no_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' />} </span>
 
                     <Link to={`/matchupdates/${item.event_id}/${item.is_inplay === "True" ? "Inplay" : "Going Inplay"}`} className='flex flex-col justify-start items-start'>
                       <span className='flex justify-start items-center gap-1'>
@@ -817,10 +817,10 @@ function Sports() {
                             </span>
                           }
                           {item.is_fancy == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                           {item.is_bm == "True" &&
-                            <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                            <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                           }
                         </div>
                         <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
@@ -848,7 +848,7 @@ function Sports() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -857,9 +857,9 @@ function Sports() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
@@ -884,7 +884,7 @@ function Sports() {
               <div className='flex justify-between items-center'>
                 <div className='flex justify-start items-center'>
 
-                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.png" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
+                  <span className='pt-4 pr-2'><img src="/Images/icon-in_play.webp" alt="" className='w-[2.6666666667vw] h-[2.6666666667vw]' /> </span>
 
                   <div className='flex flex-col justify-start items-start'>
                     <span className='flex justify-start items-center gap-1'>
@@ -893,9 +893,9 @@ function Sports() {
                         <span className='flex justify-center items-center w-[4.5333333333vw] h-[4vw] rounded-[0.8vw] bg-[#1876A9]'><img src="/Images/play_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />
                         </span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-[0.8vw] h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#0a92a5]'><img src="/Images/fancy.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
 
-                        <span className='flex'><img src="/Images/icon-fancy_inplay.png" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
+                        <span className='flex'><img src="/Images/icon-fancy_inplay.webp" alt="" className='rounded-l-sm h-[4vw] w-[4.2666666667vw]' /><span className='flex justify-center items-center rounded-r-[0.8vw] w-[4.2vw] bg-[#1876A9]'><img src="/Images/bookmaker_icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' /></span></span>
                       </div>
                       <span className='flex justify-center items-center bg-[#e4550f] w-[4.2vw] h-[4vw] rounded-[0.8vw]'>
                         <img src="/Images/premium-icon.svg" alt="" className='h-[2.9333333333vw] w-[2.9333333333vw]' />

@@ -32,6 +32,10 @@ import Ranking from "./components/SkyLobby/skyPages/Ranking";
 import Games from "./components/SkyLobby/skyPages/Games";
 import Platform from "./components/SkyLobby/skyPages/Platform";
 import SubGames from "./components/SkyLobby/skyPages/SubGames";
+import TransactionHistory from "./components/SkyLobby/skyPages/skyReport/TransactionHistory";
+import Promotion from "./components/SkyLobby/skyPages/skyReport/Promotion";
+import Tips from "./components/SkyLobby/skyPages/skyReport/Tips";
+import Feedback from "./components/SkyLobby/skyPages/skyReport/Feedback";
 
 function App() {
   return (
@@ -52,6 +56,10 @@ function App() {
                   <Route path="babe/:type" element={<Games />} />
                   <Route path="platform" element={<Platform />} />
                   <Route path="platform/:type" element={<SubGames />} />
+                  <Route path="transaction" element={<TransactionHistory />} />
+                  <Route path="promotion" element={<Promotion />} />
+                  <Route path="tip" element={<Tips />} />
+                  <Route path="feedback" element={<Feedback />} />
                 </Route>
                 <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />} />

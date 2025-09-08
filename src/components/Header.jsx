@@ -261,7 +261,7 @@ const Header = () => {
       {!userInfo && isLoginModal &&
         <div className="block fixed top-0 left-0 w-full h-full bg-[#0000004d] z-[100] text-[#1e1e1e] text-[12px] leading-[15px]">
           <div className="bg-[linear-gradient(180deg,_#ffb600_1%,_#ffb600_100%)] absolute top-[18%] left-[calc(50%-270px)] w-[540px] h-[408px] rounded-lg shadow-[0_5px_20px_#00000080]">
-            <div className="relative w-[250px] h-full rounded-[8px_0_0_8px] float-left" style={{ backgroundImage: "url('/Images/bg-login_wrap.png')" }}></div>
+            <div className="relative w-[250px] h-full rounded-[8px_0_0_8px] float-left" style={{ backgroundImage: "url('/Images/bg-login_wrap.webp')" }}></div>
             <dl className="text-[#243a48] m-[100px_0_0_25px] float-left">
               <dt className="text-[#000] text-[20px] leading-[24px] mb-[15px]">Please login to continue</dt>
               <dd className="relative w-[220px] mb-[7px]">
@@ -372,7 +372,7 @@ const Header = () => {
             <p className="indent-[20px] text-[12px] text-[#d0021b] leading-[18px] bg-[#00000000] mb-[7px]"></p>
             <div className="flex p-[7px_10px_10px] clear-both">
               <span className="flex-1 mr-[10px] leading-[31px] w-[80%] m-0 bg-[linear-gradient(180deg,_#ffffff_0%,_#eeeeee_89%)] shadow-[inset_0_2px_0_0_#ffffff80] border border-[#bbb] rounded-[4px] text-[#1e1e1e] text-[12px] font-bold block text-center cursor-pointer" onClick={() => { setIsVirtualCricketModal(false); }}>Cancel</span>
-              <span className="flex-1 mr-0 leading-[31px] w-[95%] m-0 float-right bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#222] rounded-[4px] text-[#ffb600] text-[12px] font-bold block text-center cursor-pointer">Transfer and Enter</span>
+              <span className="flex-1 mr-0 leading-[31px] w-[95%] m-0 float-right bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#222] rounded-[4px] text-[#ffb600] text-[12px] font-bold block text-center cursor-pointer" onClick={() => navigate('/lobby/platform')}>Transfer and Enter</span>
 
               <span className="block clear-both"></span>
             </div>
@@ -772,7 +772,7 @@ const Header = () => {
                     boxShadow: "inset 0 0.0666666667vw 0 0 rgba(255,255,255,.5)",
                   }}
                 >
-                  {/* <img src="/Images/profile-icon-gold.png" alt="" className="w-2" /> */}
+                  {/* <img src="/Images/profile-icon-gold.webp" alt="" className="w-2" /> */}
                   <FaUserAlt />
                   <h1 className="text-[12px] hover:underline">
                     My Account
@@ -1000,12 +1000,12 @@ const Header = () => {
                         >
                           <span
                             className="absolute top-0 left-0 w-[29px] h-[29px]"
-                            style={{ background: "url('/Images/menu-tagnew.png')" }}
+                            style={{ background: "url('/Images/menu-tagnew.webp')" }}
                           ></span>
                           {name}
                           <span
                             className="inline-block relative top-[4px] left-[2px] w-[18px] h-[18px] bg-no-repeat"
-                            style={{ background: "url('/Images/menu-casino.png')" }}
+                            style={{ background: "url('/Images/menu-casino.webp')" }}
                           ></span>
                         </button>
                       </div>
@@ -1041,7 +1041,7 @@ const Header = () => {
                 }}
               >
                 Setting
-                <img src="/Images/setting-icon.png" alt="" className="ml-2 w-4 h-4" />
+                <img src="/Images/setting-icon.webp" alt="" className="ml-2 w-4 h-4" />
               </div>
             </div>
             {/* Edit stake Setting */}
@@ -1088,7 +1088,7 @@ const Header = () => {
                     <dd className="absolute top-[20px] right-0 w-[42px] mr-0 float-left">
                       <span className="block text-center text-[#3b5160] font-normal h-[45px] leading-[43px] rounded shadow-[inset_0_1px_0_0_#ffffffcc] border border-[#7e97a7]">
                         Edit
-                        <img src="/Images/icon-stake_edit.png" alt="" className="h-[9px] w-[9px] ml-1 bg-no-repeat bg-right inline-block" />
+                        <img src="/Images/icon-stake_edit.webp" alt="" className="h-[9px] w-[9px] ml-1 bg-no-repeat bg-right inline-block" />
                       </span>
                     </dd>
 

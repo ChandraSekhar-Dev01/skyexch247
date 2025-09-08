@@ -18,177 +18,178 @@ function Home() {
 
   const [inplayEvents, setInplayEvents] = useState([])
   const [isModalOpen, setIsModalOpen] = useState("");
+  const [casinoModalOpen, setCasinoModalOpen] = useState(false);
 
 
   const images = {
     whatsAppIcon: "/Images/whatsApp-icon-grey.svg",
     skypeIcon: "/Images/skype-icon-grey.svg",
     emailIcon: "/Images/email-icon-grey.svg",
-    igIcon: "/Images/ig-icon-grey.png",
-    betFairIcon: "/Images/not-verified.png",
-    accountIcon: "/Images/account-icon-white.png",
+    igIcon: "/Images/ig-icon-grey.webp",
+    betFairIcon: "/Images/not-verified.webp",
+    accountIcon: "/Images/account-icon-white.webp",
     homeIcon: "/Images/home-icon.svg",
     multiBet: "/Images/multiBet-pin.svg",
     trophyIcon: "/Images/trophy.svg",
-    clockIcon: "/Images/clock-icon-white.png",
+    clockIcon: "/Images/clock-icon-white.webp",
     referral: "/Images/Referral.webp",
     SportsGiff: "/Images/gamesGiff.gif",
     headphoneIcon: "/Images/headphone-icon-grey.svg",
-    gcIcon: "/Images/gc-logo.png",
-    phoneIcon: "/Images/phone-icon.png",
-    mailIcon: "/Images/mail-icon.png",
-    AndroidAppIcon: "/Images/AndroidAppIcon.png",
-    browserIcon: "/Images/icon-browser-B.png"
+    gcIcon: "/Images/gc-logo.webp",
+    phoneIcon: "/Images/phone-icon.webp",
+    mailIcon: "/Images/mail-icon.webp",
+    AndroidAppIcon: "/Images/AndroidAppIcon.webp",
+    browserIcon: "/Images/icon-browser-B.webp"
   };
 
 
   const casinoSmall = [
     // {
-    //   img: "/Images/dashboard-casino-img/black-jack.png",
+    //   img: "/Images/dashboard-casino-img/black-jack.webp",
     //   p: "Blackjack"
     // },
     {
-      img: "/Images/dashboard-casino-img/7up7down.png",
+      img: "/Images/dashboard-casino-img/7up7down.webp",
       p: "7 Up Down"
     },
     {
-      img: "/Images/dashboard-casino-img/andarBahar.png",
+      img: "/Images/dashboard-casino-img/andarBahar.webp",
       p: "Andar Bahar VR"
     },
     {
-      img: "/Images/dashboard-casino-img/supernowa.png",
+      img: "/Images/dashboard-casino-img/supernowa.webp",
       p: "Supernowa"
     },
     {
-      img: "/Images/dashboard-casino-img/7Mojos.png",
+      img: "/Images/dashboard-casino-img/7Mojos.webp",
       p: "7mojos"
     },
     {
-      img: "/Images/dashboard-casino-img/horse-racing.png",
+      img: "/Images/dashboard-casino-img/horse-racing.webp",
       p: "HORSEBOOK"
     },
     {
-      img: "/Images/dashboard-casino-img/minesweeper.png",
+      img: "/Images/dashboard-casino-img/minesweeper.webp",
       p: "Minesweeper"
     },
     {
-      img: "/Images/dashboard-casino-img/teenpatti.png",
+      img: "/Images/dashboard-casino-img/teenpatti.webp",
       p: "Teen Patti"
     },
     {
-      img: "/Images/dashboard-casino-img/superover.png",
+      img: "/Images/dashboard-casino-img/superover.webp",
       p: "Super Over VR"
     },
     {
-      img: "/Images/dashboard-casino-img/teenpatti2020.png",
+      img: "/Images/dashboard-casino-img/teenpatti2020.webp",
       p: "TeenPatti 20-20"
     },
     {
-      img: "/Images/dashboard-casino-img/numberKing.png",
+      img: "/Images/dashboard-casino-img/numberKing.webp",
       p: "NumberKing"
     },
     {
-      img: "/Images/dashboard-casino-img/bigSmall.png",
+      img: "/Images/dashboard-casino-img/bigSmall.webp",
       p: "Big small"
     },
     {
-      img: "/Images/dashboard-casino-img/teenPattiJoker.png",
+      img: "/Images/dashboard-casino-img/teenPattiJoker.webp",
       p: "TeenPatti Joker"
     },
     {
-      img: "/Images/dashboard-casino-img/7up7down-half.png",
+      img: "/Images/dashboard-casino-img/7up7down-half.webp",
       p: "7up7down"
     },
     {
-      img: "/Images/dashboard-casino-img/DragonNTiger.png",
+      img: "/Images/dashboard-casino-img/DragonNTiger.webp",
       p: "Dragon & Tiger"
     },
     {
-      img: "/Images/dashboard-casino-img/autoRoulette.png",
+      img: "/Images/dashboard-casino-img/autoRoulette.webp",
       p: "Auto Roulette"
     },
     {
-      img: "/Images/dashboard-casino-img/DusKaDumVR.png",
+      img: "/Images/dashboard-casino-img/DusKaDumVR.webp",
       p: "Dus Ka Dum"
     },
     {
-      img: "/Images/dashboard-casino-img/CallbreakQuick.png",
+      img: "/Images/dashboard-casino-img/CallbreakQuick.webp",
       p: "Callbreak Quick"
     },
     {
-      img: "/Images/dashboard-casino-img/SicBo-Jili.png",
+      img: "/Images/dashboard-casino-img/SicBo-Jili.webp",
       p: "Sic Bo"
     },
     {
-      img: "/Images/dashboard-casino-img/Baccarat.png",
+      img: "/Images/dashboard-casino-img/Baccarat.webp",
       p: "Baccarat"
     },
     {
-      img: "/Images/dashboard-casino-img/BonusDice.png",
+      img: "/Images/dashboard-casino-img/BonusDice.webp",
       p: "Bonus Dice"
     },
     {
-      img: "/Images/dashboard-casino-img/Heist.png",
+      img: "/Images/dashboard-casino-img/Heist.webp",
       p: "Heist"
     },
     {
-      img: "/Images/dashboard-casino-img/5CardPoker.png",
+      img: "/Images/dashboard-casino-img/5CardPoker.webp",
       p: "5 Card Poker"
     },
     {
-      img: "/Images/dashboard-casino-img/ColorGame.png",
+      img: "/Images/dashboard-casino-img/ColorGame.webp",
       p: "Color Game"
     },
     {
-      img: "/Images/dashboard-casino-img/32card.png",
+      img: "/Images/dashboard-casino-img/32card.webp",
       p: "32 Cards"
     },
     {
-      img: "/Images/dashboard-casino-img/rummy.png",
+      img: "/Images/dashboard-casino-img/rummy.webp",
       p: "Rummy"
     },
     {
-      img: "/Images/dashboard-casino-img/dragonTiger.png",
+      img: "/Images/dashboard-casino-img/dragonTiger.webp",
       p: "Dragon Tiger"
     },
     {
-      img: "/Images/dashboard-casino-img/worliMatkaVR.png",
+      img: "/Images/dashboard-casino-img/worliMatkaVR.webp",
       p: "Worli Matka VR"
     },
     {
-      img: "/Images/dashboard-casino-img/betgames.png",
+      img: "/Images/dashboard-casino-img/betgames.webp",
       p: "BetGames"
     },
     {
-      img: "/Images/dashboard-casino-img/andarBahar-half.png",
+      img: "/Images/dashboard-casino-img/andarBahar-half.webp",
       p: "Andar Bahar"
     },
     {
-      img: "/Images/dashboard-casino-img/sicbo.png",
+      img: "/Images/dashboard-casino-img/sicbo.webp",
       p: "Sicbo"
     },
     {
-      img: "/Images/dashboard-casino-img/7up7down-half.png",
+      img: "/Images/dashboard-casino-img/7up7down-half.webp",
       p: "7 UP 7 Down"
     },
     {
-      img: "/Images/dashboard-casino-img/CoinToss.png",
+      img: "/Images/dashboard-casino-img/CoinToss.webp",
       p: "Coin Toss"
     },
     {
-      img: "/Images/dashboard-casino-img/teenPatti-half.png",
+      img: "/Images/dashboard-casino-img/teenPatti-half.webp",
       p: "Teen Patti"
     },
     {
-      img: "/Images/dashboard-casino-img/cardMatka.png",
+      img: "/Images/dashboard-casino-img/cardMatka.webp",
       p: "Card Matka"
     },
     {
-      img: "/Images/dashboard-casino-img/numberMatka.png",
+      img: "/Images/dashboard-casino-img/numberMatka.webp",
       p: "Number Matka"
     },
     {
-      img: "/Images/dashboard-casino-img/bpoker.png",
+      img: "/Images/dashboard-casino-img/bpoker.webp",
       p: "Bpoker"
     },
 
@@ -224,7 +225,59 @@ function Home() {
   return (
     <>
 
-
+      {/* Mobile Casino Modal */}
+      {casinoModalOpen &&
+        <div className='flex items-center justify-center fixed top-0 left-0 w-[100vw] h-full bg-[#000000b3] z-[99] text-[#1e1e1e] text-[3.4666vw] leading-[1.3] openBetsAnimation'>
+          <div className='text-[#243a48] w-[84vw] bg-[#fff] text-[4vw] shadow-[0_0.8vw_2.6666666667vw_0_#00000080] rounded-[1.3333333333vw]'>
+            <h3 className='text-[#ffb200] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] text-[4vw] leading-[1.2] rounded-[1.3333333333vw_1.3333333333vw_0_0] p-[2.4vw_1.8666666667vw] text-left font-bold'>Casino</h3>
+            <div className='relative h-[22.6666vw] flex justify-center'>
+              <h4 className='border-r-[0.2666666667vw] border-r-[#c3d5e0] text-[4.2666666667vw] font-bold leading-[5.3333333333vw] w-[50%] p-[1.3333333333vw_3.2vw_1.3333333333vw_3.2vw]'>
+                <span className='block text-[3.2vw] font-normal'> Main Balance</span>
+                206.70
+              </h4>
+              <h4 className='text-right text-[4.2666666667vw] font-bold leading-[5.3333333333vw] w-[50%] p-[1.3333333333vw_3.2vw_1.3333333333vw_3.2vw]'>
+                <span className='block text-[3.2vw] font-normal text-right'> Casino Balance</span>
+                206.70
+              </h4>
+            </div>
+            <div className='relative bg-[#cde3f0] flex justify-center items-center h-[21.3333333333vw] w-full mb-[2.6666666667vw]'>
+              <div className='absolute top-[-10.4vw] left-[50%] z-[1] w-min leading-[5.3333333333vw] bg-[#fff] border-[0.2666666667vw] border-[#da8700] rounded-[1.0666666667vw] text-[5.8666666667vw] indent-0 transform -translate-x-1/2'>
+                <span className='bg-[#fff0ca] absolute left-[50%] bottom-[-1.5vw] w-[2.6666666667vw] h-[2.6666666667vw] border-b-[0.2666666667vw] border-b-[#da8700] border-r-[0.2666666667vw] border-r-[#da8700] transform -translate-x-1/2 rotate-45'></span>
+                <input type="text" defaultValue={0} className='leading-[5.3333333333vw] p-[1.3333333333vw] text-[#2963a7] font-bold rounded-[0.8vw] text-center shadow-[inset_0_2px_2px_0_#00000045] mb-[0.2666666667vw] relative bg-[#fff] text-[4vw]' />
+              </div>
+              <ul className='flex w-full h-[14.66666vw]'>
+                <li className='border-[0.2666666667vw] border-[#bbb] rounded-[0] text-[4vw] leading-[16vw] text-center font-bold cursor-pointer flex justify-center items-center w-[14.666666vw] bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)]'>0</li>
+                <li className='relative flex flex-1 justify-center items-center w-[14.6666vw] bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)] border-y-[0.266666vw] border-y-[#bbb]'>
+                  <div className='absolute flex top-0 w-[90%] justify-between'>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                    <div className='bg-[#c7d4e300] block w-[0.8vw] h-[1.6vw]'></div>
+                  </div>
+                  <input type="text" className='absolute w-[1px] h-[1px] overflow-hidden opacity-0 bg-[#fff] border border-[#aaa] shadow-[inset_0_0.5333333333vw_0_0_#0000001a] rounded-[1.6vw] text-[#1e1e1e] text-[4vw] mb-[1.8666666667vw]' />
+                  <div className='relative w-[90%] h-[3.2vw] bg-[#d1dde5] shadow-[inset_0_0.2666666667vw_0.2666666667vw_0_#0000004d] rounded-[1.6vw] m-0'>
+                    <div className='w-[18px] absolute top-0 h-[2.66666vw] bg-[linear-gradient(180deg,_#ffb80c_15%,_#ffa00c_100%)] border-[0.2666666667vw] border-[#cb8009] rounded-[1.3333333333vw] bg-inherit'></div>
+                    <div className='absolute left-0 z-[2] block top-[-2.66666vw] w-[8vw] h-[8vw] rounded-[4.266666666vw] bg-[linear-gradient(180deg,_#ffb80c_15%,_#ffa00c_100%)] border-[0.2666666667vw] border-[#cb8009] shadow-[inset_0_0.2666666667vw_0_0_#ffffff80] indent-[-99999px]'></div>
+                  </div>
+                </li>
+                <li className='border-[0.2666666667vw] border-[#bbb] rounded-[0] text-[4vw] leading-[16vw] text-center font-bold cursor-pointer flex justify-center items-center w-[14.666666vw] bg-[linear-gradient(180deg,_#fdfdfd_15%,_#eeeeee_100%)]'>Max</li>
+              </ul>
+            </div>
+            {/* Error Block */}
+            <p className='indent-[2.6666666667vw] leading-[4vw] text-[#d0021b] text-[3.2vw]'></p>
+            <ul className='flex flex-wrap p-[0_1.6vw_2.6666666667vw]'>
+              <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden'>
+                <span className='h-[10.9333333vw] leading-[10.9333333vw] bg-[linear-gradient(-180deg,_#ffffff_0%,_#eeeeee_89%)] border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#1e1e1e] block text-center' onClick={() => setCasinoModalOpen(false)}>Cancel</span>
+              </li>
+              <li className='flex-1 m-[1.6vw_0.8vw_0_0.8vw] overflow-hidden w-full' onClick={() => navigate('/lobby/platform')}>
+                <span className='h-[10.9333333vw] leading-[10.9333333vw] bg-[linear-gradient(180deg,_#474747_0%,_#070707_100%)] border border-[#aaa] rounded-[1.6vw] text-[4vw] font-bold text-[#ffb200] block text-center'>Enter</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      }
 
       {/* Footer Modal */}
       {/* Privacy Policy Modal */}
@@ -4853,7 +4906,7 @@ function Home() {
                   Kabaddi <span className="text-[#333] h-[3.7333333333vw] lg:h-4 min-w-[3.7333333333vw] lg:min-w-3 px-1 bg-white rounded-[0.5333333333vw] lg:rounded-sm">0</span>{" "}
                 </div>
               </div>
-              <img src="/Images/dashboard-casino-img/banner_sports.png" alt="" className="w-full h-auto" />
+              <img src="/Images/dashboard-casino-img/banner_sports.webp" alt="" className="w-full h-auto" />
               <div style={{ background: "linear-gradient(270deg, rgba(69, 94, 104, 0) 4%, rgb(0, 0, 0) 97%)" }} className="absolute bottom-0 flex w-full justify-between border-b-[1.12vw] lg:border-b-[5px] border-[#ffb80c] z-[9]">
                 <p className="flex justify-start items-center text-white text-[3.7333333333vw] lg:text-lg font-bold pl-2">
                   Sports
@@ -4865,7 +4918,7 @@ function Home() {
             </Link>
             <div className="relative  w-full lg:w-1/2">
               <img
-                src="/Images/dashboard-casino-img/banner_kabaddi.png"
+                src="/Images/dashboard-casino-img/banner_kabaddi.webp"
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -4882,11 +4935,11 @@ function Home() {
 
           <div className="flex flex-col lg:flex-row justify-between items-center gap-1.5 lg:gap-2.5 pt-[5px] lg:pt-[10px]">
             <div className=" w-full lg:w-1/2">
-              <img src="/Images/dashboard-casino-img/banner_blog.png" alt="" className="w-full h-auto" />
+              <img src="/Images/dashboard-casino-img/banner_blog.webp" alt="" className="w-full h-auto" />
             </div>
             <div className="relative  w-full lg:w-1/2">
               <img
-                src="/Images/dashboard-casino-img/virtualsports-poster.png"
+                src="/Images/dashboard-casino-img/virtualsports-poster.webp"
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -4907,7 +4960,7 @@ function Home() {
             <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5">
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/evolution.png"
+                  src="/Images/dashboard-casino-img/evolution.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -4922,7 +4975,7 @@ function Home() {
               </div>
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/banner_smartsoft-half.png"
+                  src="/Images/dashboard-casino-img/banner_smartsoft-half.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -4940,7 +4993,7 @@ function Home() {
             {/* Right Side - Two small images inside half width */}
             <div className="relative  w-full lg:w-1/2">
               <img
-                src="/Images/dashboard-casino-img/banner_royalgaming.png"
+                src="/Images/dashboard-casino-img/banner_royalgaming.webp"
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -4961,7 +5014,7 @@ function Home() {
             <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5 mr-[5px]">
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/ezugi.png"
+                  src="/Images/dashboard-casino-img/ezugi.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -4974,9 +5027,9 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className="relative w-1/2" onClick={() => navigate('/lobby')}>
+              <div className="relative w-1/2" onClick={() => userInfo && setCasinoModalOpen(true)}>
                 <img
-                  src="/Images/dashboard-casino-img/casino.png"
+                  src="/Images/dashboard-casino-img/casino.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -4995,7 +5048,7 @@ function Home() {
             <div className=" w-full lg:w-1/2 flex gap-1.5 lg:gap-2.5">
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/spribe.png"
+                  src="/Images/dashboard-casino-img/spribe.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />
@@ -5010,7 +5063,7 @@ function Home() {
               </div>
               <div className="relative w-1/2">
                 <img
-                  src="/Images/dashboard-casino-img/black-jack.png"
+                  src="/Images/dashboard-casino-img/black-jack.webp"
                   alt=""
                   className="w-full h-full object-contain"
                 />

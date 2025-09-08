@@ -9,9 +9,9 @@ function News() {
       {userInfo &&
         <div className='flex h-[25px] mb-[1px] bg-repeat-x bg-[linear-gradient(180deg,_#2a3a43_27%,_#1c282d_83%)] text-[12px] leading-[25px] text-[#fff]'>
           <h4 className='flex basis-[72px] justify-center items-center relative font-bold'>
-            <img src="/Images/icon-news.png" alt="" className='block w-[17px] h-[17px] mr-[2px] bg-no-repeat' />
+            <img src="/Images/icon-news.webp" alt="" className='block w-[17px] h-[17px] mr-[2px] bg-no-repeat' />
             News
-            <img src="/Images/path_arrow_new.png" alt="" className='absolute right-[-7px] top-0 w-[7px] h-[25px] mr-[2px] bg-no-repeat' />
+            <img src="/Images/path_arrow_new.webp" alt="" className='absolute right-[-7px] top-0 w-[7px] h-[25px] mr-[2px] bg-no-repeat' />
           </h4>
           <div className="flex-1 overflow-hidden z-1">
             <div className="marquee">
